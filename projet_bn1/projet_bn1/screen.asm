@@ -2,7 +2,7 @@
 
 .def reg_tempo1 = r28
 .def reg_tempo2 = r29
-.def reg_screenX = r30
+.def reg_screen = r30
 
 .macro screenL[]					;choix du côté de l'écran à gauche
 	sbi		PORTB,0
@@ -19,15 +19,15 @@
 	sbi		PORTB,3
 .endmacro
 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
-	ori		reg_screenX,0xB8
-	out		PORTC,reg_screenX
+	ori		reg_screen,0xB8
+	out		PORTC,reg_screen
 	RS_clear[]
 	Enable[]
 	RS_set[]
 .endmacro
 .macro SetPosY[]					;pos de 0 à 64 (auto)
-	ori		reg_screenX,0x40
-	out		PORTC,reg_screenX
+	ori		reg_screen,0x40
+	out		PORTC,reg_screen
 	RS_clear[]
 	Enable[]
 	RS_set[]
@@ -39,15 +39,15 @@
 	sbi		PORTB,2
 .endmacro
 .macro ScreenWrite[]				;affichage sur l'écran
-	out		PORTB,reg_screenX
+	out		PORTB,reg_screen
 .endmacro
 
 
 SCREEN_Init:
 	sbi		PORTB,3					;set E and clear RS
 	cbi		PORTB,2
-	ldi		reg_screenX,63			;instruction de début de l'écran
-	out		PORTC,reg_screenX
+	ldi		reg_screen,63			;instruction de début de l'écran
+	out		PORTC,reg_screen
 	Enable[]						;validation
 	RS_set[]						;mode données
 	rjmp	SCREEN_INC

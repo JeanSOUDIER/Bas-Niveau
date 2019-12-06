@@ -49,14 +49,14 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	;ajout des programmes pour la gestion des modules
-	.include "uart.asm"
-UART_INC:
-	.include "timer.asm"
-TIMER_INC:
 	.include "io.asm"
 IO_INC:
+	.include "uart.asm"
+UART_INC:
 	.include "adc.asm"
 ADC_INC:
+	.include "timer.asm"
+TIMER_INC:
 	.include "spi.asm"
 SPI_INC:
 	.include "screen.asm"
