@@ -13,7 +13,7 @@ SPI_Init:
 	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
 	rcall	SPI_Transmit
 	sbi		PORTB,4
-	ret
+	rjmp	SPI_INC
 
 SPI_Transmit:										;attente transmission
 	out		SPDR,reg_spi							;envoi msg

@@ -32,20 +32,25 @@
   <TI_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>77</LINE></TI_Interrupt>
   <UART_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>27</LINE></UART_Interrupt>
   <USART_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>7</LINE></USART_Init>
-  <USART_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>20</LINE></USART_Transmit>
   <UART_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>53</LINE></UART_INC>
+  <USART_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>20</LINE></USART_Transmit>
   <TIMER_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>70</LINE></TIMER_Init>
+  <TIMER_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>55</LINE></TIMER_INC>
   <BUZZ_OFF><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>118</LINE></BUZZ_OFF>
   <BUZZ_ON><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>100</LINE></BUZZ_ON>
   <IO_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm</FILE><LINE>3</LINE></IO_Init>
+  <IO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>57</LINE></IO_INC>
   <ADC_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm</FILE><LINE>3</LINE></ADC_Init>
+  <ADC_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>59</LINE></ADC_INC>
   <SPI_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>6</LINE></SPI_Init>
   <SPI_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>18</LINE></SPI_Transmit>
+  <SPI_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>61</LINE></SPI_INC>
   <Wait_SPI><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>20</LINE></Wait_SPI>
   <Read_Mem><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>26</LINE></Read_Mem>
   <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>46</LINE></SCREEN_Init>
   <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>57</LINE></tempo>
+  <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>63</LINE></SCREEN_INC>
   <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>59</LINE></boucletempo>
-  <start><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>70</LINE></start>
+  <start><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>67</LINE></start>
  </LABELS>
 </ASSEMBLER_INFO>

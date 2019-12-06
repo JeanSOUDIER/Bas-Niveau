@@ -15,7 +15,7 @@ USART_Init:									; Set baud rate to UBRR0
 	out		UCSRB,reg_TX					; Set frame format: 8data, 2stop bit   
 	ldi		reg_TX, (1<<USBS)|(3<<UCSZ0)   
 	out		UCSRC,reg_TX  
-	ret
+	rjmp	UART_INC					;go to main
 
 USART_Transmit:								; Wait for empty transmit buffer
 	in		reg_uart, UCSRA   

@@ -50,7 +50,7 @@ SCREEN_Init:
 	out		PORTC,reg_screenX
 	Enable[]						;validation
 	RS_set[]						;mode données
-	ret
+	rjmp	SCREEN_INC
 
 
 ; sous programme de temposirsation

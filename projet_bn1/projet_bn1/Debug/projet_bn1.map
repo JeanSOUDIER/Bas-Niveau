@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Fri Dec 06 16:05:27 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Fri Dec 06 16:32:50 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -605,36 +605,41 @@ EQU  OC0addr      00000026
 EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
 DEF  tri          r1
-CSEG RESET        00000016
-CSEG TI_Interrupt 00000033
-CSEG UART_Interrupt 0000002a
+CSEG RESET        00000030
+CSEG TI_Interrupt 0000004d
+CSEG UART_Interrupt 00000044
 EQU  baud         00000006
 DEF  reg_uart     r17
 DEF  reg_TX       r16
 DEF  reg_RX       r24
-CSEG USART_Init   0000001a
-CSEG USART_Transmit 00000025
-CSEG UART_INC     0000002e
+CSEG USART_Init   00000034
+CSEG UART_INC     00000048
+CSEG USART_Transmit 0000003f
 DEF  reg_bt1      r20
 DEF  reg_bt2      r21
 DEF  reg_vol      r23
 DEF  reg_son      r24
-CSEG TIMER_Init   0000002e
-CSEG BUZZ_OFF     0000004b
-CSEG BUZZ_ON      00000042
-CSEG IO_Init      00000051
-CSEG ADC_Init     0000005a
+CSEG TIMER_Init   00000048
+CSEG TIMER_INC    0000006b
+CSEG BUZZ_OFF     00000065
+CSEG BUZZ_ON      0000005c
+CSEG IO_Init      0000006b
+CSEG IO_INC       00000074
+CSEG ADC_Init     00000074
+CSEG ADC_INC      00000079
 DEF  reg_spi      r25
 DEF  reg_addr1    r26
 DEF  reg_addr2    r27
-CSEG SPI_Init     0000005f
-CSEG SPI_Transmit 00000067
-CSEG Wait_SPI     00000068
-CSEG Read_Mem     0000006c
+CSEG SPI_Init     00000079
+CSEG SPI_Transmit 00000081
+CSEG SPI_INC      00000091
+CSEG Wait_SPI     00000082
+CSEG Read_Mem     00000086
 DEF  reg_tempo1   r28
 DEF  reg_tempo2   r29
 DEF  reg_screenX  r30
-CSEG SCREEN_Init  00000077
-CSEG tempo        00000081
-CSEG boucletempo  00000082
-CSEG start        0000008e
+CSEG SCREEN_Init  00000091
+CSEG tempo        0000009b
+CSEG SCREEN_INC   000000a2
+CSEG boucletempo  0000009c
+CSEG start        000000a2

@@ -72,7 +72,7 @@ TIMER_Init:
 	ldi		reg_son,5
 	out		TCCR1A,reg_vol
 	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit de 7 à 16k
-	ret
+	rjmp	TIMER_INC
 
 TI_Interrupt:
 	in		tri,SREG					; save content of flag reg.
