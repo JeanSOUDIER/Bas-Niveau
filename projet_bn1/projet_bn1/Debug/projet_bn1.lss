@@ -1,32 +1,32 @@
 
-AVRASM ver. 2.2.7  C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm Fri Dec 06 13:42:34 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Fri Dec 06 16:05:27 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(52): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\uart.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(53): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\timer.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\timer.asm(6): warning: Register r24 already defined by the .DEF directive
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(53): 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\timer.asm' included form here
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(54): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\io.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(55): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\adc.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(56): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\spi.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\spi.asm(3): warning: Register r26 already defined by the .DEF directive
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(56): 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\spi.asm' included form here
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\spi.asm(4): warning: Register r27 already defined by the .DEF directive
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(56): 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\spi.asm' included form here
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm(3): warning: Register r28 already defined by the .DEF directive
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm' included form here
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm(4): warning: Register r29 already defined by the .DEF directive
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm' included form here
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm(5): warning: Register r30 already defined by the .DEF directive
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(52): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(54): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm(6): warning: Register r24 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(54): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(55): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(56): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(57): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm(3): warning: Register r26 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(57): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm(4): warning: Register r27 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(57): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(58): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(3): warning: Register r28 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(58): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(4): warning: Register r29 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(58): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(5): warning: Register r30 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(58): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(52): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\uart.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(53): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\timer.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(54): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\io.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(55): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\adc.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(56): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\spi.asm'
-C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): Including file 'C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\screen.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(52): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(54): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(55): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(56): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(57): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(58): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm'
                                  
                                  ;
                                  
@@ -905,229 +905,228 @@ C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): Including file 'C
                                  ;.include "m16def.inc"
                                  ;.list 
                                  
-                                 .def tri = r1    ; TimerInterruptRegister.
+                                 .def tri = r1							; TimerInterruptRegister.
                                  
                                  .cseg  ; codesegment
                                  .org 0x00
-000000 c02f                         rjmp RESET 
+000000 c015                         rjmp		RESET 
                                  
                                  ; interrupt-vector commands, 1 Byte each:
-000001 9518                      	reti ; 1:  $000(1) RESET External Pin, Power-on Reset, Brown-out Reset, Watchdog Reset, and JTAG AVR Reset
-000002 9518                      	reti ; 2:  $002 INT0 External Interrupt Request 0 
-000003 9518                      	reti ; 3:  $004 INT1 External Interrupt Request 1 
-000004 9518                      	reti ; 4:  $006 TIMER2 COMP Timer/Counter2 Compare Match 
-000005 9518                      	reti ; 5:  $008 TIMER2 OVF Timer/Counter2 Overflow 
-000006 9518                      	reti ; 6:  $00A TIMER1 CAPT Timer/Counter1 Capture Event
-000007 9518                      	reti ; 7:  $00C TIMER1 COMPA Timer/Counter1 Cmp Match A 
-000008 9518                      	reti ; 8:  $00E TIMER1 COMPB Timer/Counter1 Cmpe Match B
-000009 c043                      	rjmp TI_Interrupt ; 9:  $010 TIMER1 OVF Timer/Counter1 Overflow
-00000a 9518                      	reti ; 10: $012 TIMER0 OVF Timer/Counter0 Overflow
-00000b 9518                      	reti ; 11: $014 SPI, STC Serial Transfer Complete
-00000c c037                      	rjmp UART_Interrupt ; 12: $016 USART, RXC USART, Rx Complete
-00000d 9518                      	reti ; 13: $018 USART, UDRE USART Data Register Empty 
-00000e 9518                      	reti ; 14: $01A USART, TXC USART, Tx Complete 
-00000f 9518                      	reti ; 15: $01C ADC ADC Conversion Complete 
-000010 9518                      	reti ; 16: $01E EE_RDY EEPROM Ready
-000011 9518                      	reti ; 17: $020 ANA_COMP Analog Comparator 
-000012 9518                      	reti ; 18: $022 TWI Two-wire Serial Interface
-000013 9518                      	reti ; 19: $024 INT2 External Interrupt Request 2
-000014 9518                      	reti ; 20: $026 TIMER0 COMP Timer/Counter0 Compare Match
-000015 9518                      	reti ; 21 $028 SPM_RDY Store Program Memory Reazdy
+000001 9518                      	reti								; 1:  $000(1) RESET External Pin, Power-on Reset, Brown-out Reset, Watchdog Reset, and JTAG AVR Reset
+000002 9518                      	reti								; 2:  $002 INT0 External Interrupt Request 0 
+000003 9518                      	reti								; 3:  $004 INT1 External Interrupt Request 1 
+000004 9518                      	reti								; 4:  $006 TIMER2 COMP Timer/Counter2 Compare Match 
+000005 9518                      	reti								; 5:  $008 TIMER2 OVF Timer/Counter2 Overflow 
+000006 9518                      	reti								; 6:  $00A TIMER1 CAPT Timer/Counter1 Capture Event
+000007 9518                      	reti								; 7:  $00C TIMER1 COMPA Timer/Counter1 Cmp Match A 
+000008 9518                      	reti								; 8:  $00E TIMER1 COMPB Timer/Counter1 Cmpe Match B
+000009 c029                      	rjmp		TI_Interrupt			; 9:  $010 TIMER1 OVF Timer/Counter1 Overflow
+00000a 9518                      	reti								; 10: $012 TIMER0 OVF Timer/Counter0 Overflow
+00000b 9518                      	reti								; 11: $014 SPI, STC Serial Transfer Complete
+00000c c01d                      	rjmp		UART_Interrupt			; 12: $016 USART, RXC USART, Rx Complete
+00000d 9518                      	reti								; 13: $018 USART, UDRE USART Data Register Empty 
+00000e 9518                      	reti								; 14: $01A USART, TXC USART, Tx Complete 
+00000f 9518                      	reti								; 15: $01C ADC ADC Conversion Complete 
+000010 9518                      	reti								; 16: $01E EE_RDY EEPROM Ready
+000011 9518                      	reti								; 17: $020 ANA_COMP Analog Comparator 
+000012 9518                      	reti								; 18: $022 TWI Two-wire Serial Interface
+000013 9518                      	reti								; 19: $024 INT2 External Interrupt Request 2
+000014 9518                      	reti								; 20: $026 TIMER0 COMP Timer/Counter0 Compare Match
+000015 9518                      	reti								; 21 $028 SPM_RDY Store Program Memory Reazdy
                                  
                                  
                                  
-                                 .org 0x30						; se placer à la case mémoire 10 en hexa
-                                 reset:							; adresse du vecteur de reset
-000030 e004                      	ldi r16,high(RAMEND)	; initialisation de la pile
-000031 bf0e                      	out	SPH,r16
-000032 e50f                      	ldi	r16,low(RAMEND)
-000033 bf0d                      	out	SPL,r16
+                                 .org		0x16						; se placer à la case mémoire 10 en hexa
+                                 reset:									; adresse du vecteur de reset
+000016 e004                      	ldi		r16,high(RAMEND)			; initialisation de la pile
+000017 bf0e                      	out		SPH,r16
+000018 e50f                      	ldi		r16,low(RAMEND)
+000019 bf0d                      	out		SPL,r16
                                  
                                  	;ajout des programmes pour la gestion des modules
                                  	.include "uart.asm"
                                  
-                                 .equ baud = 6    ;9600 =>12
+                                 .equ baud = 6								;9600 =>12
                                  .def reg_uart = r17
                                  .def reg_TX = r16
                                  .def reg_RX = r24
                                  
-                                 USART_Init:   ; Set baud rate to UBRR0 
-000034 e006                      	ldi    reg_TX,baud
-000035 e010                      	ldi    reg_uart,0 
-000036 bd10                      	out    UBRRH, reg_uart   
-000037 b909                      	out    UBRRL, reg_TX   ; Enable receiver and transmitter   
-000038 e002                      	ldi	   reg_TX,(1<<U2X)
-000039 b90b                      	out	   UCSRA,reg_TX
-00003a e108                      	ldi    reg_TX, (1<<RXEN)|(1<<TXEN)   
-00003b b90a                      	out    UCSRB,reg_TX   ; Set frame format: 8data, 2stop bit   
-00003c e00e                      	ldi    reg_TX, (1<<USBS)|(3<<UCSZ0)   
-00003d bd00                      	out    UCSRC,reg_TX   
-00003e 9508                      	ret 
+                                 USART_Init:									; Set baud rate to UBRR0 
+00001a e006                      	ldi		reg_TX,baud
+00001b e010                      	ldi		reg_uart,0 
+00001c bd10                      	out		UBRRH, reg_uart   
+00001d b909                      	out		UBRRL, reg_TX					; Enable receiver and transmitter   
+00001e e002                      	ldi		reg_TX,(1<<U2X)
+00001f b90b                      	out		UCSRA,reg_TX
+000020 e108                      	ldi		reg_TX, (1<<RXEN)|(1<<TXEN)   
+000021 b90a                      	out		UCSRB,reg_TX					; Set frame format: 8data, 2stop bit   
+000022 e00e                      	ldi		reg_TX, (1<<USBS)|(3<<UCSZ0)   
+000023 bd00                      	out		UCSRC,reg_TX   
+000024 9508                      	ret 
                                  
-                                 USART_Transmit:   ; Wait for empty transmit buffer
-00003f b11b                      	in      reg_uart, UCSRA   
-000040 ff15                      	sbrs    reg_uart, UDRE   
-000041 cffd                      	rjmp    USART_Transmit   ; Put data (r16) into buffer, sends the data   
-000042 b90c                      	out    UDR,reg_TX   
-000043 9508                      	ret 
+                                 USART_Transmit:								; Wait for empty transmit buffer
+000025 b11b                      	in		reg_uart, UCSRA   
+000026 ff15                      	sbrs	reg_uart, UDRE   
+000027 cffd                      	rjmp	USART_Transmit					; Put data (r16) into buffer, sends the data   
+000028 b90c                      	out		UDR,reg_TX   
+000029 9508                      	ret 
                                  
                                  UART_Interrupt:
-000044 b61f                      	in tri,SREG ; save content of flag reg.
-000045 b18c                      	in reg_RX,UDR
-000046 be1f                      	out	SREG,tri ; restore flag register
+00002a b61f                      	in		tri,SREG						; save content of flag reg.
+00002b b18c                      	in		reg_RX,UDR
+00002c be1f                      	out		SREG,tri						; restore flag register
+00002d 9518                      UART_INC:
                                  	.include "timer.asm"
-000047 9518                      
+                                 
                                  
                                  .def reg_bt1 = r20
                                  .def reg_bt2 = r21
                                  .def reg_vol = r23
                                  .def reg_son = r24
                                  
-                                 .macro b0[]  ;macro test bouton 0 vrai
-                                  sbrc reg_bt1,1
+                                 .macro b0[]								;macro test bouton 0 vrai
+                                  sbrc	reg_bt1,1
                                  .endmacro
-                                 .macro b0n[]  ;macro test bouton 0 faux
-                                  sbrs reg_bt1,1
+                                 .macro b0n[]							;macro test bouton 0 faux
+                                  sbrs	reg_bt1,1
                                  .endmacro
                                  .macro b1[]
-                                  sbrc reg_bt1,2
+                                  sbrc	reg_bt1,2
                                  .endmacro
                                  .macro b1n[]
-                                  sbrs reg_bt1,2
+                                  sbrs	reg_bt1,2
                                  .endmacro
                                  .macro b2[]
-                                  sbrc reg_bt1,3
+                                  sbrc	reg_bt1,3
                                  .endmacro
                                  .macro b2n[]
-                                  sbrs reg_bt1,3
+                                  sbrs	reg_bt1,3
                                  .endmacro
                                  .macro b3[]
-                                  sbrc reg_bt1,4
+                                  sbrc	reg_bt1,4
                                  .endmacro
                                  .macro b3n[]
-                                  sbrs reg_bt1,4
+                                  sbrs	reg_bt1,4
                                  .endmacro
                                  .macro b4[]
-                                  sbrc reg_bt1,5
+                                  sbrc	reg_bt1,5
                                  .endmacro
                                  .macro b4n[]
-                                  sbrs reg_bt1,5
+                                  sbrs	reg_bt1,5
                                  .endmacro
                                  .macro b5[]
-                                  sbrc reg_bt1,6
+                                  sbrc	reg_bt1,6
                                  .endmacro
                                  .macro b5n[]
-                                  sbrs reg_bt1,6
+                                  sbrs	reg_bt1,6
                                  .endmacro
                                  .macro b6[]
-                                  sbrc reg_bt1,7
+                                  sbrc	reg_bt1,7
                                  .endmacro
                                  .macro b6n[]
-                                  sbrs reg_bt1,7
+                                  sbrs	reg_bt1,7
                                  .endmacro
                                  .macro b7[]
-                                  sbrc reg_bt2,2
+                                  sbrc	reg_bt2,2
                                  .endmacro
                                  .macro b7n[]
-                                  sbrs reg_bt2,2
+                                  sbrs	reg_bt2,2
                                  .endmacro
                                  .macro b8[]
-                                  sbrc reg_bt2,3
+                                  sbrc	reg_bt2,3
                                  .endmacro
                                  .macro b8n[]
-                                  sbrs reg_bt2,3
+                                  sbrs	reg_bt2,3
                                  .endmacro
                                  .macro b9[]
-                                  sbrc reg_bt2,4
+                                  sbrc	reg_bt2,4
                                  .endmacro
                                  .macro b9n[]
-                                  sbrs reg_bt2,4
+                                  sbrs	reg_bt2,4
                                  .endmacro
                                  
                                  
                                  TIMER_Init:
-000048 e070                      	ldi reg_vol,0
-000049 e085                      	ldi reg_son,5
-00004a bd7f                      	out TCCR1A,reg_vol
-00004b bd8e                      	out TCCR1B,reg_son ;démarrage du timer à 16KHz => soit de 7 à 16k
-00004c 9508                      	ret
+00002e e070                      	ldi		reg_vol,0
+00002f e085                      	ldi		reg_son,5
+000030 bd7f                      	out		TCCR1A,reg_vol
+000031 bd8e                      	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit de 7 à 16k
+000032 9508                      	ret
                                  
                                  TI_Interrupt:
-00004d b61f                      	in	tri,SREG ; save content of flag reg.
+000033 b61f                      	in		tri,SREG					; save content of flag reg.
                                  
                                  	;gestion des boutons
-00004e b349                      	in  reg_bt1,PINA  ;on lit le port bouton
-00004f b350                      	in  reg_bt2,PIND  ;on lit le port bouton
-000050 7f4e                      	andi reg_bt1,0xFE ;on garde les boutons
-000051 715c                      	andi reg_bt2,0x1C
+000034 b349                      	in		reg_bt1,PINA				;on lit le port bouton
+000035 b350                      	in		reg_bt2,PIND				;on lit le port bouton
+000036 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
+000037 715c                      	andi	reg_bt2,0x1C
                                  
-000052 9995                      	sbic PORTD,5   ;si buzzer on
-000053 d011                      	rcall BUZZ_OFF ;on met on
-000054 9b95                      	sbis PORTD,5   ;sinon
-000055 d006                      	rcall BUZZ_ON
+000038 9995                      	sbic	PORTD,5						;si buzzer on
+000039 d011                      	rcall	BUZZ_OFF					;on met on
+00003a 9b95                      	sbis	PORTD,5						;sinon
+00003b d006                      	rcall	BUZZ_ON
                                  
                                  	;gestion de la led
-000056 9996                      	sbic PORTD,6  ;blink led
-000057 9896                      	cbi PORTD,6
-000058 9b96                      	sbis PORTD,6
-000059 9a96                      	sbi PORTD,6
+00003c 9996                      	sbic	PORTD,6						;blink led
+00003d 9896                      	cbi		PORTD,6
+00003e 9b96                      	sbis	PORTD,6
+00003f 9a96                      	sbi		PORTD,6
                                  	
-00005a be1f                      	out	SREG,tri ; restore flag register
-00005b 9518                      	reti 		 ; Return from interrupt
+000040 be1f                      	out		SREG,tri					; restore flag register
+000041 9518                      	reti 								; Return from interrupt
                                  
                                  BUZZ_ON:
                                  	;gestion du volume
-00005c b175                      	in reg_vol,ADCH    ;on lit la valeur de l'adc convertie
+000042 b175                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
                                  
                                  	;gestion du son
-00005d 9f78                      	mul reg_vol,reg_son ;on mulitplie le son et le volume
-00005e 01c0                      	movw reg_son,r0		;on met le résultat dans reg_son et reg_vol
-00005f bd7c                      	out TCNT1L,reg_vol  ;on met le résultat dans le timer
-000060 bd8d                      	out TCNT1H,reg_son
+000043 9f78                      	mul		reg_vol,reg_son				;on mulitplie le son et le volume
+000044 01c0                      	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
+000045 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+000046 bd8d                      	out		TCNT1H,reg_son
                                  
                                  	;gestion volume suite
-000061 ec70                      	ldi reg_vol,0xC0   ;relance d'une conversion
-000062 b976                      	out ADCSRA,reg_vol
+000047 ec70                      	ldi		reg_vol,0xC0				;relance d'une conversion
+000048 b976                      	out		ADCSRA,reg_vol
                                  
-000063 9a95                      	sbi PORTD,5
+000049 9a95                      	sbi		PORTD,5
                                  
-000064 9508                      	ret
+00004a 9508                      	ret
                                  
                                  BUZZ_OFF:
-000065 9570                      	com reg_vol      ;on fait (1-duty)
-000066 9580                      	com reg_son
-000067 bd7c                      	out TCNT1L,reg_vol  ;on met le résultat dans le timer
-000068 bd8d                      	out TCNT1H,reg_son
+00004b 9570                      	com		reg_vol						;on fait (1-duty)
+00004c 9580                      	com		reg_son
+00004d bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+00004e bd8d                      	out		TCNT1H,reg_son
                                  
-000069 9895                      	cbi PORTD,5
+00004f 9895                      	cbi		PORTD,5
                                  
-00006a 9508                      	ret
+000050 9508                      	ret
                                  	.include "io.asm"
                                  
                                  
                                  IO_Init:
-00006b e040                      	ldi r20,0x00 ;porta en entrée
-00006c bb4a                      	out DDRA,r20
-00006d eb4f                      	ldi r20,0xBF ;portb en entrée sur miso
-00006e bb47                      	out	DDRB,r20
-00006f ef4f                      	ldi r20,0xFF ;portc en sortie
-000070 bb44                      	out	DDRC,r20
-000071 e642                      	ldi r20,0x62 ;portd en sortie sur TX, BUZZER et LED
-000072 bb41                      	out	DDRD,r20
+000051 e040                      	ldi		r20,0x00			;porta en entrée
+000052 bb4a                      	out		DDRA,r20
+000053 eb4f                      	ldi		r20,0xBF			;portb en entrée sur miso
+000054 bb47                      	out		DDRB,r20
+000055 ef4f                      	ldi		r20,0xFF			;portc en sortie
+000056 bb44                      	out		DDRC,r20
+000057 e642                      	ldi		r20,0x62			;portd en sortie sur TX, BUZZER et LED
+000058 bb41                      	out		DDRD,r20
                                  	.include "adc.asm"
-000073 9508                      
+000059 9508                      
                                  
                                  ADC_Init:
                                  	;ldi r23,0x01
                                  	;out AIO,r23   ;adc, ne marche pas ?
-000074 e270                      	ldi r23,(1<<ADLAR) ;ext ref / 
-000075 b977                      	out ADMUX,r23
-                                 	;ldi r23,0x00
-                                 	;out SFIOR,r23 ;adc ?
-000076 ec70                      	ldi r23,0xC0
-000077 b976                      	out ADCSRA,r23
+00005a e270                      	ldi		r23,(1<<ADLAR)														;ext ref / left adjust / mux toADC0
+00005b b977                      	out		ADMUX,r23
+00005c ec77                      	ldi		r23,(1<<ADEN)|(1<<ADSC)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0)			;adc enable / adc start / no auto trig / no interrupt / div 128
+00005d b976                      	out		ADCSRA,r23
                                  	.include "spi.asm"
-000078 9508                      
+00005e 9508                      
                                  .def reg_spi = r25
                                  .def reg_addr1 = r26
                                  .def reg_addr2 = r27
@@ -1135,35 +1134,35 @@ C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): Including file 'C
                                  SPI_Init:
                                  	;ldi r25,(1<<DD_MOSI)|(1<<DD_CLK)
                                  	;out DDR_SPI,r25   ;ne mache pas mais peut être est définit dans I/O
-000079 e591                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
-00007a b99d                      	out		SPCR,reg_spi
-00007b 9ac4                      	sbi		PORTB,4									;set SS
-00007c 98c4                      	cbi		PORTB,4
-00007d e094                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
-00007e d002                      	rcall	SPI_Transmit
-00007f 9ac4                      	sbi		PORTB,4
-000080 9508                      	ret
+00005f e591                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
+000060 b99d                      	out		SPCR,reg_spi
+000061 9ac4                      	sbi		PORTB,4									;set SS
+000062 98c4                      	cbi		PORTB,4
+000063 e094                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
+000064 d002                      	rcall	SPI_Transmit
+000065 9ac4                      	sbi		PORTB,4
+000066 9508                      	ret
                                  
                                  SPI_Transmit:										;attente transmission
-000081 b99f                      	out		SPDR,reg_spi							;envoi msg
+000067 b99f                      	out		SPDR,reg_spi							;envoi msg
                                  Wait_SPI:
-000082 9b77                      	sbis	SPSR,SPIF								;test si fini
-000083 cffe                      	rjmp	Wait_SPI
-000084 b19f                      	in		reg_spi,SPDR							;lecture de la réponse
-000085 9508                      	ret
+000068 9b77                      	sbis	SPSR,SPIF								;test si fini
+000069 cffe                      	rjmp	Wait_SPI
+00006a b19f                      	in		reg_spi,SPDR							;lecture de la réponse
+00006b 9508                      	ret
                                  
                                  Read_Mem:
-000086 98c4                      	cbi		PORTB,4									;clear SS
-000087 e093                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
-000088 dff8                      	rcall	SPI_Transmit
-000089 2f9a                      	mov		reg_spi,reg_addr1						;sélection de l'adresse H
-00008a dff6                      	rcall	SPI_Transmit
-00008b 2f9b                      	mov		reg_spi,reg_addr2						;sélection de l'adresse L
-00008c dff4                      	rcall	SPI_Transmit
-00008d e090                      	ldi		reg_spi,0x00							;lecture de la réponse
-00008e dff2                      	rcall	SPI_Transmit
-00008f 9ac4                      	sbi		PORTB,4									;set SS
-000090 9508                      	ret
+00006c 98c4                      	cbi		PORTB,4									;clear SS
+00006d e093                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
+00006e dff8                      	rcall	SPI_Transmit
+00006f 2f9a                      	mov		reg_spi,reg_addr1						;sélection de l'adresse H
+000070 dff6                      	rcall	SPI_Transmit
+000071 2f9b                      	mov		reg_spi,reg_addr2						;sélection de l'adresse L
+000072 dff4                      	rcall	SPI_Transmit
+000073 e090                      	ldi		reg_spi,0x00							;lecture de la réponse
+000074 dff2                      	rcall	SPI_Transmit
+000075 9ac4                      	sbi		PORTB,4									;set SS
+000076 9508                      	ret
                                  
                                  	.include "screen.asm"
                                  
@@ -1212,43 +1211,43 @@ C:\Users\xoxox\Desktop\bn1\projet_bn1\projet_bn1\main.asm(57): Including file 'C
                                  
                                  
                                  SCREEN_Init:
-000091 9ac3                      	sbi PORTB,3   ;set E and clear RS
-000092 98c2                      	cbi PORTB,2
-000093 e3ef                      	ldi reg_screenX,63 ;instruction de début de l'écran
-000094 bbe5                      	out PORTC,reg_screenX
-000095 98c3
-000096 e0d1
-000097 d003
-000098 9ac3                      	Enable[]  ;validation
-000099 9ac2                      	RS_set[]  ;mode données
-00009a 9508                      	ret
+000077 9ac3                      	sbi PORTB,3   ;set E and clear RS
+000078 98c2                      	cbi PORTB,2
+000079 e3ef                      	ldi reg_screenX,63 ;instruction de début de l'écran
+00007a bbe5                      	out PORTC,reg_screenX
+00007b 98c3
+00007c e0d1
+00007d d003
+00007e 9ac3                      	Enable[]  ;validation
+00007f 9ac2                      	RS_set[]  ;mode données
+000080 9508                      	ret
                                  
                                  
                                  ; sous programme de temposirsation
                                  tempo:
-00009b efcf                      	ldi	reg_tempo1,255
+000081 efcf                      	ldi	reg_tempo1,255
                                  boucletempo:
-00009c 95ca                      	dec	reg_tempo1
-00009d 0000                      	nop
-00009e f7e9                      	brne boucletempo
-00009f 95da                      	dec	reg_tempo2
-0000a0 f7d1                      	brne tempo
-0000a1 9508                      	ret
+000082 95ca                      	dec	reg_tempo1
+000083 0000                      	nop
+000084 f7e9                      	brne boucletempo
+000085 95da                      	dec	reg_tempo2
+000086 f7d1                      	brne tempo
+000087 9508                      	ret
                                  
-                                 	;init
-0000a2 dfc8                      	rcall   IO_Init
-0000a3 df90                      	rcall   USART_Init
-0000a4 dfcf                      	rcall   ADC_Init
-0000a5 dfd3                      	rcall   SPI_Init
-0000a6 dfea                      	rcall   SCREEN_Init
-0000a7 dfa0                      	rcall   TIMER_Init
+                                 	;initialisation
+000088 dfc8                      	rcall   IO_Init
+000089 df90                      	rcall   USART_Init
+00008a dfcf                      	rcall   ADC_Init
+00008b dfd3                      	rcall   SPI_Init
+00008c dfea                      	rcall   SCREEN_Init
+00008d dfa0                      	rcall   TIMER_Init
                                  
                                  	;sei
                                  
                                  start:
-0000a8 9a96                          sbi PORTD,6
-0000a9 0000                      	nop
-0000aa cffd                          rjmp start
+00008e 9a96                          sbi		PORTD,6
+00008f 0000                      	nop
+000090 cffd                          rjmp	start
 
 
 RESOURCE USE INFORMATION
@@ -1298,7 +1297,7 @@ Instructions used: 20 out of 113 (17.7%)
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000156    290      0    290   16384   1.8%
+[.cseg] 0x000000 0x000122    290      0    290   16384   1.8%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
