@@ -1,4 +1,7 @@
 #include <iostream>
+#include <windows.h>
+#include <cmath>
+#include <cstdlib>
 
 using namespace std;
 
@@ -6,11 +9,20 @@ long int TabIn[] = {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 
 };
+
 int TabOut[1024];
+
+void decod(int var, int var0) {
+    if((var >> var0) & 1) {
+        cout << "#";
+    } else {
+        cout << " ";
+    }
+}
 
 int main() {
     //cout << sizeof(TabIn) << endl;
-    int i,j;
+    int i,j, k, temp;
     for(i=0;i<8;i++) {
         for(j=0;j<128;j++) {
             if(j < 64) {
@@ -21,6 +33,36 @@ int main() {
             }
         }
     }
+    //aff
+    for(i=0;i<8;i++) {
+        for(k=0;k<8;k++) {
+            for(j=0;j<128;j++) {
+                if(j < 64) {
+                    decod(TabOut[i*64+j], k);
+                } else {
+                    decod(TabOut[i*64+j+448], k);
+                }
+            }
+            cout << "F" << endl;
+        }
+    }
+    //inv
+    for(i=0;i<512;i++) {
+        temp = TabOut[1023-i];
+        int temp0 = 0, temp1 = 0;
+        for(k=0;k<8;k++) {
+            if((TabOut[i] >> k) & 1) {
+                temp0 += (1<<(7-k));
+            }
+            if((temp >> k) & 1) {
+                temp1 += (1<<(7-k));
+            }
+        }
+        TabOut[1023-i] = temp0;
+        TabOut[i] = temp1;
+    }
+    getchar();
+    system("cls");
     for(i=0;i<1024;i++) {
         cout << TabOut[i];
         if(i != 1023) {
