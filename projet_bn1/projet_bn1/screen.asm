@@ -1,7 +1,7 @@
 ;use r28 and r29 and r30
 
-.def reg_tempo1 = r28
-.def reg_tempo2 = r29
+.def reg_cpt1 = r28
+.def reg_cpt2 = r29
 .def reg_screen = r30
 
 .macro screenL[]					;choix du côté de l'écran à gauche
@@ -14,8 +14,8 @@
 .endmacro
 .macro Enable[]						;validation de la commande sur l'écran
 	cbi		PORTB,3
-	ldi		reg_tempo2,1
-	rcall	tempo
+	nop								;on attent l'écran
+	nop
 	sbi		PORTB,3
 .endmacro
 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
@@ -40,6 +40,7 @@
 .endmacro
 .macro ScreenWrite[]				;affichage sur l'écran
 	out		PORTB,reg_screen
+	Enable[]
 .endmacro
 
 
@@ -54,12 +55,66 @@ SCREEN_Init:
 
 
 ; sous programme de temposirsation
-tempo:
-	ldi		reg_tempo1,255
-boucletempo:
-	dec		reg_tempo1
-	nop
-	brne	boucletempo
-	dec		reg_tempo2
-	brne	tempo
+;tempo:
+;	ldi		reg_tempo1,255
+;boucletempo:
+;	dec		reg_tempo1
+;	nop
+;	brne	boucletempo
+;	dec		reg_tempo2
+;	brne	tempo
+;	ret
+
+;full reg_addr1/2
+writeFullSreen:
+	screenL[]						;set side screen
+	ldi		reg_cpt1,0				;reset var
+	ldi		reg_cpt2,0
+loop1:
+	ldi		reg_screen,0			;set pos X = 0
+	SetPosX[]
+	mov		reg_screen,reg_cpt2		;set pos Y = 0
+	SetPosY[]
+loop2:
+	rcall Read_Mem					;lecture de la mémoire spi
+	mov		reg_screen,reg_spi
+	ScreenWrite[]					;écriture sur l'écran
+	inc		reg_addr1				;incrément de l'adresse LOW
+	brcs	addr_carry				;test du carry
+
+	inc		reg_cpt1				;incrément du compteur 1
+	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+	rjmp	loop2
+
+	inc		reg_cpt2				;incrément du copteur 2
+	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+	rjmp	loop1
+
+	screenR[]						;idem ci-dessus avec le côté gauche
+	ldi		reg_cpt1,0
+	ldi		reg_cpt2,0
+loop3:
+	ldi		reg_screen,0
+	SetPosX[]
+	ldi		reg_screen,0
+	SetPosY[]
+loop4:
+	rcall Read_Mem
+	mov		reg_screen,reg_spi
+	ScreenWrite[]
+	inc		reg_addr1
+	brcs	addr_carry
+
+	inc		reg_cpt1
+	sbrs	reg_cpt1,6
+	rjmp	loop4
+
+	inc		reg_cpt2
+	sbrs	reg_cpt2,3
+	rjmp	loop3
 	ret
+
+addr_carry:
+	inc		reg_addr2				;si carry on incrémente l'adresse HIGH
+	ret
+	
