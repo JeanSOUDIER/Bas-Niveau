@@ -31,14 +31,14 @@ void writeMem(int address) {
     digitalWrite(SLAVESELECT,HIGH);
     delay(10);
     digitalWrite(SLAVESELECT,LOW);
-    Serial.print("a = ");
-    Serial.println(address);
+    //Serial.print("a = ");
+    //Serial.println(address);
     spi_transfer(WRITE); //write instruction
     spi_transfer((char)(address>>8));   //send MSByte address first
     spi_transfer((char)(address));      //send LSByte address
     address += 64;
     for(int j=0;j<64;j++) {
-      Serial.println(j+i*64);
+      //Serial.println(j+i*64);
       spi_transfer(plan_mem[j+i*64]); //write data byte
     }
     digitalWrite(SLAVESELECT,HIGH);
@@ -51,7 +51,7 @@ void writeMem(int address) {
   delay(10);
 }
 
-void readMem(int address) {
+unsigned char readMem(int address) {
   int data;
   digitalWrite(SLAVESELECT,LOW);
   spi_transfer(READ); //transmit read opcode
@@ -59,7 +59,8 @@ void readMem(int address) {
   spi_transfer((char)(address));      //send LSByte address
   data = spi_transfer(0xFF); //get data byte
   digitalWrite(SLAVESELECT,HIGH); //release chip, signal end transfer
-  Serial.println((unsigned char)(data));
+  //Serial.println((unsigned char)(data));
+  return (unsigned char)(data);
 }
 
 void setup() {
@@ -77,16 +78,32 @@ void setup() {
   delay(10);
 
   writeMem(0);
-  
+
+  int testeur = 1, cpt_err = 0;
+
+  while(testeur) {
+    int test0 = readMem(compteur);
+    /*Serial.print(test0);
+    Serial.print(" <= ");
+    Serial.println(plan_mem[compteur]);*/
+    if(test0 != plan_mem[compteur]) {
+      Serial.print("error addr = ");
+      Serial.println(compteur);
+      cpt_err++;
+    }
+    compteur++;
+    if(compteur > sizeof(plan_mem)-1) {
+      compteur = 0;
+      testeur = 0;
+      Serial.println("----------------------");
+      if(!cpt_err) {
+        Serial.println("OK");
+      }
+    }
+  }
   
 }
 
 void loop() {
-  readMem(compteur);
-  compteur++;
-  if(compteur > sizeof(plan_mem)-1) {
-    compteur = 0;
-    Serial.println("----------------------");
-  }
   
 }

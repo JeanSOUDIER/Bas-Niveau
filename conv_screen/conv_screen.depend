@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1575724279 source:d:\école\ge4\bn1\bas-niveau\conv_screen\main.cpp
+	<iostream>
+	<windows.h>
+	<cmath>
+	<cstdlib>
+
