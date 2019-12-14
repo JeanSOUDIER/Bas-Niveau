@@ -65,7 +65,17 @@ SCREEN_INC:
 	;sei
 
 start:
-    sbi		PORTD,6
-	nop
-	rcall	Read_Mem
+	sbic	PIND,6						;blink led
+	cbi		PORTD,6
+	sbis	PIND,6
+	sbi		PORTD,6
+	ldi		reg_cpt2,250                ;4 Hz
+	rcall	tempo
+	ldi		reg_cpt2,250
+	rcall	tempo
+	ldi		reg_cpt2,250
+	rcall	tempo
+	ldi		reg_cpt2,250
+	rcall	tempo
+	;rcall	Read_Mem
     rjmp	start

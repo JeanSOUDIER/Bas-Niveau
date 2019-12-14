@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sun Dec 08 13:34:29 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sat Dec 14 08:11:04 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -639,11 +639,13 @@ DEF  reg_cpt1     r28
 DEF  reg_cpt2     r29
 DEF  reg_screen   r30
 CSEG SCREEN_Init  00000091
-CSEG SCREEN_INC   000000e8
-CSEG writeFullSreen 0000009b
-CSEG loop1        0000009f
-CSEG loop2        000000b1
-CSEG addr_carry   000000e6
-CSEG loop3        000000c4
-CSEG loop4        000000d6
-CSEG start        000000e8
+CSEG SCREEN_INC   000000ef
+CSEG tempo        0000009b
+CSEG boucletempo  0000009c
+CSEG writeFullSreen 000000a2
+CSEG loop1        000000a6
+CSEG loop2        000000b8
+CSEG addr_carry   000000ed
+CSEG loop3        000000cb
+CSEG loop4        000000dd
+CSEG start        000000ef

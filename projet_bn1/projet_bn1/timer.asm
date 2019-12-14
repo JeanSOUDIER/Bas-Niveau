@@ -89,9 +89,9 @@ TI_Interrupt:
 	rcall	BUZZ_ON
 
 	;gestion de la led
-	sbic	PORTD,6						;blink led
+	sbic	PIND,6						;blink led
 	cbi		PORTD,6
-	sbis	PORTD,6
+	sbis	PIND,6
 	sbi		PORTD,6
 	
 	out		SREG,tri					; restore flag register

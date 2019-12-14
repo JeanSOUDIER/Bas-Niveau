@@ -49,6 +49,8 @@
   <Read_Mem><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>26</LINE></Read_Mem>
   <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>47</LINE></SCREEN_Init>
   <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>63</LINE></SCREEN_INC>
+  <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>58</LINE></tempo>
+  <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>60</LINE></boucletempo>
   <writeFullSreen><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>69</LINE></writeFullSreen>
   <loop1><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>73</LINE></loop1>
   <loop2><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>78</LINE></loop2>

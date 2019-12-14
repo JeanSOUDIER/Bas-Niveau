@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sun Dec 08 13:34:29 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sat Dec 14 08:11:04 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(52): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
@@ -1225,119 +1225,131 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
 000097 0000
 000098 9ac3                      	Enable[]						;validation
 000099 9ac2                      	RS_set[]						;mode données
-00009a c04d                      	rjmp	SCREEN_INC
+00009a c054                      	rjmp	SCREEN_INC
                                  
                                  
                                  ; sous programme de temposirsation
-                                 ;tempo:
-                                 ;	ldi		reg_tempo1,255
-                                 ;boucletempo:
-                                 ;	dec		reg_tempo1
-                                 ;	nop
-                                 ;	brne	boucletempo
-                                 ;	dec		reg_tempo2
-                                 ;	brne	tempo
-                                 ;	ret
+                                 tempo:
+00009b efcf                      	ldi		reg_cpt1,255
+                                 boucletempo:
+00009c 95ca                      	dec		reg_cpt1
+00009d 0000                      	nop
+00009e f7e9                      	brne	boucletempo
+00009f 95da                      	dec		reg_cpt2
+0000a0 f7d1                      	brne	tempo
+0000a1 9508                      	ret
                                  
                                  ;full reg_addr1/2
                                  writeFullSreen:
-00009b 9ac0
-00009c 98c1                      	screenL[]						;set side screen
-00009d e0c0                      	ldi		reg_cpt1,0				;reset var
-00009e e0d0                      	ldi		reg_cpt2,0
+0000a2 9ac0
+0000a3 98c1                      	screenL[]						;set side screen
+0000a4 e0c0                      	ldi		reg_cpt1,0				;reset var
+0000a5 e0d0                      	ldi		reg_cpt2,0
                                  loop1:
-00009f e0e0                      	ldi		reg_screen,0			;set pos X = 0
-0000a0 6be8
-0000a1 bbe5
-0000a2 98c2
-0000a3 98c3
-0000a4 0000
-0000a5 0000
-0000a6 9ac3
-0000a7 9ac2                      	SetPosX[]
-0000a8 2fed                      	mov		reg_screen,reg_cpt2		;set pos Y = 0
-0000a9 64e0
-0000aa bbe5
-0000ab 98c2
-0000ac 98c3
-0000ad 0000
-0000ae 0000
-0000af 9ac3
-0000b0 9ac2                      	SetPosY[]
-                                 loop2:
-0000b1 dfd4                      	rcall Read_Mem					;lecture de la mémoire spi
-0000b2 2fe9                      	mov		reg_screen,reg_spi
-0000b3 bbe8
-0000b4 98c3
+0000a6 e0e0                      	ldi		reg_screen,0			;set pos X = 0
+0000a7 6be8
+0000a8 bbe5
+0000a9 98c2
+0000aa 98c3
+0000ab 0000
+0000ac 0000
+0000ad 9ac3
+0000ae 9ac2                      	SetPosX[]
+0000af 2fed                      	mov		reg_screen,reg_cpt2		;set pos Y = 0
+0000b0 64e0
+0000b1 bbe5
+0000b2 98c2
+0000b3 98c3
+0000b4 0000
 0000b5 0000
-0000b6 0000
-0000b7 9ac3                      	ScreenWrite[]					;écriture sur l'écran
-0000b8 95a3                      	inc		reg_addr1				;incrément de l'adresse LOW
-0000b9 f160                      	brcs	addr_carry				;test du carry
+0000b6 9ac3
+0000b7 9ac2                      	SetPosY[]
+                                 loop2:
+0000b8 dfcd                      	rcall Read_Mem					;lecture de la mémoire spi
+0000b9 2fe9                      	mov		reg_screen,reg_spi
+0000ba bbe8
+0000bb 98c3
+0000bc 0000
+0000bd 0000
+0000be 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+0000bf 95a3                      	inc		reg_addr1				;incrément de l'adresse LOW
+0000c0 f160                      	brcs	addr_carry				;test du carry
                                  
-0000ba 95c3                      	inc		reg_cpt1				;incrément du compteur 1
-0000bb ffc6                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-0000bc cff4                      	rjmp	loop2
+0000c1 95c3                      	inc		reg_cpt1				;incrément du compteur 1
+0000c2 ffc6                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+0000c3 cff4                      	rjmp	loop2
                                  
-0000bd 95d3                      	inc		reg_cpt2				;incrément du copteur 2
-0000be ffd3                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-0000bf cfdf                      	rjmp	loop1
+0000c4 95d3                      	inc		reg_cpt2				;incrément du copteur 2
+0000c5 ffd3                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+0000c6 cfdf                      	rjmp	loop1
                                  
-0000c0 9ac1
-0000c1 98c0                      	screenR[]						;idem ci-dessus avec le côté gauche
-0000c2 e0c0                      	ldi		reg_cpt1,0
-0000c3 e0d0                      	ldi		reg_cpt2,0
+0000c7 9ac1
+0000c8 98c0                      	screenR[]						;idem ci-dessus avec le côté gauche
+0000c9 e0c0                      	ldi		reg_cpt1,0
+0000ca e0d0                      	ldi		reg_cpt2,0
                                  loop3:
-0000c4 e0e0                      	ldi		reg_screen,0
-0000c5 6be8
-0000c6 bbe5
-0000c7 98c2
-0000c8 98c3
-0000c9 0000
-0000ca 0000
-0000cb 9ac3
-0000cc 9ac2                      	SetPosX[]
-0000cd e0e0                      	ldi		reg_screen,0
-0000ce 64e0
-0000cf bbe5
-0000d0 98c2
-0000d1 98c3
-0000d2 0000
-0000d3 0000
-0000d4 9ac3
-0000d5 9ac2                      	SetPosY[]
-                                 loop4:
-0000d6 dfaf                      	rcall Read_Mem
-0000d7 2fe9                      	mov		reg_screen,reg_spi
-0000d8 bbe8
-0000d9 98c3
+0000cb e0e0                      	ldi		reg_screen,0
+0000cc 6be8
+0000cd bbe5
+0000ce 98c2
+0000cf 98c3
+0000d0 0000
+0000d1 0000
+0000d2 9ac3
+0000d3 9ac2                      	SetPosX[]
+0000d4 e0e0                      	ldi		reg_screen,0
+0000d5 64e0
+0000d6 bbe5
+0000d7 98c2
+0000d8 98c3
+0000d9 0000
 0000da 0000
-0000db 0000
-0000dc 9ac3                      	ScreenWrite[]
-0000dd 95a3                      	inc		reg_addr1
-0000de f038                      	brcs	addr_carry
+0000db 9ac3
+0000dc 9ac2                      	SetPosY[]
+                                 loop4:
+0000dd dfa8                      	rcall Read_Mem
+0000de 2fe9                      	mov		reg_screen,reg_spi
+0000df bbe8
+0000e0 98c3
+0000e1 0000
+0000e2 0000
+0000e3 9ac3                      	ScreenWrite[]
+0000e4 95a3                      	inc		reg_addr1
+0000e5 f038                      	brcs	addr_carry
                                  
-0000df 95c3                      	inc		reg_cpt1
-0000e0 ffc6                      	sbrs	reg_cpt1,6
-0000e1 cff4                      	rjmp	loop4
+0000e6 95c3                      	inc		reg_cpt1
+0000e7 ffc6                      	sbrs	reg_cpt1,6
+0000e8 cff4                      	rjmp	loop4
                                  
-0000e2 95d3                      	inc		reg_cpt2
-0000e3 ffd3                      	sbrs	reg_cpt2,3
-0000e4 cfdf                      	rjmp	loop3
-0000e5 9508                      	ret
+0000e9 95d3                      	inc		reg_cpt2
+0000ea ffd3                      	sbrs	reg_cpt2,3
+0000eb cfdf                      	rjmp	loop3
+0000ec 9508                      	ret
                                  
                                  addr_carry:
-0000e6 95b3                      	inc		reg_addr2				;si carry on incrémente l'adresse HIGH
-0000e7 9508                      	ret
+0000ed 95b3                      	inc		reg_addr2				;si carry on incrémente l'adresse HIGH
+0000ee 9508                      	ret
                                  SCREEN_INC:
                                  
                                  	;sei
                                  
                                  start:
-0000e8 9a96                          sbi		PORTD,6
-0000e9 0000                      	nop
-0000ea df9b                      	rcall	Read_Mem
-0000eb cffc                          rjmp	start
+0000ef 9986                      	sbic	PIND,6						;blink led
+0000f0 9896                      	cbi		PORTD,6
+0000f1 9b86                      	sbis	PIND,6
+0000f2 9a96                      	sbi		PORTD,6
+0000f3 efda                      	ldi		reg_cpt2,250
+0000f4 dfa6                      	rcall	tempo
+0000f5 efda                      	ldi		reg_cpt2,250
+0000f6 dfa4                      	rcall	tempo
+0000f7 efda                      	ldi		reg_cpt2,250
+0000f8 dfa2                      	rcall	tempo
+0000f9 efda                      	ldi		reg_cpt2,250
+0000fa dfa0                      	rcall	tempo
+0000fb efda                      	ldi		reg_cpt2,250
+0000fc df9e                      	rcall	tempo
+                                 	;rcall	Read_Mem
+0000fd cff1                          rjmp	start
 
 
 RESOURCE USE INFORMATION
@@ -1358,8 +1370,8 @@ counted separately from r26..r31 here.
 x  :   0 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
 r13:   0 r14:   0 r15:   0 r16:  13 r17:   4 r18:   0 r19:   0 r20:  10 
-r21:   2 r22:   0 r23:  13 r24:   8 r25:  11 r26:   3 r27:   2 r28:   6 
-r29:   7 r30:  18 r31:   0 
+r21:   2 r22:   0 r23:  13 r24:   8 r25:  11 r26:   3 r27:   2 r28:   8 
+r29:  13 r30:  18 r31:   0 
 Registers used: 14 out of 35 (40.0%)
 
 "ATmega16A" instruction use summary:
@@ -1367,27 +1379,27 @@ Registers used: 14 out of 35 (40.0%)
 andi  :   2 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   2 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  18 cbr   :   0 
+brne  :   2 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  19 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
+cpi   :   0 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   8 inc   :   7 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :  28 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :  34 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   5 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
 neg   :   0 nop   :  15 or    :   0 ori   :   4 out   :  32 pop   :   0 
-push  :   0 rcall :  10 ret   :   7 reti  :  21 rjmp  :  16 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   2 sbis  :   3 
+push  :   0 rcall :  14 ret   :   8 reti  :  21 rjmp  :  16 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   3 sbis  :   4 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   5 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 21 out of 113 (18.6%)
+Instructions used: 23 out of 113 (20.4%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0001d8    420      0    420   16384   2.6%
+[.cseg] 0x000000 0x0001fc    456      0    456   16384   2.8%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

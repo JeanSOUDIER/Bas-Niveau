@@ -55,15 +55,15 @@ SCREEN_Init:
 
 
 ; sous programme de temposirsation
-;tempo:
-;	ldi		reg_tempo1,255
-;boucletempo:
-;	dec		reg_tempo1
-;	nop
-;	brne	boucletempo
-;	dec		reg_tempo2
-;	brne	tempo
-;	ret
+tempo:
+	ldi		reg_cpt1,255
+boucletempo:
+	dec		reg_cpt1
+	nop
+	brne	boucletempo
+	dec		reg_cpt2
+	brne	tempo
+	ret
 
 ;full reg_addr1/2
 writeFullSreen:
