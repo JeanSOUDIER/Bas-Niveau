@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sat Dec 14 08:11:04 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Mon Dec 16 20:09:18 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -604,9 +604,9 @@ EQU  INT2addr     00000024
 EQU  OC0addr      00000026
 EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
-DEF  tri          r1
+DEF  tri          r18
 CSEG RESET        00000030
-CSEG TI_Interrupt 0000005b
+CSEG TI_Interrupt 00000061
 CSEG UART_Interrupt 0000004d
 CSEG IO_Init      00000034
 CSEG IO_INC       0000003d
@@ -624,28 +624,29 @@ DEF  reg_bt2      r21
 DEF  reg_vol      r23
 DEF  reg_son      r24
 CSEG TIMER_Init   00000056
-CSEG TIMER_INC    00000079
-CSEG BUZZ_OFF     00000073
-CSEG BUZZ_ON      0000006a
+CSEG TIMER_INC    0000007f
+CSEG BUZZ_OFF     00000079
+CSEG BUZZ_ON      00000070
 DEF  reg_spi      r25
 DEF  reg_addr1    r26
 DEF  reg_addr2    r27
-CSEG SPI_Init     00000079
-CSEG SPI_Transmit 00000081
-CSEG SPI_INC      00000091
-CSEG Wait_SPI     00000082
-CSEG Read_Mem     00000086
+CSEG SPI_Init     0000007f
+CSEG SPI_Transmit 00000087
+CSEG SPI_INC      00000097
+CSEG Wait_SPI     00000088
+CSEG Read_Mem     0000008c
 DEF  reg_cpt1     r28
 DEF  reg_cpt2     r29
 DEF  reg_screen   r30
-CSEG SCREEN_Init  00000091
-CSEG SCREEN_INC   000000ef
-CSEG tempo        0000009b
-CSEG boucletempo  0000009c
-CSEG writeFullSreen 000000a2
-CSEG loop1        000000a6
-CSEG loop2        000000b8
-CSEG addr_carry   000000ed
-CSEG loop3        000000cb
-CSEG loop4        000000dd
-CSEG start        000000ef
+CSEG SCREEN_Init  00000097
+CSEG SCREEN_INC   000000f5
+CSEG tempo        000000a1
+CSEG boucletempo  000000a2
+CSEG writeFullSreen 000000a8
+CSEG loop1        000000ac
+CSEG loop2        000000be
+CSEG addr_carry   000000f3
+CSEG loop3        000000d1
+CSEG loop4        000000e3
+CSEG start        000000f6
+CSEG led_on       00000103

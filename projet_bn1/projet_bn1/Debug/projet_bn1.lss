@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sat Dec 14 08:11:04 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Mon Dec 16 20:09:18 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(52): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
@@ -905,7 +905,7 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
                                  ;.include "m16def.inc"
                                  ;.list 
                                  
-                                 .def tri = r1						; TimerInterruptRegister.
+                                 .def tri = r18						; TimerInterruptRegister.
                                  
                                  .cseg  ; codesegment
                                  .org	0x00
@@ -920,7 +920,7 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
 000006 9518                      	reti							; 6:  $00A TIMER1 CAPT Timer/Counter1 Capture Event
 000007 9518                      	reti							; 7:  $00C TIMER1 COMPA Timer/Counter1 Cmp Match A 
 000008 9518                      	reti							; 8:  $00E TIMER1 COMPB Timer/Counter1 Cmpe Match B
-000009 c051                      	rjmp TI_Interrupt				; 9:  $010 TIMER1 OVF Timer/Counter1 Overflow
+000009 c057                      	rjmp TI_Interrupt				; 9:  $010 TIMER1 OVF Timer/Counter1 Overflow
 00000a 9518                      	reti							; 10: $012 TIMER0 OVF Timer/Counter0 Overflow
 00000b 9518                      	reti							; 11: $014 SPI, STC Serial Transfer Complete
 00000c c040                      	rjmp UART_Interrupt				; 12: $016 USART, RXC USART, Rx Complete
@@ -985,19 +985,19 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
 00004c 9508                      	ret 
                                  
                                  UART_Interrupt:
-00004d b61f                      	in		tri,SREG						; save content of flag reg.
+00004d b72f                      	in		tri,SREG						; save content of flag reg.
 00004e b18c                      	in		reg_RX,UDR
-00004f be1f                      	out		SREG,tri						; restore flag register
+00004f bf2f                      	out		SREG,tri						; restore flag register
 000050 9518                      UART_INC:
                                  	.include "adc.asm"
                                  
                                  
                                  ADC_Init:
-                                 	;ldi r23,0x01
-                                 	;out AIO,r23   ;adc, ne marche pas ?
-000051 e270                      	ldi		r23,(1<<ADLAR)														;ext ref / left adjust / mux toADC0
+                                 	;ldi		r23,0x00
+                                 	;out		SFIOR,r23
+000051 e670                      	ldi		r23,(1<<ADLAR)|(1<<REFS0)														;ext ref / left adjust / mux toADC0
 000052 b977                      	out		ADMUX,r23
-000053 ec77                      	ldi		r23,(1<<ADEN)|(1<<ADSC)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0)			;adc enable / adc start / no auto trig / no interrupt / div 128
+000053 ec76                      	ldi		r23,(1<<ADEN)|(1<<ADSC)|(1<<ADPS2)|(1<<ADPS1)						;adc enable / adc start / no auto trig / no interrupt / div 64
 000054 b976                      	out		ADCSRA,r23
 000055 c000                      ADC_INC:
                                  	.include "timer.asm"
@@ -1074,59 +1074,65 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
 000056 e070                      	ldi		reg_vol,0
 000057 e085                      	ldi		reg_son,5
 000058 bd7f                      	out		TCCR1A,reg_vol
-000059 bd8e                      	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit de 7 à 16k
-00005a c01e                      	rjmp	TIMER_INC
+000059 bd8e                      	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
+00005a b778                      	in		reg_vol,TIFR				;clear flag
+00005b 7f7b                      	andi	reg_vol,0xFB
+00005c bf78                      	out		TIFR,reg_vol
+00005d b779                      	in		reg_vol,TIMSK				;interrupt enable
+00005e 6074                      	ori		reg_vol,(1<<TOIE1)
+00005f bf79                      	out		TIMSK,reg_vol
+000060 c01e                      	rjmp	TIMER_INC
                                  
                                  TI_Interrupt:
-00005b b61f                      	in		tri,SREG					; save content of flag reg.
+000061 b72f                      	in		tri,SREG					; save content of flag reg.
                                  
                                  	;gestion des boutons
-00005c b349                      	in		reg_bt1,PINA				;on lit le port bouton
-00005d b350                      	in		reg_bt2,PIND				;on lit le port bouton
-00005e 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
-00005f 715c                      	andi	reg_bt2,0x1C
+000062 b349                      	in		reg_bt1,PINA				;on lit le port bouton
+000063 b350                      	in		reg_bt2,PIND				;on lit le port bouton
+000064 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
+000065 715c                      	andi	reg_bt2,0x1C
                                  
-000060 9995                      	sbic	PORTD,5						;si buzzer on
-000061 d011                      	rcall	BUZZ_OFF					;on met on
-000062 9b95                      	sbis	PORTD,5						;sinon
-000063 d006                      	rcall	BUZZ_ON
+000066 9985                      	sbic	PIND,5						;si buzzer on
+000067 d011                      	rcall	BUZZ_OFF					;on met on
+000068 9b85                      	sbis	PIND,5						;sinon
+000069 d006                      	rcall	BUZZ_ON
                                  
                                  	;gestion de la led
-000064 9996                      	sbic	PORTD,6						;blink led
-000065 9896                      	cbi		PORTD,6
-000066 9b96                      	sbis	PORTD,6
-000067 9a96                      	sbi		PORTD,6
+00006a 9986                      	sbic	PIND,6						;blink led
+00006b 9896                      	cbi		PORTD,6
+00006c 9b86                      	sbis	PIND,6
+00006d 9a96                      	sbi		PORTD,6
                                  	
-000068 be1f                      	out		SREG,tri					; restore flag register
-000069 9518                      	reti 								; Return from interrupt
+00006e bf2f                      	out		SREG,tri					; restore flag register
+00006f 9518                      	reti 								; Return from interrupt
                                  
                                  BUZZ_ON:
                                  	;gestion du volume
-00006a b175                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
+000070 b175                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
                                  
                                  	;gestion du son
-00006b 9f78                      	mul		reg_vol,reg_son				;on mulitplie le son et le volume
-00006c 01c0                      	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
-00006d bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-00006e bd8d                      	out		TCNT1H,reg_son
+000071 9f78                      	mul		reg_vol,reg_son				;on mulitplie le son et le volume
+000072 01c0                      	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
+000073 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+000074 bd8d                      	out		TCNT1H,reg_son
                                  
                                  	;gestion volume suite
-00006f ec70                      	ldi		reg_vol,0xC0				;relance d'une conversion
-000070 b976                      	out		ADCSRA,reg_vol
+000075 ec70                      	ldi		reg_vol,0xC0				;relance d'une conversion
+000076 b976                      	out		ADCSRA,reg_vol
                                  
-000071 9a95                      	sbi		PORTD,5
-                                 
-000072 9508                      	ret
-                                 
-                                 BUZZ_OFF:
-000073 9570                      	com		reg_vol						;on fait (1-duty)
-000074 9580                      	com		reg_son
-000075 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-000076 bd8d                      	out		TCNT1H,reg_son
-                                 
-000077 9895                      	cbi		PORTD,5
+000077 9a95                      	sbi		PORTD,5
                                  
 000078 9508                      	ret
+                                 
+                                 BUZZ_OFF:
+000079 9570                      	com		reg_vol						;on fait (1-duty)
+00007a 9580                      	com		reg_son
+00007b bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+00007c bd8d                      	out		TCNT1H,reg_son
+                                 
+00007d 9895                      	cbi		PORTD,5
+                                 
+00007e 9508                      	ret
                                  TIMER_INC:
                                  	.include "spi.asm"
                                  
@@ -1137,35 +1143,35 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
                                  SPI_Init:
                                  	;ldi r25,(1<<DD_MOSI)|(1<<DD_CLK)
                                  	;out DDR_SPI,r25   ;ne mache pas mais peut être est définit dans I/O
-000079 e591                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
-00007a b99d                      	out		SPCR,reg_spi
-00007b 9ac4                      	sbi		PORTB,4									;set SS
-00007c 98c4                      	cbi		PORTB,4
-00007d e094                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
-00007e d002                      	rcall	SPI_Transmit
-00007f 9ac4                      	sbi		PORTB,4
-000080 c010                      	rjmp	SPI_INC
+00007f e591                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
+000080 b99d                      	out		SPCR,reg_spi
+000081 9ac4                      	sbi		PORTB,4									;set SS
+000082 98c4                      	cbi		PORTB,4
+000083 e094                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
+000084 d002                      	rcall	SPI_Transmit
+000085 9ac4                      	sbi		PORTB,4
+000086 c010                      	rjmp	SPI_INC
                                  
                                  SPI_Transmit:										;attente transmission
-000081 b99f                      	out		SPDR,reg_spi							;envoi msg
+000087 b99f                      	out		SPDR,reg_spi							;envoi msg
                                  Wait_SPI:
-000082 9b77                      	sbis	SPSR,SPIF								;test si fini
-000083 cffe                      	rjmp	Wait_SPI
-000084 b19f                      	in		reg_spi,SPDR							;lecture de la réponse
-000085 9508                      	ret
+000088 9b77                      	sbis	SPSR,SPIF								;test si fini
+000089 cffe                      	rjmp	Wait_SPI
+00008a b19f                      	in		reg_spi,SPDR							;lecture de la réponse
+00008b 9508                      	ret
                                  
                                  Read_Mem:
-000086 98c4                      	cbi		PORTB,4									;clear SS
-000087 e093                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
-000088 dff8                      	rcall	SPI_Transmit
-000089 2f9a                      	mov		reg_spi,reg_addr1						;sélection de l'adresse H
-00008a dff6                      	rcall	SPI_Transmit
-00008b 2f9b                      	mov		reg_spi,reg_addr2						;sélection de l'adresse L
-00008c dff4                      	rcall	SPI_Transmit
-00008d e090                      	ldi		reg_spi,0x00							;lecture de la réponse
-00008e dff2                      	rcall	SPI_Transmit
-00008f 9ac4                      	sbi		PORTB,4									;set SS
-000090 9508                      	ret
+00008c 98c4                      	cbi		PORTB,4									;clear SS
+00008d e093                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
+00008e dff8                      	rcall	SPI_Transmit
+00008f 2f9a                      	mov		reg_spi,reg_addr1						;sélection de l'adresse H
+000090 dff6                      	rcall	SPI_Transmit
+000091 2f9b                      	mov		reg_spi,reg_addr2						;sélection de l'adresse L
+000092 dff4                      	rcall	SPI_Transmit
+000093 e090                      	ldi		reg_spi,0x00							;lecture de la réponse
+000094 dff2                      	rcall	SPI_Transmit
+000095 9ac4                      	sbi		PORTB,4									;set SS
+000096 9508                      	ret
                                  
                                  SPI_INC:
                                  	.include "screen.asm"
@@ -1216,140 +1222,157 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(62): Including file '
                                  
                                  
                                  SCREEN_Init:
-000091 9ac3                      	sbi		PORTB,3					;set E and clear RS
-000092 98c2                      	cbi		PORTB,2
-000093 e3ef                      	ldi		reg_screen,63			;instruction de début de l'écran
-000094 bbe5                      	out		PORTC,reg_screen
-000095 98c3
-000096 0000
-000097 0000
-000098 9ac3                      	Enable[]						;validation
-000099 9ac2                      	RS_set[]						;mode données
-00009a c054                      	rjmp	SCREEN_INC
+000097 9ac3                      	sbi		PORTB,3					;set E and clear RS
+000098 98c2                      	cbi		PORTB,2
+000099 e3ef                      	ldi		reg_screen,63			;instruction de début de l'écran
+00009a bbe5                      	out		PORTC,reg_screen
+00009b 98c3
+00009c 0000
+00009d 0000
+00009e 9ac3                      	Enable[]						;validation
+00009f 9ac2                      	RS_set[]						;mode données
+0000a0 c054                      	rjmp	SCREEN_INC
                                  
                                  
                                  ; sous programme de temposirsation
                                  tempo:
-00009b efcf                      	ldi		reg_cpt1,255
+0000a1 efcf                      	ldi		reg_cpt1,255
                                  boucletempo:
-00009c 95ca                      	dec		reg_cpt1
-00009d 0000                      	nop
-00009e f7e9                      	brne	boucletempo
-00009f 95da                      	dec		reg_cpt2
-0000a0 f7d1                      	brne	tempo
-0000a1 9508                      	ret
+0000a2 95ca                      	dec		reg_cpt1
+0000a3 0000                      	nop
+0000a4 f7e9                      	brne	boucletempo
+0000a5 95da                      	dec		reg_cpt2
+0000a6 f7d1                      	brne	tempo
+0000a7 9508                      	ret
                                  
                                  ;full reg_addr1/2
                                  writeFullSreen:
-0000a2 9ac0
-0000a3 98c1                      	screenL[]						;set side screen
-0000a4 e0c0                      	ldi		reg_cpt1,0				;reset var
-0000a5 e0d0                      	ldi		reg_cpt2,0
+0000a8 9ac0
+0000a9 98c1                      	screenL[]						;set side screen
+0000aa e0c0                      	ldi		reg_cpt1,0				;reset var
+0000ab e0d0                      	ldi		reg_cpt2,0
                                  loop1:
-0000a6 e0e0                      	ldi		reg_screen,0			;set pos X = 0
-0000a7 6be8
-0000a8 bbe5
-0000a9 98c2
-0000aa 98c3
-0000ab 0000
-0000ac 0000
-0000ad 9ac3
-0000ae 9ac2                      	SetPosX[]
-0000af 2fed                      	mov		reg_screen,reg_cpt2		;set pos Y = 0
-0000b0 64e0
-0000b1 bbe5
-0000b2 98c2
-0000b3 98c3
-0000b4 0000
-0000b5 0000
-0000b6 9ac3
-0000b7 9ac2                      	SetPosY[]
+0000ac e0e0                      	ldi		reg_screen,0			;set pos X = 0
+0000ad 6be8
+0000ae bbe5
+0000af 98c2
+0000b0 98c3
+0000b1 0000
+0000b2 0000
+0000b3 9ac3
+0000b4 9ac2                      	SetPosX[]
+0000b5 2fed                      	mov		reg_screen,reg_cpt2		;set pos Y = 0
+0000b6 64e0
+0000b7 bbe5
+0000b8 98c2
+0000b9 98c3
+0000ba 0000
+0000bb 0000
+0000bc 9ac3
+0000bd 9ac2                      	SetPosY[]
                                  loop2:
-0000b8 dfcd                      	rcall Read_Mem					;lecture de la mémoire spi
-0000b9 2fe9                      	mov		reg_screen,reg_spi
-0000ba bbe8
-0000bb 98c3
-0000bc 0000
-0000bd 0000
-0000be 9ac3                      	ScreenWrite[]					;écriture sur l'écran
-0000bf 95a3                      	inc		reg_addr1				;incrément de l'adresse LOW
-0000c0 f160                      	brcs	addr_carry				;test du carry
+0000be dfcd                      	rcall Read_Mem					;lecture de la mémoire spi
+0000bf 2fe9                      	mov		reg_screen,reg_spi
+0000c0 bbe8
+0000c1 98c3
+0000c2 0000
+0000c3 0000
+0000c4 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+0000c5 95a3                      	inc		reg_addr1				;incrément de l'adresse LOW
+0000c6 f160                      	brcs	addr_carry				;test du carry
                                  
-0000c1 95c3                      	inc		reg_cpt1				;incrément du compteur 1
-0000c2 ffc6                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-0000c3 cff4                      	rjmp	loop2
+0000c7 95c3                      	inc		reg_cpt1				;incrément du compteur 1
+0000c8 ffc6                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+0000c9 cff4                      	rjmp	loop2
                                  
-0000c4 95d3                      	inc		reg_cpt2				;incrément du copteur 2
-0000c5 ffd3                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-0000c6 cfdf                      	rjmp	loop1
+0000ca 95d3                      	inc		reg_cpt2				;incrément du copteur 2
+0000cb ffd3                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+0000cc cfdf                      	rjmp	loop1
                                  
-0000c7 9ac1
-0000c8 98c0                      	screenR[]						;idem ci-dessus avec le côté gauche
-0000c9 e0c0                      	ldi		reg_cpt1,0
-0000ca e0d0                      	ldi		reg_cpt2,0
+0000cd 9ac1
+0000ce 98c0                      	screenR[]						;idem ci-dessus avec le côté gauche
+0000cf e0c0                      	ldi		reg_cpt1,0
+0000d0 e0d0                      	ldi		reg_cpt2,0
                                  loop3:
-0000cb e0e0                      	ldi		reg_screen,0
-0000cc 6be8
-0000cd bbe5
-0000ce 98c2
-0000cf 98c3
-0000d0 0000
-0000d1 0000
-0000d2 9ac3
-0000d3 9ac2                      	SetPosX[]
-0000d4 e0e0                      	ldi		reg_screen,0
-0000d5 64e0
-0000d6 bbe5
-0000d7 98c2
-0000d8 98c3
-0000d9 0000
-0000da 0000
-0000db 9ac3
-0000dc 9ac2                      	SetPosY[]
+0000d1 e0e0                      	ldi		reg_screen,0
+0000d2 6be8
+0000d3 bbe5
+0000d4 98c2
+0000d5 98c3
+0000d6 0000
+0000d7 0000
+0000d8 9ac3
+0000d9 9ac2                      	SetPosX[]
+0000da e0e0                      	ldi		reg_screen,0
+0000db 64e0
+0000dc bbe5
+0000dd 98c2
+0000de 98c3
+0000df 0000
+0000e0 0000
+0000e1 9ac3
+0000e2 9ac2                      	SetPosY[]
                                  loop4:
-0000dd dfa8                      	rcall Read_Mem
-0000de 2fe9                      	mov		reg_screen,reg_spi
-0000df bbe8
-0000e0 98c3
-0000e1 0000
-0000e2 0000
-0000e3 9ac3                      	ScreenWrite[]
-0000e4 95a3                      	inc		reg_addr1
-0000e5 f038                      	brcs	addr_carry
+0000e3 dfa8                      	rcall Read_Mem
+0000e4 2fe9                      	mov		reg_screen,reg_spi
+0000e5 bbe8
+0000e6 98c3
+0000e7 0000
+0000e8 0000
+0000e9 9ac3                      	ScreenWrite[]
+0000ea 95a3                      	inc		reg_addr1
+0000eb f038                      	brcs	addr_carry
                                  
-0000e6 95c3                      	inc		reg_cpt1
-0000e7 ffc6                      	sbrs	reg_cpt1,6
-0000e8 cff4                      	rjmp	loop4
+0000ec 95c3                      	inc		reg_cpt1
+0000ed ffc6                      	sbrs	reg_cpt1,6
+0000ee cff4                      	rjmp	loop4
                                  
-0000e9 95d3                      	inc		reg_cpt2
-0000ea ffd3                      	sbrs	reg_cpt2,3
-0000eb cfdf                      	rjmp	loop3
-0000ec 9508                      	ret
+0000ef 95d3                      	inc		reg_cpt2
+0000f0 ffd3                      	sbrs	reg_cpt2,3
+0000f1 cfdf                      	rjmp	loop3
+0000f2 9508                      	ret
                                  
                                  addr_carry:
-0000ed 95b3                      	inc		reg_addr2				;si carry on incrémente l'adresse HIGH
-0000ee 9508                      	ret
+0000f3 95b3                      	inc		reg_addr2				;si carry on incrémente l'adresse HIGH
+0000f4 9508                      	ret
                                  SCREEN_INC:
                                  
-                                 	;sei
+0000f5 9478                      	sei
                                  
                                  start:
-0000ef 9986                      	sbic	PIND,6						;blink led
-0000f0 9896                      	cbi		PORTD,6
-0000f1 9b86                      	sbis	PIND,6
-0000f2 9a96                      	sbi		PORTD,6
-0000f3 efda                      	ldi		reg_cpt2,250
-0000f4 dfa6                      	rcall	tempo
-0000f5 efda                      	ldi		reg_cpt2,250
-0000f6 dfa4                      	rcall	tempo
-0000f7 efda                      	ldi		reg_cpt2,250
-0000f8 dfa2                      	rcall	tempo
+0000f6 b176                      	in		reg_vol,ADCSRA
+0000f7 6470                      	ori		reg_vol,(1<<ADSC)		;relance d'une conversion
+0000f8 b976                      	out		ADCSRA,reg_vol
 0000f9 efda                      	ldi		reg_cpt2,250
-0000fa dfa0                      	rcall	tempo
+0000fa dfa6                      	rcall	tempo
 0000fb efda                      	ldi		reg_cpt2,250
-0000fc df9e                      	rcall	tempo
+0000fc dfa4                      	rcall	tempo
+0000fd b175                      	in		reg_vol,ADCH
+                                 	;cpi		reg_vol,128
+                                 	;brlo	led_on
+0000fe fd77                      	sbrc	reg_vol,7
+0000ff 9a96                      	sbi		PORTD,6
+000100 ff77                      	sbrs	reg_vol,7
+000101 9896                      	cbi		PORTD,6
+                                 
+                                 	
                                  	;rcall	Read_Mem
-0000fd cff1                          rjmp	start
+                                 	
+                                 	;TEST bts
+                                 	;in		reg_bt1,PINA				;on lit le port bouton
+                                 	;in		reg_bt2,PIND				;on lit le port bouton
+                                 	;andi	reg_bt1,0xFE				;on garde les boutons
+                                 	;andi	reg_bt2,0x1C
+                                 	;
+                                 	;b9[]
+                                 	;sbi		PORTD,6
+                                 	;b9n[]
+                                 	;cbi		PORTD,6
+000102 cff3                          rjmp	start
+                                 
+                                 
+                                 led_on:
+000103 9896                      	cbi		PORTD,6
 
 
 RESOURCE USE INFORMATION
@@ -1367,39 +1390,39 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega16A" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
+x  :   0 y  :   0 z  :   0 r0 :   1 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  13 r17:   4 r18:   0 r19:   0 r20:  10 
-r21:   2 r22:   0 r23:  13 r24:   8 r25:  11 r26:   3 r27:   2 r28:   8 
-r29:  13 r30:  18 r31:   0 
+r13:   0 r14:   0 r15:   0 r16:  13 r17:   4 r18:   4 r19:   0 r20:  10 
+r21:   2 r22:   0 r23:  25 r24:   8 r25:  11 r26:   3 r27:   2 r28:   8 
+r29:  10 r30:  18 r31:   0 
 Registers used: 14 out of 35 (40.0%)
 
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
-andi  :   2 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+andi  :   3 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   2 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   2 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  19 cbr   :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  20 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   8 inc   :   7 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :  34 lds   :   0 lpm   :   0 lsl   :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :  12 inc   :   7 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :  31 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   5 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
-neg   :   0 nop   :  15 or    :   0 ori   :   4 out   :  32 pop   :   0 
-push  :   0 rcall :  14 ret   :   8 reti  :  21 rjmp  :  16 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   3 sbis  :   4 
-sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   5 sec   :   0 seh   :   0 
-sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
+neg   :   0 nop   :  15 or    :   0 ori   :   6 out   :  35 pop   :   0 
+push  :   0 rcall :  11 ret   :   8 reti  :  21 rjmp  :  17 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   2 sbis  :   3 
+sbiw  :   0 sbr   :   0 sbrc  :   1 sbrs  :   6 sec   :   0 seh   :   0 
+sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 23 out of 113 (20.4%)
+Instructions used: 25 out of 113 (22.1%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0001fc    456      0    456   16384   2.8%
+[.cseg] 0x000000 0x00020a    470      0    470   16384   2.9%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

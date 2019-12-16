@@ -10,7 +10,7 @@
 ;.include "m16def.inc"
 ;.list 
 
-.def tri = r1						; TimerInterruptRegister.
+.def tri = r18						; TimerInterruptRegister.
 
 .cseg  ; codesegment
 .org	0x00
@@ -62,20 +62,33 @@ SPI_INC:
 	.include "screen.asm"
 SCREEN_INC:
 
-	;sei
+	sei
 
 start:
-	sbic	PIND,6						;blink led
-	cbi		PORTD,6
-	sbis	PIND,6
-	sbi		PORTD,6
-	ldi		reg_cpt2,250                ;4 Hz
-	rcall	tempo
-	ldi		reg_cpt2,250
-	rcall	tempo
-	ldi		reg_cpt2,250
-	rcall	tempo
-	ldi		reg_cpt2,250
-	rcall	tempo
+	;in		reg_vol,ADCSRA
+	;ori		reg_vol,(1<<ADSC)		;relance d'une conversion
+	;out		ADCSRA,reg_vol
+	;ldi		reg_cpt2,250
+	;rcall	tempo
+	;ldi		reg_cpt2,250
+	;rcall	tempo
+	;in		reg_vol,ADCH
+	;sbrc	reg_vol,7
+	;sbi		PORTD,6
+	;sbrs	reg_vol,7
+	;cbi		PORTD,6
+
+	
 	;rcall	Read_Mem
+	
+	;TEST bts
+	;in		reg_bt1,PINA				;on lit le port bouton
+	;in		reg_bt2,PIND				;on lit le port bouton
+	;andi	reg_bt1,0xFE				;on garde les boutons
+	;andi	reg_bt2,0x1C
+	;
+	;b9[]
+	;sbi		PORTD,6
+	;b9n[]
+	;cbi		PORTD,6
     rjmp	start
