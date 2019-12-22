@@ -69,7 +69,7 @@
 
 TIMER_Init:
 	ldi		reg_vol,0
-	ldi		reg_son,5
+	ldi		reg_son,(1<<CS11)
 	out		TCCR1A,reg_vol
 	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
 	in		reg_vol,TIFR				;clear flag
@@ -78,6 +78,10 @@ TIMER_Init:
 	in		reg_vol,TIMSK				;interrupt enable
 	ori		reg_vol,(1<<TOIE1)
 	out		TIMSK,reg_vol
+	ldi		reg_vol,100
+	ldi		reg_son,0
+	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+	out		TCNT1H,reg_son
 	rjmp	TIMER_INC
 
 TI_Interrupt:
@@ -89,9 +93,9 @@ TI_Interrupt:
 	andi	reg_bt1,0xFE				;on garde les boutons
 	andi	reg_bt2,0x1C
 
-	sbic	PIND,5						;si buzzer on
+	sbic	PIND,6						;si buzzer on
 	rcall	BUZZ_OFF					;on met on
-	sbis	PIND,5						;sinon
+	sbis	PIND,6						;sinon
 	rcall	BUZZ_ON
 
 	;gestion de la led
@@ -99,6 +103,8 @@ TI_Interrupt:
 	cbi		PORTD,6
 	sbis	PIND,6
 	sbi		PORTD,6
+
+
 	
 	out		SREG,tri					; restore flag register
 	reti 								; Return from interrupt

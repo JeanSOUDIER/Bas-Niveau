@@ -138,7 +138,7 @@ void test1() {
 void loop() {
   for(int k=0;k<2;k++) {
     digitalWrite(DI, 0);
-    delay(10);
+    //delay(10);
     if(k == 1) {
       digitalWrite(CS1, 1);
       digitalWrite(CS2, 0);
@@ -148,13 +148,13 @@ void loop() {
     }
     for(int i=0;i<8;i++) {
       digitalWrite(DI, 0);
-      delay(10);
+      //delay(10);
       Write(184+i);
       Enable();
       Write(64); //64
       Enable();
       digitalWrite(DI, 1);
-      delay(10);
+      //delay(10);
       for(int j=0;j<64;j++) {
         Write(Tab[j+i*64+k*512]);
         Enable();
@@ -176,11 +176,11 @@ void Write(unsigned char in) {
 }
 
 void Enable() {
-  delay(10);
+  delay(1);
   digitalWrite(E, 0);
-  delay(10);
+  delay(1);
   digitalWrite(E, 1);
-  delay(10);
+  delay(1);
 }
 
 void ClrScreen() {

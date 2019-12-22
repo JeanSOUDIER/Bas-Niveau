@@ -28,36 +28,36 @@
   <FILE>projet_bn1.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <RESET><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>45</LINE></RESET>
-  <TI_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>83</LINE></TI_Interrupt>
-  <UART_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>27</LINE></UART_Interrupt>
+  <RESET><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>48</LINE></RESET>
+  <TI_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>87</LINE></TI_Interrupt>
+  <UART_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>28</LINE></UART_Interrupt>
+  <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>52</LINE></tempo>
   <IO_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm</FILE><LINE>3</LINE></IO_Init>
-  <IO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>53</LINE></IO_INC>
+  <IO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>101</LINE></IO_INC>
   <USART_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>7</LINE></USART_Init>
-  <UART_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>55</LINE></UART_INC>
-  <USART_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>20</LINE></USART_Transmit>
+  <UART_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>103</LINE></UART_INC>
+  <USART_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm</FILE><LINE>21</LINE></USART_Transmit>
   <ADC_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm</FILE><LINE>3</LINE></ADC_Init>
-  <ADC_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>57</LINE></ADC_INC>
+  <ADC_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>105</LINE></ADC_INC>
   <TIMER_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>70</LINE></TIMER_Init>
-  <TIMER_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>59</LINE></TIMER_INC>
-  <BUZZ_OFF><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>124</LINE></BUZZ_OFF>
-  <BUZZ_ON><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>106</LINE></BUZZ_ON>
+  <TIMER_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>107</LINE></TIMER_INC>
+  <BUZZ_OFF><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>131</LINE></BUZZ_OFF>
+  <BUZZ_ON><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm</FILE><LINE>112</LINE></BUZZ_ON>
   <SPI_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>6</LINE></SPI_Init>
   <SPI_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>18</LINE></SPI_Transmit>
-  <SPI_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>61</LINE></SPI_INC>
+  <SPI_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>109</LINE></SPI_INC>
   <Wait_SPI><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>20</LINE></Wait_SPI>
   <Read_Mem><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm</FILE><LINE>26</LINE></Read_Mem>
-  <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>47</LINE></SCREEN_Init>
-  <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>63</LINE></SCREEN_INC>
-  <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>58</LINE></tempo>
-  <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>60</LINE></boucletempo>
-  <writeFullSreen><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>69</LINE></writeFullSreen>
-  <loop1><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>73</LINE></loop1>
-  <loop2><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>78</LINE></loop2>
-  <addr_carry><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>117</LINE></addr_carry>
-  <loop3><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>96</LINE></loop3>
-  <loop4><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>101</LINE></loop4>
-  <start><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>67</LINE></start>
-  <led_on><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>99</LINE></led_on>
+  <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>9</LINE></SCREEN_Init>
+  <enable><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>62</LINE></enable>
+  <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>111</LINE></SCREEN_INC>
+  <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm</FILE><LINE>54</LINE></boucletempo>
+  <start><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>131</LINE></start>
+  <LED_OFFF><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>146</LINE></LED_OFFF>
+  <TEST_ADC><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>150</LINE></TEST_ADC>
+  <TEST_BT><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>165</LINE></TEST_BT>
+  <TEST_LED><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>176</LINE></TEST_LED>
+  <TEST_SPI><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>191</LINE></TEST_SPI>
+  <TEST_UART><FILE>D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm</FILE><LINE>205</LINE></TEST_UART>
  </LABELS>
 </ASSEMBLER_INFO>

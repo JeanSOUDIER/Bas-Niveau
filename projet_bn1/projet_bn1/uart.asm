@@ -1,5 +1,5 @@
 ;use r16(L) and r17 and r24
-.equ baud = 6								;9600 =>12
+.equ baud = 103								;9600 =>103
 .def reg_uart = r17
 .def reg_TX = r16
 .def reg_RX = r24
@@ -11,10 +11,11 @@ USART_Init:									; Set baud rate to UBRR0
 	out		UBRRL, reg_TX					; Enable receiver and transmitter   
 	ldi		reg_TX,(1<<U2X)
 	out		UCSRA,reg_TX
-	ldi		reg_TX, (1<<RXEN)|(1<<TXEN)   
+	ldi		reg_TX, (1<<RXEN)|(1<<TXEN)|(1<<RXCIE)   
 	out		UCSRB,reg_TX					; Set frame format: 8data, 2stop bit   
 	ldi		reg_TX, (1<<USBS)|(3<<UCSZ0)   
 	out		UCSRC,reg_TX  
+
 	rjmp	UART_INC					;go to main
 
 USART_Transmit:								; Wait for empty transmit buffer
