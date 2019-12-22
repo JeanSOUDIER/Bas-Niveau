@@ -27,9 +27,9 @@ Read_Mem:
 	cbi		PORTB,4									;clear SS
 	ldi		reg_spi,0x03							;instruction de lecture mémoire
 	rcall	SPI_Transmit
-	mov		reg_spi,reg_addr1						;sélection de l'adresse H
+	mov		reg_spi,reg_addr2						;sélection de l'adresse H
 	rcall	SPI_Transmit
-	mov		reg_spi,reg_addr2						;sélection de l'adresse L
+	mov		reg_spi,reg_addr1						;sélection de l'adresse L
 	rcall	SPI_Transmit
 	ldi		reg_spi,0x00							;lecture de la réponse
 	rcall	SPI_Transmit

@@ -51,50 +51,9 @@ reset:								; adresse du vecteur de reset
 	ldi		r16,low(RAMEND)
 	out		SPL,r16
 
-	ldi		reg_cpt4,250
+	ldi		reg_cpt4,255
 	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
-	ldi		reg_cpt4,250
-	rcall	tempo
+
 
 	;ajout des programmes pour la gestion des modules
 	.include "io.asm"
@@ -112,32 +71,10 @@ SCREEN_INC:
 
 	;sei
 
-	cbi		PORTB,2
-	cbi		PORTB,0
-	sbi		PORTB,1
-	cbi		PORTB,2
-	ldi		reg_screen,184
-	out		PORTC,reg_screen
-	rcall	enable
-	ldi		reg_screen,64
-	out		PORTC,reg_screen
-	rcall	enable
-	sbi		PORTB,2
-	
-
-	sbi		PORTD,6
-	ldi		reg_screen,255
+	rcall	writeFullSreen
 
 start:
 
-	out		PORTC,reg_screen
-	;inc		reg_screen
-	rcall	enable
-	/*ldi		reg_addr1,0
-	ldi		reg_addr1,0
-	rcall	Read_Mem
-	sbrc	reg_spi,0
-	sbi		PORTD,6*/
     rjmp	start
 
 

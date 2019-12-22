@@ -7,6 +7,6 @@ IO_Init:
 	out		DDRB,r20
 	ldi		r20,0xFF			;portc en sortie
 	out		DDRC,r20
-	ldi		r20,0x62			;portd en sortie sur TX, BUZZER et LED
+	ldi		r20,0xE2			;portd en sortie sur TX, BUZZER et LED
 	out		DDRD,r20
 	rjmp	IO_INC

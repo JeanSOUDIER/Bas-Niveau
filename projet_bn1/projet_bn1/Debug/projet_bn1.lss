@@ -1,36 +1,36 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sun Dec 22 17:35:28 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Sun Dec 22 21:12:12 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(100): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(102): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(104): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(106): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(59): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(61): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(63): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(65): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm'
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm(6): warning: Register r24 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(106): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm' included form here
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(108): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(65): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(67): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm'
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm(3): warning: Register r26 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(108): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(67): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm' included form here
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm(4): warning: Register r27 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(108): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm' included form here
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(67): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm'
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(3): warning: Register r28 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(4): warning: Register r29 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(5): warning: Register r30 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(6): warning: Register r20 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
 D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm(7): warning: Register r23 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm' included form here
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(100): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(102): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(104): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(106): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(108): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm'
-D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(59): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\io.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(61): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\uart.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(63): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\adc.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(65): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\timer.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(67): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\spi.asm'
+D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(69): Including file 'D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\screen.asm'
                                  
                                  ;
                                  
@@ -939,9 +939,9 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 
                                  	reti							; 21 $028 SPM_RDY Store Program Memory Reazdy
                                  	*/
                                  .org 0x10
-000010 940c 0091                 	jmp		TI_Interrupt
+000010 940c 0067                 	jmp		TI_Interrupt
                                  .org 0x16
-000016 940c 0079                 	jmp		UART_Interrupt
+000016 940c 004f                 	jmp		UART_Interrupt
                                  
                                  .org 0x30							; se placer à la case mémoire 10 en hexa
                                  reset:								; adresse du vecteur de reset
@@ -950,65 +950,24 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 
 000032 e50f                      	ldi		r16,low(RAMEND)
 000033 bf0d                      	out		SPL,r16
                                  
-000034 ef7a                      	ldi		reg_cpt4,250
-000035 d0b4                      	rcall	tempo
-000036 ef7a                      	ldi		reg_cpt4,250
-000037 d0b2                      	rcall	tempo
-000038 ef7a                      	ldi		reg_cpt4,250
-000039 d0b0                      	rcall	tempo
-00003a ef7a                      	ldi		reg_cpt4,250
-00003b d0ae                      	rcall	tempo
-00003c ef7a                      	ldi		reg_cpt4,250
-00003d d0ac                      	rcall	tempo
-00003e ef7a                      	ldi		reg_cpt4,250
-00003f d0aa                      	rcall	tempo
-000040 ef7a                      	ldi		reg_cpt4,250
-000041 d0a8                      	rcall	tempo
-000042 ef7a                      	ldi		reg_cpt4,250
-000043 d0a6                      	rcall	tempo
-000044 ef7a                      	ldi		reg_cpt4,250
-000045 d0a4                      	rcall	tempo
-000046 ef7a                      	ldi		reg_cpt4,250
-000047 d0a2                      	rcall	tempo
-000048 ef7a                      	ldi		reg_cpt4,250
-000049 d0a0                      	rcall	tempo
-00004a ef7a                      	ldi		reg_cpt4,250
-00004b d09e                      	rcall	tempo
-00004c ef7a                      	ldi		reg_cpt4,250
-00004d d09c                      	rcall	tempo
-00004e ef7a                      	ldi		reg_cpt4,250
-00004f d09a                      	rcall	tempo
-000050 ef7a                      	ldi		reg_cpt4,250
-000051 d098                      	rcall	tempo
-000052 ef7a                      	ldi		reg_cpt4,250
-000053 d096                      	rcall	tempo
-000054 ef7a                      	ldi		reg_cpt4,250
-000055 d094                      	rcall	tempo
-000056 ef7a                      	ldi		reg_cpt4,250
-000057 d092                      	rcall	tempo
-000058 ef7a                      	ldi		reg_cpt4,250
-000059 d090                      	rcall	tempo
-00005a ef7a                      	ldi		reg_cpt4,250
-00005b d08e                      	rcall	tempo
-00005c ef7a                      	ldi		reg_cpt4,250
-00005d d08c                      	rcall	tempo
-00005e ef7a                      	ldi		reg_cpt4,250
-00005f d08a                      	rcall	tempo
+000034 ef7f                      	ldi		reg_cpt4,255
+000035 d073                      	rcall	tempo
+                                 
                                  
                                  	;ajout des programmes pour la gestion des modules
                                  	.include "io.asm"
                                  
                                  
                                  IO_Init:
-000060 e040                      	ldi		r20,0x00			;porta en entrée
-000061 bb4a                      	out		DDRA,r20
-000062 eb4f                      	ldi		r20,0xBF			;portb en entrée sur miso
-000063 bb47                      	out		DDRB,r20
-000064 ef4f                      	ldi		r20,0xFF			;portc en sortie
-000065 bb44                      	out		DDRC,r20
-000066 e642                      	ldi		r20,0x62			;portd en sortie sur TX, BUZZER et LED
-000067 bb41                      	out		DDRD,r20
-000068 c000                      IO_INC:
+000036 e040                      	ldi		r20,0x00			;porta en entrée
+000037 bb4a                      	out		DDRA,r20
+000038 eb4f                      	ldi		r20,0xBF			;portb en entrée sur miso
+000039 bb47                      	out		DDRB,r20
+00003a ef4f                      	ldi		r20,0xFF			;portc en sortie
+00003b bb44                      	out		DDRC,r20
+00003c ee42                      	ldi		r20,0xE2			;portd en sortie sur TX, BUZZER et LED
+00003d bb41                      	out		DDRD,r20
+00003e c000                      IO_INC:
                                  	.include "uart.asm"
                                  
                                  .equ baud = 103								;9600 =>103
@@ -1017,42 +976,42 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 
                                  .def reg_RX = r24
                                  
                                  USART_Init:									; Set baud rate to UBRR0 
-000069 e607                      	ldi		reg_TX,baud
-00006a e010                      	ldi		reg_uart,0 
-00006b bd10                      	out		UBRRH, reg_uart   
-00006c b909                      	out		UBRRL, reg_TX					; Enable receiver and transmitter   
-00006d e002                      	ldi		reg_TX,(1<<U2X)
-00006e b90b                      	out		UCSRA,reg_TX
-00006f e908                      	ldi		reg_TX, (1<<RXEN)|(1<<TXEN)|(1<<RXCIE)   
-000070 b90a                      	out		UCSRB,reg_TX					; Set frame format: 8data, 2stop bit   
-000071 e00e                      	ldi		reg_TX, (1<<USBS)|(3<<UCSZ0)   
-000072 bd00                      	out		UCSRC,reg_TX  
+00003f e607                      	ldi		reg_TX,baud
+000040 e010                      	ldi		reg_uart,0 
+000041 bd10                      	out		UBRRH, reg_uart   
+000042 b909                      	out		UBRRL, reg_TX					; Enable receiver and transmitter   
+000043 e002                      	ldi		reg_TX,(1<<U2X)
+000044 b90b                      	out		UCSRA,reg_TX
+000045 e908                      	ldi		reg_TX, (1<<RXEN)|(1<<TXEN)|(1<<RXCIE)   
+000046 b90a                      	out		UCSRB,reg_TX					; Set frame format: 8data, 2stop bit   
+000047 e00e                      	ldi		reg_TX, (1<<USBS)|(3<<UCSZ0)   
+000048 bd00                      	out		UCSRC,reg_TX  
                                  
-000073 c009                      	rjmp	UART_INC					;go to main
+000049 c009                      	rjmp	UART_INC					;go to main
                                  
                                  USART_Transmit:								; Wait for empty transmit buffer
-000074 b11b                      	in		reg_uart, UCSRA   
-000075 ff15                      	sbrs	reg_uart, UDRE   
-000076 cffd                      	rjmp	USART_Transmit					; Put data (r16) into buffer, sends the data   
-000077 b90c                      	out		UDR,reg_TX   
-000078 9508                      	ret 
+00004a b11b                      	in		reg_uart, UCSRA   
+00004b ff15                      	sbrs	reg_uart, UDRE   
+00004c cffd                      	rjmp	USART_Transmit					; Put data (r16) into buffer, sends the data   
+00004d b90c                      	out		UDR,reg_TX   
+00004e 9508                      	ret 
                                  
                                  UART_Interrupt:
-000079 b61f                      	in		tri,SREG						; save content of flag reg.
-00007a b18c                      	in		reg_RX,UDR
-00007b be1f                      	out		SREG,tri						; restore flag register
-00007c 9518                      UART_INC:
+00004f b61f                      	in		tri,SREG						; save content of flag reg.
+000050 b18c                      	in		reg_RX,UDR
+000051 be1f                      	out		SREG,tri						; restore flag register
+000052 9518                      UART_INC:
                                  	.include "adc.asm"
                                  
                                  
                                  ADC_Init:
                                  	;ldi		r23,0x00
                                  	;out		SFIOR,r23
-00007d e670                      	ldi		r23,(1<<ADLAR)|(1<<REFS0)														;ext ref / left adjust / mux toADC0
-00007e b977                      	out		ADMUX,r23
-00007f ec76                      	ldi		r23,(1<<ADEN)|(1<<ADSC)|(1<<ADPS2)|(1<<ADPS1)						;adc enable / adc start / no auto trig / no interrupt / div 64
-000080 b976                      	out		ADCSRA,r23
-000081 c000                      ADC_INC:
+000053 e670                      	ldi		r23,(1<<ADLAR)|(1<<REFS0)														;ext ref / left adjust / mux toADC0
+000054 b977                      	out		ADMUX,r23
+000055 ec76                      	ldi		r23,(1<<ADEN)|(1<<ADSC)|(1<<ADPS2)|(1<<ADPS1)						;adc enable / adc start / no auto trig / no interrupt / div 64
+000056 b976                      	out		ADCSRA,r23
+000057 c000                      ADC_INC:
                                  	.include "timer.asm"
                                  
                                  
@@ -1124,75 +1083,75 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 
                                  
                                  
                                  TIMER_Init:
-000082 e070                      	ldi		reg_vol,0
-000083 e082                      	ldi		reg_son,(1<<CS11)
-000084 bd7f                      	out		TCCR1A,reg_vol
-000085 bd8e                      	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
-000086 b778                      	in		reg_vol,TIFR				;clear flag
-000087 7f7b                      	andi	reg_vol,0xFB
-000088 bf78                      	out		TIFR,reg_vol
-000089 b779                      	in		reg_vol,TIMSK				;interrupt enable
-00008a 6074                      	ori		reg_vol,(1<<TOIE1)
-00008b bf79                      	out		TIMSK,reg_vol
-00008c e674                      	ldi		reg_vol,100
-00008d e080                      	ldi		reg_son,0
-00008e bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-00008f bd8d                      	out		TCNT1H,reg_son
-000090 c01f                      	rjmp	TIMER_INC
+000058 e070                      	ldi		reg_vol,0
+000059 e082                      	ldi		reg_son,(1<<CS11)
+00005a bd7f                      	out		TCCR1A,reg_vol
+00005b bd8e                      	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
+00005c b778                      	in		reg_vol,TIFR				;clear flag
+00005d 7f7b                      	andi	reg_vol,0xFB
+00005e bf78                      	out		TIFR,reg_vol
+00005f b779                      	in		reg_vol,TIMSK				;interrupt enable
+000060 6074                      	ori		reg_vol,(1<<TOIE1)
+000061 bf79                      	out		TIMSK,reg_vol
+000062 e674                      	ldi		reg_vol,100
+000063 e080                      	ldi		reg_son,0
+000064 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+000065 bd8d                      	out		TCNT1H,reg_son
+000066 c01f                      	rjmp	TIMER_INC
                                  
                                  TI_Interrupt:
-000091 b61f                      	in		tri,SREG					; save content of flag reg.
+000067 b61f                      	in		tri,SREG					; save content of flag reg.
                                  
                                  	;gestion des boutons
-000092 b349                      	in		reg_bt1,PINA				;on lit le port bouton
-000093 b350                      	in		reg_bt2,PIND				;on lit le port bouton
-000094 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
-000095 715c                      	andi	reg_bt2,0x1C
+000068 b349                      	in		reg_bt1,PINA				;on lit le port bouton
+000069 b350                      	in		reg_bt2,PIND				;on lit le port bouton
+00006a 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
+00006b 715c                      	andi	reg_bt2,0x1C
                                  
-000096 9986                      	sbic	PIND,6						;si buzzer on
-000097 d012                      	rcall	BUZZ_OFF					;on met on
-000098 9b86                      	sbis	PIND,6						;sinon
-000099 d006                      	rcall	BUZZ_ON
+00006c 9986                      	sbic	PIND,6						;si buzzer on
+00006d d012                      	rcall	BUZZ_OFF					;on met on
+00006e 9b86                      	sbis	PIND,6						;sinon
+00006f d006                      	rcall	BUZZ_ON
                                  
                                  	;gestion de la led
-00009a 9986                      	sbic	PIND,6						;blink led
-00009b 9896                      	cbi		PORTD,6
-00009c 9b86                      	sbis	PIND,6
-00009d 9a96                      	sbi		PORTD,6
+000070 9986                      	sbic	PIND,6						;blink led
+000071 9896                      	cbi		PORTD,6
+000072 9b86                      	sbis	PIND,6
+000073 9a96                      	sbi		PORTD,6
                                  
                                  
                                  	
-00009e be1f                      	out		SREG,tri					; restore flag register
-00009f 9518                      	reti 								; Return from interrupt
+000074 be1f                      	out		SREG,tri					; restore flag register
+000075 9518                      	reti 								; Return from interrupt
                                  
                                  BUZZ_ON:
                                  	;gestion du volume
-0000a0 b175                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
+000076 b175                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
                                  
                                  	;gestion du son
-0000a1 9f78                      	mul		reg_vol,reg_son				;on mulitplie le son et le volume
-0000a2 01c0                      	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
-0000a3 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-0000a4 bd8d                      	out		TCNT1H,reg_son
+000077 9f78                      	mul		reg_vol,reg_son				;on mulitplie le son et le volume
+000078 01c0                      	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
+000079 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+00007a bd8d                      	out		TCNT1H,reg_son
                                  
                                  	;gestion volume suite
-0000a5 b176                      	in		reg_vol,ADCSRA
-0000a6 6470                      	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
-0000a7 b976                      	out		ADCSRA,reg_vol
+00007b b176                      	in		reg_vol,ADCSRA
+00007c 6470                      	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
+00007d b976                      	out		ADCSRA,reg_vol
                                  
-0000a8 9a95                      	sbi		PORTD,5
+00007e 9a95                      	sbi		PORTD,5
                                  
-0000a9 9508                      	ret
+00007f 9508                      	ret
                                  
                                  BUZZ_OFF:
-0000aa 9570                      	com		reg_vol						;on fait (1-duty)
-0000ab 9580                      	com		reg_son
-0000ac bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-0000ad bd8d                      	out		TCNT1H,reg_son
+000080 9570                      	com		reg_vol						;on fait (1-duty)
+000081 9580                      	com		reg_son
+000082 bd7c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
+000083 bd8d                      	out		TCNT1H,reg_son
                                  
-0000ae 9895                      	cbi		PORTD,5
+000084 9895                      	cbi		PORTD,5
                                  
-0000af 9508                      	ret
+000085 9508                      	ret
                                  TIMER_INC:
                                  	.include "spi.asm"
                                  
@@ -1203,35 +1162,35 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 
                                  SPI_Init:
                                  	;ldi r25,(1<<DD_MOSI)|(1<<DD_CLK)
                                  	;out DDR_SPI,r25   ;ne mache pas mais peut être est définit dans I/O
-0000b0 e591                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
-0000b1 b99d                      	out		SPCR,reg_spi
-0000b2 9ac4                      	sbi		PORTB,4									;set SS
-0000b3 98c4                      	cbi		PORTB,4
-0000b4 e094                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
-0000b5 d002                      	rcall	SPI_Transmit
-0000b6 9ac4                      	sbi		PORTB,4
-0000b7 c010                      	rjmp	SPI_INC
+000086 e591                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
+000087 b99d                      	out		SPCR,reg_spi
+000088 9ac4                      	sbi		PORTB,4									;set SS
+000089 98c4                      	cbi		PORTB,4
+00008a e094                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
+00008b d002                      	rcall	SPI_Transmit
+00008c 9ac4                      	sbi		PORTB,4
+00008d c010                      	rjmp	SPI_INC
                                  
                                  SPI_Transmit:										;attente transmission
-0000b8 b99f                      	out		SPDR,reg_spi							;envoi msg
+00008e b99f                      	out		SPDR,reg_spi							;envoi msg
                                  Wait_SPI:
-0000b9 9b77                      	sbis	SPSR,SPIF								;test si fini
-0000ba cffe                      	rjmp	Wait_SPI
-0000bb b19f                      	in		reg_spi,SPDR							;lecture de la réponse
-0000bc 9508                      	ret
+00008f 9b77                      	sbis	SPSR,SPIF								;test si fini
+000090 cffe                      	rjmp	Wait_SPI
+000091 b19f                      	in		reg_spi,SPDR							;lecture de la réponse
+000092 9508                      	ret
                                  
                                  Read_Mem:
-0000bd 98c4                      	cbi		PORTB,4									;clear SS
-0000be e093                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
-0000bf dff8                      	rcall	SPI_Transmit
-0000c0 2f9a                      	mov		reg_spi,reg_addr1						;sélection de l'adresse H
-0000c1 dff6                      	rcall	SPI_Transmit
-0000c2 2f9b                      	mov		reg_spi,reg_addr2						;sélection de l'adresse L
-0000c3 dff4                      	rcall	SPI_Transmit
-0000c4 e090                      	ldi		reg_spi,0x00							;lecture de la réponse
-0000c5 dff2                      	rcall	SPI_Transmit
-0000c6 9ac4                      	sbi		PORTB,4									;set SS
-0000c7 9508                      	ret
+000093 98c4                      	cbi		PORTB,4									;clear SS
+000094 e093                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
+000095 dff8                      	rcall	SPI_Transmit
+000096 2f9b                      	mov		reg_spi,reg_addr2						;sélection de l'adresse H
+000097 dff6                      	rcall	SPI_Transmit
+000098 2f9a                      	mov		reg_spi,reg_addr1						;sélection de l'adresse L
+000099 dff4                      	rcall	SPI_Transmit
+00009a e090                      	ldi		reg_spi,0x00							;lecture de la réponse
+00009b dff2                      	rcall	SPI_Transmit
+00009c 9ac4                      	sbi		PORTB,4									;set SS
+00009d 9508                      	ret
                                  
                                  SPI_INC:
                                  	.include "screen.asm"
@@ -1243,169 +1202,320 @@ D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm(110): Including file 
                                  .def reg_cpt3 = r20
                                  .def reg_cpt4 = r23
                                  
+                                 .macro screenL[]					;choix du côté de l'écran à gauche
+                                 	sbi		PORTB,0
+                                 	cbi		PORTB,1
+                                 .endmacro
+                                 .macro screenR[]					;choix du côté de l'écran à droite
+                                 	sbi		PORTB,1
+                                 	cbi		PORTB,0
+                                 .endmacro
+                                 .macro Enable[]						;validation de la commande sur l'écran
+                                 	cbi		PORTB,3
+                                 	nop								;on attent l'écran
+                                 	ldi		reg_cpt4,4
+                                 	rcall	tempo
+                                 	sbi		PORTB,3
+                                 .endmacro
+                                 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
+                                 	ori		reg_screen,0xB8
+                                 	out		PORTC,reg_screen
+                                 	RS_clear[]
+                                 	Enable[]
+                                 	RS_set[]
+                                 .endmacro
+                                 .macro SetPosY[]					;pos de 0 à 64 (auto)
+                                 	ori		reg_screen,0x40
+                                 	out		PORTC,reg_screen
+                                 	RS_clear[]
+                                 	Enable[]
+                                 	RS_set[]
+                                 .endmacro
+                                 .macro RS_clear[]					;changement de bit instruction/données
+                                 	cbi		PORTB,2
+                                 .endmacro
+                                 .macro RS_set[]						;changement de bit instruction/données
+                                 	sbi		PORTB,2
+                                 .endmacro
+                                 .macro ScreenWrite[]				;affichage sur l'écran
+                                 	out		PORTC,reg_screen
+                                 	Enable[]
+                                 .endmacro
+                                 
                                  SCREEN_Init:
-0000c8 98c0                      	cbi		PORTB,0
-0000c9 9ac1                      	sbi		PORTB,1
-0000ca 9ac3                      	sbi		PORTB,3
-0000cb 98c2                      	cbi		PORTB,2
+                                 	/*cbi		PORTB,0
+                                 	sbi		PORTB,1
+                                 	sbi		PORTB,3
+                                 	cbi		PORTB,2
                                  
-0000cc ef7a                      	ldi		reg_cpt4,250
-0000cd d01c                      	rcall	tempo
-0000ce ef7a                      	ldi		reg_cpt4,250
-0000cf d01a                      	rcall	tempo
-0000d0 ef7a                      	ldi		reg_cpt4,250
-0000d1 d018                      	rcall	tempo
-0000d2 ef7a                      	ldi		reg_cpt4,250
-0000d3 d016                      	rcall	tempo
-0000d4 ef7a                      	ldi		reg_cpt4,250
-0000d5 d014                      	rcall	tempo
-0000d6 ef7a                      	ldi		reg_cpt4,250
-0000d7 d012                      	rcall	tempo
-0000d8 ef7a                      	ldi		reg_cpt4,250
-0000d9 d010                      	rcall	tempo
-0000da ef7a                      	ldi		reg_cpt4,250
-0000db d00e                      	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
+                                 	ldi		reg_cpt4,250
+                                 	rcall	tempo
                                  
-0000dc e3ef                      	ldi		reg_screen,63
-0000dd bbe5                      	out		PORTC,reg_screen
-0000de d012                      	rcall	enable
+                                 	ldi		reg_screen,63
+                                 	out		PORTC,reg_screen
+                                 	Enable[]
                                  
-0000df 9ac0                      	sbi		PORTB,0
-0000e0 98c1                      	cbi		PORTB,1
-0000e1 e3ef                      	ldi		reg_screen,63
-0000e2 bbe5                      	out		PORTC,reg_screen
-0000e3 d00d                      	rcall	enable
+                                 	sbi		PORTB,0
+                                 	cbi		PORTB,1
+                                 	ldi		reg_screen,63
+                                 	out		PORTC,reg_screen
+                                 	Enable[]
                                  
-0000e4 98c0                      	cbi		PORTB,0
-0000e5 9ac1                      	sbi		PORTB,1
-0000e6 e3ef                      	ldi		reg_screen,63
-0000e7 bbe5                      	out		PORTC,reg_screen
-0000e8 d008                      	rcall	enable
+                                 	cbi		PORTB,0
+                                 	sbi		PORTB,1
+                                 	ldi		reg_screen,63
+                                 	out		PORTC,reg_screen
+                                 	Enable[]*/
                                  
-0000e9 c010                      	rjmp	SCREEN_INC
-                                 
+00009e 9ac3                      	sbi		PORTB,3					;set E and clear RS
+00009f 98c2                      	cbi		PORTB,2
+0000a0 e3ef                      	ldi		reg_screen,63			;instruction de début de l'écran
+0000a1 bbe5                      	out		PORTC,reg_screen
+0000a2 98c3
+0000a3 0000
+0000a4 e074
+0000a5 d003
+0000a6 9ac3                      	Enable[]						;validation
+0000a7 9ac2                      	RS_set[]						;mode données
+                                 	
+0000a8 c05e                      	rjmp	SCREEN_INC
                                  
                                  ; sous programme de temposirsation
                                  tempo:
-0000ea ef4f                      	ldi		reg_cpt3,255
+0000a9 ef4f                      	ldi		reg_cpt3,255
                                  boucletempo:
-0000eb 954a                      	dec		reg_cpt3
-0000ec 0000                      	nop
-0000ed f7e9                      	brne	boucletempo
-0000ee 957a                      	dec		reg_cpt4
-0000ef f7d1                      	brne	tempo
-0000f0 9508                      	ret
+0000aa 954a                      	dec		reg_cpt3
+0000ab 0000                      	nop
+0000ac f7e9                      	brne	boucletempo
+0000ad 957a                      	dec		reg_cpt4
+0000ae f7d1                      	brne	tempo
+0000af 9508                      	ret
                                  
-                                 enable:
-0000f1 e074                      	ldi		reg_cpt4,4
-0000f2 dff7                      	rcall	tempo
-0000f3 98c3                      	cbi		PORTB,3
-0000f4 e074                      	ldi		reg_cpt4,4
-0000f5 dff4                      	rcall	tempo
-0000f6 9ac3                      	sbi		PORTB,3
-0000f7 e074                      	ldi		reg_cpt4,4
-0000f8 dff1                      	rcall	tempo
-0000f9 9508                      	ret
+                                 /*enable:
+                                 	ldi		reg_cpt4,4
+                                 	rcall	tempo
+                                 	cbi		PORTB,3
+                                 	ldi		reg_cpt4,4
+                                 	rcall	tempo
+                                 	sbi		PORTB,3
+                                 	ldi		reg_cpt4,4
+                                 	rcall	tempo
+                                 	ret*/
+                                 
+                                 ;full reg_addr1/2
+                                 writeFullSreen:
+0000b0 9ac0
+0000b1 98c1                      	screenL[]						;set side screen
+0000b2 e0d0                      	ldi		reg_cpt2,0				;reset var
+0000b3 e0a0                      	ldi		reg_addr1,0
+0000b4 e0b0                      	ldi		reg_addr2,0
+                                 loop1:
+0000b5 e0c0                      	ldi		reg_cpt1,0
+0000b6 e0e0                      	ldi		reg_screen,0			;set pos Y = 0
+0000b7 64e0
+0000b8 bbe5
+0000b9 98c2
+0000ba 98c3
+0000bb 0000
+0000bc e074
+0000bd dfeb
+0000be 9ac3
+0000bf 9ac2                      	SetPosY[]
+0000c0 2fed                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+0000c1 6be8
+0000c2 bbe5
+0000c3 98c2
+0000c4 98c3
+0000c5 0000
+0000c6 e074
+0000c7 dfe1
+0000c8 9ac3
+0000c9 9ac2                      	SetPosX[]
+                                 loop2:
+0000ca dfc8                      	rcall Read_Mem					;lecture de la mémoire spi
+0000cb 2fe9                      	mov		reg_screen,reg_spi
+0000cc bbe5
+0000cd 98c3
+0000ce 0000
+0000cf e074
+0000d0 dfd8
+0000d1 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+0000d2 95a3                      	inc		reg_addr1				;incrément de l'adresse LOW
+0000d3 30a0                      	cpi		reg_addr1,0
+0000d4 f409                      	brne	addr_carry1				;test du carry
+0000d5 95b3                      	inc		reg_addr2
+                                 addr_carry1:
+                                 
+0000d6 95c3                      	inc		reg_cpt1				;incrément du compteur 1
+0000d7 ffc6                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+0000d8 cff1                      	rjmp	loop2
+                                 
+0000d9 95d3                      	inc		reg_cpt2				;incrément du copteur 2
+0000da ffd3                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+0000db cfd9                      	rjmp	loop1
+                                 
+0000dc 9ac1
+0000dd 98c0                      	screenR[]						;set side screen
+0000de e0d0                      	ldi		reg_cpt2,0				;reset var
+                                 loop3:
+0000df e0c0                      	ldi		reg_cpt1,0
+0000e0 e0e0                      	ldi		reg_screen,0			;set pos Y = 0
+0000e1 64e0
+0000e2 bbe5
+0000e3 98c2
+0000e4 98c3
+0000e5 0000
+0000e6 e074
+0000e7 dfc1
+0000e8 9ac3
+0000e9 9ac2                      	SetPosY[]
+0000ea 2fed                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+0000eb 6be8
+0000ec bbe5
+0000ed 98c2
+0000ee 98c3
+0000ef 0000
+0000f0 e074
+0000f1 dfb7
+0000f2 9ac3
+0000f3 9ac2                      	SetPosX[]
+                                 loop4:
+0000f4 df9e                      	rcall Read_Mem					;lecture de la mémoire spi
+0000f5 2fe9                      	mov		reg_screen,reg_spi
+0000f6 bbe5
+0000f7 98c3
+0000f8 0000
+0000f9 e074
+0000fa dfae
+0000fb 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+0000fc 95a3                      	inc		reg_addr1				;incrément de l'adresse LOW
+0000fd 30a0                      	cpi		reg_addr1,0
+0000fe f409                      	brne	addr_carry2				;test du carry
+0000ff 95b3                      	inc		reg_addr2
+                                 addr_carry2:
+                                 
+000100 95c3                      	inc		reg_cpt1				;incrément du compteur 1
+000101 ffc6                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+000102 cff1                      	rjmp	loop4
+                                 
+000103 95d3                      	inc		reg_cpt2				;incrément du copteur 2
+000104 ffd3                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+000105 cfd9                      	rjmp	loop3
+000106 9508                      	ret
                                  SCREEN_INC:
                                  
                                  	;sei
                                  
-0000fa 98c2                      	cbi		PORTB,2
-0000fb 98c0                      	cbi		PORTB,0
-0000fc 9ac1                      	sbi		PORTB,1
-0000fd 98c2                      	cbi		PORTB,2
-0000fe ebe8                      	ldi		reg_screen,184
-0000ff bbe5                      	out		PORTC,reg_screen
-000100 dff0                      	rcall	enable
-000101 e4e0                      	ldi		reg_screen,64
-000102 bbe5                      	out		PORTC,reg_screen
-000103 dfed                      	rcall	enable
-000104 9ac2                      	sbi		PORTB,2
+                                 
+                                 	/*RS_clear[]
+                                 	screenR[]
+                                 	ldi		reg_screen,0
+                                 	SetPosX[]
+                                 	Enable[]
+                                 	ldi		reg_screen,0
+                                 	SetPosY[]
+                                 	Enable[]
+                                 	RS_set[]
                                  	
                                  
-000105 9a96                      	sbi		PORTD,6
-000106 efef                      	ldi		reg_screen,255
+                                 	sbi		PORTD,6
+                                 	ldi		reg_screen,5*/
+                                 
+000107 dfa8                      	rcall	writeFullSreen
+                                 	;sbi		PORTD,6
                                  
                                  start:
                                  
-000107 bbe5                      	out		PORTC,reg_screen
-                                 	;inc		reg_screen
-000108 dfe8                      	rcall	enable
+                                 
                                  	/*ldi		reg_addr1,0
                                  	ldi		reg_addr1,0
                                  	rcall	Read_Mem
                                  	sbrc	reg_spi,0
                                  	sbi		PORTD,6*/
-000109 cffd                          rjmp	start
+000108 cfff                          rjmp	start
                                  
                                  
-00010a cffc                          rjmp	start
+000109 cffe                          rjmp	start
                                  
                                  LED_OFFF:
-00010b 9896                      	cbi		PORTD,6
-00010c cffa                      	rjmp	start
+00010a 9896                      	cbi		PORTD,6
+00010b cffc                      	rjmp	start
                                  
                                  TEST_ADC:
-00010d b176                      	in		reg_vol,ADCSRA
-00010e 6470                      	ori		reg_vol,(1<<ADSC)		;relance d'une conversion
-00010f b976                      	out		ADCSRA,reg_vol
+00010c b176                      	in		reg_vol,ADCSRA
+00010d 6470                      	ori		reg_vol,(1<<ADSC)		;relance d'une conversion
+00010e b976                      	out		ADCSRA,reg_vol
+00010f efda                      	ldi		reg_cpt2,250
+                                 	;rcall	tempo
 000110 efda                      	ldi		reg_cpt2,250
                                  	;rcall	tempo
-000111 efda                      	ldi		reg_cpt2,250
-                                 	;rcall	tempo
-000112 b175                      	in		reg_vol,ADCH
-000113 fd77                      	sbrc	reg_vol,7
-000114 9a96                      	sbi		PORTD,6
-000115 ff77                      	sbrs	reg_vol,7
-000116 9896                      	cbi		PORTD,6
-000117 9508                      	ret
+000111 b175                      	in		reg_vol,ADCH
+000112 fd77                      	sbrc	reg_vol,7
+000113 9a96                      	sbi		PORTD,6
+000114 ff77                      	sbrs	reg_vol,7
+000115 9896                      	cbi		PORTD,6
+000116 9508                      	ret
                                  
                                  TEST_BT:
-000118 b349                      	in		reg_bt1,PINA				;on lit le port bouton
-000119 b350                      	in		reg_bt2,PIND				;on lit le port bouton
-00011a 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
-00011b 715c                      	andi	reg_bt2,0x1C
-00011c fd54                      	b9[]
-00011d 9a96                      	sbi		PORTD,6
-00011e ff54                      	b9n[]
-00011f 9896                      	cbi		PORTD,6
-000120 9508                      	ret
+000117 b349                      	in		reg_bt1,PINA				;on lit le port bouton
+000118 b350                      	in		reg_bt2,PIND				;on lit le port bouton
+000119 7f4e                      	andi	reg_bt1,0xFE				;on garde les boutons
+00011a 715c                      	andi	reg_bt2,0x1C
+00011b fd54                      	b9[]
+00011c 9a96                      	sbi		PORTD,6
+00011d ff54                      	b9n[]
+00011e 9896                      	cbi		PORTD,6
+00011f 9508                      	ret
                                  
                                  TEST_LED:
-000121 9986                      	sbic	PIND,6						;blink led
-000122 9896                      	cbi		PORTD,6
-000123 9b86                      	sbis	PIND,6
-000124 9a96                      	sbi		PORTD,6
-000125 efda                      	ldi		reg_cpt2,250                ;4 Hz
+000120 9986                      	sbic	PIND,6						;blink led
+000121 9896                      	cbi		PORTD,6
+000122 9b86                      	sbis	PIND,6
+000123 9a96                      	sbi		PORTD,6
+000124 efda                      	ldi		reg_cpt2,250                ;4 Hz
+                                 	;rcall	tempo
+000125 efda                      	ldi		reg_cpt2,250
                                  	;rcall	tempo
 000126 efda                      	ldi		reg_cpt2,250
                                  	;rcall	tempo
 000127 efda                      	ldi		reg_cpt2,250
                                  	;rcall	tempo
-000128 efda                      	ldi		reg_cpt2,250
-                                 	;rcall	tempo
-000129 9508                      	ret
+000128 9508                      	ret
                                  
                                  TEST_SPI:
-00012a e0a0                      	ldi		reg_addr1,0
-00012b e0b0                      	ldi		reg_addr2,0
-00012c df90                      	rcall	Read_Mem
-00012d 3091                      	cpi		reg_spi,1
+000129 e0a0                      	ldi		reg_addr1,0
+00012a e0b0                      	ldi		reg_addr2,0
+00012b df67                      	rcall	Read_Mem
+00012c 3091                      	cpi		reg_spi,1
                                  	;brne	LED_OFFF
-00012e e0a0                      	ldi		reg_addr1,0
-00012f e0b5                      	ldi		reg_addr2,5
-000130 df8c                      	rcall	Read_Mem
-000131 3092                      	cpi		reg_spi,2
+00012d e0a0                      	ldi		reg_addr1,0
+00012e e0b5                      	ldi		reg_addr2,5
+00012f df63                      	rcall	Read_Mem
+000130 3092                      	cpi		reg_spi,2
                                  	;brne	LED_OFFF
-000132 9a96                      	sbi		PORTD,6
-000133 9508                      	ret
+000131 9a96                      	sbi		PORTD,6
+000132 9508                      	ret
                                  
                                  TEST_UART:
-000134 e401                      	ldi		reg_TX,65
-000135 df3e                      	rcall	USART_Transmit
-000136 efda                      	ldi		reg_cpt2,250
+000133 e401                      	ldi		reg_TX,65
+000134 df15                      	rcall	USART_Transmit
+000135 efda                      	ldi		reg_cpt2,250
                                  	;rcall	tempo
-000137 9508                      	ret
+000136 9508                      	ret
 
 
 RESOURCE USE INFORMATION
@@ -1426,36 +1536,36 @@ counted separately from r26..r31 here.
 x  :   0 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
 r13:   0 r14:   0 r15:   0 r16:  14 r17:   4 r18:   0 r19:   0 r20:  14 
-r21:   6 r22:   0 r23:  62 r24:  10 r25:  11 r26:   3 r27:   3 r28:   0 
-r29:   7 r30:  12 r31:   0 
-Registers used: 13 out of 35 (37.1%)
+r21:   6 r22:   0 r23:  37 r24:  10 r25:  13 r26:   8 r27:   6 r28:   6 
+r29:  15 r30:  18 r31:   0 
+Registers used: 14 out of 35 (40.0%)
 
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   5 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   2 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  16 cbr   :   0 
+brne  :   4 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  22 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   0 cpc   :   0 
-cpi   :   2 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :  15 inc   :   0 jmp   :   2 
-ld    :   0 ldd   :   0 ldi   :  73 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :   2 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   1 or    :   0 ori   :   3 out   :  36 pop   :   0 
-push  :   0 rcall :  49 ret   :  12 reti  :   2 rjmp  :  12 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :  17 sbic  :   3 sbis  :   4 
-sbiw  :   0 sbr   :   0 sbrc  :   2 sbrs  :   3 sec   :   0 seh   :   0 
+cpi   :   4 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :  15 inc   :   8 jmp   :   2 
+ld    :   0 ldd   :   0 ldi   :  51 lds   :   0 lpm   :   0 lsl   :   0 
+lsr   :   0 mov   :   6 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
+neg   :   0 nop   :   8 or    :   0 ori   :   7 out   :  37 pop   :   0 
+push  :   0 rcall :  21 ret   :  12 reti  :   2 rjmp  :  16 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :  24 sbic  :   3 sbis  :   4 
+sbiw  :   0 sbr   :   0 sbrc  :   2 sbrs  :   7 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 24 out of 113 (21.2%)
+Instructions used: 25 out of 113 (22.1%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000270    538      0    538   16384   3.3%
+[.cseg] 0x000000 0x00026e    536      0    536   16384   3.3%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
