@@ -1,5 +1,31 @@
 ;use r20 and r21 and r23 and r24
 
+.macro b0[]
+	sbis	PINA,1
+.endmacro
+.macro b0n[]
+	sbic	PINA,1
+.endmacro
+.macro b1[]
+	sbis	PINA,2
+.endmacro
+.macro b1n[]
+	sbic	PINA,2
+.endmacro
+.macro b2[]
+	sbis	PINA,3
+.endmacro
+.macro b2n[]
+	sbic	PINA,3
+.endmacro
+.macro b3[]
+	sbis	PINA,4
+.endmacro
+.macro b3n[]
+	sbic	PINA,4
+.endmacro
+
+
 TIMER_Init:
 	ldi		reg_vol,0
 	ldi		reg_son,(1<<CS11)
@@ -21,12 +47,12 @@ TI_Interrupt:
 	in		tri,SREG					; save content of flag reg.
 
 	;gestion des boutons
-	in		reg_bt1,PINA				;on lit le port bouton
-	andi	reg_bt1,0xFE				;on garde les boutons
-	sts		btL,reg_bt1					;on stocke le résultat
-	in		reg_bt1,PIND
-	andi	reg_bt1,0x1C
-	sts		btH,reg_bt1
+	;in		reg_bt1,PINA				;on lit le port bouton
+	;andi	reg_bt1,0xFE				;on garde les boutons
+	;sts		btL,reg_bt1					;on stocke le résultat
+	;in		reg_bt1,PIND
+	;andi	reg_bt1,0x1C
+	;sts		btH,reg_bt1
 
 	sbic	PIND,6						;si buzzer on
 	rcall	BUZZ_OFF					;on met on

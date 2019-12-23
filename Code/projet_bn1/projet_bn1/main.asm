@@ -46,12 +46,26 @@
 .equ C_7 = 165
 .equ C_8 = 170
 .equ C_9 = 175
+.equ C_IN = 180
+.equ C_EX = 185
+.equ C_PT = 190
+.equ C_DA = 195
+.equ C_PAO = 200
+.equ C_PAF = 205
+.equ C_PL = 210
+.equ C_MO = 215
+.equ C_SL = 220
+.equ C_MUL = 225
+.equ C_DP = 230
+.equ C_EG = 235
+.equ C_# = 240
+.equ C_CH = 245
 .equ CHAR_SIZE = 6
 
 
 .def tri = r1						; TimerInterruptRegister.
 
-.def Init = r16
+.def reg_init = r16
 
 .def reg_spi = r18
 .def reg_addrL = r19
@@ -81,6 +95,7 @@ addrH: .byte 1
 btL:   .byte 1
 btH:   .byte 1
 TX:    .byte 1
+POS:   .byte 1
 
 .cseg  ; codesegment
 .org	0x00
@@ -143,54 +158,124 @@ SCREEN_INC:
 
 	;sei
 
-	
-	
-
-	
-	;CLR_RAM[]
-	ldi		reg_addrL,0
-	ldi		reg_addrH,0
-	createImgFull[]
 
 
-	ldi		reg_addrL,0
+	ldi		reg_init,0
+
+loopMain:
+	
+	CLR_RAM[]
+	;ldi		reg_addrL,0
+	;ldi		reg_addrH,0
+	;createImgFull[]
+
+
+	ldi		reg_addrL,64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_R
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE
+	ldi		reg_addrL,CHAR_SIZE+64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_U
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*2
+	ldi		reg_addrL,CHAR_SIZE*2+64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_O
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*3
+	ldi		reg_addrL,CHAR_SIZE*3+64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_J
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*4
+	ldi		reg_addrL,CHAR_SIZE*4+64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_N
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*5
+	ldi		reg_addrL,CHAR_SIZE*5+64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_O
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*6
+	ldi		reg_addrL,CHAR_SIZE*6+64
 	ldi		reg_addrH,0
 	ldi		reg_lettre,C_B
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*2
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_R
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*3
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_E
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*4
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_U
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*5
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_O
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*6
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_J
+	rcall	addImgChar
+
+	ldi		XL,LOW(btL)
+	ldi		XH,HIGH(btL)
+	ld		reg_cpt1,X
+
+	ldi		reg_addrL,128
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_#
+	b0[]
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE+128
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_#
+	b1[]
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*2+128
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_#
+	b2[]
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE*3+128
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_#
+	b3[]
+	rcall	addImgChar
+
+	mov		reg_cpt2,reg_init
+	b1[]
+	ldi		reg_cpt2,0
+	b3[]
+	ldi		reg_cpt2,64
+	mov		reg_init,reg_cpt2
+
+	ldi		reg_addrL,CHAR_SIZE*7
+	add		reg_addrL,reg_cpt2
+
+	;ldi		reg_addrL,CHAR_SIZE*7+64
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_CH
 	rcall	addImgChar
 	
 	rcall	writeFullSreen
 
-	sbi		PORTD,6
+	rjmp	loopMain
 
 start:
 
