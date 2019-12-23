@@ -13,7 +13,7 @@
 	cbi		PORTB,3
 	;nop								;on attent l'écran
 	ldi		reg_cpt3,250
-	;rcall	tempo
+	rcall	tempo
 	sbi		PORTB,3
 .endmacro
 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
@@ -40,6 +40,60 @@
 	out		PORTC,reg_screen
 	Enable[]
 .endmacro
+.macro CLR_RAM[]
+	ldi		reg_cpt1,0
+	ldi		reg_cpt2,0
+	ldi		reg_spi,0
+	ldi		XL,LOW(img)
+	ldi		XH,HIGH(img)
+loopCLR:
+	st		X,reg_spi
+	inc		XL
+	cpi		XL,0
+	brne	carry_clr
+	inc		XH
+carry_clr:
+
+	inc		reg_cpt1
+	cpi		reg_cpt1,0
+	brne	loopCLR
+
+	inc		reg_cpt2
+	cpi		reg_cpt2,4
+	brne	loopCLR
+.endmacro
+.macro createImgFull[]
+	ldi		reg_cpt1,0
+	ldi		reg_cpt2,0
+	ldi		XL,LOW(img)
+	ldi		XH,HIGH(img)
+loopImg:
+	rcall	Read_Mem					;lecture de la mémoire spi
+	st		X,reg_spi
+
+	inc		XL
+	cpi		XL,0
+	brne	addr_carry1
+	inc		XH
+addr_carry1:
+
+	inc		reg_addrL				;incrément de l'adresse LOW
+	cpi		reg_addrL,0
+	brne	addr_carry				;test du carry
+	inc		reg_addrH
+addr_carry:
+
+	;cpi		reg_cpt2,4
+	ldi		reg_cpt1,HIGH(img)
+	ldi		reg_cpt2,4
+	add		reg_cpt1,reg_cpt2
+	cp		XH,reg_cpt1
+	brne	loopImg
+	ldi		reg_cpt1,LOW(img)
+	cp		XL,reg_cpt1
+	brne	loopImg
+.endmacro
+
 
 SCREEN_Init:
 	sbi		PORTB,3					;set E and clear RS
@@ -59,7 +113,7 @@ tempo:
 
 ;full reg_addrL/H
 writeFullSreen:
-	screenL[]						;set side screen
+	screenR[]						;set side screen
 	ldi		reg_cpt2,0				;reset var
 	ldi		XL,LOW(img)
 	ldi		XH,HIGH(img)
@@ -128,7 +182,7 @@ loopAff:
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop1
 
-	screenR[]						;set side screen
+	screenL[]						;set side screen
 	ldi		reg_cpt2,0				;reset var
 loop3:
 	ldi		reg_cpt1,0
@@ -138,8 +192,16 @@ loop3:
 	SetPosX[]
 loop4:
 	;rcall Read_Mem					;lecture de la mémoire spi
-	ldi		reg_spi,5
-	mov		reg_screen,reg_spi
+	;ldi		reg_spi,5
+	ld		reg_screen,X
+	inc		XL
+	cpi		XL,0
+	brne	loopAff1
+	inc		XH
+loopAff1:
+
+
+	;mov		reg_screen,reg_spi
 	ScreenWrite[]					;écriture sur l'écran
 	inc		reg_addrL				;incrément de l'adresse LOW
 	cpi		reg_addrL,0
@@ -154,33 +216,6 @@ addr_carry2:
 	inc		reg_cpt2				;incrément du copteur 2
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop3
-	ret
-
-createImgFull:
-	ldi		reg_cpt1,0
-	ldi		reg_cpt2,0
-loopImg:
-	ldi		XL,LOW(img)
-	ldi		XH,HIGH(img)
-	add		XH,reg_cpt2
-	adc		XL,reg_cpt1
-	;rcall	Read_Mem					;lecture de la mémoire spi
-	st		X,reg_spi
-
-	inc		reg_cpt1
-	cpi		reg_cpt1,0
-	brne	addr_carry1
-	inc		reg_cpt2
-addr_carry1:
-
-	inc		reg_addrL				;incrément de l'adresse LOW
-	cpi		reg_addrL,0
-	brne	addr_carry				;test du carry
-	inc		reg_addrH
-addr_carry:
-
-	cpi		reg_cpt2,4
-	brne	loopImg
 	ret
 
 ;load reg_addrL, reg_addrH, reg_lettre

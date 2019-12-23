@@ -10,6 +10,45 @@
 ;.include "m16def.inc"
 ;.list 
 
+.equ C_A = 0
+.equ C_B = 5
+.equ C_C = 10
+.equ C_D = 15
+.equ C_E = 20
+.equ C_F = 25
+.equ C_G = 30
+.equ C_H = 35
+.equ C_I = 40
+.equ C_J = 45
+.equ C_K = 50
+.equ C_L = 55
+.equ C_M = 60
+.equ C_N = 65
+.equ C_O = 70
+.equ C_P = 75
+.equ C_Q = 80
+.equ C_R = 85
+.equ C_S = 90
+.equ C_T = 95
+.equ C_U = 100
+.equ C_V = 105
+.equ C_W = 110
+.equ C_X = 115
+.equ C_Y = 120
+.equ C_Z = 125
+.equ C_0 = 130
+.equ C_1 = 135
+.equ C_2 = 140
+.equ C_3 = 145
+.equ C_4 = 150
+.equ C_5 = 155
+.equ C_6 = 160
+.equ C_7 = 165
+.equ C_8 = 170
+.equ C_9 = 175
+.equ CHAR_SIZE = 6
+
+
 .def tri = r1						; TimerInterruptRegister.
 
 .def Init = r16
@@ -83,7 +122,7 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	;rcall	tempo
+	rcall	tempo
 
 
 	;ajout des programmes pour la gestion des modules
@@ -105,21 +144,49 @@ SCREEN_INC:
 	;sei
 
 	
-	/*ldi		reg_addrL,12
-	ldi		reg_addrH,0
-	ldi		reg_lettre,0
-	rcall	addImgChar
-	ldi		reg_addrL,6
-	ldi		reg_addrH,0
-	ldi		reg_lettre,5
-	rcall	addImgChar
+	
+
+	
+	;CLR_RAM[]
 	ldi		reg_addrL,0
 	ldi		reg_addrH,0
-	ldi		reg_lettre,10
-	rcall	addImgChar*/
+	createImgFull[]
+
+
 	ldi		reg_addrL,0
 	ldi		reg_addrH,0
-	rcall	createImgFull
+	ldi		reg_lettre,C_R
+	rcall	addImgChar
+
+	ldi		reg_addrL,CHAR_SIZE
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_U
+	rcall	addImgChar
+	
+	ldi		reg_addrL,CHAR_SIZE*2
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_O
+	rcall	addImgChar
+	
+	ldi		reg_addrL,CHAR_SIZE*3
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_J
+	rcall	addImgChar
+	
+	ldi		reg_addrL,CHAR_SIZE*4
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_N
+	rcall	addImgChar
+	
+	ldi		reg_addrL,CHAR_SIZE*5
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_O
+	rcall	addImgChar
+	
+	ldi		reg_addrL,CHAR_SIZE*6
+	ldi		reg_addrH,0
+	ldi		reg_lettre,C_B
+	rcall	addImgChar
 	
 	rcall	writeFullSreen
 
