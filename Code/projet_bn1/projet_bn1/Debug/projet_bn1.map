@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Mon Dec 23 20:12:41 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 23 21:44:02 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -702,7 +702,7 @@ CSEG SPI_INC      000000a7
 CSEG Wait_SPI     00000098
 CSEG Read_Mem     0000009c
 CSEG SCREEN_Init  000000a7
-CSEG SCREEN_INC   00000119
+CSEG SCREEN_INC   0000011b
 CSEG writeFullSreen 000000b5
 CSEG loop1        000000ba
 CSEG loop2        000000cd
@@ -712,9 +712,19 @@ CSEG loop4        000000f3
 CSEG loopAff1     000000f8
 CSEG addr_carry2  00000101
 CSEG addImgChar   00000108
-CSEG testAdd      0000010e
-CSEG testAdd1     00000115
-CSEG loopMain     0000011a
-CSEG loopCLR@CLR_RAM@1590 0000011f
-CSEG carry_clr@CLR_RAM@1590 00000124
-CSEG start        0000017e
+CSEG testAdd      00000110
+CSEG testAdd1     00000117
+CSEG loopMain     0000011c
+CSEG loopCLR@CLR_RAM@1724 00000121
+CSEG carry_clr@CLR_RAM@1724 00000126
+CSEG UP           00000187
+CSEG DOWN         0000018e
+CSEG END          00000179
+CSEG CHOIX        00000195
+CSEG testMain     00000182
+CSEG start        00000186
+CSEG GAME         0000019a
+CSEG RESEAU       0000019d
+CSEG MENTION      000001a0
+CSEG loopCLR@CLR_RAM@1922 000001a5
+CSEG carry_clr@CLR_RAM@1922 000001aa

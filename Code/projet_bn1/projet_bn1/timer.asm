@@ -24,7 +24,42 @@
 .macro b3n[]
 	sbic	PINA,4
 .endmacro
-
+.macro b4[]
+	sbis	PINA,5
+.endmacro
+.macro b4n[]
+	sbic	PINA,5
+.endmacro
+.macro b5[]
+	sbis	PINA,6
+.endmacro
+.macro b5n[]
+	sbic	PINA,6
+.endmacro
+.macro b6[]
+	sbis	PINA,7
+.endmacro
+.macro b6n[]
+	sbic	PINA,7
+.endmacro
+.macro b7[]
+	sbis	PIND,2
+.endmacro
+.macro b7n[]
+	sbic	PIND,2
+.endmacro
+.macro b8[]
+	sbis	PIND,3
+.endmacro
+.macro b8n[]
+	sbic	PIND,3
+.endmacro
+.macro b9[]
+	sbis	PIND,4
+.endmacro
+.macro b9n[]
+	sbic	PIND,4
+.endmacro
 
 TIMER_Init:
 	ldi		reg_vol,0

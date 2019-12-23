@@ -223,9 +223,11 @@ addImgChar:
 	ldi		XL,LOW(img)
 	ldi		XH,HIGH(img)
 	ldi		reg_cpt1,0
-	ldi		reg_cpt2,1
 	add		XH,reg_addrH
-	adc		XL,reg_addrL
+	add		XL,reg_addrL
+	cp		XL,reg_addrL
+	brsh	testAdd
+	inc		XH
 testAdd:
 	rcall	conv_lettre
 	st		X,reg_out
