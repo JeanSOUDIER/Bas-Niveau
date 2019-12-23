@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\projet_bn1\projet_bn1\main.asm Mon Dec 23 16:02:15 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\AssemblerApplication2\AssemblerApplication2\main.asm Mon Dec 23 13:43:30 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -604,64 +604,3 @@ EQU  INT2addr     00000024
 EQU  OC0addr      00000026
 EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
-DEF  tri          r1
-DEF  Init         r16
-DEF  reg_spi      r18
-DEF  reg_addrL    r19
-DEF  reg_addrH    r20
-DEF  reg_lettre   r18
-DEF  reg_out      r19
-DEF  reg_cpt1     r21
-DEF  reg_cpt2     r22
-DEF  reg_cpt3     r23
-DEF  reg_screen   r18
-DEF  reg_bt1      r24
-DEF  reg_vol      r25
-DEF  reg_son      r28
-DEF  reg_TX       r29
-DEF  reg_RX       r30
-DSEG img          00000060
-DSEG addrL        00000460
-DSEG addrH        00000461
-DSEG btL          00000462
-DSEG btH          00000463
-DSEG TX           00000464
-CSEG RESET        00000030
-CSEG TI_Interrupt 00000074
-CSEG UART_Interrupt 0000005c
-CSEG tempo        000000b9
-CSEG LETTRE_INC   0000003f
-CSEG conv_lettre  00000037
-CSEG IO_Init      0000003f
-CSEG IO_INC       00000048
-EQU  baud         00000067
-CSEG USART_Init   00000048
-CSEG UART_INC     00000060
-CSEG USART_Transmit 00000053
-CSEG ADC_Init     00000060
-CSEG ADC_INC      00000065
-CSEG TIMER_Init   00000065
-CSEG TIMER_INC    00000097
-CSEG BUZZ_OFF     00000091
-CSEG BUZZ_ON      00000087
-CSEG SPI_Init     00000097
-CSEG SPI_Transmit 0000009f
-CSEG SPI_INC      000000af
-CSEG Wait_SPI     000000a0
-CSEG Read_Mem     000000a4
-CSEG SCREEN_Init  000000af
-CSEG SCREEN_INC   00000133
-CSEG writeFullSreen 000000bd
-CSEG loop1        000000c2
-CSEG loop2        000000d5
-CSEG loopAff      000000da
-CSEG loop3        000000e8
-CSEG loop4        000000fb
-CSEG addr_carry2  00000106
-CSEG createImgFull 0000010d
-CSEG loopImg      00000115
-CSEG addr_carry   0000011f
-CSEG addImgChar   00000122
-CSEG testAdd      00000128
-CSEG testAdd1     0000012f
-CSEG start        0000013a

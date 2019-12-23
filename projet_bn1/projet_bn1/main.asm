@@ -12,6 +12,37 @@
 
 .def tri = r1						; TimerInterruptRegister.
 
+.def Init = r16
+
+.def reg_spi = r18
+.def reg_addrL = r19
+.def reg_addrH = r20
+
+.def reg_lettre = r18
+.def reg_out = r19
+
+.def reg_cpt1 = r21
+.def reg_cpt2 = r22
+.def reg_cpt3 = r23
+
+.def reg_screen = r18
+
+.def reg_bt1 = r24
+.def reg_vol = r25
+.def reg_son = r28
+
+.def reg_TX = r29
+.def reg_RX = r30
+
+
+.dseg
+img: .byte 1024	; reserve une image
+addrL: .byte 1  ;addr de départ
+addrH: .byte 1
+btL:   .byte 1
+btH:   .byte 1
+TX:    .byte 1
+
 .cseg  ; codesegment
 .org	0x00
    rjmp	RESET 
@@ -51,11 +82,13 @@ reset:								; adresse du vecteur de reset
 	ldi		r16,low(RAMEND)
 	out		SPL,r16
 
-	ldi		reg_cpt4,255
+	ldi		reg_cpt3,255
 	rcall	tempo
 
 
 	;ajout des programmes pour la gestion des modules
+	.include "lettre.asm"
+LETTRE_INC:
 	.include "io.asm"
 IO_INC:
 	.include "uart.asm"
@@ -71,77 +104,16 @@ SCREEN_INC:
 
 	;sei
 
+	
+	ldi		reg_addrL,5
+	ldi		reg_addrH,0
+	ldi		reg_lettre,0
+	rcall	createImgFull
+	rcall	addImgChar
 	rcall	writeFullSreen
+
+	sbi		PORTD,6
 
 start:
 
     rjmp	start
-
-
-    rjmp	start
-
-LED_OFFF:
-	cbi		PORTD,6
-	rjmp	start
-
-TEST_ADC:
-	in		reg_vol,ADCSRA
-	ori		reg_vol,(1<<ADSC)		;relance d'une conversion
-	out		ADCSRA,reg_vol
-	ldi		reg_cpt2,250
-	;rcall	tempo
-	ldi		reg_cpt2,250
-	;rcall	tempo
-	in		reg_vol,ADCH
-	sbrc	reg_vol,7
-	sbi		PORTD,6
-	sbrs	reg_vol,7
-	cbi		PORTD,6
-	ret
-
-TEST_BT:
-	in		reg_bt1,PINA				;on lit le port bouton
-	in		reg_bt2,PIND				;on lit le port bouton
-	andi	reg_bt1,0xFE				;on garde les boutons
-	andi	reg_bt2,0x1C
-	b9[]
-	sbi		PORTD,6
-	b9n[]
-	cbi		PORTD,6
-	ret
-
-TEST_LED:
-	sbic	PIND,6						;blink led
-	cbi		PORTD,6
-	sbis	PIND,6
-	sbi		PORTD,6
-	ldi		reg_cpt2,250                ;4 Hz
-	;rcall	tempo
-	ldi		reg_cpt2,250
-	;rcall	tempo
-	ldi		reg_cpt2,250
-	;rcall	tempo
-	ldi		reg_cpt2,250
-	;rcall	tempo
-	ret
-
-TEST_SPI:
-	ldi		reg_addr1,0
-	ldi		reg_addr2,0
-	rcall	Read_Mem
-	cpi		reg_spi,1
-	;brne	LED_OFFF
-	ldi		reg_addr1,0
-	ldi		reg_addr2,5
-	rcall	Read_Mem
-	cpi		reg_spi,2
-	;brne	LED_OFFF
-	sbi		PORTD,6
-	ret
-
-TEST_UART:
-	ldi		reg_TX,65
-	rcall	USART_Transmit
-	ldi		reg_cpt2,250
-	;rcall	tempo
-	ret

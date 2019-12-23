@@ -1,10 +1,5 @@
 ;use r28 and r29 and r30
 
-.def reg_cpt1 = r28
-.def reg_cpt2 = r29
-.def reg_screen = r30
-.def reg_cpt3 = r20
-.def reg_cpt4 = r23
 
 .macro screenL[]					;choix du côté de l'écran à gauche
 	sbi		PORTB,0
@@ -16,22 +11,22 @@
 .endmacro
 .macro Enable[]						;validation de la commande sur l'écran
 	cbi		PORTB,3
-	nop								;on attent l'écran
-	ldi		reg_cpt4,4
+	;nop								;on attent l'écran
+	ldi		reg_cpt3,250
 	rcall	tempo
 	sbi		PORTB,3
 .endmacro
 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
+	RS_clear[]
 	ori		reg_screen,0xB8
 	out		PORTC,reg_screen
-	RS_clear[]
 	Enable[]
 	RS_set[]
 .endmacro
 .macro SetPosY[]					;pos de 0 à 64 (auto)
+	RS_clear[]
 	ori		reg_screen,0x40
 	out		PORTC,reg_screen
-	RS_clear[]
 	Enable[]
 	RS_set[]
 .endmacro
@@ -53,26 +48,21 @@ SCREEN_Init:
 	out		PORTC,reg_screen
 	Enable[]						;validation
 	RS_set[]						;mode données
-	
 	rjmp	SCREEN_INC
 
 ; sous programme de temposirsation
 tempo:
-	ldi		reg_cpt3,255
-boucletempo:
 	dec		reg_cpt3
 	nop
-	brne	boucletempo
-	dec		reg_cpt4
 	brne	tempo
 	ret
 
-;full reg_addr1/2
+;full reg_addrL/H
 writeFullSreen:
 	screenL[]						;set side screen
 	ldi		reg_cpt2,0				;reset var
-	ldi		reg_addr1,0
-	ldi		reg_addr2,0
+	ldi		XL,LOW(img)
+	ldi		XH,HIGH(img)
 loop1:
 	ldi		reg_cpt1,0
 	ldi		reg_screen,0			;set pos Y = 0
@@ -80,14 +70,55 @@ loop1:
 	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 	SetPosX[]
 loop2:
-	rcall Read_Mem					;lecture de la mémoire spi
-	mov		reg_screen,reg_spi
+	;rcall Read_Mem					;lecture de la mémoire spi
+	;ldi		reg_spi,5
+
+
+
+	/*mov		reg_indice,reg_cpt1
+	andi	reg_indice,0x07
+	cpi		reg_indice,6
+	brlt	saut
+	ldi		reg_indice,11
+saut:
+	ldi		reg_lettre,0
+	rcall	conv_lettre
+	mov		reg_spi,reg_out*/
+	/*ldi		reg_lettre,5
+	ldi		reg_indice,0
+	cpi		reg_cpt1,0
+	breq	saut
+	ldi		reg_indice,1
+	cpi		reg_cpt1,1
+	breq	saut
+	ldi		reg_indice,2
+	cpi		reg_cpt1,2
+	breq	saut
+	ldi		reg_indice,3
+	cpi		reg_cpt1,3
+	breq	saut
+	ldi		reg_indice,4
+	cpi		reg_cpt1,4
+	breq	saut
+	ldi		reg_out,0
+	cpi		reg_cpt1,5
+	brsh	saut2
+saut:
+	rcall	conv_lettre
+	;mov		reg_out,reg_indice
+saut2:
+	mov		reg_spi,reg_out*/
+	
+
+
+	;mov		reg_screen,reg_spi
+	ld		reg_screen,X
+	inc		XL
+	cpi		XL,0
+	brne	loopAff
+	inc		XH
+loopAff:
 	ScreenWrite[]					;écriture sur l'écran
-	inc		reg_addr1				;incrément de l'adresse LOW
-	cpi		reg_addr1,0
-	brne	addr_carry1				;test du carry
-	inc		reg_addr2
-addr_carry1:
 
 	inc		reg_cpt1				;incrément du compteur 1
 	sbrs	reg_cpt1,6				;test de fin de boucle = 64
@@ -106,13 +137,14 @@ loop3:
 	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 	SetPosX[]
 loop4:
-	rcall Read_Mem					;lecture de la mémoire spi
+	;rcall Read_Mem					;lecture de la mémoire spi
+	ldi		reg_spi,5
 	mov		reg_screen,reg_spi
 	ScreenWrite[]					;écriture sur l'écran
-	inc		reg_addr1				;incrément de l'adresse LOW
-	cpi		reg_addr1,0
+	inc		reg_addrL				;incrément de l'adresse LOW
+	cpi		reg_addrL,0
 	brne	addr_carry2				;test du carry
-	inc		reg_addr2
+	inc		reg_addrH
 addr_carry2:
 
 	inc		reg_cpt1				;incrément du compteur 1
@@ -123,4 +155,49 @@ addr_carry2:
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop3
 	ret
-	
+
+createImgFull:
+	ldi		reg_cpt1,4
+	add		reg_cpt1,reg_addrH
+	sts		addrL,reg_addrL
+	sts		addrH,reg_cpt1
+	ldi		reg_addrL,0
+	ldi		reg_addrH,0
+loopImg:
+	ldi		XL,LOW(img)
+	ldi		XH,HIGH(img)
+	add		XL,reg_addrL
+	add		XH,reg_addrH
+	rcall	Read_Mem					;lecture de la mémoire spi
+	st		X,reg_spi
+
+	inc		reg_addrL				;incrément de l'adresse LOW
+	cpi		reg_addrL,0
+	brne	addr_carry				;test du carry
+	inc		reg_addrH
+addr_carry:
+	cpi		reg_addrH,4
+	brne	loopImg
+	ret
+
+;load reg_addrL, reg_addrH, reg_lettre
+addImgChar:
+	ldi		XL,LOW(img)
+	ldi		XH,HIGH(img)
+	ldi		reg_cpt1,0
+	ldi		reg_cpt2,1
+	add		XH,reg_addrH
+	adc		XL,reg_addrL
+testAdd:
+	rcall	conv_lettre
+	st		X,reg_out
+	inc		reg_lettre
+	inc		XL
+	cpi		XL,0
+	brne	testAdd1
+	inc		XH
+testAdd1:
+	inc		reg_cpt1
+	cpi		reg_cpt1,5
+	brne	testAdd
+	ret

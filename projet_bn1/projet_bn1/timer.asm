@@ -1,72 +1,5 @@
 ;use r20 and r21 and r23 and r24
 
-.def reg_bt1 = r20
-.def reg_bt2 = r21
-.def reg_vol = r23
-.def reg_son = r24
-
-.macro b0[]								;macro test bouton 0 vrai
- sbrc	reg_bt1,1
-.endmacro
-.macro b0n[]							;macro test bouton 0 faux
- sbrs	reg_bt1,1
-.endmacro
-.macro b1[]
- sbrc	reg_bt1,2
-.endmacro
-.macro b1n[]
- sbrs	reg_bt1,2
-.endmacro
-.macro b2[]
- sbrc	reg_bt1,3
-.endmacro
-.macro b2n[]
- sbrs	reg_bt1,3
-.endmacro
-.macro b3[]
- sbrc	reg_bt1,4
-.endmacro
-.macro b3n[]
- sbrs	reg_bt1,4
-.endmacro
-.macro b4[]
- sbrc	reg_bt1,5
-.endmacro
-.macro b4n[]
- sbrs	reg_bt1,5
-.endmacro
-.macro b5[]
- sbrc	reg_bt1,6
-.endmacro
-.macro b5n[]
- sbrs	reg_bt1,6
-.endmacro
-.macro b6[]
- sbrc	reg_bt1,7
-.endmacro
-.macro b6n[]
- sbrs	reg_bt1,7
-.endmacro
-.macro b7[]
- sbrc	reg_bt2,2
-.endmacro
-.macro b7n[]
- sbrs	reg_bt2,2
-.endmacro
-.macro b8[]
- sbrc	reg_bt2,3
-.endmacro
-.macro b8n[]
- sbrs	reg_bt2,3
-.endmacro
-.macro b9[]
- sbrc	reg_bt2,4
-.endmacro
-.macro b9n[]
- sbrs	reg_bt2,4
-.endmacro
-
-
 TIMER_Init:
 	ldi		reg_vol,0
 	ldi		reg_son,(1<<CS11)
@@ -89,9 +22,11 @@ TI_Interrupt:
 
 	;gestion des boutons
 	in		reg_bt1,PINA				;on lit le port bouton
-	in		reg_bt2,PIND				;on lit le port bouton
 	andi	reg_bt1,0xFE				;on garde les boutons
-	andi	reg_bt2,0x1C
+	sts		btL,reg_bt1					;on stocke le résultat
+	in		reg_bt1,PIND
+	andi	reg_bt1,0x1C
+	sts		btH,reg_bt1
 
 	sbic	PIND,6						;si buzzer on
 	rcall	BUZZ_OFF					;on met on
