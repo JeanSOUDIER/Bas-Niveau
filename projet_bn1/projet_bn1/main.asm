@@ -19,7 +19,7 @@
 .def reg_addrH = r20
 
 .def reg_lettre = r18
-.def reg_out = r19
+.def reg_out = r31
 
 .def reg_cpt1 = r21
 .def reg_cpt2 = r22
@@ -83,7 +83,7 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	rcall	tempo
+	;rcall	tempo
 
 
 	;ajout des programmes pour la gestion des modules
@@ -105,11 +105,22 @@ SCREEN_INC:
 	;sei
 
 	
-	ldi		reg_addrL,5
+	/*ldi		reg_addrL,12
 	ldi		reg_addrH,0
 	ldi		reg_lettre,0
-	rcall	createImgFull
 	rcall	addImgChar
+	ldi		reg_addrL,6
+	ldi		reg_addrH,0
+	ldi		reg_lettre,5
+	rcall	addImgChar
+	ldi		reg_addrL,0
+	ldi		reg_addrH,0
+	ldi		reg_lettre,10
+	rcall	addImgChar*/
+	ldi		reg_addrL,0
+	ldi		reg_addrH,0
+	rcall	createImgFull
+	
 	rcall	writeFullSreen
 
 	sbi		PORTD,6
