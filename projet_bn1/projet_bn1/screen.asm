@@ -13,7 +13,7 @@
 	cbi		PORTB,3
 	;nop								;on attent l'écran
 	ldi		reg_cpt3,250
-	rcall	tempo
+	;rcall	tempo
 	sbi		PORTB,3
 .endmacro
 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
@@ -157,26 +157,29 @@ addr_carry2:
 	ret
 
 createImgFull:
-	ldi		reg_cpt1,4
-	add		reg_cpt1,reg_addrH
-	sts		addrL,reg_addrL
-	sts		addrH,reg_cpt1
-	ldi		reg_addrL,0
-	ldi		reg_addrH,0
+	ldi		reg_cpt1,0
+	ldi		reg_cpt2,0
 loopImg:
 	ldi		XL,LOW(img)
 	ldi		XH,HIGH(img)
-	add		XL,reg_addrL
-	add		XH,reg_addrH
-	rcall	Read_Mem					;lecture de la mémoire spi
+	add		XH,reg_cpt2
+	adc		XL,reg_cpt1
+	;rcall	Read_Mem					;lecture de la mémoire spi
 	st		X,reg_spi
+
+	inc		reg_cpt1
+	cpi		reg_cpt1,0
+	brne	addr_carry1
+	inc		reg_cpt2
+addr_carry1:
 
 	inc		reg_addrL				;incrément de l'adresse LOW
 	cpi		reg_addrL,0
 	brne	addr_carry				;test du carry
 	inc		reg_addrH
 addr_carry:
-	cpi		reg_addrH,4
+
+	cpi		reg_cpt2,4
 	brne	loopImg
 	ret
 

@@ -5,27 +5,27 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000076  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000000ef  2**0
+  1 .data         00000000  00800060  00800060  000001e4  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .eeprom       00000005  00810000  00810000  000000ea  2**0
+  2 .eeprom       000000fa  00810000  00810000  000000ea  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .comment      00000030  00000000  00000000  000000ef  2**0
+  3 .comment      00000030  00000000  00000000  000001e4  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000120  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000214  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000020  00000000  00000000  0000015c  2**0
+  5 .debug_aranges 00000020  00000000  00000000  00000250  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000005d3  00000000  00000000  0000017c  2**0
+  6 .debug_info   000005d3  00000000  00000000  00000270  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000550  00000000  00000000  0000074f  2**0
+  7 .debug_abbrev 00000550  00000000  00000000  00000843  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000154  00000000  00000000  00000c9f  2**0
+  8 .debug_line   00000155  00000000  00000000  00000d93  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000024  00000000  00000000  00000df4  2**2
+  9 .debug_frame  00000024  00000000  00000000  00000ee8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000002f0  00000000  00000000  00000e18  2**0
+ 10 .debug_str    000002f0  00000000  00000000  00000f0c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000010  00000000  00000000  00001108  2**0
+ 11 .debug_ranges 00000010  00000000  00000000  000011fc  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -67,9 +67,9 @@ Disassembly of section .text:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000006c <main>:
-#include <avr/eeprom.h>
+		
 
-unsigned char eedata[] EEMEM = {0x3F,0x48,0x88,0x48,0x3F};
+};
 	
 int main(void) {
 }
