@@ -32,4 +32,3 @@ Read_Mem:
 	rcall	SPI_Transmit
 	sbi		PORTB,4									;set SS
 	ret
-

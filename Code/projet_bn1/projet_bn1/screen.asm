@@ -124,49 +124,7 @@ loop1:
 	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 	SetPosX[]
 loop2:
-	;rcall Read_Mem					;lecture de la mémoire spi
-	;ldi		reg_spi,5
-
-
-
-	/*mov		reg_indice,reg_cpt1
-	andi	reg_indice,0x07
-	cpi		reg_indice,6
-	brlt	saut
-	ldi		reg_indice,11
-saut:
-	ldi		reg_lettre,0
-	rcall	conv_lettre
-	mov		reg_spi,reg_out*/
-	/*ldi		reg_lettre,5
-	ldi		reg_indice,0
-	cpi		reg_cpt1,0
-	breq	saut
-	ldi		reg_indice,1
-	cpi		reg_cpt1,1
-	breq	saut
-	ldi		reg_indice,2
-	cpi		reg_cpt1,2
-	breq	saut
-	ldi		reg_indice,3
-	cpi		reg_cpt1,3
-	breq	saut
-	ldi		reg_indice,4
-	cpi		reg_cpt1,4
-	breq	saut
-	ldi		reg_out,0
-	cpi		reg_cpt1,5
-	brsh	saut2
-saut:
-	rcall	conv_lettre
-	;mov		reg_out,reg_indice
-saut2:
-	mov		reg_spi,reg_out*/
-	
-
-
-	;mov		reg_screen,reg_spi
-	ld		reg_screen,X
+	ld		reg_screen,X			;affichage de l'image dans la SRAM
 	inc		XL
 	cpi		XL,0
 	brne	loopAff
@@ -191,8 +149,6 @@ loop3:
 	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 	SetPosX[]
 loop4:
-	;rcall Read_Mem					;lecture de la mémoire spi
-	;ldi		reg_spi,5
 	ld		reg_screen,X
 	inc		XL
 	cpi		XL,0
@@ -220,17 +176,17 @@ addr_carry2:
 
 ;load reg_addrL, reg_addrH, reg_lettre
 addImgChar:
-	ldi		XL,LOW(img)
+	ldi		XL,LOW(img)				;initialisation de la l'addresse img
 	ldi		XH,HIGH(img)
 	ldi		reg_cpt1,0
-	add		XH,reg_addrH
+	add		XH,reg_addrH			;positionnement dans l'image
 	add		XL,reg_addrL
-	cp		XL,reg_addrL
+	cp		XL,reg_addrL			;test de carry
 	brsh	testAdd
 	inc		XH
 testAdd:
-	rcall	conv_lettre
-	st		X,reg_out
+	rcall	conv_lettre				;convertion de la lettre
+	st		X,reg_out				;stockage de lettre dans la mémoire SRAM
 	inc		reg_lettre
 	inc		XL
 	cpi		XL,0
@@ -238,6 +194,6 @@ testAdd:
 	inc		XH
 testAdd1:
 	inc		reg_cpt1
-	cpi		reg_cpt1,5
+	cpi		reg_cpt1,5				;un caractère fait 5 colonnes
 	brne	testAdd
 	ret

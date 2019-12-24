@@ -10,59 +10,6 @@
 ;.include "m16def.inc"
 ;.list 
 
-.equ C_A = 0
-.equ C_B = 5
-.equ C_C = 10
-.equ C_D = 15
-.equ C_E = 20
-.equ C_F = 25
-.equ C_G = 30
-.equ C_H = 35
-.equ C_I = 40
-.equ C_J = 45
-.equ C_K = 50
-.equ C_L = 55
-.equ C_M = 60
-.equ C_N = 65
-.equ C_O = 70
-.equ C_P = 75
-.equ C_Q = 80
-.equ C_R = 85
-.equ C_S = 90
-.equ C_T = 95
-.equ C_U = 100
-.equ C_V = 105
-.equ C_W = 110
-.equ C_X = 115
-.equ C_Y = 120
-.equ C_Z = 125
-.equ C_0 = 130
-.equ C_1 = 135
-.equ C_2 = 140
-.equ C_3 = 145
-.equ C_4 = 150
-.equ C_5 = 155
-.equ C_6 = 160
-.equ C_7 = 165
-.equ C_8 = 170
-.equ C_9 = 175
-.equ C_IN = 180
-.equ C_EX = 185
-.equ C_PT = 190
-.equ C_DA = 195
-.equ C_PAO = 200
-.equ C_PAF = 205
-.equ C_PL = 210
-.equ C_MO = 215
-.equ C_SL = 220
-.equ C_MUL = 225
-.equ C_DP = 230
-.equ C_EG = 235
-.equ C_# = 240
-.equ C_CH = 245
-.equ CHAR_SIZE = 6
-
-
 .def tri = r1						; TimerInterruptRegister.
 
 .def reg_init = r16
@@ -87,110 +34,8 @@
 .def reg_TX = r29
 .def reg_RX = r30
 
-.macro Fenetre_Debut[]
-	CLR_RAM[]
-
-	ldi		reg_addrL,CHAR_SIZE*16+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_J
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*15+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_O
-	rcall	addImgChar
-	
-	ldi		reg_addrL,CHAR_SIZE*14+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_U
-	rcall	addImgChar
-	
-	ldi		reg_addrL,CHAR_SIZE*13+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-	
-	ldi		reg_addrL,CHAR_SIZE*12+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_R
-	rcall	addImgChar
-	
-	ldi		reg_addrL,CHAR_SIZE*6
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_R
-	rcall	addImgChar
-	
-	ldi		reg_addrL,CHAR_SIZE*5
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_S
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*3
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*2
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_A
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_U
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*38
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_M
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*37
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*36
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_N
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*35
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_T
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*34
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_I
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*33
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_O
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*32
-	ldi		reg_addrH,2
-	ldi		reg_lettre,C_N
-	rcall	addImgChar
-
-.endmacro
-
-
 .dseg
 img: .byte 1024	; reserve une image
-addrL: .byte 1  ;addr de départ
-addrH: .byte 1
-btL:   .byte 1
-btH:   .byte 1
-TX:    .byte 1
-POS:   .byte 1
 
 .cseg  ; codesegment
 .org	0x00
@@ -250,57 +95,69 @@ TIMER_INC:
 SPI_INC:
 	.include "screen.asm"
 SCREEN_INC:
+	.include "char_array.asm"
 
-	;sei
+	sei
 
 
 
-	ldi		reg_init,0
+	ldi		reg_init,128
 
 loopMain:
-	
-	Fenetre_Debut[]
+	/*ldi		reg_TX,65
+	rcall	USART_Transmit
+	ldi		reg_cpt1,250
+loopTestMain:
+	ldi		reg_cpt3,255
+	rcall	tempo
+	dec		reg_cpt1
+	cpi		reg_cpt1,0
+	brne	loopTestMain
 
-	mov		reg_cpt2,reg_init
-	b3[]
+	cpi		reg_RX,65
+	brne	loopMain
+	sbi		PORTD,6
+
+	rjmp	loopMain*/
+	
+	Fenetre_Debut[]							;affichage des caractères de la page principale
+
+	mov		reg_cpt2,reg_init				;récupération de la position du curseur
+	b3[]									;test du bouton "vers le haut"
 	rjmp	UP
-	b1[]
+	b1[]									;test du bouton "vers le bas"
 	rjmp	DOWN
 END:
 	mov		reg_init,reg_cpt2
-	b5[]
-	rcall	CHOIX
+	b5[]									;test du bouton validation
+	rjmp	CHOIX
+END_CHOIX:
 
-
-	ldi		reg_addrL,CHAR_SIZE*39
-	add		reg_addrL,reg_cpt2
+	ldi		reg_addrL,CHAR_SIZE*39				;cursor
+	add		reg_addrL,reg_cpt2					;chargement de la position
 	ldi		reg_addrH,2
-	cp		reg_addrL,reg_cpt2
+	cp		reg_addrL,reg_cpt2					;test de carry
 	brsh	testMain
 	inc		reg_addrH
 testMain:
-	ldi		reg_lettre,C_CH
-	rcall	addImgChar
+	ldi		reg_lettre,C_CH						;chargement de la lettre ">"
+	rcall	addImgChar							;stockage de la lettre dans la mémoire
 	
-	rcall	writeFullSreen
+	rcall	writeFullSreen						;affichage de l'écran
 
-	rjmp	loopMain
-
-start:
-
-    rjmp	start
+	rjmp	loopMain							;boucle infini
 
 UP:
-	cpi		reg_cpt2,128
+	cpi		reg_cpt2,128						;test si on est tout en haut
 	breq	END
-	cpi		reg_cpt2,64
+	cpi		reg_cpt2,64							;test si on est au milieu
 	ldi		reg_cpt2,128
 	breq	END
 	ldi		reg_cpt2,64
 	rjmp	END
 
 DOWN:
-	cpi		reg_cpt2,0
+	cpi		reg_cpt2,0							;idem
 	breq	END
 	cpi		reg_cpt2,64
 	ldi		reg_cpt2,0
@@ -309,7 +166,7 @@ DOWN:
 	rjmp	END
 
 CHOIX:
-	cpi		reg_cpt2,128
+	cpi		reg_cpt2,128						;test du curseur pour éguiller la fonction
 	breq	GAME
 	cpi		reg_cpt2,64
 	breq	RESEAU
@@ -318,105 +175,84 @@ CHOIX:
 
 
 GAME:
-	b5[]
-	ret
-	rjmp	GAME
-
-RESEAU:
-	b5[]
-	ret
-	rjmp	RESEAU
-
-MENTION:
-	CLR_RAM[]
-
-	ldi		reg_addrL,CHAR_SIZE*16+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_J
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*15+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*14+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_A
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*13+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_N
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*12+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_PT
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*11+4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_S
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*6
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_A
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*5
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_L
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*3
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_X
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*2
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_A
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_N
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*10-2
-	ldi		reg_addrH,1
-	ldi		reg_lettre,C_D
-	rcall	addImgChar
-	
-	ldi		reg_addrL,CHAR_SIZE*9-2
-	ldi		reg_addrH,1
-	ldi		reg_lettre,C_R
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*8-2
-	ldi		reg_addrH,1
-	ldi		reg_lettre,C_E
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*7-2
-	ldi		reg_addrH,1
-	ldi		reg_lettre,C_PT
-	rcall	addImgChar
-
-	ldi		reg_addrL,CHAR_SIZE*6-2
-	ldi		reg_addrH,1
-	ldi		reg_lettre,C_T
-	rcall	addImgChar
+	ldi		reg_addrL,0
+	ldi		reg_addrH,0
+	createImgFull[]
 
 	rcall	writeFullSreen
 
 	b4[]
-	ret
+	rjmp	END_CHOIX
+	rjmp	GAME
+
+RESEAU:
+	CLR_RAM[]
+
+	ldi		reg_addrL,CHAR_SIZE*6
+	ldi		reg_addrH,3
+	ldi		reg_lettre,C_MUL
+	rcall	addImgChar
+
+	rcall	writeFullSreen
+
+	ldi		reg_TX,65								;ping en UART
+	rcall	USART_Transmit
+
+	ldi		reg_addrL,CHAR_SIZE*5
+	ldi		reg_addrH,3
+	ldi		reg_lettre,C_MUL
+	rcall	addImgChar
+
+	rcall	writeFullSreen
+
+	ldi		reg_cpt2,255
+
+loopReseau:											;tempo
+	ldi		reg_cpt3,255
+	rcall	tempo
+	dec		reg_cpt1
+	cpi		reg_cpt1,0
+	brne	loopReseau
+
+	ldi		reg_addrL,CHAR_SIZE*4
+	ldi		reg_addrH,3
+	ldi		reg_lettre,C_MUL
+	rcall	addImgChar
+
+	rcall	writeFullSreen
+
+loopReseau1:
+
+	sbrc	reg_init,1
+	rjmp	loopReseau3
+
+	cpi		reg_RX,65								;résultat du ping
+	brne	N_CONNECTED
+
+loopReseau3:
+
+	ldi		reg_init,2
+
+	CONNECTED[]
+
+loopReseau2:
+
+	rcall	writeFullSreen
+
+	b4[]
+	ldi		reg_init,128
+	b4[]
+	rjmp	END_CHOIX
+	rjmp	loopReseau1
+
+N_CONNECTED:
+	NO_CONNECTED[]
+
+	rjmp	loopReseau2
+
+MENTION:
+	MENTION_MA[]									;affichage des mentions
+
+	b4[]
+	rjmp	END_CHOIX
 	rjmp	MENTION

@@ -81,14 +81,6 @@ TIMER_Init:
 TI_Interrupt:
 	in		tri,SREG					; save content of flag reg.
 
-	;gestion des boutons
-	;in		reg_bt1,PINA				;on lit le port bouton
-	;andi	reg_bt1,0xFE				;on garde les boutons
-	;sts		btL,reg_bt1					;on stocke le résultat
-	;in		reg_bt1,PIND
-	;andi	reg_bt1,0x1C
-	;sts		btH,reg_bt1
-
 	sbic	PIND,6						;si buzzer on
 	rcall	BUZZ_OFF					;on met on
 	sbis	PIND,6						;sinon
