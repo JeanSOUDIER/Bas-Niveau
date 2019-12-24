@@ -63,7 +63,7 @@
 
 TIMER_Init:
 	ldi		reg_vol,0
-	ldi		reg_son,(1<<CS11)
+	ldi		reg_son,(1<<CS11)|(1<<CS10)
 	out		TCCR1A,reg_vol
 	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
 	in		reg_vol,TIFR				;clear flag
@@ -73,7 +73,7 @@ TIMER_Init:
 	ori		reg_vol,(1<<TOIE1)
 	out		TIMSK,reg_vol
 	ldi		reg_vol,100
-	ldi		reg_son,0
+	ldi		reg_son,10
 	out		TCNT1L,reg_vol				;on met le résultat dans le timer
 	out		TCNT1H,reg_son
 	rjmp	TIMER_INC

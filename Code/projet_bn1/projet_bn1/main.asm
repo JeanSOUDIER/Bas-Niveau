@@ -104,21 +104,6 @@ SCREEN_INC:
 	ldi		reg_init,128
 
 loopMain:
-	/*ldi		reg_TX,65
-	rcall	USART_Transmit
-	ldi		reg_cpt1,250
-loopTestMain:
-	ldi		reg_cpt3,255
-	rcall	tempo
-	dec		reg_cpt1
-	cpi		reg_cpt1,0
-	brne	loopTestMain
-
-	cpi		reg_RX,65
-	brne	loopMain
-	sbi		PORTD,6
-
-	rjmp	loopMain*/
 	
 	Fenetre_Debut[]							;affichage des caractères de la page principale
 
@@ -133,7 +118,7 @@ END:
 	rjmp	CHOIX
 END_CHOIX:
 
-	ldi		reg_addrL,CHAR_SIZE*39				;cursor
+	ldi		reg_addrL,CHAR_SIZE*40				;cursor
 	add		reg_addrL,reg_cpt2					;chargement de la position
 	ldi		reg_addrH,2
 	cp		reg_addrL,reg_cpt2					;test de carry

@@ -196,4 +196,9 @@ testAdd1:
 	inc		reg_cpt1
 	cpi		reg_cpt1,5				;un caractère fait 5 colonnes
 	brne	testAdd
+
+	ldi		reg_out,0
+	st		X,reg_out
+
+
 	ret

@@ -57,8 +57,8 @@ conv_lettre:
 	rjmp	conv_lettre
 
 	ldi		reg_out,0				;chargement de l'addresse du caractère
-	out		EEARH,reg_out
 	out		EEARL,reg_lettre
+	out		EEARH,reg_out
 	
 	sbi		EECR,EERE				;test de fin de lecture
 	in		reg_out,EEDR			;lecture

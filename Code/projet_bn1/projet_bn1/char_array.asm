@@ -1,92 +1,92 @@
 .macro Fenetre_Debut[]				;affichage de "JOUER / RESEAU / MENTION"
 	CLR_RAM[]
 
-	ldi		reg_addrL,CHAR_SIZE*16+4
+	ldi		reg_addrL,CHAR_SIZE*17+4
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_J
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*15+4
+	ldi		reg_addrL,CHAR_SIZE*16+4
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_O
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*14+4
+	ldi		reg_addrL,CHAR_SIZE*15+4
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_U
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*13+4
+	ldi		reg_addrL,CHAR_SIZE*14+3
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_E
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*12+4
+	ldi		reg_addrL,CHAR_SIZE*13+2
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_R
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*6
+	ldi		reg_addrL,CHAR_SIZE*7
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_R
 	rcall	addImgChar
 	
-	ldi		reg_addrL,CHAR_SIZE*5
+	ldi		reg_addrL,CHAR_SIZE*6-1
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_E
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*4
+	ldi		reg_addrL,CHAR_SIZE*5-2
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_S
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*3
+	ldi		reg_addrL,CHAR_SIZE*4-2
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_E
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*2
+	ldi		reg_addrL,CHAR_SIZE*3-3
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_A
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE
+	ldi		reg_addrL,CHAR_SIZE*2-3
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_U
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*38
+	ldi		reg_addrL,CHAR_SIZE*39
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_M
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*37
+	ldi		reg_addrL,CHAR_SIZE*38-1
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_E
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*36
+	ldi		reg_addrL,CHAR_SIZE*37-2
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_N
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*35
+	ldi		reg_addrL,CHAR_SIZE*36-3
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_T
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*34
+	ldi		reg_addrL,CHAR_SIZE*35-3
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_I
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*33
+	ldi		reg_addrL,CHAR_SIZE*34-3
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_O
 	rcall	addImgChar
 
-	ldi		reg_addrL,CHAR_SIZE*32
+	ldi		reg_addrL,CHAR_SIZE*33-3
 	ldi		reg_addrH,2
 	ldi		reg_lettre,C_N
 	rcall	addImgChar
