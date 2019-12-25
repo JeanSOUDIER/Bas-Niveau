@@ -14,6 +14,10 @@
 
 .def reg_init = r16
 
+.def reg_test1 = r15
+.def reg_test2 = r14
+.def reg_test3 = r13
+
 .def reg_spi = r18
 .def reg_addrL = r19
 .def reg_addrH = r20
@@ -238,6 +242,8 @@ N_CONNECTED:
 MENTION:
 	MENTION_MA[]									;affichage des mentions
 
+	b4[]
+	ldi		reg_init,128
 	b4[]
 	rjmp	END_CHOIX
 	rjmp	MENTION

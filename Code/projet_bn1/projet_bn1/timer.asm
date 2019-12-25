@@ -76,10 +76,24 @@ TIMER_Init:
 	ldi		reg_son,10
 	out		TCNT1L,reg_vol				;on met le résultat dans le timer
 	out		TCNT1H,reg_son
+
+	;ldi		reg_test1,0
+
 	rjmp	TIMER_INC
 
 TI_Interrupt:
 	in		tri,SREG					; save content of flag reg.
+
+	mov		reg_test2,reg_addrL
+	mov		reg_test3,reg_addrH
+	mov		reg_addrL,reg_test1
+	ldi		reg_addrH,0
+	rcall	Read_Mem
+	mov		reg_son,reg_spi
+	inc		reg_test1
+	mov		reg_addrL,reg_test2
+	mov		reg_addrH,reg_test3
+
 
 	sbic	PIND,6						;si buzzer on
 	rcall	BUZZ_OFF					;on met on
