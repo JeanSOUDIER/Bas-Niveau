@@ -1,0 +1,77 @@
+Une mémoire a une capacité de 32kbits = adresses de 0 à FFF
+Plan Mémoire:
+- Code éventuel de 0x00 à 0x7F
+- Images de 0x080 à 0x7FF
+- Map de 0x800 à 0xD0F
+
+Map:
+	Il y a 162 cases: adresse sur 8 bits (de 0 à 255)
+	Composition de la donnée:
+	n = adresse de l'image selon la vue, de 0 à 7, 4 fois (12 bits)
+	Cm = conditions de mouvement (4 bits, NOSE: N=Nord, O=Ouest, S=Sud, E=Est)
+	NN: adresse si on va au Nord (8 bits)
+	OO: adresse si on va à l'Ouest (8 bits)
+	SS: adresse si on va au Sud (8 bits)
+	EE: adresse si on va à l'Est (8 bits)
+	adresse du joueur (2x 5 bits = 10 bits)
+	TOTAL d'une case: 12+4+32+10 = 58 bits = 8 octets
+		1 à 4:	adresses
+		5:	conditions de mouvement + début adresses images
+		6:	fin adresses images
+		7:	adresse joueur x
+		8:	adresse joueur y
+	TOTAL de la Map: 1 296 octets (de 0x0 à 50F)
+
+IMAGES:
+taille = 128 octets (soit 1024 bits), soit 0x80
+Adresse d'une image: de 80 à 800 par pas de 80
+Si personnage adverse: adresse image = +400
+Sans personnage
+80
+100
+180
+200
+280
+300
+380
+400
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Data nécessaire dans le programme
+Orientation: 2 bits
+	Nord = 00
+	Ouest = 01
+	Sud = 10
+	Est = 11
+Position joueur adverse (xA, yA): 10 bits
+Adresse actuelle de la map: 8 bits
+
+TOTAL: 20 bits
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Code
+Détermination de l'adresse de l'image (en Hexadécimal):
+	prendre n
+	Rajouter 1
+	Faire fois 8
+	Rajouter 40 s'il faut afficher le personnage (si (xA=+1 & orientation=11)|(xA=-1 & orientation=01)|(yA=+1 & orientation=00)|(yA=-1 & orientation=10) )  
+	Faire fois 10 (décaler de 4)
+
+Donnés envoyées par bluetooth: x, y, vie/mort
+Données reçues par bluetooth: xA, yA, vie/mort
+
+BOUTONS:
+A		attaquer
+	Vérifier position du personnage adverse, (xA=+1 & orientation=11)|(xA=-1 & orientation=01)|(yA=+1 & orientation=00)|(yA=-1 & orientation=10)
+	Si Result = 1: signal de mort
+	Sinon, nada
+B/L/R		nada
+Croix-Haut	avancer
+	Vérifier possibilité de la direction
+	Si Result = 1, avancer (prochaine adresse de la map est la data dans : adresse actuelle + orientation)
+	Sinon, nada
+Croix-Bas	reculer
+	Vérifier possibilité de la direction
+	Si Result = 1, reculer
+	Sinon, nada
+Croix-Droite	tourner à droite:	Orientation -=1
+Croix-Gauche	tourner à gauche:	Orientation +=1
