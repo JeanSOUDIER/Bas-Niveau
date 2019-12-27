@@ -2,10 +2,10 @@ Une mémoire a une capacité de 32kbits = adresses de 0 à FFF
 Plan Mémoire:
 - Code éventuel de 0x00 à 0x7F
 - Images de 0x080 à 0x7FF
-- Map de 0x800 à 0xD0F
+- Map de 0x800 à 0xD9F
 
 Map:
-	Il y a 162 cases: adresse sur 8 bits (de 0 à 255)
+	Il y a 180 cases: adresse sur 8 bits (de 0 à 255)
 	Composition de la donnée:
 	n = adresse de l'image selon la vue, de 0 à 7, 4 fois (12 bits)
 	Cm = conditions de mouvement (4 bits, NOSE: N=Nord, O=Ouest, S=Sud, E=Est)
@@ -20,7 +20,7 @@ Map:
 		6:	fin adresses images
 		7:	adresse joueur x
 		8:	adresse joueur y
-	TOTAL de la Map: 1 296 octets (de 0x0 à 50F)
+	TOTAL de la Map: 1 440 octets (de 0x0 à 59F)
 
 IMAGES:
 taille = 128 octets (soit 1024 bits), soit 0x80
