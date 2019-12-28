@@ -1,40 +1,59 @@
 Une mémoire a une capacité de 32kbits = adresses de 0 à FFF
 Plan Mémoire:
 - Code éventuel de 0x00 à 0x7F
-- Images de 0x080 à 0x7FF
-- Map de 0x800 à 0xD9F
+- Images de 0x080 à 0x8FF
+- Map de 0x900 à 0xEAF
 
 Map:
-	Il y a 180 cases: adresse sur 8 bits (de 0 à 255)
+	Il y a 182 cases: adresse sur 8 bits (de 0 à 255)
 	Composition de la donnée:
-	n = adresse de l'image selon la vue, de 0 à 7, 4 fois (12 bits)
-	Cm = conditions de mouvement (4 bits, NOSE: N=Nord, O=Ouest, S=Sud, E=Est)
 	NN: adresse si on va au Nord (8 bits)
 	OO: adresse si on va à l'Ouest (8 bits)
 	SS: adresse si on va au Sud (8 bits)
 	EE: adresse si on va à l'Est (8 bits)
+	n = adresse de l'image selon la vue, de 0 à 8, 4 fois (16 bits)
+		Très proche			8
+		Proche				0
+		Loin				1
+		Proche + Droite			2
+		Loin + Droite			3
+		Proche + Gauche			4
+		Loin + Gauche			5
+		Proche + Gauche + Droite	6
+		Loin + Gauche + Droite		7
 	adresse du joueur (2x 5 bits = 10 bits)
-	TOTAL d'une case: 12+4+32+10 = 58 bits = 8 octets
-		1 à 4:	adresses
-		5:	conditions de mouvement + début adresses images
-		6:	fin adresses images
-		7:	adresse joueur x
-		8:	adresse joueur y
-	TOTAL de la Map: 1 440 octets (de 0x0 à 59F)
+	TOTAL d'une case: 32+16+10 = 58 bits = 8 octets
+		1 à 4:	adresses voisines
+		5:	adresses images Nord et Ouest
+		6:	adresses images Sud et Est
+		7:	adresse joueur x (0b000xxxxx)
+		8:	adresse joueur y (0b000yyyyy)
+	TOTAL de la Map: 1 456 octets (de 0x0 à 5AF)
 
 IMAGES:
 taille = 128 octets (soit 1024 bits), soit 0x80
 Adresse d'une image: de 80 à 800 par pas de 80
 Si personnage adverse: adresse image = +400
+Mur très proche
+	80
 Sans personnage
-80
-100
-180
-200
-280
-300
-380
-400
+	100
+	180
+	200
+	280
+	300
+	380
+	400
+	480
+Avec personnage:
+	500
+	580
+	600
+	680
+	700
+	780
+	800
+	880
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Data nécessaire dans le programme
 Orientation: 2 bits
