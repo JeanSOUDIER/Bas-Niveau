@@ -1,30 +1,30 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Dec 25 19:52:34 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Dec 29 16:37:40 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(25): warning: Register r18 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(26): warning: Register r31 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(32): warning: Register r18 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(36): warning: Register r28 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(38): warning: Register r29 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(39): warning: Register r30 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(88): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(92): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(94): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(96): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(98): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(100): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(102): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(25): warning: Register r18 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(26): warning: Register r31 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(32): warning: Register r18 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(36): warning: Register r28 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(38): warning: Register r29 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(39): warning: Register r30 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(88): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(92): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(94): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(96): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(98): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(100): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(102): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(88): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(92): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(94): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(96): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(98): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(100): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(102): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(88): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(92): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(94): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(96): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(98): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(100): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(102): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
                                  
                                  ;
                                  
@@ -1818,451 +1818,212 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(102): Including 
                                  
 000121 9478                      	sei
                                  
+000122 e830                      	ldi		reg_addrL,0x80
+000123 e040                      	ldi		reg_addrH,0
+000124 e050
+000125 e060
+000126 e6a0
+000127 e0b0
+000128 df77
+000129 932c
+00012a 95a3
+00012b 30a0
+00012c f409
+00012d 95b3
+00012e 9533
+00012f 3030
+000130 f409
+000131 9543
+000132 e050
+000133 e064
+000134 0f56
+000135 17b5
+000136 f789
+000137 e650
+000138 17a5
+000139 f771                      	createImgFull[]
+00013a df7e                      	rcall	writeFullSreen
                                  
                                  
-000122 e800                      	ldi		reg_init,128
+                                 start:
+00013b 9bcd                      	b4[]
+00013c d001                      	rcall	NEW_IMAGE
+00013d cffd                      	rjmp	start
+                                 
+                                 NEW_IMAGE:
+00013e e8a0                      	ldi		r26,0x80
+00013f 1f3a                      	adc		reg_addrL,r26
+000140 3030                      	cpi		reg_addrL,0
+000141 9543                      	inc		reg_addrH
+000142 e050
+000143 e060
+000144 e6a0
+000145 e0b0
+000146 df59
+000147 932c
+000148 95a3
+000149 30a0
+00014a f409
+00014b 95b3
+00014c 9533
+00014d 3030
+00014e f409
+00014f 9543
+000150 e050
+000151 e064
+000152 0f56
+000153 17b5
+000154 f789
+000155 e650
+000156 17a5
+000157 f771                      	createImgFull[]
+000158 df60                      	rcall	writeFullSreen
+000159 9508                      	ret
+                                 
+                                 
+                                 
+                                 	/*ldi		reg_init,128
                                  
                                  loopMain:
                                  	
-000123 e050
-000124 e060
-000125 e020
-000126 e6a0
-000127 e0b0
-000128 932c
-000129 95a3
-00012a 30a0
-00012b f409
-00012c 95b3
-00012d 9553
-00012e 3050
-00012f f7c1
-000130 9563
-000131 3064
-000132 f7a9
-000133 e63a
-000134 e043
-000135 e22d
-000136 dfd5
-000137 e634
-000138 e043
-000139 e426
-00013a dfd1
-00013b e53e
-00013c e043
-00013d e624
-00013e dfcd
-00013f e537
-000140 e043
-000141 e124
-000142 dfc9
-000143 e530
-000144 e043
-000145 e525
-000146 dfc5
-000147 e23a
-000148 e043
-000149 e525
-00014a dfc1
-00014b e233
-00014c e043
-00014d e124
-00014e dfbd
-00014f e13c
-000150 e043
-000151 e52a
-000152 dfb9
-000153 e136
-000154 e043
-000155 e124
-000156 dfb5
-000157 e03f
-000158 e043
-000159 e020
-00015a dfb1
-00015b e039
-00015c e043
-00015d e624
-00015e dfad
-00015f ee3a
-000160 e042
-000161 e32c
-000162 dfa9
-000163 ee33
-000164 e042
-000165 e124
-000166 dfa5
-000167 ed3c
-000168 e042
-000169 e421
-00016a dfa1
-00016b ed35
-00016c e042
-00016d e52f
-00016e df9d
-00016f ec3f
-000170 e042
-000171 e228
-000172 df99
-000173 ec39
-000174 e042
-000175 e426
-000176 df95
-000177 ec33
-000178 e042
-000179 e421
-00017a df91                      	Fenetre_Debut[]							;affichage des caractères de la page principale
+                                 	Fenetre_Debut[]							;affichage des caractères de la page principale
                                  
-00017b 2f60                      	mov		reg_cpt2,reg_init				;récupération de la position du curseur
-00017c 9bcc                      	b3[]									;test du bouton "vers le haut"
-00017d c00f                      	rjmp	UP
-00017e 9bca                      	b1[]									;test du bouton "vers le bas"
-00017f c014                      	rjmp	DOWN
+                                 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
+                                 	b3[]									;test du bouton "vers le haut"
+                                 	rjmp	UP
+                                 	b1[]									;test du bouton "vers le bas"
+                                 	rjmp	DOWN
                                  END:
-000180 2f06                      	mov		reg_init,reg_cpt2
-000181 9bce                      	b5[]									;test du bouton validation
-000182 c018                      	rjmp	CHOIX
+                                 	mov		reg_init,reg_cpt2
+                                 	b5[]									;test du bouton validation
+                                 	rjmp	CHOIX
                                  END_CHOIX:
                                  
-000183 ef30                      	ldi		reg_addrL,CHAR_SIZE*40				;cursor
-000184 0f36                      	add		reg_addrL,reg_cpt2					;chargement de la position
-000185 e042                      	ldi		reg_addrH,2
-000186 1736                      	cp		reg_addrL,reg_cpt2					;test de carry
-000187 f408                      	brsh	testMain
-000188 9543                      	inc		reg_addrH
+                                 	ldi		reg_addrL,CHAR_SIZE*40				;cursor
+                                 	add		reg_addrL,reg_cpt2					;chargement de la position
+                                 	ldi		reg_addrH,2
+                                 	cp		reg_addrL,reg_cpt2					;test de carry
+                                 	brsh	testMain
+                                 	inc		reg_addrH
                                  testMain:
-000189 ef25                      	ldi		reg_lettre,C_CH						;chargement de la lettre ">"
-00018a df81                      	rcall	addImgChar							;stockage de la lettre dans la mémoire
+                                 	ldi		reg_lettre,C_CH						;chargement de la lettre ">"
+                                 	rcall	addImgChar							;stockage de la lettre dans la mémoire
                                  	
-00018b df2d                      	rcall	writeFullSreen						;affichage de l'écran
+                                 	rcall	writeFullSreen						;affichage de l'écran
                                  
-00018c cf96                      	rjmp	loopMain							;boucle infini
+                                 	rjmp	loopMain							;boucle infini
                                  
                                  UP:
-00018d 3860                      	cpi		reg_cpt2,128						;test si on est tout en haut
-00018e f389                      	breq	END
-00018f 3460                      	cpi		reg_cpt2,64							;test si on est au milieu
-000190 e860                      	ldi		reg_cpt2,128
-000191 f371                      	breq	END
-000192 e460                      	ldi		reg_cpt2,64
-000193 cfec                      	rjmp	END
+                                 	cpi		reg_cpt2,128						;test si on est tout en haut
+                                 	breq	END
+                                 	cpi		reg_cpt2,64							;test si on est au milieu
+                                 	ldi		reg_cpt2,128
+                                 	breq	END
+                                 	ldi		reg_cpt2,64
+                                 	rjmp	END
                                  
                                  DOWN:
-000194 3060                      	cpi		reg_cpt2,0							;idem
-000195 f351                      	breq	END
-000196 3460                      	cpi		reg_cpt2,64
-000197 e060                      	ldi		reg_cpt2,0
-000198 f339                      	breq	END
-000199 e460                      	ldi		reg_cpt2,64
-00019a cfe5                      	rjmp	END
+                                 	cpi		reg_cpt2,0							;idem
+                                 	breq	END
+                                 	cpi		reg_cpt2,64
+                                 	ldi		reg_cpt2,0
+                                 	breq	END
+                                 	ldi		reg_cpt2,64
+                                 	rjmp	END
                                  
                                  CHOIX:
-00019b 3860                      	cpi		reg_cpt2,128						;test du curseur pour éguiller la fonction
-00019c f019                      	breq	GAME
-00019d 3460                      	cpi		reg_cpt2,64
-00019e f0e9                      	breq	RESEAU
-00019f c0af                      	rjmp	MENTION
+                                 	cpi		reg_cpt2,128						;test du curseur pour éguiller la fonction
+                                 	breq	GAME
+                                 	cpi		reg_cpt2,64
+                                 	breq	RESEAU
+                                 	rjmp	MENTION
                                  
                                  
                                  
                                  GAME:
-0001a0 e030                      	ldi		reg_addrL,0
-0001a1 e040                      	ldi		reg_addrH,0
-0001a2 e050
-0001a3 e060
-0001a4 e6a0
-0001a5 e0b0
-0001a6 def9
-0001a7 932c
-0001a8 95a3
-0001a9 30a0
-0001aa f409
-0001ab 95b3
-0001ac 9533
-0001ad 3030
-0001ae f409
-0001af 9543
-0001b0 e050
-0001b1 e064
-0001b2 0f56
-0001b3 17b5
-0001b4 f789
-0001b5 e650
-0001b6 17a5
-0001b7 f771                      	createImgFull[]
+                                 	ldi		reg_addrL,0
+                                 	ldi		reg_addrH,0
+                                 	createImgFull[]
                                  
-0001b8 df00                      	rcall	writeFullSreen
+                                 	rcall	writeFullSreen
                                  
-0001b9 9bcd                      	b4[]
-0001ba cfc8                      	rjmp	END_CHOIX
-0001bb cfe4                      	rjmp	GAME
+                                 	b4[]
+                                 	rjmp	END_CHOIX
+                                 	rjmp	GAME
                                  
                                  RESEAU:
-0001bc e050
-0001bd e060
-0001be e020
-0001bf e6a0
-0001c0 e0b0
-0001c1 932c
-0001c2 95a3
-0001c3 30a0
-0001c4 f409
-0001c5 95b3
-0001c6 9553
-0001c7 3050
-0001c8 f7c1
-0001c9 9563
-0001ca 3064
-0001cb f7a9                      	CLR_RAM[]
+                                 	CLR_RAM[]
                                  
-0001cc e234                      	ldi		reg_addrL,CHAR_SIZE*6
-0001cd e043                      	ldi		reg_addrH,3
-0001ce ee21                      	ldi		reg_lettre,C_MUL
-0001cf df3c                      	rcall	addImgChar
+                                 	ldi		reg_addrL,CHAR_SIZE*6
+                                 	ldi		reg_addrH,3
+                                 	ldi		reg_lettre,C_MUL
+                                 	rcall	addImgChar
                                  
-0001d0 dee8                      	rcall	writeFullSreen
+                                 	rcall	writeFullSreen
                                  
-0001d1 e4d1                      	ldi		reg_TX,65								;ping en UART
-0001d2 de80                      	rcall	USART_Transmit
+                                 	ldi		reg_TX,65								;ping en UART
+                                 	rcall	USART_Transmit
                                  
-0001d3 e13e                      	ldi		reg_addrL,CHAR_SIZE*5
-0001d4 e043                      	ldi		reg_addrH,3
-0001d5 ee21                      	ldi		reg_lettre,C_MUL
-0001d6 df35                      	rcall	addImgChar
+                                 	ldi		reg_addrL,CHAR_SIZE*5
+                                 	ldi		reg_addrH,3
+                                 	ldi		reg_lettre,C_MUL
+                                 	rcall	addImgChar
                                  
-0001d7 dee1                      	rcall	writeFullSreen
+                                 	rcall	writeFullSreen
                                  
-0001d8 ef6f                      	ldi		reg_cpt2,255
+                                 	ldi		reg_cpt2,255
                                  
                                  loopReseau:											;tempo
-0001d9 ef7f                      	ldi		reg_cpt3,255
-0001da deda                      	rcall	tempo
-0001db 955a                      	dec		reg_cpt1
-0001dc 3050                      	cpi		reg_cpt1,0
-0001dd f7d9                      	brne	loopReseau
+                                 	ldi		reg_cpt3,255
+                                 	rcall	tempo
+                                 	dec		reg_cpt1
+                                 	cpi		reg_cpt1,0
+                                 	brne	loopReseau
                                  
-0001de e138                      	ldi		reg_addrL,CHAR_SIZE*4
-0001df e043                      	ldi		reg_addrH,3
-0001e0 ee21                      	ldi		reg_lettre,C_MUL
-0001e1 df2a                      	rcall	addImgChar
+                                 	ldi		reg_addrL,CHAR_SIZE*4
+                                 	ldi		reg_addrH,3
+                                 	ldi		reg_lettre,C_MUL
+                                 	rcall	addImgChar
                                  
-0001e2 ded6                      	rcall	writeFullSreen
+                                 	rcall	writeFullSreen
                                  
                                  loopReseau1:
                                  
-0001e3 fd01                      	sbrc	reg_init,1
-0001e4 c002                      	rjmp	loopReseau3
+                                 	sbrc	reg_init,1
+                                 	rjmp	loopReseau3
                                  
-0001e5 34e1                      	cpi		reg_RX,65								;résultat du ping
-0001e6 f5b9                      	brne	N_CONNECTED
+                                 	cpi		reg_RX,65								;résultat du ping
+                                 	brne	N_CONNECTED
                                  
                                  loopReseau3:
                                  
-0001e7 e002                      	ldi		reg_init,2
+                                 	ldi		reg_init,2
                                  
-0001e8 e050
-0001e9 e060
-0001ea e020
-0001eb e6a0
-0001ec e0b0
-0001ed 932c
-0001ee 95a3
-0001ef 30a0
-0001f0 f409
-0001f1 95b3
-0001f2 9553
-0001f3 3050
-0001f4 f7c1
-0001f5 9563
-0001f6 3064
-0001f7 f7a9
-0001f8 e234
-0001f9 e043
-0001fa e02a
-0001fb df10
-0001fc e13e
-0001fd e043
-0001fe e426
-0001ff df0c
-000200 e138
-000201 e043
-000202 e421
-000203 df08
-000204 e132
-000205 e043
-000206 e421
-000207 df04
-000208 e03c
-000209 e043
-00020a e124
-00020b df00
-00020c e036
-00020d e043
-00020e e02a
-00020f defc
-000210 e030
-000211 e043
-000212 e52f
-000213 def8
-000214 e33a
-000215 e041
-000216 e124
-000217 def4                      	CONNECTED[]
+                                 	CONNECTED[]
                                  
                                  loopReseau2:
                                  
-000218 dea0                      	rcall	writeFullSreen
+                                 	rcall	writeFullSreen
                                  
-000219 9bcd                      	b4[]
-00021a e800                      	ldi		reg_init,128
-00021b 9bcd                      	b4[]
-00021c cf66                      	rjmp	END_CHOIX
-00021d cfc5                      	rjmp	loopReseau1
+                                 	b4[]
+                                 	ldi		reg_init,128
+                                 	b4[]
+                                 	rjmp	END_CHOIX
+                                 	rjmp	loopReseau1
                                  
                                  N_CONNECTED:
-00021e e234
-00021f e043
-000220 e421
-000221 deea
-000222 e13e
-000223 e043
-000224 e426
-000225 dee6
-000226 e138
-000227 e043
-000228 e421
-000229 dee2
-00022a e132
-00022b e043
-00022c eb2e
-00022d dede
-00022e e03c
-00022f e043
-000230 e02a
-000231 deda
-000232 e036
-000233 e043
-000234 e426
-000235 ded6
-000236 e030
-000237 e043
-000238 e421
-000239 ded2
-00023a e33a
-00023b e041
-00023c e421
-00023d dece
-00023e e334
-00023f e041
-000240 e124
-000241 deca
-000242 e23e
-000243 e041
-000244 e02a
-000245 dec6
-000246 e238
-000247 e041
-000248 e52f
-000249 dec2
-00024a e232
-00024b e041
-00024c e124
-00024d debe                      	NO_CONNECTED[]
+                                 	NO_CONNECTED[]
                                  
-00024e cfc9                      	rjmp	loopReseau2
+                                 	rjmp	loopReseau2
                                  
                                  MENTION:
-00024f e050
-000250 e060
-000251 e020
-000252 e6a0
-000253 e0b0
-000254 932c
-000255 95a3
-000256 30a0
-000257 f409
-000258 95b3
-000259 9553
-00025a 3050
-00025b f7c1
-00025c 9563
-00025d 3064
-00025e f7a9
-00025f e634
-000260 e043
-000261 e22d
-000262 dea9
-000263 e53e
-000264 e043
-000265 e124
-000266 dea5
-000267 e538
-000268 e043
-000269 e020
-00026a dea1
-00026b e532
-00026c e043
-00026d e421
-00026e de9d
-00026f e43c
-000270 e043
-000271 eb2e
-000272 de99
-000273 e436
-000274 e043
-000275 e52a
-000276 de95
-000277 e234
-000278 e043
-000279 e020
-00027a de91
-00027b e13e
-00027c e043
-00027d e327
-00027e de8d
-00027f e138
-000280 e043
-000281 e124
-000282 de89
-000283 e132
-000284 e043
-000285 e723
-000286 de85
-000287 e03c
-000288 e043
-000289 e020
-00028a de81
-00028b e036
-00028c e043
-00028d e421
-00028e de7d
-00028f e030
-000290 e043
-000291 e02f
-000292 de79
-000293 e33a
-000294 e041
-000295 e525
-000296 de75
-000297 e334
-000298 e041
-000299 e124
-00029a de71
-00029b e23e
-00029c e041
-00029d eb2e
-00029e de6d
-00029f e238
-0002a0 e041
-0002a1 e52f
-0002a2 de69
-0002a3 de15                      	MENTION_MA[]									;affichage des mentions
+                                 	MENTION_MA[]									;affichage des mentions
                                  
-0002a4 9bcd                      	b4[]
-0002a5 e800                      	ldi		reg_init,128
-0002a6 9bcd                      	b4[]
-0002a7 cedb                      	rjmp	END_CHOIX
-0002a8 cfa6                      	rjmp	MENTION
+                                 	b4[]
+                                 	ldi		reg_init,128
+                                 	b4[]
+                                 	rjmp	END_CHOIX
+                                 	rjmp	MENTION*/
 
 
 RESOURCE USE INFORMATION
@@ -2280,39 +2041,39 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega16A" register use summary:
-x  :   9 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
+x  :   6 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   2 r14:   2 r15:   2 r16:  23 r17:   0 r18:  98 r19:  72 r20:  68 
-r21:  29 r22:  38 r23:  10 r24:   0 r25:  18 r26:  26 r27:  18 r28:  10 
-r29:  12 r30:   2 r31:   6 
+r13:   2 r14:   2 r15:   2 r16:  16 r17:   0 r18:  32 r19:  15 r20:  10 
+r21:  21 r22:  14 r23:   9 r24:   0 r25:  18 r26:  20 r27:  13 r28:  10 
+r29:  11 r30:   1 r31:   6 
 Registers used: 20 out of 35 (57.1%)
 
 "ATmega16A" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   4 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   1 add   :   4 adiw  :   0 and   :   0 
 andi  :   1 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   6 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :  24 brpl  :   0 brsh  :   2 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :  14 brpl  :   0 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  18 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   4 cpc   :   0 
-cpi   :  27 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   9 inc   :  37 jmp   :   2 
-ld    :   2 ldd   :   0 ldi   : 261 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :  12 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   5 cpc   :   0 
+cpi   :  10 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   9 inc   :  25 jmp   :   2 
+ld    :   2 ldd   :   0 ldi   :  61 lds   :   0 lpm   :   0 lsl   :   0 
+lsr   :   0 mov   :  10 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   1 or    :   0 ori   :   6 out   :  38 pop   :   0 
-push  :   0 rcall :  86 ret   :   9 reti  :   2 rjmp  :  30 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   3 sbis  :  12 
-sbiw  :   0 sbr   :   0 sbrc  :   1 sbrs  :   4 sec   :   0 seh   :   0 
+push  :   0 rcall :  22 ret   :  10 reti  :   2 rjmp  :  16 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   3 sbis  :   5 
+sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   4 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   7 std   :   0 sts   :   0 
+sez   :   0 sleep :   0 spm   :   0 st    :   4 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 32 out of 113 (28.3%)
+Instructions used: 31 out of 113 (27.4%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000552   1276      0   1276   16384   7.8%
+[.cseg] 0x000000 0x0002b4    606      0    606   16384   3.7%
 [.dseg] 0x000060 0x000460      0   1024   1024    1024 100.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

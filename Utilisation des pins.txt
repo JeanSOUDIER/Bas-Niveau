@@ -48,3 +48,11 @@ Connexions vers l'écran: de droite à gauche en regardant du haut
 14 - VEE
 15 - VCC
 16 - GND
+
+Connexions de la mémoire: de gauche à droite en regardant du haut
+1 - VCC
+2 - SS
+3 - MISO
+4 - MOSI
+5 - SCK
+6 - GND

@@ -103,9 +103,29 @@ SCREEN_INC:
 
 	sei
 
+	ldi		reg_addrL,0x80
+	ldi		reg_addrH,0
+	createImgFull[]
+	rcall	writeFullSreen
 
 
-	ldi		reg_init,128
+start:
+	b4[]
+	rcall	NEW_IMAGE
+	rjmp	start
+
+NEW_IMAGE:
+	ldi		r26,0x80
+	adc		reg_addrL,r26
+	cpi		reg_addrL,0
+	inc		reg_addrH
+	createImgFull[]
+	rcall	writeFullSreen
+	ret
+
+
+
+	/*ldi		reg_init,128
 
 loopMain:
 	
@@ -246,4 +266,4 @@ MENTION:
 	ldi		reg_init,128
 	b4[]
 	rjmp	END_CHOIX
-	rjmp	MENTION
+	rjmp	MENTION*/

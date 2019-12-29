@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Dec 25 19:52:34 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Dec 29 16:37:40 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -711,29 +711,11 @@ CSEG addr_carry2  00000105
 CSEG addImgChar   0000010c
 CSEG testAdd      00000114
 CSEG testAdd1     0000011b
-CSEG loopMain     00000123
-CSEG loopCLR@CLR_RAM@1881 00000128
-CSEG carry_clr@CLR_RAM@1881 0000012d
-CSEG UP           0000018d
-CSEG DOWN         00000194
-CSEG END          00000180
-CSEG CHOIX        0000019b
-CSEG END_CHOIX    00000183
-CSEG testMain     00000189
-CSEG GAME         000001a0
-CSEG RESEAU       000001bc
-CSEG MENTION      0000024f
-CSEG loopImg@createImgFull@2061 000001a6
-CSEG addr_carry1@createImgFull@2061 000001ac
-CSEG addr_carry@createImgFull@2061 000001b0
-CSEG loopCLR@CLR_RAM@2104 000001c1
-CSEG carry_clr@CLR_RAM@2104 000001c6
-CSEG loopReseau   000001d9
-CSEG loopReseau1  000001e3
-CSEG loopReseau3  000001e7
-CSEG N_CONNECTED  0000021e
-CSEG loopCLR@CLR_RAM@2175 000001ed
-CSEG carry_clr@CLR_RAM@2175 000001f2
-CSEG loopReseau2  00000218
-CSEG loopCLR@CLR_RAM@2325 00000254
-CSEG carry_clr@CLR_RAM@2325 00000259
+CSEG loopImg@createImgFull@1875 00000128
+CSEG addr_carry1@createImgFull@1875 0000012e
+CSEG addr_carry@createImgFull@1875 00000132
+CSEG start        0000013b
+CSEG NEW_IMAGE    0000013e
+CSEG loopImg@createImgFull@1923 00000146
+CSEG addr_carry1@createImgFull@1923 0000014c
+CSEG addr_carry@createImgFull@1923 00000150
