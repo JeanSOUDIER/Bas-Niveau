@@ -101,44 +101,18 @@ SPI_INC:
 	.include "screen.asm"
 SCREEN_INC:
 	.include "char_array.asm"
+	.include "csgo.asm"
+CSGO_INC:
 
 	sei
 
-DEBUT:
-	ldi		reg_addrL,0xA8				;placement à la case 0x4804 de la mémoire
-	subi	reg_addrL,-0x04				;placement à la vue Nord
-	ldi		reg_addrH,0x4D
-	rcall	Read_Mem					;lecture de la mémoire spi
-	mov		r16,reg_spi
-	lsr		r16
-	lsr		r16
-	lsr		r16
-	lsr		r16
-	cpi		r16,0x08
-	brne	DETERMINATION_IMAGE
-	ldi		r16,0x04
-	rjmp	CREATION_IMAGE
-DETERMINATION_IMAGE:
-	ldi		r17,0x04
-	mul		r17,r16
-	mov		r16,r0
-	subi	r16,-0x08
-	rjmp	CREATION_IMAGE
-
+	
 start:
-	bB[]
-	;rcall	IMAGE_PRECEDENTE
-	bA[]
-	;rcall	IMAGE_SUIVANTE
+	bGa[]
+	rjmp	Tourner_Gauche
+	bDr[]
+	rjmp	tourner_droite
 	rjmp	start
-
-
-CREATION_IMAGE:
-	ldi		reg_addrL,0x00
-	mov		reg_addrH,r16
-	createImgFull[]
-	rcall	writeFullSreen
-	rjmp start
 
 
 /*IMAGE_SUIVANTE:

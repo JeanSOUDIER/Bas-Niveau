@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 13:46:03 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 23:00:49 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -706,10 +706,19 @@ CSEG addr_carry2  000000ff
 CSEG addImgChar   00000106
 CSEG testAdd      0000010e
 CSEG testAdd1     00000115
-CSEG DEBUT        0000011c
-CSEG DETERMINATION_IMAGE 00000129
-CSEG CREATION_IMAGE 00000131
-CSEG start        0000012e
-CSEG loopImg@createImgFull@1912 00000137
-CSEG addr_carry1@createImgFull@1912 0000013d
-CSEG addr_carry@createImgFull@1912 00000141
+CSEG csgo_init    0000011b
+CSEG Affichage_Image 00000132
+CSEG CSGO_INC     00000177
+CSEG Tourner_Gauche 00000122
+CSEG Tourner_Droite 0000012a
+CSEG Orientation_Nord 0000013c
+CSEG Orientation_Ouest 00000143
+CSEG Orientation_Sud 00000148
+CSEG Orientation_Est 0000014f
+CSEG Determination_Image_1 00000154
+CSEG Determination_Image_2 00000158
+CSEG CREATION_IMAGE 0000015d
+CSEG loopImg@createImgFull@1955 00000163
+CSEG addr_carry1@createImgFull@1955 00000169
+CSEG addr_carry@createImgFull@1955 0000016d
+CSEG start        00000178

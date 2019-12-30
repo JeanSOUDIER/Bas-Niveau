@@ -18,6 +18,7 @@
   <FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE>
   <FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE>
   <FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm</FILE>
+  <FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
   <FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\Debug\projet_bn1.obj</FILE>
@@ -65,9 +66,18 @@
   <addImgChar><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>177</LINE></addImgChar>
   <testAdd><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>186</LINE></testAdd>
   <testAdd1><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>194</LINE></testAdd1>
-  <DEBUT><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>107</LINE></DEBUT>
-  <DETERMINATION_IMAGE><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>121</LINE></DETERMINATION_IMAGE>
-  <CREATION_IMAGE><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>136</LINE></CREATION_IMAGE>
-  <start><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>128</LINE></start>
+  <csgo_init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>3</LINE></csgo_init>
+  <Affichage_Image><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>31</LINE></Affichage_Image>
+  <CSGO_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>105</LINE></CSGO_INC>
+  <Tourner_Gauche><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>13</LINE></Tourner_Gauche>
+  <Tourner_Droite><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>22</LINE></Tourner_Droite>
+  <Orientation_Nord><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>42</LINE></Orientation_Nord>
+  <Orientation_Ouest><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>50</LINE></Orientation_Ouest>
+  <Orientation_Sud><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>56</LINE></Orientation_Sud>
+  <Orientation_Est><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>64</LINE></Orientation_Est>
+  <Determination_Image_1><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>70</LINE></Determination_Image_1>
+  <Determination_Image_2><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>75</LINE></Determination_Image_2>
+  <CREATION_IMAGE><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>81</LINE></CREATION_IMAGE>
+  <start><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>110</LINE></start>
  </LABELS>
 </ASSEMBLER_INFO>
