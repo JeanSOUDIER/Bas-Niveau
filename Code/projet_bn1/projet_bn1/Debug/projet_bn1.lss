@@ -1,31 +1,30 @@
 
-AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 00:59:44 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 13:46:03 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(25): warning: Register r18 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(26): warning: Register r31 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(32): warning: Register r18 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(36): warning: Register r28 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(38): warning: Register r29 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(39): warning: Register r30 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(101): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(103): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(105): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(109): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(111): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(113): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(115): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(27): warning: Register r18 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(28): warning: Register r31 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(34): warning: Register r18 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(37): warning: Register r28 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(39): warning: Register r29 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(40): warning: Register r30 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(97): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(99): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(101): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(103): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(101): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(103): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(105): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(109): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(111): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(113): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(115): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(290): warning: end of .dseg at 0x461 is beyond end of memory at 0x45f
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(97): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(99): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(101): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(103): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
                                  
                                  ;
                                  
@@ -908,9 +907,11 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  .def reg_init = r16
                                  
-                                 .def reg_test1 = r15
-                                 .def reg_test2 = r14
-                                 .def reg_test3 = r13
+                                 ;.def reg_test1 = r15
+                                 ;.def reg_test2 = r14
+                                 ;.def reg_test3 = r13
+                                 ;.def reg_bt1 = r24
+                                 ;r17
                                  
                                  .def reg_spi = r18
                                  .def reg_addrL = r19
@@ -925,7 +926,6 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  .def reg_screen = r18
                                  
-                                 .def reg_bt1 = r24
                                  .def reg_vol = r25
                                  .def reg_son = r28
                                  
@@ -933,20 +933,7 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  .def reg_RX = r30
                                  
                                  .dseg
-000060                           img:			.byte 1024	; reserve une image
-                                 ;map_loc:		.byte	1	; réserve un octet pour location de la map
-                                 /*map_addrNord:	.byte	1
-                                 map_addrOuest:	.byte	1
-                                 map_addrSud:	.byte	1
-                                 map_addrEst:	.byte	1
-                                 map_imgNord:	.byte	1
-                                 map_imgOuest:	.byte	1
-                                 map_imgSud:		.byte	1
-                                 map_imgEst:		.byte	1*/
-000460                           map_posX:		.byte	1
-                                 ;map_posY:		.byte	1
-                                 
-                                 
+000060                           img: .byte 1024	; reserve une image
                                  
                                  .cseg  ; codesegment
                                  .org	0x00
@@ -976,7 +963,7 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  	reti							; 21 $028 SPM_RDY Store Program Memory Reazdy
                                  	*/
                                  .org 0x10
-000010 940c 006f                 	jmp		TI_Interrupt
+000010 940c 0070                 	jmp		TI_Interrupt
                                  .org 0x16
 000016 940c 0057                 	jmp		UART_Interrupt
                                  
@@ -988,7 +975,7 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
 000033 bf0d                      	out		SPL,r16
                                  
 000034 ef7f                      	ldi		reg_cpt3,255
-000035 d07f                      	rcall	tempo
+000035 d079                      	rcall	tempo
                                  
                                  
                                  	;ajout des programmes pour la gestion des modules
@@ -1114,70 +1101,70 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  	.include "timer.asm"
                                  
                                  
-                                 .macro b0[]
+                                 .macro bGa[]
                                  	sbis	PINA,1
                                  .endmacro
-                                 .macro b0n[]
+                                 .macro bGan[]
                                  	sbic	PINA,1
                                  .endmacro
-                                 .macro b1[]
+                                 .macro bBa[]
                                  	sbis	PINA,2
                                  .endmacro
-                                 .macro b1n[]
+                                 .macro bBan[]
                                  	sbic	PINA,2
                                  .endmacro
-                                 .macro b2[]
+                                 .macro bDr[]
                                  	sbis	PINA,3
                                  .endmacro
-                                 .macro b2n[]
+                                 .macro bDrn[]
                                  	sbic	PINA,3
                                  .endmacro
-                                 .macro b3[]
+                                 .macro bHa[]
                                  	sbis	PINA,4
                                  .endmacro
-                                 .macro b3n[]
+                                 .macro bHan[]
                                  	sbic	PINA,4
                                  .endmacro
-                                 .macro b4[]
+                                 .macro bB[]
                                  	sbis	PINA,5
                                  .endmacro
-                                 .macro b4n[]
+                                 .macro bBn[]
                                  	sbic	PINA,5
                                  .endmacro
-                                 .macro b5[]
+                                 .macro bA[]
                                  	sbis	PINA,6
                                  .endmacro
-                                 .macro b5n[]
+                                 .macro bAn[]
                                  	sbic	PINA,6
                                  .endmacro
-                                 .macro b6[]
+                                 .macro bSta[]
                                  	sbis	PINA,7
                                  .endmacro
-                                 .macro b6n[]
+                                 .macro bStan[]
                                  	sbic	PINA,7
                                  .endmacro
-                                 .macro b7[]
+                                 .macro bSel[]
                                  	sbis	PIND,2
                                  .endmacro
-                                 .macro b7n[]
+                                 .macro bSeln[]
                                  	sbic	PIND,2
                                  .endmacro
-                                 .macro b8[]
+                                 .macro bL[]
                                  	sbis	PIND,3
                                  .endmacro
-                                 .macro b8n[]
+                                 .macro bLn[]
                                  	sbic	PIND,3
                                  .endmacro
-                                 .macro b9[]
+                                 .macro bR[]
                                  	sbis	PIND,4
                                  .endmacro
-                                 .macro b9n[]
+                                 .macro bRn[]
                                  	sbic	PIND,4
                                  .endmacro
                                  
                                  TIMER_Init:
-000060 e090                      	ldi		reg_vol,0
-000061 e0c3                      	ldi		reg_son,(1<<CS11)|(1<<CS10)
+000060 e893                      	ldi		reg_vol,(1<<WGM11)|(1<<WGM10)|(1<<COM1A1)
+000061 e0cb                      	ldi		reg_son,(1<<WGM12)|(1<<CS11)|(1<<CS10)
 000062 bd9f                      	out		TCCR1A,reg_vol
 000063 bdce                      	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
 000064 b798                      	in		reg_vol,TIFR				;clear flag
@@ -1186,73 +1173,72 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
 000067 b799                      	in		reg_vol,TIMSK				;interrupt enable
 000068 6094                      	ori		reg_vol,(1<<TOIE1)
 000069 bf99                      	out		TIMSK,reg_vol
-00006a e694                      	ldi		reg_vol,100
-00006b e0ca                      	ldi		reg_son,10
-00006c bd9c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-00006d bdcd                      	out		TCNT1H,reg_son
+00006a ef9f                      	ldi		reg_vol,255
+00006b bd9b                      	out		OCR1AH,reg_vol
+00006c e090                      	ldi		reg_vol,0
+00006d bd9c                      	out		TCNT1L,reg_vol
+00006e c01c                      	rjmp	TIMER_INC
                                  
-                                 	;ldi		reg_test1,0
-                                 
-00006e c024                      	rjmp	TIMER_INC
+00006f e0c0                      	ldi		reg_son,0
                                  
                                  TI_Interrupt:
-00006f b61f                      	in		tri,SREG					; save content of flag reg.
+000070 b61f                      	in		tri,SREG					; save content of flag reg.
                                  
-000070 2ee3                      	mov		reg_test2,reg_addrL
-000071 2ed4                      	mov		reg_test3,reg_addrH
-000072 2d3f                      	mov		reg_addrL,reg_test1
-000073 e040                      	ldi		reg_addrH,0
-000074 d02b                      	rcall	Read_Mem
-000075 2fc2                      	mov		reg_son,reg_spi
-000076 94f3                      	inc		reg_test1
-000077 2d3e                      	mov		reg_addrL,reg_test2
-000078 2d4d                      	mov		reg_addrH,reg_test3
+                                 	/*mov		reg_test2,reg_addrL
+                                 	mov		reg_test3,reg_addrH
+                                 	mov		reg_addrL,reg_test1
+                                 	ldi		reg_addrH,0
+                                 	rcall	Read_Mem
+                                 	mov		reg_son,reg_spi
+                                 	inc		reg_test1
+                                 	mov		reg_addrL,reg_test2
+                                 	mov		reg_addrH,reg_test3
                                  
                                  
-000079 9986                      	sbic	PIND,6						;si buzzer on
-00007a d012                      	rcall	BUZZ_OFF					;on met on
-00007b 9b86                      	sbis	PIND,6						;sinon
-00007c d006                      	rcall	BUZZ_ON
+                                 	cbi		PORTB,4									;clear SS
+                                 	ldi		reg_spi,0x03							;instruction de lecture mémoire
+                                 	rcall	SPI_Transmit
+                                 	mov		reg_spi,reg_addrH						;sélection de l'adresse H
+                                 	rcall	SPI_Transmit
+                                 	mov		reg_spi,reg_addrL						;sélection de l'adresse L
+                                 	rcall	SPI_Transmit
+                                 	ldi		reg_spi,0x00							;lecture de la réponse
+                                 	rcall	SPI_Transmit
+                                 	sbi		PORTB,4									;set SS
+                                 	*/
+                                 
+                                 	;gestion du volume
+000071 b195                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
+000072 309a                      	cpi		reg_vol,10
+000073 f408                      	brsh	LIMIT_ADC
+000074 e09a                      	ldi		reg_vol,10
+                                 LIMIT_ADC:
+000075 bd9a                      	out		OCR1AL,reg_vol
+000076 b196                      	in		reg_vol,ADCSRA
+000077 6490                      	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
+000078 b996                      	out		ADCSRA,reg_vol
+                                 
+000079 98c4                      	cbi		PORTB,4									;clear SS
+00007a e023                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
+00007b d017                      	rcall	SPI_Transmit
+00007c e020                      	ldi		reg_spi,0						;sélection de l'adresse H
+00007d d015                      	rcall	SPI_Transmit
+00007e 2f2c                      	mov		reg_spi,reg_son						;sélection de l'adresse L
+00007f d013                      	rcall	SPI_Transmit
+000080 e020                      	ldi		reg_spi,0x00							;lecture de la réponse
+000081 d011                      	rcall	SPI_Transmit
+000082 9ac4                      	sbi		PORTB,4									;set SS
+000083 bd2d                      	out		TCNT1H,reg_spi
+000084 95c3                      	inc		reg_son
                                  
                                  	;gestion de la led
-00007d 9986                      	sbic	PIND,6						;blink led
-00007e 9896                      	cbi		PORTD,6
-00007f 9b86                      	sbis	PIND,6
-000080 9a96                      	sbi		PORTD,6
+000085 9986                      	sbic	PIND,6						;blink led
+000086 9896                      	cbi		PORTD,6
+000087 9b86                      	sbis	PIND,6
+000088 9a96                      	sbi		PORTD,6
                                  
-                                 
-                                 	
-000081 be1f                      	out		SREG,tri					; restore flag register
-000082 9518                      	reti 								; Return from interrupt
-                                 
-                                 BUZZ_ON:
-                                 	;gestion du volume
-000083 b195                      	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
-                                 
-                                 	;gestion du son
-000084 9f9c                      	mul		reg_vol,reg_son				;on mulitplie le son et le volume
-000085 01e0                      	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
-000086 bd9c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-000087 bdcd                      	out		TCNT1H,reg_son
-                                 
-                                 	;gestion volume suite
-000088 b196                      	in		reg_vol,ADCSRA
-000089 6490                      	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
-00008a b996                      	out		ADCSRA,reg_vol
-                                 
-00008b 9a95                      	sbi		PORTD,5
-                                 
-00008c 9508                      	ret
-                                 
-                                 BUZZ_OFF:
-00008d 9590                      	com		reg_vol						;on fait (1-duty)
-00008e 95c0                      	com		reg_son
-00008f bd9c                      	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-000090 bdcd                      	out		TCNT1H,reg_son
-                                 
-000091 9895                      	cbi		PORTD,5
-                                 
-000092 9508                      	ret
+000089 be1f                      	out		SREG,tri					; restore flag register
+00008a 9518                      	reti 								; Return from interrupt
                                  TIMER_INC:
                                  	.include "spi.asm"
                                  
@@ -1260,38 +1246,39 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  SPI_Init:
                                  	;ldi r25,(1<<DD_MOSI)|(1<<DD_CLK)
                                  	;out DDR_SPI,r25   ;ne mache pas mais peut être est définit dans I/O
-000093 e521                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
-000094 b92d                      	out		SPCR,reg_spi
-000095 9ac4                      	sbi		PORTB,4									;set SS
-000096 98c4                      	cbi		PORTB,4
-000097 e024                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
-000098 d002                      	rcall	SPI_Transmit
-000099 9ac4                      	sbi		PORTB,4
-00009a c010                      	rjmp	SPI_INC
+00008b e521                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
+00008c b92d                      	out		SPCR,reg_spi
+00008d 9ac4                      	sbi		PORTB,4									;set SS
+00008e 98c4                      	cbi		PORTB,4
+00008f e024                      	ldi		reg_spi,0x04							;sélection du mode lecture de la mémoire
+000090 d002                      	rcall	SPI_Transmit
+000091 9ac4                      	sbi		PORTB,4
+000092 c012                      	rjmp	SPI_INC
                                  
                                  SPI_Transmit:										;attente transmission
-00009b b92f                      	out		SPDR,reg_spi							;envoi msg
+000093 b92f                      	out		SPDR,reg_spi							;envoi msg
                                  Wait_SPI:
-00009c 9b77                      	sbis	SPSR,SPIF								;test si fini
-00009d cffe                      	rjmp	Wait_SPI
-00009e b12f                      	in		reg_spi,SPDR							;lecture de la réponse
-00009f 9508                      	ret
+000094 9b77                      	sbis	SPSR,SPIF								;test si fini
+000095 cffe                      	rjmp	Wait_SPI
+000096 b12f                      	in		reg_spi,SPDR							;lecture de la réponse
+000097 9508                      	ret
                                  
                                  Read_Mem:
-0000a0 98c4                      	cbi		PORTB,4									;clear SS
-0000a1 e023                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
-0000a2 dff8                      	rcall	SPI_Transmit
-0000a3 2f24                      	mov		reg_spi,reg_addrH						;sélection de l'adresse H
-0000a4 dff6                      	rcall	SPI_Transmit
-0000a5 2f23                      	mov		reg_spi,reg_addrL						;sélection de l'adresse L
-0000a6 dff4                      	rcall	SPI_Transmit
-0000a7 e020                      	ldi		reg_spi,0x00							;lecture de la réponse
-0000a8 dff2                      	rcall	SPI_Transmit
-0000a9 9ac4                      	sbi		PORTB,4									;set SS
-0000aa 9508                      	ret
+000098 94f8                      	cli												;disable interrupt
+000099 98c4                      	cbi		PORTB,4									;clear SS
+00009a e023                      	ldi		reg_spi,0x03							;instruction de lecture mémoire
+00009b dff7                      	rcall	SPI_Transmit
+00009c 2f24                      	mov		reg_spi,reg_addrH						;sélection de l'adresse H
+00009d dff5                      	rcall	SPI_Transmit
+00009e 2f23                      	mov		reg_spi,reg_addrL						;sélection de l'adresse L
+00009f dff3                      	rcall	SPI_Transmit
+0000a0 e020                      	ldi		reg_spi,0x00							;lecture de la réponse
+0000a1 dff1                      	rcall	SPI_Transmit
+0000a2 9ac4                      	sbi		PORTB,4									;set SS
+0000a3 9478                      	sei												;enable interrupt
+0000a4 9508                      	ret
                                  SPI_INC:
                                  	.include "screen.asm"
-                                 
                                  
                                  
                                  .macro screenL[]					;choix du côté de l'écran à gauche
@@ -1389,153 +1376,153 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  
                                  SCREEN_Init:
-0000ab 9ac3                      	sbi		PORTB,3					;set E and clear RS
-0000ac 98c2                      	cbi		PORTB,2
-0000ad e32f                      	ldi		reg_screen,63			;instruction de début de l'écran
-0000ae bb25                      	out		PORTC,reg_screen
-0000af 98c3
-0000b0 ef7a
-0000b1 d003
-0000b2 9ac3                      	Enable[]						;validation
-0000b3 9ac2                      	RS_set[]						;mode données
-0000b4 c06c                      	rjmp	SCREEN_INC
+0000a5 9ac3                      	sbi		PORTB,3					;set E and clear RS
+0000a6 98c2                      	cbi		PORTB,2
+0000a7 e32f                      	ldi		reg_screen,63			;instruction de début de l'écran
+0000a8 bb25                      	out		PORTC,reg_screen
+0000a9 98c3
+0000aa ef7a
+0000ab d003
+0000ac 9ac3                      	Enable[]						;validation
+0000ad 9ac2                      	RS_set[]						;mode données
+0000ae c06c                      	rjmp	SCREEN_INC
                                  
                                  ; sous programme de temposirsation
                                  tempo:
-0000b5 957a                      	dec		reg_cpt3
-0000b6 0000                      	nop
-0000b7 f7e9                      	brne	tempo
-0000b8 9508                      	ret
+0000af 957a                      	dec		reg_cpt3
+0000b0 0000                      	nop
+0000b1 f7e9                      	brne	tempo
+0000b2 9508                      	ret
                                  
                                  ;full reg_addrL/H
                                  writeFullSreen:
-0000b9 9ac1
-0000ba 98c0                      	screenR[]						;set side screen
-0000bb e060                      	ldi		reg_cpt2,0				;reset var
-0000bc e6a0                      	ldi		XL,LOW(img)
-0000bd e0b0                      	ldi		XH,HIGH(img)
+0000b3 9ac1
+0000b4 98c0                      	screenR[]						;set side screen
+0000b5 e060                      	ldi		reg_cpt2,0				;reset var
+0000b6 e6a0                      	ldi		XL,LOW(img)
+0000b7 e0b0                      	ldi		XH,HIGH(img)
                                  loop1:
-0000be e050                      	ldi		reg_cpt1,0
-0000bf e020                      	ldi		reg_screen,0			;set pos Y = 0
-0000c0 98c2
-0000c1 6420
-0000c2 bb25
-0000c3 98c3
-0000c4 ef7a
-0000c5 dfef
-0000c6 9ac3
-0000c7 9ac2                      	SetPosY[]
-0000c8 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
-0000c9 98c2
-0000ca 6b28
-0000cb bb25
-0000cc 98c3
-0000cd ef7a
-0000ce dfe6
-0000cf 9ac3
-0000d0 9ac2                      	SetPosX[]
+0000b8 e050                      	ldi		reg_cpt1,0
+0000b9 e020                      	ldi		reg_screen,0			;set pos Y = 0
+0000ba 98c2
+0000bb 6420
+0000bc bb25
+0000bd 98c3
+0000be ef7a
+0000bf dfef
+0000c0 9ac3
+0000c1 9ac2                      	SetPosY[]
+0000c2 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+0000c3 98c2
+0000c4 6b28
+0000c5 bb25
+0000c6 98c3
+0000c7 ef7a
+0000c8 dfe6
+0000c9 9ac3
+0000ca 9ac2                      	SetPosX[]
                                  loop2:
-0000d1 912c                      	ld		reg_screen,X			;affichage de l'image dans la SRAM
-0000d2 95a3                      	inc		XL
-0000d3 30a0                      	cpi		XL,0
-0000d4 f409                      	brne	loopAff
-0000d5 95b3                      	inc		XH
+0000cb 912c                      	ld		reg_screen,X			;affichage de l'image dans la SRAM
+0000cc 95a3                      	inc		XL
+0000cd 30a0                      	cpi		XL,0
+0000ce f409                      	brne	loopAff
+0000cf 95b3                      	inc		XH
                                  loopAff:
-0000d6 bb25
-0000d7 98c3
-0000d8 ef7a
-0000d9 dfdb
-0000da 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+0000d0 bb25
+0000d1 98c3
+0000d2 ef7a
+0000d3 dfdb
+0000d4 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
-0000db 9553                      	inc		reg_cpt1				;incrément du compteur 1
-0000dc ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-0000dd cff3                      	rjmp	loop2
+0000d5 9553                      	inc		reg_cpt1				;incrément du compteur 1
+0000d6 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+0000d7 cff3                      	rjmp	loop2
                                  
-0000de 9563                      	inc		reg_cpt2				;incrément du copteur 2
-0000df ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-0000e0 cfdd                      	rjmp	loop1
+0000d8 9563                      	inc		reg_cpt2				;incrément du copteur 2
+0000d9 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+0000da cfdd                      	rjmp	loop1
                                  
-0000e1 9ac0
-0000e2 98c1                      	screenL[]						;set side screen
-0000e3 e060                      	ldi		reg_cpt2,0				;reset var
+0000db 9ac0
+0000dc 98c1                      	screenL[]						;set side screen
+0000dd e060                      	ldi		reg_cpt2,0				;reset var
                                  loop3:
-0000e4 e050                      	ldi		reg_cpt1,0
-0000e5 e020                      	ldi		reg_screen,0			;set pos Y = 0
-0000e6 98c2
-0000e7 6420
-0000e8 bb25
-0000e9 98c3
-0000ea ef7a
-0000eb dfc9
-0000ec 9ac3
-0000ed 9ac2                      	SetPosY[]
-0000ee 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
-0000ef 98c2
-0000f0 6b28
-0000f1 bb25
-0000f2 98c3
-0000f3 ef7a
-0000f4 dfc0
-0000f5 9ac3
-0000f6 9ac2                      	SetPosX[]
+0000de e050                      	ldi		reg_cpt1,0
+0000df e020                      	ldi		reg_screen,0			;set pos Y = 0
+0000e0 98c2
+0000e1 6420
+0000e2 bb25
+0000e3 98c3
+0000e4 ef7a
+0000e5 dfc9
+0000e6 9ac3
+0000e7 9ac2                      	SetPosY[]
+0000e8 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+0000e9 98c2
+0000ea 6b28
+0000eb bb25
+0000ec 98c3
+0000ed ef7a
+0000ee dfc0
+0000ef 9ac3
+0000f0 9ac2                      	SetPosX[]
                                  loop4:
-0000f7 912c                      	ld		reg_screen,X
-0000f8 95a3                      	inc		XL
-0000f9 30a0                      	cpi		XL,0
-0000fa f409                      	brne	loopAff1
-0000fb 95b3                      	inc		XH
+0000f1 912c                      	ld		reg_screen,X
+0000f2 95a3                      	inc		XL
+0000f3 30a0                      	cpi		XL,0
+0000f4 f409                      	brne	loopAff1
+0000f5 95b3                      	inc		XH
                                  loopAff1:
                                  
                                  
                                  	;mov		reg_screen,reg_spi
-0000fc bb25
-0000fd 98c3
-0000fe ef7a
-0000ff dfb5
-000100 9ac3                      	ScreenWrite[]					;écriture sur l'écran
-000101 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
-000102 3030                      	cpi		reg_addrL,0
-000103 f409                      	brne	addr_carry2				;test du carry
-000104 9543                      	inc		reg_addrH
+0000f6 bb25
+0000f7 98c3
+0000f8 ef7a
+0000f9 dfb5
+0000fa 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+0000fb 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
+0000fc 3030                      	cpi		reg_addrL,0
+0000fd f409                      	brne	addr_carry2				;test du carry
+0000fe 9543                      	inc		reg_addrH
                                  addr_carry2:
                                  
-000105 9553                      	inc		reg_cpt1				;incrément du compteur 1
-000106 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-000107 cfef                      	rjmp	loop4
+0000ff 9553                      	inc		reg_cpt1				;incrément du compteur 1
+000100 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+000101 cfef                      	rjmp	loop4
                                  
-000108 9563                      	inc		reg_cpt2				;incrément du copteur 2
-000109 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-00010a cfd9                      	rjmp	loop3
-00010b 9508                      	ret
+000102 9563                      	inc		reg_cpt2				;incrément du copteur 2
+000103 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+000104 cfd9                      	rjmp	loop3
+000105 9508                      	ret
                                  
                                  ;load reg_addrL, reg_addrH, reg_lettre
                                  addImgChar:
-00010c e6a0                      	ldi		XL,LOW(img)				;initialisation de la l'addresse img
-00010d e0b0                      	ldi		XH,HIGH(img)
-00010e e050                      	ldi		reg_cpt1,0
-00010f 0fb4                      	add		XH,reg_addrH			;positionnement dans l'image
-000110 0fa3                      	add		XL,reg_addrL
-000111 17a3                      	cp		XL,reg_addrL			;test de carry
-000112 f408                      	brsh	testAdd
-000113 95b3                      	inc		XH
+000106 e6a0                      	ldi		XL,LOW(img)				;initialisation de la l'addresse img
+000107 e0b0                      	ldi		XH,HIGH(img)
+000108 e050                      	ldi		reg_cpt1,0
+000109 0fb4                      	add		XH,reg_addrH			;positionnement dans l'image
+00010a 0fa3                      	add		XL,reg_addrL
+00010b 17a3                      	cp		XL,reg_addrL			;test de carry
+00010c f408                      	brsh	testAdd
+00010d 95b3                      	inc		XH
                                  testAdd:
-000114 df22                      	rcall	conv_lettre				;convertion de la lettre
-000115 93fc                      	st		X,reg_out				;stockage de lettre dans la mémoire SRAM
-000116 9523                      	inc		reg_lettre
-000117 95a3                      	inc		XL
-000118 30a0                      	cpi		XL,0
-000119 f409                      	brne	testAdd1
-00011a 95b3                      	inc		XH
+00010e df28                      	rcall	conv_lettre				;convertion de la lettre
+00010f 93fc                      	st		X,reg_out				;stockage de lettre dans la mémoire SRAM
+000110 9523                      	inc		reg_lettre
+000111 95a3                      	inc		XL
+000112 30a0                      	cpi		XL,0
+000113 f409                      	brne	testAdd1
+000114 95b3                      	inc		XH
                                  testAdd1:
-00011b 9553                      	inc		reg_cpt1
-00011c 3055                      	cpi		reg_cpt1,5				;un caractère fait 5 colonnes
-00011d f7b1                      	brne	testAdd
+000115 9553                      	inc		reg_cpt1
+000116 3055                      	cpi		reg_cpt1,5				;un caractère fait 5 colonnes
+000117 f7b1                      	brne	testAdd
                                  
-00011e e0f0                      	ldi		reg_out,0
-00011f 93fc                      	st		X,reg_out
+000118 e0f0                      	ldi		reg_out,0
+000119 93fc                      	st		X,reg_out
                                  
                                  
-000120 9508                      	ret
+00011a 9508                      	ret
                                  SCREEN_INC:
                                  	.include "char_array.asm"
                                  
@@ -1830,78 +1817,77 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  	rcall	writeFullSreen
                                  .endmacro
                                  
-000121 9478                      	sei
+00011b 9478                      	sei
                                  
-000122 e014                      	ldi		r17, 0x04
-000123 e030                      	ldi		reg_addrL,0
-000124 2f41                      	mov		reg_addrH,r17
-000125 e050
-000126 e060
-000127 e6a0
-000128 e0b0
-000129 df76
-00012a 932c
-00012b 95a3
-00012c 30a0
-00012d f409
-00012e 95b3
-00012f 9533
-000130 3030
-000131 f409
-000132 9543
-000133 e050
-000134 e064
-000135 0f56
-000136 17b5
-000137 f789
-000138 e650
-000139 17a5
-00013a f771                      	createImgFull[]
-00013b df7d                      	rcall	writeFullSreen
-                                 
+                                 DEBUT:
+00011c ea38                      	ldi		reg_addrL,0xA8				;placement à la case 0x4804 de la mémoire
+00011d 5f3c                      	subi	reg_addrL,-0x04				;placement à la vue Nord
+00011e e44d                      	ldi		reg_addrH,0x4D
+00011f df78                      	rcall	Read_Mem					;lecture de la mémoire spi
+000120 2f02                      	mov		r16,reg_spi
+000121 9506                      	lsr		r16
+000122 9506                      	lsr		r16
+000123 9506                      	lsr		r16
+000124 9506                      	lsr		r16
+000125 3008                      	cpi		r16,0x08
+000126 f411                      	brne	DETERMINATION_IMAGE
+000127 e004                      	ldi		r16,0x04
+000128 c008                      	rjmp	CREATION_IMAGE
+                                 DETERMINATION_IMAGE:
+000129 e014                      	ldi		r17,0x04
+00012a 9f10                      	mul		r17,r16
+00012b 2d00                      	mov		r16,r0
+00012c 5f08                      	subi	r16,-0x08
+00012d c003                      	rjmp	CREATION_IMAGE
                                  
                                  start:
-                                 	;b5[]
-00013c d001                      	rcall	NEW_IMAGE
-                                 	;ldi		reg_cpt3, 255
-                                 	;rcall	tempo
-00013d cffe                      	rjmp	start
-                                 
-                                 NEW_IMAGE:
-00013e 5f1c                      	subi	r17,-0x04
-00013f 2f41                      	mov		reg_addrH,r17
-                                 	;cpi	reg_addrH,0x48
-                                 	;brne	suite
-                                 	;ldi	reg_addrH,0x04
-                                 suite:
-000140 e050
-000141 e060
-000142 e6a0
-000143 e0b0
-000144 df5b
-000145 932c
-000146 95a3
-000147 30a0
-000148 f409
-000149 95b3
-00014a 9533
-00014b 3030
-00014c f409
-00014d 9543
-00014e e050
-00014f e064
-000150 0f56
-000151 17b5
-000152 f789
-000153 e650
-000154 17a5
-000155 f771                      	createImgFull[]
-000156 df62                      	rcall	writeFullSreen
-000157 ef7f                      	ldi		reg_cpt3,255
-000158 df5c                      	rcall	tempo
-000159 cfe2                      	rjmp start
+00012e 9bcd                      	bB[]
+                                 	;rcall	IMAGE_PRECEDENTE
+00012f 9bce                      	bA[]
+                                 	;rcall	IMAGE_SUIVANTE
+000130 cffd                      	rjmp	start
                                  
                                  
+                                 CREATION_IMAGE:
+000131 e030                      	ldi		reg_addrL,0x00
+000132 2f40                      	mov		reg_addrH,r16
+000133 e050
+000134 e060
+000135 e6a0
+000136 e0b0
+000137 df60
+000138 932c
+000139 95a3
+00013a 30a0
+00013b f409
+00013c 95b3
+00013d 9533
+00013e 3030
+00013f f409
+000140 9543
+000141 e050
+000142 e064
+000143 0f56
+000144 17b5
+000145 f789
+000146 e650
+000147 17a5
+000148 f771                      	createImgFull[]
+000149 df69                      	rcall	writeFullSreen
+00014a cfe3                      	rjmp start
+                                 
+                                 
+                                 /*IMAGE_SUIVANTE:
+                                 	subi	r16,-0x04
+                                 	cpi		r16,0x48
+                                 	brne	CREATION_IMAGE
+                                 	ldi		r16,0x04
+                                 	rjmp	CREATION_IMAGE
+                                 IMAGE_PRECEDENTE:
+                                 	subi	r16,0x04
+                                 	cpi		r16,0x00
+                                 	brne	CREATION_IMAGE
+                                 	ldi		r16,0x44*/
                                  
                                  	/*ldi		reg_init,128
                                  
@@ -1910,13 +1896,13 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  	Fenetre_Debut[]							;affichage des caractères de la page principale
                                  
                                  	mov		reg_cpt2,reg_init				;récupération de la position du curseur
-                                 	b3[]									;test du bouton "vers le haut"
+                                 	bHa[]									;test du bouton "vers le haut"
                                  	rjmp	UP
-                                 	b1[]									;test du bouton "vers le bas"
+                                 	bBa[]									;test du bouton "vers le bas"
                                  	rjmp	DOWN
                                  END:
                                  	mov		reg_init,reg_cpt2
-                                 	b5[]									;test du bouton validation
+                                 	bA[]									;test du bouton validation
                                  	rjmp	CHOIX
                                  END_CHOIX:
                                  
@@ -1968,7 +1954,7 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  	rcall	writeFullSreen
                                  
-                                 	b4[]
+                                 	bB[]
                                  	rjmp	END_CHOIX
                                  	rjmp	GAME
                                  
@@ -2026,9 +2012,9 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  	rcall	writeFullSreen
                                  
-                                 	b4[]
+                                 	bB[]
                                  	ldi		reg_init,128
-                                 	b4[]
+                                 	bB[]
                                  	rjmp	END_CHOIX
                                  	rjmp	loopReseau1
                                  
@@ -2040,9 +2026,9 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  MENTION:
                                  	MENTION_MA[]									;affichage des mentions
                                  
-                                 	b4[]
+                                 	bB[]
                                  	ldi		reg_init,128
-                                 	b4[]
+                                 	bB[]
                                  	rjmp	END_CHOIX
                                  	rjmp	MENTION*/
 
@@ -2062,40 +2048,40 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega16A" register use summary:
-x  :   6 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
+x  :   5 y  :   0 z  :   0 r0 :   1 r1 :   4 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   2 r14:   2 r15:   2 r16:  16 r17:   4 r18:  32 r19:  13 r20:  10 
-r21:  21 r22:  14 r23:  10 r24:   0 r25:  18 r26:  18 r27:  13 r28:  10 
+r13:   0 r14:   0 r15:   0 r16:  27 r17:   2 r18:  36 r19:  10 r20:   6 
+r21:  15 r22:  11 r23:   9 r24:   0 r25:  19 r26:  14 r27:  10 r28:   5 
 r29:  11 r30:   1 r31:   6 
-Registers used: 21 out of 35 (60.0%)
+Registers used: 18 out of 35 (51.4%)
 
 "ATmega16A" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   4 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   3 adiw  :   0 and   :   0 
 andi  :   1 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :  14 brpl  :   0 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :  11 brpl  :   0 brsh  :   2 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  18 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   5 cpc   :   0 
+clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :   0 cls   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   3 cpc   :   0 
 cpi   :   9 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   9 inc   :  24 jmp   :   2 
-ld    :   2 ldd   :   0 ldi   :  61 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :  12 movw  :   1 mul   :   1 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   1 or    :   0 ori   :   6 out   :  38 pop   :   0 
-push  :   0 rcall :  23 ret   :   9 reti  :   2 rjmp  :  17 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   3 sbis  :   4 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   9 inc   :  20 jmp   :   2 
+ld    :   2 ldd   :   0 ldi   :  60 lds   :   0 lpm   :   0 lsl   :   0 
+lsr   :   4 mov   :   8 movw  :   0 mul   :   1 muls  :   0 mulsu :   0 
+neg   :   0 nop   :   1 or    :   0 ori   :   6 out   :  36 pop   :   0 
+push  :   0 rcall :  21 ret   :   7 reti  :   2 rjmp  :  19 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :  21 sbic  :   2 sbis  :   5 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   4 sec   :   0 seh   :   0 
-sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   4 std   :   0 sts   :   0 
-sub   :   0 subi  :   1 swap  :   0 tst   :   0 wdr   :   0 
+sei   :   2 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
+sez   :   0 sleep :   0 spm   :   0 st    :   3 std   :   0 sts   :   0 
+sub   :   0 subi  :   2 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 31 out of 113 (27.4%)
 
 "ATmega16A" memory use summary [bytes]:
-Segment   Begin    End      Code   Data   Used    Size   Use%  Warn
---------------------------------------------------------------------
-[.cseg] 0x000000 0x0002b4    606      0    606   16384   3.7%
-[.dseg] 0x000060 0x000461      0   1025   1025    1024 100.1%  OVER
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x000296    576      0    576   16384   3.5%
+[.dseg] 0x000060 0x000460      0   1024   1024    1024 100.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
-Assembly complete, 0 errors, 7 warnings
+Assembly complete, 0 errors, 6 warnings

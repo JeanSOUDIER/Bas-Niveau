@@ -1,69 +1,69 @@
 ;use r20 and r21 and r23 and r24
 
-.macro b0[]
+.macro bGa[]
 	sbis	PINA,1
 .endmacro
-.macro b0n[]
+.macro bGan[]
 	sbic	PINA,1
 .endmacro
-.macro b1[]
+.macro bBa[]
 	sbis	PINA,2
 .endmacro
-.macro b1n[]
+.macro bBan[]
 	sbic	PINA,2
 .endmacro
-.macro b2[]
+.macro bDr[]
 	sbis	PINA,3
 .endmacro
-.macro b2n[]
+.macro bDrn[]
 	sbic	PINA,3
 .endmacro
-.macro b3[]
+.macro bHa[]
 	sbis	PINA,4
 .endmacro
-.macro b3n[]
+.macro bHan[]
 	sbic	PINA,4
 .endmacro
-.macro b4[]
+.macro bB[]
 	sbis	PINA,5
 .endmacro
-.macro b4n[]
+.macro bBn[]
 	sbic	PINA,5
 .endmacro
-.macro b5[]
+.macro bA[]
 	sbis	PINA,6
 .endmacro
-.macro b5n[]
+.macro bAn[]
 	sbic	PINA,6
 .endmacro
-.macro b6[]
+.macro bSta[]
 	sbis	PINA,7
 .endmacro
-.macro b6n[]
+.macro bStan[]
 	sbic	PINA,7
 .endmacro
-.macro b7[]
+.macro bSel[]
 	sbis	PIND,2
 .endmacro
-.macro b7n[]
+.macro bSeln[]
 	sbic	PIND,2
 .endmacro
-.macro b8[]
+.macro bL[]
 	sbis	PIND,3
 .endmacro
-.macro b8n[]
+.macro bLn[]
 	sbic	PIND,3
 .endmacro
-.macro b9[]
+.macro bR[]
 	sbis	PIND,4
 .endmacro
-.macro b9n[]
+.macro bRn[]
 	sbic	PIND,4
 .endmacro
 
 TIMER_Init:
-	ldi		reg_vol,0
-	ldi		reg_son,(1<<CS11)|(1<<CS10)
+	ldi		reg_vol,(1<<WGM11)|(1<<WGM10)|(1<<COM1A1)
+	ldi		reg_son,(1<<WGM12)|(1<<CS11)|(1<<CS10)
 	out		TCCR1A,reg_vol
 	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
 	in		reg_vol,TIFR				;clear flag
@@ -72,19 +72,18 @@ TIMER_Init:
 	in		reg_vol,TIMSK				;interrupt enable
 	ori		reg_vol,(1<<TOIE1)
 	out		TIMSK,reg_vol
-	ldi		reg_vol,100
-	ldi		reg_son,10
-	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-	out		TCNT1H,reg_son
-
-	;ldi		reg_test1,0
-
+	ldi		reg_vol,255
+	out		OCR1AH,reg_vol
+	ldi		reg_vol,0
+	out		TCNT1L,reg_vol
 	rjmp	TIMER_INC
+
+	ldi		reg_son,0
 
 TI_Interrupt:
 	in		tri,SREG					; save content of flag reg.
 
-	mov		reg_test2,reg_addrL
+	/*mov		reg_test2,reg_addrL
 	mov		reg_test3,reg_addrH
 	mov		reg_addrL,reg_test1
 	ldi		reg_addrH,0
@@ -95,10 +94,41 @@ TI_Interrupt:
 	mov		reg_addrH,reg_test3
 
 
-	sbic	PIND,6						;si buzzer on
-	rcall	BUZZ_OFF					;on met on
-	sbis	PIND,6						;sinon
-	rcall	BUZZ_ON
+	cbi		PORTB,4									;clear SS
+	ldi		reg_spi,0x03							;instruction de lecture mémoire
+	rcall	SPI_Transmit
+	mov		reg_spi,reg_addrH						;sélection de l'adresse H
+	rcall	SPI_Transmit
+	mov		reg_spi,reg_addrL						;sélection de l'adresse L
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x00							;lecture de la réponse
+	rcall	SPI_Transmit
+	sbi		PORTB,4									;set SS
+	*/
+
+	;gestion du volume
+	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
+	cpi		reg_vol,10
+	brsh	LIMIT_ADC
+	ldi		reg_vol,10
+LIMIT_ADC:
+	out		OCR1AL,reg_vol
+	in		reg_vol,ADCSRA
+	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
+	out		ADCSRA,reg_vol
+
+	cbi		PORTB,4									;clear SS
+	ldi		reg_spi,0x03							;instruction de lecture mémoire
+	rcall	SPI_Transmit
+	ldi		reg_spi,0						;sélection de l'adresse H
+	rcall	SPI_Transmit
+	mov		reg_spi,reg_son						;sélection de l'adresse L
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x00							;lecture de la réponse
+	rcall	SPI_Transmit
+	sbi		PORTB,4									;set SS
+	out		TCNT1H,reg_spi
+	inc		reg_son
 
 	;gestion de la led
 	sbic	PIND,6						;blink led
@@ -106,36 +136,5 @@ TI_Interrupt:
 	sbis	PIND,6
 	sbi		PORTD,6
 
-
-	
 	out		SREG,tri					; restore flag register
 	reti 								; Return from interrupt
-
-BUZZ_ON:
-	;gestion du volume
-	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
-
-	;gestion du son
-	mul		reg_vol,reg_son				;on mulitplie le son et le volume
-	movw	reg_son,r0					;on met le résultat dans reg_son et reg_vol
-	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-	out		TCNT1H,reg_son
-
-	;gestion volume suite
-	in		reg_vol,ADCSRA
-	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
-	out		ADCSRA,reg_vol
-
-	sbi		PORTD,5
-
-	ret
-
-BUZZ_OFF:
-	com		reg_vol						;on fait (1-duty)
-	com		reg_son
-	out		TCNT1L,reg_vol				;on met le résultat dans le timer
-	out		TCNT1H,reg_son
-
-	cbi		PORTD,5
-
-	ret

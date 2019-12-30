@@ -1,6 +1,5 @@
 ;use r28 and r29 and r30
 
-
 .macro screenL[]					;choix du côté de l'écran à gauche
 	sbi		PORTB,0
 	cbi		PORTB,1

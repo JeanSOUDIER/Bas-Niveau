@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 00:59:44 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 13:46:03 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -606,9 +606,6 @@ EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
 DEF  tri          r1
 DEF  reg_init     r16
-DEF  reg_test1    r15
-DEF  reg_test2    r14
-DEF  reg_test3    r13
 DEF  reg_spi      r18
 DEF  reg_addrL    r19
 DEF  reg_addrH    r20
@@ -618,17 +615,15 @@ DEF  reg_cpt1     r21
 DEF  reg_cpt2     r22
 DEF  reg_cpt3     r23
 DEF  reg_screen   r18
-DEF  reg_bt1      r24
 DEF  reg_vol      r25
 DEF  reg_son      r28
 DEF  reg_TX       r29
 DEF  reg_RX       r30
 DSEG img          00000060
-DSEG map_posX     00000460
 CSEG RESET        00000030
-CSEG TI_Interrupt 0000006f
+CSEG TI_Interrupt 00000070
 CSEG UART_Interrupt 00000057
-CSEG tempo        000000b5
+CSEG tempo        000000af
 EQU  C_A          00000000
 EQU  C_B          00000005
 EQU  C_C          0000000a
@@ -691,33 +686,30 @@ CSEG USART_Transmit 00000053
 CSEG ADC_Init     0000005b
 CSEG ADC_INC      00000060
 CSEG TIMER_Init   00000060
-CSEG TIMER_INC    00000093
-CSEG Read_Mem     000000a0
-CSEG BUZZ_OFF     0000008d
-CSEG BUZZ_ON      00000083
-CSEG SPI_Init     00000093
-CSEG SPI_Transmit 0000009b
-CSEG SPI_INC      000000ab
-CSEG Wait_SPI     0000009c
-CSEG SCREEN_Init  000000ab
-CSEG SCREEN_INC   00000121
-CSEG writeFullSreen 000000b9
-CSEG loop1        000000be
-CSEG loop2        000000d1
-CSEG loopAff      000000d6
-CSEG loop3        000000e4
-CSEG loop4        000000f7
-CSEG loopAff1     000000fc
-CSEG addr_carry2  00000105
-CSEG addImgChar   0000010c
-CSEG testAdd      00000114
-CSEG testAdd1     0000011b
-CSEG loopImg@createImgFull@1889 00000129
-CSEG addr_carry1@createImgFull@1889 0000012f
-CSEG addr_carry@createImgFull@1889 00000133
-CSEG start        0000013c
-CSEG NEW_IMAGE    0000013e
-CSEG suite        00000140
-CSEG loopImg@createImgFull@1938 00000144
-CSEG addr_carry1@createImgFull@1938 0000014a
-CSEG addr_carry@createImgFull@1938 0000014e
+CSEG TIMER_INC    0000008b
+CSEG LIMIT_ADC    00000075
+CSEG SPI_Transmit 00000093
+CSEG SPI_Init     0000008b
+CSEG SPI_INC      000000a5
+CSEG Wait_SPI     00000094
+CSEG Read_Mem     00000098
+CSEG SCREEN_Init  000000a5
+CSEG SCREEN_INC   0000011b
+CSEG writeFullSreen 000000b3
+CSEG loop1        000000b8
+CSEG loop2        000000cb
+CSEG loopAff      000000d0
+CSEG loop3        000000de
+CSEG loop4        000000f1
+CSEG loopAff1     000000f6
+CSEG addr_carry2  000000ff
+CSEG addImgChar   00000106
+CSEG testAdd      0000010e
+CSEG testAdd1     00000115
+CSEG DEBUT        0000011c
+CSEG DETERMINATION_IMAGE 00000129
+CSEG CREATION_IMAGE 00000131
+CSEG start        0000012e
+CSEG loopImg@createImgFull@1912 00000137
+CSEG addr_carry1@createImgFull@1912 0000013d
+CSEG addr_carry@createImgFull@1912 00000141

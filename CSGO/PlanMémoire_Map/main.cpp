@@ -28,7 +28,7 @@ int main()
             if(tabDepart[i][j] == 0)
             {
                 tabMid[i][j] = indice;
-                /*if(indice < 100)
+                if(indice < 100)
                 {
                     cout << " ";
                 }
@@ -36,16 +36,16 @@ int main()
                 if(indice < 10)
                 {
                     cout << " ";
-                }*/
+                }
                 indice++;
             }
             else
             {
                 tabMid[i][j] = -1;
-                //cout << "#####";
+                cout << "#####";
             }
         }
-        //cout << endl;
+        cout << endl;
     }
     adVoisines();
     adImages();

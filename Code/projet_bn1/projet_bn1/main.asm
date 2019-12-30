@@ -14,9 +14,11 @@
 
 .def reg_init = r16
 
-.def reg_test1 = r15
-.def reg_test2 = r14
-.def reg_test3 = r13
+;.def reg_test1 = r15
+;.def reg_test2 = r14
+;.def reg_test3 = r13
+;.def reg_bt1 = r24
+;r17
 
 .def reg_spi = r18
 .def reg_addrL = r19
@@ -31,7 +33,6 @@
 
 .def reg_screen = r18
 
-.def reg_bt1 = r24
 .def reg_vol = r25
 .def reg_son = r28
 
@@ -39,20 +40,7 @@
 .def reg_RX = r30
 
 .dseg
-img:			.byte 1024	; reserve une image
-;map_loc:		.byte	1	; réserve un octet pour location de la map
-/*map_addrNord:	.byte	1
-map_addrOuest:	.byte	1
-map_addrSud:	.byte	1
-map_addrEst:	.byte	1
-map_imgNord:	.byte	1
-map_imgOuest:	.byte	1
-map_imgSud:		.byte	1
-map_imgEst:		.byte	1
-map_posX:		.byte	1
-map_posY:		.byte	1*/
-
-
+img: .byte 1024	; reserve une image
 
 .cseg  ; codesegment
 .org	0x00
@@ -116,34 +104,54 @@ SCREEN_INC:
 
 	sei
 
-	ldi		r17, 0x04
-	ldi		reg_addrL,0
-	mov		reg_addrH,r17
-	createImgFull[]
-	rcall	writeFullSreen
-
+DEBUT:
+	ldi		reg_addrL,0xA8				;placement à la case 0x4804 de la mémoire
+	subi	reg_addrL,-0x04				;placement à la vue Nord
+	ldi		reg_addrH,0x4D
+	rcall	Read_Mem					;lecture de la mémoire spi
+	mov		r16,reg_spi
+	lsr		r16
+	lsr		r16
+	lsr		r16
+	lsr		r16
+	cpi		r16,0x08
+	brne	DETERMINATION_IMAGE
+	ldi		r16,0x04
+	rjmp	CREATION_IMAGE
+DETERMINATION_IMAGE:
+	ldi		r17,0x04
+	mul		r17,r16
+	mov		r16,r0
+	subi	r16,-0x08
+	rjmp	CREATION_IMAGE
 
 start:
-	;b5[]
-	rcall	NEW_IMAGE
-	;ldi		reg_cpt3, 255
-	;rcall	tempo
+	bB[]
+	;rcall	IMAGE_PRECEDENTE
+	bA[]
+	;rcall	IMAGE_SUIVANTE
 	rjmp	start
 
-NEW_IMAGE:
-	subi	r17,-0x04
-	mov		reg_addrH,r17
-	;cpi	reg_addrH,0x48
-	;brne	suite
-	;ldi	reg_addrH,0x04
-suite:
+
+CREATION_IMAGE:
+	ldi		reg_addrL,0x00
+	mov		reg_addrH,r16
 	createImgFull[]
 	rcall	writeFullSreen
-	ldi		reg_cpt3,255
-	rcall	tempo
 	rjmp start
 
 
+/*IMAGE_SUIVANTE:
+	subi	r16,-0x04
+	cpi		r16,0x48
+	brne	CREATION_IMAGE
+	ldi		r16,0x04
+	rjmp	CREATION_IMAGE
+IMAGE_PRECEDENTE:
+	subi	r16,0x04
+	cpi		r16,0x00
+	brne	CREATION_IMAGE
+	ldi		r16,0x44*/
 
 	/*ldi		reg_init,128
 
@@ -152,13 +160,13 @@ loopMain:
 	Fenetre_Debut[]							;affichage des caractères de la page principale
 
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
-	b3[]									;test du bouton "vers le haut"
+	bHa[]									;test du bouton "vers le haut"
 	rjmp	UP
-	b1[]									;test du bouton "vers le bas"
+	bBa[]									;test du bouton "vers le bas"
 	rjmp	DOWN
 END:
 	mov		reg_init,reg_cpt2
-	b5[]									;test du bouton validation
+	bA[]									;test du bouton validation
 	rjmp	CHOIX
 END_CHOIX:
 
@@ -210,7 +218,7 @@ GAME:
 
 	rcall	writeFullSreen
 
-	b4[]
+	bB[]
 	rjmp	END_CHOIX
 	rjmp	GAME
 
@@ -268,9 +276,9 @@ loopReseau2:
 
 	rcall	writeFullSreen
 
-	b4[]
+	bB[]
 	ldi		reg_init,128
-	b4[]
+	bB[]
 	rjmp	END_CHOIX
 	rjmp	loopReseau1
 
@@ -282,8 +290,8 @@ N_CONNECTED:
 MENTION:
 	MENTION_MA[]									;affichage des mentions
 
-	b4[]
+	bB[]
 	ldi		reg_init,128
-	b4[]
+	bB[]
 	rjmp	END_CHOIX
 	rjmp	MENTION*/
