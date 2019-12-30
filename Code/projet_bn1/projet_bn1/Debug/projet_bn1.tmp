@@ -31,30 +31,31 @@
  </OUTPUT_FILES>
  <LABELS>
   <img><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>42</LINE></img>
-  <RESET><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>77</LINE></RESET>
+  <map_posX><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>52</LINE></map_posX>
+  <RESET><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>90</LINE></RESET>
   <TI_Interrupt><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>84</LINE></TI_Interrupt>
   <UART_Interrupt><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>24</LINE></UART_Interrupt>
   <tempo><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>108</LINE></tempo>
-  <LETTRE_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>89</LINE></LETTRE_INC>
+  <LETTRE_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>102</LINE></LETTRE_INC>
   <conv_lettre><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm</FILE><LINE>55</LINE></conv_lettre>
   <IO_Init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm</FILE><LINE>3</LINE></IO_Init>
-  <IO_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>91</LINE></IO_INC>
+  <IO_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>104</LINE></IO_INC>
   <USART_Init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>4</LINE></USART_Init>
-  <UART_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>93</LINE></UART_INC>
+  <UART_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>106</LINE></UART_INC>
   <USART_Transmit><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>18</LINE></USART_Transmit>
   <ADC_Init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm</FILE><LINE>3</LINE></ADC_Init>
-  <ADC_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>95</LINE></ADC_INC>
+  <ADC_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>108</LINE></ADC_INC>
   <TIMER_Init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>64</LINE></TIMER_Init>
-  <TIMER_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>97</LINE></TIMER_INC>
+  <TIMER_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>110</LINE></TIMER_INC>
   <Read_Mem><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>23</LINE></Read_Mem>
   <BUZZ_OFF><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>133</LINE></BUZZ_OFF>
   <BUZZ_ON><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>114</LINE></BUZZ_ON>
   <SPI_Init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>3</LINE></SPI_Init>
   <SPI_Transmit><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>15</LINE></SPI_Transmit>
-  <SPI_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>99</LINE></SPI_INC>
+  <SPI_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>112</LINE></SPI_INC>
   <Wait_SPI><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>17</LINE></Wait_SPI>
   <SCREEN_Init><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>98</LINE></SCREEN_Init>
-  <SCREEN_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>101</LINE></SCREEN_INC>
+  <SCREEN_INC><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>114</LINE></SCREEN_INC>
   <writeFullSreen><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>115</LINE></writeFullSreen>
   <loop1><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>120</LINE></loop1>
   <loop2><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>126</LINE></loop2>
@@ -66,7 +67,8 @@
   <addImgChar><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>178</LINE></addImgChar>
   <testAdd><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>187</LINE></testAdd>
   <testAdd1><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>195</LINE></testAdd1>
-  <start><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>112</LINE></start>
-  <NEW_IMAGE><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>117</LINE></NEW_IMAGE>
+  <start><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>126</LINE></start>
+  <NEW_IMAGE><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>133</LINE></NEW_IMAGE>
+  <suite><FILE>C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>139</LINE></suite>
  </LABELS>
 </ASSEMBLER_INFO>

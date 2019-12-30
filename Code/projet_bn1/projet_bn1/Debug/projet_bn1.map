@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Dec 29 16:37:40 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 00:59:44 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -624,6 +624,7 @@ DEF  reg_son      r28
 DEF  reg_TX       r29
 DEF  reg_RX       r30
 DSEG img          00000060
+DSEG map_posX     00000460
 CSEG RESET        00000030
 CSEG TI_Interrupt 0000006f
 CSEG UART_Interrupt 00000057
@@ -711,11 +712,12 @@ CSEG addr_carry2  00000105
 CSEG addImgChar   0000010c
 CSEG testAdd      00000114
 CSEG testAdd1     0000011b
-CSEG loopImg@createImgFull@1875 00000128
-CSEG addr_carry1@createImgFull@1875 0000012e
-CSEG addr_carry@createImgFull@1875 00000132
-CSEG start        0000013b
+CSEG loopImg@createImgFull@1889 00000129
+CSEG addr_carry1@createImgFull@1889 0000012f
+CSEG addr_carry@createImgFull@1889 00000133
+CSEG start        0000013c
 CSEG NEW_IMAGE    0000013e
-CSEG loopImg@createImgFull@1923 00000146
-CSEG addr_carry1@createImgFull@1923 0000014c
-CSEG addr_carry@createImgFull@1923 00000150
+CSEG suite        00000140
+CSEG loopImg@createImgFull@1938 00000144
+CSEG addr_carry1@createImgFull@1938 0000014a
+CSEG addr_carry@createImgFull@1938 0000014e

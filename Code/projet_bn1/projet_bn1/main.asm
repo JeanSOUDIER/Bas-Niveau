@@ -39,7 +39,20 @@
 .def reg_RX = r30
 
 .dseg
-img: .byte 1024	; reserve une image
+img:			.byte 1024	; reserve une image
+;map_loc:		.byte	1	; réserve un octet pour location de la map
+/*map_addrNord:	.byte	1
+map_addrOuest:	.byte	1
+map_addrSud:	.byte	1
+map_addrEst:	.byte	1
+map_imgNord:	.byte	1
+map_imgOuest:	.byte	1
+map_imgSud:		.byte	1
+map_imgEst:		.byte	1
+map_posX:		.byte	1
+map_posY:		.byte	1*/
+
+
 
 .cseg  ; codesegment
 .org	0x00
@@ -103,25 +116,32 @@ SCREEN_INC:
 
 	sei
 
-	ldi		reg_addrL,0x80
-	ldi		reg_addrH,0
+	ldi		r17, 0x04
+	ldi		reg_addrL,0
+	mov		reg_addrH,r17
 	createImgFull[]
 	rcall	writeFullSreen
 
 
 start:
-	b4[]
+	;b5[]
 	rcall	NEW_IMAGE
+	;ldi		reg_cpt3, 255
+	;rcall	tempo
 	rjmp	start
 
 NEW_IMAGE:
-	ldi		r26,0x80
-	adc		reg_addrL,r26
-	cpi		reg_addrL,0
-	inc		reg_addrH
+	subi	r17,-0x04
+	mov		reg_addrH,r17
+	;cpi	reg_addrH,0x48
+	;brne	suite
+	;ldi	reg_addrH,0x04
+suite:
 	createImgFull[]
 	rcall	writeFullSreen
-	ret
+	ldi		reg_cpt3,255
+	rcall	tempo
+	rjmp start
 
 
 

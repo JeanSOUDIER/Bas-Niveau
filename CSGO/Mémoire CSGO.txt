@@ -1,7 +1,7 @@
-Une mémoire a une capacité de 32kbits = adresses de 0 à FFF
+Une mémoire a une capacité de 32k mots = adresses de 0 à 7FFF
 Plan Mémoire:
-- Code éventuel de 0x00 à 0x7F
-- Images de 0x080 à 0x8FF
+- Code éventuel de 0x0000 à 0x03FF
+- Images de 0x0400 à 0x8FF
 - Map de 0x900 à 0xEAF
 
 Map:
