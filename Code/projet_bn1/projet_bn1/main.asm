@@ -69,6 +69,10 @@ img: .byte 1024	; reserve une image
 	reti							; 20: $026 TIMER0 COMP Timer/Counter0 Compare Match
 	reti							; 21 $028 SPM_RDY Store Program Memory Reazdy
 	*/
+.org 0x0C
+	reti
+.org 0x0A
+	reti
 .org 0x10
 	jmp		TI_Interrupt
 .org 0x16
