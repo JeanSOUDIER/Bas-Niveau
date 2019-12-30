@@ -21,6 +21,7 @@ Wait_SPI:
 	ret
 
 Read_Mem:
+	cli												;disable interrupt
 	cbi		PORTB,4									;clear SS
 	ldi		reg_spi,0x03							;instruction de lecture mémoire
 	rcall	SPI_Transmit
@@ -31,4 +32,5 @@ Read_Mem:
 	ldi		reg_spi,0x00							;lecture de la réponse
 	rcall	SPI_Transmit
 	sbi		PORTB,4									;set SS
+	sei												;enable interrupt
 	ret

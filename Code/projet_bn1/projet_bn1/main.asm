@@ -14,9 +14,11 @@
 
 .def reg_init = r16
 
-.def reg_test1 = r15
-.def reg_test2 = r14
-.def reg_test3 = r13
+;.def reg_test1 = r15
+;.def reg_test2 = r14
+;.def reg_test3 = r13
+;.def reg_bt1 = r24
+;r17
 
 .def reg_spi = r18
 .def reg_addrL = r19
@@ -31,7 +33,6 @@
 
 .def reg_screen = r18
 
-.def reg_bt1 = r24
 .def reg_vol = r25
 .def reg_son = r28
 
@@ -112,13 +113,13 @@ loopMain:
 	Fenetre_Debut[]							;affichage des caractères de la page principale
 
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
-	b3[]									;test du bouton "vers le haut"
+	bHa[]									;test du bouton "vers le haut"
 	rjmp	UP
-	b1[]									;test du bouton "vers le bas"
+	bBa[]									;test du bouton "vers le bas"
 	rjmp	DOWN
 END:
 	mov		reg_init,reg_cpt2
-	b5[]									;test du bouton validation
+	bA[]									;test du bouton validation
 	rjmp	CHOIX
 END_CHOIX:
 
@@ -170,7 +171,7 @@ GAME:
 
 	rcall	writeFullSreen
 
-	b4[]
+	bB[]
 	rjmp	END_CHOIX
 	rjmp	GAME
 
@@ -228,9 +229,9 @@ loopReseau2:
 
 	rcall	writeFullSreen
 
-	b4[]
+	bB[]
 	ldi		reg_init,128
-	b4[]
+	bB[]
 	rjmp	END_CHOIX
 	rjmp	loopReseau1
 
@@ -242,8 +243,8 @@ N_CONNECTED:
 MENTION:
 	MENTION_MA[]									;affichage des mentions
 
-	b4[]
+	bB[]
 	ldi		reg_init,128
-	b4[]
+	bB[]
 	rjmp	END_CHOIX
 	rjmp	MENTION
