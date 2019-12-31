@@ -37,10 +37,7 @@
 .def reg_son = r28
 
 .def reg_TX = r29
-.def reg_RX = r30
-
-.dseg
-img: .byte 1024	; reserve une image
+.def reg_RX = r27
 
 .cseg  ; codesegment
 .org	0x00
@@ -106,13 +103,94 @@ SPI_INC:
 SCREEN_INC:
 	.include "char_array.asm"
 
-	sei
+	;sei
+	
+	
+	cbi		PORTD,6
+
+label_test:
+	;Fenetre_Debut[]
+	;CLR_RAM[]
 
 
+	ldi		reg_cpt3,255
+	rcall	tempo
 
-	ldi		reg_init,128
+	WR_EN[]
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x02
+	rcall	Write_Mem_SetB
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	ldi		reg_spi,0x06
+	rcall	SPI_Transmit
+	rcall	Write_Mem_SetE
+
+
+	ldi		reg_cpt3,255
+	rcall	tempo
+	ldi		reg_cpt3,255
+	rcall	tempo
+	ldi		reg_cpt3,255
+	rcall	tempo
+	ldi		reg_cpt3,255
+	rcall	tempo
+	ldi		reg_cpt3,255
+	rcall	tempo
+	ldi		reg_cpt3,255
+	rcall	tempo
+
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x02
+	rcall	writeFullSreen
+
+
+	rjmp	label_test
+
+/*	ldi		reg_init,128
 
 loopMain:
+	writeFullSreen[]							;affichage de l'écran
 	
 	Fenetre_Debut[]							;affichage des caractères de la page principale
 
@@ -136,8 +214,6 @@ END_CHOIX:
 testMain:
 	ldi		reg_lettre,C_CH						;chargement de la lettre ">"
 	rcall	addImgChar							;stockage de la lettre dans la mémoire
-	
-	rcall	writeFullSreen						;affichage de l'écran
 
 	rjmp	loopMain							;boucle infini
 
@@ -166,14 +242,12 @@ CHOIX:
 	breq	RESEAU
 	rjmp	MENTION
 
-
-
 GAME:
 	ldi		reg_addrL,0
 	ldi		reg_addrH,0
-	createImgFull[]
+	;createImgFull[]
 
-	rcall	writeFullSreen
+	;writeFullSreen[]
 
 	bB[]
 	rjmp	END_CHOIX
@@ -187,7 +261,7 @@ RESEAU:
 	ldi		reg_lettre,C_MUL
 	rcall	addImgChar
 
-	rcall	writeFullSreen
+	writeFullSreen[]
 
 	ldi		reg_TX,65								;ping en UART
 	rcall	USART_Transmit
@@ -197,7 +271,7 @@ RESEAU:
 	ldi		reg_lettre,C_MUL
 	rcall	addImgChar
 
-	rcall	writeFullSreen
+	writeFullSreen[]
 
 	ldi		reg_cpt2,255
 
@@ -213,7 +287,7 @@ loopReseau:											;tempo
 	ldi		reg_lettre,C_MUL
 	rcall	addImgChar
 
-	rcall	writeFullSreen
+	writeFullSreen[]
 
 loopReseau1:
 
@@ -221,28 +295,25 @@ loopReseau1:
 	rjmp	loopReseau3
 
 	cpi		reg_RX,65								;résultat du ping
-	brne	N_CONNECTED
+	breq	loopReseau3
+	NO_CONNECTED[]
+
+	rjmp	loopReseau2
 
 loopReseau3:
 
 	ldi		reg_init,2
-
 	CONNECTED[]
 
+
 loopReseau2:
-
-	rcall	writeFullSreen
-
+	writeFullSreen[]
 	bB[]
 	ldi		reg_init,128
 	bB[]
 	rjmp	END_CHOIX
 	rjmp	loopReseau1
-
-N_CONNECTED:
-	NO_CONNECTED[]
-
-	rjmp	loopReseau2
+	
 
 MENTION:
 	MENTION_MA[]									;affichage des mentions
@@ -252,3 +323,4 @@ MENTION:
 	bB[]
 	rjmp	END_CHOIX
 	rjmp	MENTION
+*/

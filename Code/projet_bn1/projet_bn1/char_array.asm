@@ -287,5 +287,5 @@
 	ldi		reg_lettre,C_T
 	rcall	addImgChar
 
-	rcall	writeFullSreen
+	writeFullSreen[]
 .endmacro
