@@ -52,6 +52,12 @@ int main()
     posJoueur();
     rassemblementImages();
     hexaPourMemoire();
+    cout << endl;
+    int i =84;
+    cout << adressesVoisines[i][0] << ", " << adressesVoisines[i][1] << ", " << adressesVoisines[i][2] << ", " << adressesVoisines[i][3] << ", ";
+        //cout << adressesImages[i][0] << ", " << adressesImages[i][1] << ", " << adressesImages[i][2] << ", " << adressesImages[i][3] << ", ";
+        cout << adressesImagesMemoire[i][0] << ", " << adressesImagesMemoire[i][1] << ", ";
+        cout << positionsJoueur[i][0] << ", " << positionsJoueur[i][1];
     return 0;
 }
 
@@ -63,7 +69,7 @@ void adVoisines()
         {
             if(tabDepart[i-1][j] == 1)
             {
-                adressesVoisines[tabMid[i][j]][0] = tabMid[i][j];
+                adressesVoisines[tabMid[i][j]][0] = 255;
             }
             else
             {
@@ -72,7 +78,7 @@ void adVoisines()
 
             if(tabDepart[i+1][j] == 1)
             {
-                adressesVoisines[tabMid[i][j]][2] = tabMid[i][j];
+                adressesVoisines[tabMid[i][j]][2] = 255;
             }
             else
             {
@@ -81,7 +87,7 @@ void adVoisines()
 
             if(tabDepart[i][j-1] == 1)
             {
-                adressesVoisines[tabMid[i][j]][1] = tabMid[i][j];
+                adressesVoisines[tabMid[i][j]][1] = 255;
             }
             else
             {
@@ -90,7 +96,7 @@ void adVoisines()
 
             if(tabDepart[i][j+1] == 1)
             {
-                adressesVoisines[tabMid[i][j]][3] = tabMid[i][j];
+                adressesVoisines[tabMid[i][j]][3] = 255;
             }
             else
             {

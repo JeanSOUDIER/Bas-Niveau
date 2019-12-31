@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Tue Dec 31 11:06:15 2019
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Tue Dec 31 16:04:57 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -622,6 +622,9 @@ DEF  reg_vol      r25
 DEF  reg_son      r28
 DEF  reg_TX       r29
 DEF  reg_RX       r30
+DEF  reg_csgo_orientation r13
+DEF  reg_csgo_mapL r14
+DEF  reg_csgo_mapH r15
 DSEG img          00000060
 CSEG RESET        00000030
 CSEG TI_Interrupt 00000070
@@ -711,18 +714,21 @@ CSEG addImgChar   00000106
 CSEG testAdd      0000010e
 CSEG testAdd1     00000115
 CSEG csgo_init    0000011b
-CSEG Affichage_Image 00000132
-CSEG CSGO_INC     00000177
-CSEG Tourner_Gauche 00000122
-CSEG Tourner_Droite 0000012a
-CSEG Orientation_Nord 0000013c
-CSEG Orientation_Ouest 00000143
-CSEG Orientation_Sud 00000148
-CSEG Orientation_Est 0000014f
-CSEG Determination_Image_1 00000154
-CSEG Determination_Image_2 00000158
-CSEG CREATION_IMAGE 0000015d
-CSEG loopImg@createImgFull@1968 00000163
-CSEG addr_carry1@createImgFull@1968 00000169
-CSEG addr_carry@createImgFull@1968 0000016d
-CSEG start        00000178
+CSEG Affichage_Image 0000013e
+CSEG CSGO_INC     00000184
+CSEG Avancer      00000123
+CSEG Mouvement_Confirme 0000012c
+CSEG start        00000185
+CSEG Reculer      0000012b
+CSEG Tourner_Gauche 00000132
+CSEG Tourner_Droite 00000138
+CSEG Orientation_Nord 00000149
+CSEG Orientation_Ouest 00000150
+CSEG Orientation_Sud 00000155
+CSEG Orientation_Est 0000015c
+CSEG Determination_Image_1 00000161
+CSEG Determination_Image_2 00000165
+CSEG CREATION_IMAGE 0000016a
+CSEG loopImg@createImgFull@1988 00000170
+CSEG addr_carry1@createImgFull@1988 00000176
+CSEG addr_carry@createImgFull@1988 0000017a

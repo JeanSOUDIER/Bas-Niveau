@@ -42,6 +42,10 @@
 .def reg_TX = r29
 .def reg_RX = r30
 
+.def reg_csgo_orientation = r13
+.def reg_csgo_mapL = r14
+.def reg_csgo_mapH = r15
+
 .dseg
 img: .byte 1024	; reserve une image
 
@@ -114,7 +118,11 @@ start:
 	bGa[]
 	rjmp	Tourner_Gauche
 	bDr[]
-	rjmp	tourner_droite
+	rjmp	Tourner_Droite
+	bHa[]
+	rjmp	Avancer
+	ldi		reg_cpt3,255
+	rcall	tempo
 	rjmp	start
 
 
