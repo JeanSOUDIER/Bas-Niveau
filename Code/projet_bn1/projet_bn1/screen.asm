@@ -1,5 +1,7 @@
 ;use r28 and r29 and r30
 
+.equ POS_MAP = 700
+
 .macro screenL[]					;choix du côté de l'écran à gauche
 	sbi		PORTB,0
 	cbi		PORTB,1
@@ -91,6 +93,14 @@ addr_carry:
 	ldi		reg_cpt1,LOW(img)
 	cp		XL,reg_cpt1
 	brne	loopImg
+.endmacro
+.macro SetPosPerso
+	cpi		reg_posY,8
+	brsh	pos_perso1
+	ldi		XL,LOW(img)+POS_MAP
+	add		XL,reg_posX
+	
+pos_perso1:
 .endmacro
 
 

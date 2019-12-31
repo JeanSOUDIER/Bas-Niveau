@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Dec 30 23:00:49 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Tue Dec 31 11:06:15 2019
 
 
 EQU  SIGNATURE_000 0000001e
@@ -606,6 +606,9 @@ EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
 DEF  tri          r1
 DEF  reg_init     r16
+DEF  reg_posX     r13
+DEF  reg_posY     r14
+DEF  reg_work     r12
 DEF  reg_spi      r18
 DEF  reg_addrL    r19
 DEF  reg_addrH    r20
@@ -693,6 +696,7 @@ CSEG SPI_Init     0000008b
 CSEG SPI_INC      000000a5
 CSEG Wait_SPI     00000094
 CSEG Read_Mem     00000098
+EQU  POS_MAP      000002bc
 CSEG SCREEN_Init  000000a5
 CSEG SCREEN_INC   0000011b
 CSEG writeFullSreen 000000b3
@@ -718,7 +722,7 @@ CSEG Orientation_Est 0000014f
 CSEG Determination_Image_1 00000154
 CSEG Determination_Image_2 00000158
 CSEG CREATION_IMAGE 0000015d
-CSEG loopImg@createImgFull@1955 00000163
-CSEG addr_carry1@createImgFull@1955 00000169
-CSEG addr_carry@createImgFull@1955 0000016d
+CSEG loopImg@createImgFull@1968 00000163
+CSEG addr_carry1@createImgFull@1968 00000169
+CSEG addr_carry@createImgFull@1968 0000016d
 CSEG start        00000178

@@ -19,6 +19,9 @@
 ;.def reg_test3 = r13
 ;.def reg_bt1 = r24
 ;r17
+.def reg_posX = r13
+.def reg_posY = r14
+.def reg_work = r12
 
 .def reg_spi = r18
 .def reg_addrL = r19
