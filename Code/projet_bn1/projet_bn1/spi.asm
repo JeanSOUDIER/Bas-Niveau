@@ -66,4 +66,6 @@ Write_Mem_SetB:
 
 Write_Mem_SetE:
 	sbi		PORTB,4
+	ldi		reg_cpt3,80
+	rcall	tempo_MS
 	ret

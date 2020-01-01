@@ -33,7 +33,7 @@
   <RESET><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>79</LINE></RESET>
   <TI_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>90</LINE></TI_Interrupt>
   <UART_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>24</LINE></UART_Interrupt>
-  <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>66</LINE></tempo>
+  <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>65</LINE></tempo>
   <LETTRE_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>91</LINE></LETTRE_INC>
   <conv_lettre><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm</FILE><LINE>55</LINE></conv_lettre>
   <IO_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm</FILE><LINE>3</LINE></IO_Init>
@@ -52,24 +52,40 @@
   <Read_Mem><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>44</LINE></Read_Mem>
   <Write_Mem_SetB><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>57</LINE></Write_Mem_SetB>
   <Write_Mem_SetE><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>67</LINE></Write_Mem_SetE>
-  <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>57</LINE></SCREEN_Init>
+  <tempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>249</LINE></tempo_MS>
+  <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>56</LINE></SCREEN_Init>
   <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>103</LINE></SCREEN_INC>
-  <tempo1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>67</LINE></tempo1>
-  <addImgChar><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>74</LINE></addImgChar>
-  <loop_ADD1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>85</LINE></loop_ADD1>
-  <loop_ADD><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>94</LINE></loop_ADD>
-  <writeFullSreen><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>101</LINE></writeFullSreen>
-  <loop1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>105</LINE></loop1>
-  <loop2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>111</LINE></loop2>
-  <addr_carry1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>119</LINE></addr_carry1>
-  <loop3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>131</LINE></loop3>
-  <loop4><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>137</LINE></loop4>
-  <addr_carry2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>145</LINE></addr_carry2>
-  <CLR_RAM><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>156</LINE></CLR_RAM>
-  <loop_CLR><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>161</LINE></loop_CLR>
-  <loop_CLR1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>164</LINE></loop_CLR1>
-  <addr_carry3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>171</LINE></addr_carry3>
-  <tempo2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>179</LINE></tempo2>
-  <label_test><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>110</LINE></label_test>
+  <tempo1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>66</LINE></tempo1>
+  <addImgChar><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>77</LINE></addImgChar>
+  <loop_ADD1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>90</LINE></loop_ADD1>
+  <loop_ADD><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>99</LINE></loop_ADD>
+  <writeFullSreen><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>106</LINE></writeFullSreen>
+  <loop1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>110</LINE></loop1>
+  <loop2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>116</LINE></loop2>
+  <addr_carry1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>124</LINE></addr_carry1>
+  <loop3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>136</LINE></loop3>
+  <loop4><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>142</LINE></loop4>
+  <addr_carry2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>150</LINE></addr_carry2>
+  <CLR_RAM><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>161</LINE></CLR_RAM>
+  <loop_CLR><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>165</LINE></loop_CLR>
+  <loop_CLR1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>172</LINE></loop_CLR1>
+  <addr_carry3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>179</LINE></addr_carry3>
+  <Fenetre_Debut><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm</FILE><LINE>1</LINE></Fenetre_Debut>
+  <FEN_lab><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>115</LINE></FEN_lab>
+  <loop_Aff><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>111</LINE></loop_Aff>
+  <loopMain><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>120</LINE></loopMain>
+  <UP><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>135</LINE></UP>
+  <DOWN><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>144</LINE></DOWN>
+  <END><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>126</LINE></END>
+  <CHOIX><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>153</LINE></CHOIX>
+  <END_CHOIX><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>132</LINE></END_CHOIX>
+  <GAME><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>160</LINE></GAME>
+  <RESEAU><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>172</LINE></RESEAU>
+  <MENTION><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>236</LINE></MENTION>
+  <loopReseau1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>208</LINE></loopReseau1>
+  <loopReseau2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>225</LINE></loopReseau2>
+  <loopReseau3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>219</LINE></loopReseau3>
+  <MENTION1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>241</LINE></MENTION1>
+  <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>251</LINE></boucletempo>
  </LABELS>
 </ASSEMBLER_INFO>

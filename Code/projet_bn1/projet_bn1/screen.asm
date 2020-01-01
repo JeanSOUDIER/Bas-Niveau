@@ -12,7 +12,6 @@
 
 .macro Enable[]						;validation de la commande sur l'écran
 	cbi		PORTB,3
-	;nop								;on attent l'écran
 	ldi		reg_cpt3,250
 	rcall	tempo
 	sbi		PORTB,3
@@ -67,12 +66,18 @@ tempo:
 	tempo1:
 	dec		reg_cpt3
 	nop
+	nop
+	nop
+	nop
+	nop
 	brne	tempo1
 	ret
 
 ;load reg_addrL, reg_addrH, reg_lettre
 addImgChar:
 	WR_EN[]
+	ldi		reg_cpt3,255
+	rcall	tempo
 	ldi		reg_cpt1,0x70
 	add		reg_addrH,reg_cpt1
 	mov		reg_cpt1,reg_lettre
@@ -92,7 +97,7 @@ loop_ADD1:
 	brne	loop_ADD
 	inc		reg_addrH
 loop_ADD:
-	cp		reg_lettre,reg_cpt1
+	cp		reg_cpt1,reg_lettre
 	brne	loop_ADD1
 	rcall	Write_Mem_SetE
 	ret
@@ -154,13 +159,16 @@ addr_carry2:
 	ret
 
 CLR_RAM:
-	WR_EN[]
 	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x02
+	ldi		reg_addrH,0x70
 	ldi		reg_cpt2,0				;reset var
 loop_CLR:
 	ldi		reg_cpt1,0
+	WR_EN[]
+	ldi		reg_cpt3,255
+	rcall	tempo
 	rcall	Write_Mem_SetB
+	nop
 loop_CLR1:
 	ldi		reg_spi,0
 	rcall	SPI_Transmit
@@ -175,12 +183,6 @@ addr_carry3:
 	rjmp	loop_CLR1
 
 	rcall	Write_Mem_SetE
-	ldi		reg_cpt2,255
-tempo2:
-	dec		reg_cpt2
-	ldi		reg_cpt3,255
-	rcall	tempo
-	brne	tempo2
 
 	inc		reg_cpt2				;incrément du copteur 2
 	sbrs	reg_cpt2,4				;test de fin de boucle = 16

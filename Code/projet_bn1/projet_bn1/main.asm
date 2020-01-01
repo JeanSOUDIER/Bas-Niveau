@@ -24,7 +24,7 @@
 .def reg_addrL = r19
 .def reg_addrH = r20
 
-.def reg_lettre = r18
+.def reg_lettre = r24
 .def reg_out = r31
 
 .def reg_cpt1 = r21
@@ -104,96 +104,82 @@ SCREEN_INC:
 	.include "char_array.asm"
 
 	;sei
-	
-	cbi		PORTD,6
 
-label_test:
-	;Fenetre_Debut[]
-	;CLR_RAM[]
+	ldi		reg_init,128
+	ldi		reg_cpt2,128
+
+loop_Aff:
 	rcall CLR_RAM
-
+	cursor[]
+	rjmp	Fenetre_Debut							;affichage des caractères de la page principale
+FEN_lab:
 	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x02
-	rcall	writeFullSreen
-
-
-	rjmp	label_test
-
-/*	ldi		reg_init,128
+	ldi		reg_addrH,0x70
+	rcall	writeFullSreen					;affichage de l'écran
 
 loopMain:
-	writeFullSreen[]							;affichage de l'écran
-	
-	Fenetre_Debut[]							;affichage des caractères de la page principale
-
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
 	bHa[]									;test du bouton "vers le haut"
 	rjmp	UP
 	bBa[]									;test du bouton "vers le bas"
 	rjmp	DOWN
 END:
-	mov		reg_init,reg_cpt2
+	cp		reg_cpt2,reg_init
+	brne	loop_Aff
+
 	bA[]									;test du bouton validation
 	rjmp	CHOIX
 END_CHOIX:
-
-	ldi		reg_addrL,CHAR_SIZE*40				;cursor
-	add		reg_addrL,reg_cpt2					;chargement de la position
-	ldi		reg_addrH,2
-	cp		reg_addrL,reg_cpt2					;test de carry
-	brsh	testMain
-	inc		reg_addrH
-testMain:
-	ldi		reg_lettre,C_CH						;chargement de la lettre ">"
-	rcall	addImgChar							;stockage de la lettre dans la mémoire
-
 	rjmp	loopMain							;boucle infini
 
 UP:
-	cpi		reg_cpt2,128						;test si on est tout en haut
+	cpi		reg_init,128						;test si on est tout en haut
 	breq	END
-	cpi		reg_cpt2,64							;test si on est au milieu
-	ldi		reg_cpt2,128
+	cpi		reg_init,64							;test si on est au milieu
+	ldi		reg_init,128
 	breq	END
-	ldi		reg_cpt2,64
+	ldi		reg_init,64
 	rjmp	END
 
 DOWN:
-	cpi		reg_cpt2,0							;idem
+	cpi		reg_init,0							;idem
 	breq	END
-	cpi		reg_cpt2,64
-	ldi		reg_cpt2,0
+	cpi		reg_init,64
+	ldi		reg_init,0
 	breq	END
-	ldi		reg_cpt2,64
+	ldi		reg_init,64
 	rjmp	END
 
 CHOIX:
-	cpi		reg_cpt2,128						;test du curseur pour éguiller la fonction
+	cpi		reg_init,128						;test du curseur pour éguiller la fonction
 	breq	GAME
-	cpi		reg_cpt2,64
+	cpi		reg_init,64
 	breq	RESEAU
 	rjmp	MENTION
 
 GAME:
 	ldi		reg_addrL,0
 	ldi		reg_addrH,0
-	;createImgFull[]
 
-	;writeFullSreen[]
+	rcall	writeFullSreen
 
 	bB[]
-	rjmp	END_CHOIX
+	ldi		reg_init,128
+	bB[]
+	rjmp	loop_Aff
 	rjmp	GAME
 
 RESEAU:
-	CLR_RAM[]
+	rcall	CLR_RAM
 
 	ldi		reg_addrL,CHAR_SIZE*6
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_MUL
 	rcall	addImgChar
 
-	writeFullSreen[]
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x70
+	rcall	writeFullSreen
 
 	ldi		reg_TX,65								;ping en UART
 	rcall	USART_Transmit
@@ -203,28 +189,26 @@ RESEAU:
 	ldi		reg_lettre,C_MUL
 	rcall	addImgChar
 
-	writeFullSreen[]
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x70
+	rcall	writeFullSreen
 
-	ldi		reg_cpt2,255
-
-loopReseau:											;tempo
 	ldi		reg_cpt3,255
-	rcall	tempo
-	dec		reg_cpt1
-	cpi		reg_cpt1,0
-	brne	loopReseau
+	rcall	tempo_MS
 
 	ldi		reg_addrL,CHAR_SIZE*4
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_MUL
 	rcall	addImgChar
 
-	writeFullSreen[]
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x70
+	rcall	writeFullSreen
 
 loopReseau1:
 
 	sbrc	reg_init,1
-	rjmp	loopReseau3
+	rjmp	loopReseau2
 
 	cpi		reg_RX,65								;résultat du ping
 	breq	loopReseau3
@@ -239,20 +223,35 @@ loopReseau3:
 
 
 loopReseau2:
-	writeFullSreen[]
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x70
+	rcall	writeFullSreen
 	bB[]
 	ldi		reg_init,128
 	bB[]
-	rjmp	END_CHOIX
+	rjmp	loop_Aff
 	rjmp	loopReseau1
 	
 
 MENTION:
 	MENTION_MA[]									;affichage des mentions
-
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x70
+	rcall	writeFullSreen
+MENTION1:
 	bB[]
 	ldi		reg_init,128
 	bB[]
-	rjmp	END_CHOIX
-	rjmp	MENTION
-*/
+	rjmp	loop_Aff
+	rjmp	MENTION1
+
+; sous programme de temporisation
+tempo_MS:
+	ldi	reg_screen, 255
+boucletempo:
+	nop
+	dec	reg_screen
+	brne boucletempo
+	dec	reg_cpt3
+	brne tempo_MS
+	ret

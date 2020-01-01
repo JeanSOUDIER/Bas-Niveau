@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 01 00:57:34 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 01 14:22:21 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -609,7 +609,7 @@ DEF  reg_init     r16
 DEF  reg_spi      r18
 DEF  reg_addrL    r19
 DEF  reg_addrH    r20
-DEF  reg_lettre   r18
+DEF  reg_lettre   r24
 DEF  reg_out      r31
 DEF  reg_cpt1     r21
 DEF  reg_cpt2     r22
@@ -622,7 +622,7 @@ DEF  reg_RX       r27
 CSEG RESET        00000030
 CSEG TI_Interrupt 00000073
 CSEG UART_Interrupt 00000057
-CSEG tempo        000000be
+CSEG tempo        000000c0
 EQU  C_A          00000000
 EQU  C_B          00000005
 EQU  C_C          0000000a
@@ -692,27 +692,44 @@ EQU  READ         00000003
 EQU  WRITE        00000002
 CSEG SPI_Init     00000092
 CSEG SPI_Transmit 0000009a
-CSEG SPI_INC      000000b4
+CSEG SPI_INC      000000b6
 CSEG Wait_SPI     0000009b
 CSEG Read_Mem     0000009f
 CSEG Write_Mem_SetB 000000aa
 CSEG Write_Mem_SetE 000000b2
-CSEG SCREEN_Init  000000b4
-CSEG SCREEN_INC   00000150
-CSEG tempo1       000000be
-CSEG addImgChar   000000c2
-CSEG loop_ADD1    000000d1
-CSEG loop_ADD     000000d9
-CSEG writeFullSreen 000000dd
-CSEG loop1        000000e6
-CSEG loop2        000000f9
-CSEG addr_carry1  00000104
-CSEG loop3        0000010d
-CSEG loop4        00000120
-CSEG addr_carry2  0000012b
-CSEG CLR_RAM      00000132
-CSEG loop_CLR     0000013b
-CSEG loop_CLR1    0000013d
-CSEG addr_carry3  00000143
-CSEG tempo2       00000148
-CSEG label_test   00000151
+CSEG tempo_MS     00000299
+CSEG SCREEN_Init  000000b6
+CSEG SCREEN_INC   00000156
+CSEG tempo1       000000c0
+CSEG addImgChar   000000c8
+CSEG loop_ADD1    000000d9
+CSEG loop_ADD     000000e1
+CSEG writeFullSreen 000000e5
+CSEG loop1        000000ee
+CSEG loop2        00000101
+CSEG addr_carry1  0000010c
+CSEG loop3        00000115
+CSEG loop4        00000128
+CSEG addr_carry2  00000133
+CSEG CLR_RAM      0000013a
+CSEG loop_CLR     0000013d
+CSEG loop_CLR1    00000148
+CSEG addr_carry3  0000014e
+CSEG Fenetre_Debut 00000156
+CSEG FEN_lab      000001ab
+CSEG loop_Aff     000001a1
+CSEG testMain@cursor@1944 000001a8
+CSEG loopMain     000001ae
+CSEG UP           000001b8
+CSEG DOWN         000001bf
+CSEG END          000001b3
+CSEG CHOIX        000001c6
+CSEG END_CHOIX    000001b7
+CSEG GAME         000001cb
+CSEG RESEAU       000001d3
+CSEG MENTION      0000024c
+CSEG loopReseau1  000001ed
+CSEG loopReseau2  00000244
+CSEG loopReseau3  00000222
+CSEG MENTION1     00000294
+CSEG boucletempo  0000029a

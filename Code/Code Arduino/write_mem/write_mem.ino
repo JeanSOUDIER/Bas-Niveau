@@ -77,7 +77,6 @@ void writeMem(int address) {
   for(int pp=0;pp<1536;pp++) {
     plan_mem[pp] = 0x05;
   }
-  plan_mem[512] = 0x00;
   //plan_mem
   for(int i=0;i<(int)(sizeof(plan_mem)/64)+1;i++) {
     digitalWrite(SLAVESELECT,LOW);
@@ -131,7 +130,7 @@ void setup() {
   //clr=SPDR;
   delay(10);
 
-  //writeMem(0);
+  writeMem(0);
 
   int testeur = 1, cpt_err = 0;
 
@@ -140,13 +139,13 @@ void setup() {
     /*Serial.print(test0);
     Serial.print(" <= ");
     Serial.println(plan_mem[compteur]);*/
-    //if(test0 != plan_mem[compteur]) {
-      //Serial.print("error addr = ");
+    if(test0 != plan_mem[compteur]) {
+      Serial.print("error addr = ");
       Serial.print(compteur);
       Serial.print(" => ");
       Serial.println(test0);
       cpt_err++;
-    //}
+    }
     compteur++;
     if(compteur > sizeof(plan_mem)-1) {
       compteur = 0;
