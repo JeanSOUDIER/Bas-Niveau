@@ -71,7 +71,7 @@ TIMER_Init:
 	out		TIFR,reg_vol
 	in		reg_vol,TIMSK				;interrupt enable
 	ori		reg_vol,(1<<TICIE1)|(1<<TOIE1)|(1<<OCIE1A)
-	;out		TIMSK,reg_vol
+	out		TIMSK,reg_vol
 
 	ldi		reg_vol,0
 	out		OCR1AH,reg_vol

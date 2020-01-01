@@ -102,8 +102,10 @@ SPI_INC:
 	.include "screen.asm"
 SCREEN_INC:
 	.include "char_array.asm"
+CHAR_INC:
 
 	;sei
+
 
 	ldi		reg_init,128
 	ldi		reg_cpt2,128

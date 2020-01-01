@@ -1,3 +1,5 @@
+	rjmp	CHAR_INC
+
 Fenetre_Debut:				;affichage de "JOUER / RESEAU / MENTION"
 	ldi		reg_addrL,CHAR_SIZE*17+4
 	ldi		reg_addrH,3
