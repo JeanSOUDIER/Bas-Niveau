@@ -140,13 +140,13 @@ void setup() {
     /*Serial.print(test0);
     Serial.print(" <= ");
     Serial.println(plan_mem[compteur]);*/
-    if(test0 != plan_mem[compteur]) {
-      Serial.print("error addr = ");
+    //if(test0 != plan_mem[compteur]) {
+      //Serial.print("error addr = ");
       Serial.print(compteur);
       Serial.print(" => ");
       Serial.println(test0);
       cpt_err++;
-    }
+    //}
     compteur++;
     if(compteur > sizeof(plan_mem)-1) {
       compteur = 0;

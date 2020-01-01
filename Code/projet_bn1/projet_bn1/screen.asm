@@ -54,39 +54,6 @@
 	inc		reg_screen
 .endmacro
 
-.macro CLR_RAM[]
-	;cli
-	WR_EN[]
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x69
-loop_CLR2:
-	inc		reg_addrH
-	cpi		reg_addrH,74
-	breq	loop_CLR4
-loop_CLR1:
-	rcall	Write_Mem_SetE
-	nop
-	nop
-	nop
-	nop
-	rcall	Write_Mem_SetB
-loop_CLR:
-	ldi		reg_spi,0
-	rcall	SPI_Transmit
-	inc		reg_addrL
-	cpi		reg_addrL,64
-	breq	loop_CLR1
-	cpi		reg_addrL,128
-	breq	loop_CLR1
-	cpi		reg_addrL,192
-	breq	loop_CLR1
-	cpi		reg_addrL,0
-	breq	loop_CLR2
-	rjmp	loop_CLR
-loop_CLR4:
-	rcall	Write_Mem_SetE
-.endmacro
-
 SCREEN_Init:
 	sbi		PORTB,3					;set E and clear RS
 	cbi		PORTB,2
@@ -184,4 +151,39 @@ addr_carry2:
 	inc		reg_cpt2				;incrément du copteur 2
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop3
+	ret
+
+CLR_RAM:
+	WR_EN[]
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x02
+	ldi		reg_cpt2,0				;reset var
+loop_CLR:
+	ldi		reg_cpt1,0
+	rcall	Write_Mem_SetB
+loop_CLR1:
+	ldi		reg_spi,0
+	rcall	SPI_Transmit
+	inc		reg_addrL				;incrément de l'adresse LOW
+	cpi		reg_addrL,0
+	brne	addr_carry3				;test du carry
+	inc		reg_addrH
+addr_carry3:
+
+	inc		reg_cpt1				;incrément du compteur 1
+	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+	rjmp	loop_CLR1
+
+	rcall	Write_Mem_SetE
+	ldi		reg_cpt2,255
+tempo2:
+	dec		reg_cpt2
+	ldi		reg_cpt3,255
+	rcall	tempo
+	brne	tempo2
+
+	inc		reg_cpt2				;incrément du copteur 2
+	sbrs	reg_cpt2,4				;test de fin de boucle = 16
+	rjmp	loop_CLR
+
 	ret

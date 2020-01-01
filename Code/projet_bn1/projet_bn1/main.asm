@@ -105,80 +105,12 @@ SCREEN_INC:
 
 	;sei
 	
-	
 	cbi		PORTD,6
 
 label_test:
 	;Fenetre_Debut[]
 	;CLR_RAM[]
-
-
-	ldi		reg_cpt3,255
-	rcall	tempo
-
-	WR_EN[]
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x02
-	rcall	Write_Mem_SetB
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x06
-	rcall	SPI_Transmit
-	rcall	Write_Mem_SetE
-
-
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
+	rcall CLR_RAM
 
 	ldi		reg_addrL,0x00
 	ldi		reg_addrH,0x02

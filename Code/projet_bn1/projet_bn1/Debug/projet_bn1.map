@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Tue Dec 31 19:20:49 2019
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 01 00:57:34 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -620,9 +620,9 @@ DEF  reg_son      r28
 DEF  reg_TX       r29
 DEF  reg_RX       r27
 CSEG RESET        00000030
-CSEG TI_Interrupt 00000074
+CSEG TI_Interrupt 00000073
 CSEG UART_Interrupt 00000057
-CSEG tempo        000000e3
+CSEG tempo        000000be
 EQU  C_A          00000000
 EQU  C_B          00000005
 EQU  C_C          0000000a
@@ -685,29 +685,34 @@ CSEG USART_Transmit 00000053
 CSEG ADC_Init     0000005b
 CSEG ADC_INC      00000060
 CSEG TIMER_Init   00000060
-CSEG TIMER_INC    00000093
+CSEG TIMER_INC    00000092
 EQU  WREN         00000006
 EQU  WRDI         00000004
 EQU  READ         00000003
 EQU  WRITE        00000002
-CSEG SPI_Init     00000093
-CSEG SPI_Transmit 0000009b
-CSEG SPI_INC      000000d9
-CSEG Wait_SPI     0000009c
-CSEG Read_Mem     000000a0
-CSEG Write_Mem_SetB 000000ab
-CSEG Write_Mem_SetE 000000b3
-CSEG SCREEN_Init  000000d9
-CSEG SCREEN_INC   00000157
-CSEG tempo1       000000e3
-CSEG addImgChar   000000e7
-CSEG loop_ADD1    000000f6
-CSEG loop_ADD     000000fe
-CSEG writeFullSreen 00000102
-CSEG loop1        0000010b
-CSEG loop2        0000011e
-CSEG addr_carry1  00000129
-CSEG loop3        00000132
-CSEG loop4        00000145
-CSEG addr_carry2  00000150
-CSEG label_test   00000158
+CSEG SPI_Init     00000092
+CSEG SPI_Transmit 0000009a
+CSEG SPI_INC      000000b4
+CSEG Wait_SPI     0000009b
+CSEG Read_Mem     0000009f
+CSEG Write_Mem_SetB 000000aa
+CSEG Write_Mem_SetE 000000b2
+CSEG SCREEN_Init  000000b4
+CSEG SCREEN_INC   00000150
+CSEG tempo1       000000be
+CSEG addImgChar   000000c2
+CSEG loop_ADD1    000000d1
+CSEG loop_ADD     000000d9
+CSEG writeFullSreen 000000dd
+CSEG loop1        000000e6
+CSEG loop2        000000f9
+CSEG addr_carry1  00000104
+CSEG loop3        0000010d
+CSEG loop4        00000120
+CSEG addr_carry2  0000012b
+CSEG CLR_RAM      00000132
+CSEG loop_CLR     0000013b
+CSEG loop_CLR1    0000013d
+CSEG addr_carry3  00000143
+CSEG tempo2       00000148
+CSEG label_test   00000151

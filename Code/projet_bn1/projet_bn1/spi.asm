@@ -66,40 +66,4 @@ Write_Mem_SetB:
 
 Write_Mem_SetE:
 	sbi		PORTB,4
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
-	ldi		reg_cpt3,255
-	rcall	tempo
 	ret
