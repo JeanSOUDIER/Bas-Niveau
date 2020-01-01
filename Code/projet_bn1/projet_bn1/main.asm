@@ -19,6 +19,7 @@
 ;.def reg_test3 = r13
 ;.def reg_bt1 = r24
 ;r17
+
 .def reg_posX = r13
 .def reg_posY = r14
 .def reg_work = r12
@@ -91,7 +92,6 @@ reset:								; adresse du vecteur de reset
 	ldi		reg_cpt3,255
 	rcall	tempo
 
-
 	;ajout des programmes pour la gestion des modules
 	.include "lettre.asm"
 LETTRE_INC:
@@ -112,7 +112,6 @@ SCREEN_INC:
 CSGO_INC:
 
 	sei
-
 	
 start:
 	bGa[]

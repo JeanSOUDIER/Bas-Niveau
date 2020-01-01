@@ -94,13 +94,44 @@ addr_carry:
 	cp		XL,reg_cpt1
 	brne	loopImg
 .endmacro
-.macro SetPosPerso
+;in addrH/L img, posX,posY perso
+.macro SetPosPerso[]
+	PosPerso[]
+	mov		reg_work,reg_spi
+	rcall	Read_Mem
+	and		reg_spi,reg_work
+	;rcall	write spi
+.endmacro
+;in addrH/L img, posX,posY perso
+.macro ClearPosPerso[]
+	PosPerso[]
+	com		reg_spi
+	mov		reg_work,reg_spi
+	rcall	Read_Mem
+	and		reg_spi,reg_work
+	;rcall	write spi
+.endmacro
+.macro PosPerso[]
+	ldi		reg_work,0x04
+	ldi		reg_spi,1
+	add		reg_addrH,reg_work
+	sub		reg_addrL,reg_posX
+	mov		reg_work,reg_posY
+	andi	reg_work,0x07
 	cpi		reg_posY,8
-	brsh	pos_perso1
-	ldi		XL,LOW(img)+POS_MAP
-	add		XL,reg_posX
-	
+	brlo	pos_perso
+	cpi		reg_posY,16
+	brlo	pos_perso1
+	subi	reg_addrL,64
 pos_perso1:
+	subi	reg_addrL,64
+pos_perso:
+	cpi		reg_work,0
+	breq	pos_perso2
+	lsl		reg_spi
+	dec		reg_work
+	rjmp	pos_perso
+pos_perso2:
 .endmacro
 
 
