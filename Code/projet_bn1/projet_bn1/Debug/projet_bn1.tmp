@@ -31,32 +31,31 @@
   <FILE>projet_bn1.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <RESET><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>86</LINE></RESET>
-  <TI_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>83</LINE></TI_Interrupt>
+  <RESET><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>90</LINE></RESET>
+  <TI_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>90</LINE></TI_Interrupt>
   <UART_Interrupt><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>24</LINE></UART_Interrupt>
   <tempo><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>112</LINE></tempo>
-  <LETTRE_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>97</LINE></LETTRE_INC>
+  <LETTRE_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>101</LINE></LETTRE_INC>
   <conv_lettre><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\lettre.asm</FILE><LINE>55</LINE></conv_lettre>
   <IO_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm</FILE><LINE>3</LINE></IO_Init>
-  <IO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>99</LINE></IO_INC>
+  <IO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>103</LINE></IO_INC>
   <USART_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>4</LINE></USART_Init>
-  <UART_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>101</LINE></UART_INC>
+  <UART_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>105</LINE></UART_INC>
   <USART_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm</FILE><LINE>18</LINE></USART_Transmit>
   <ADC_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm</FILE><LINE>3</LINE></ADC_Init>
-  <ADC_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>103</LINE></ADC_INC>
+  <ADC_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>107</LINE></ADC_INC>
   <TIMER_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>64</LINE></TIMER_Init>
-  <TIMER_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>105</LINE></TIMER_INC>
-  <LIMIT_ADC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm</FILE><LINE>114</LINE></LIMIT_ADC>
-  <SPI_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>36</LINE></SPI_Transmit>
+  <TIMER_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>109</LINE></TIMER_INC>
   <SPI_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>26</LINE></SPI_Init>
-  <SPI_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>107</LINE></SPI_INC>
+  <SPI_Transmit><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>36</LINE></SPI_Transmit>
+  <SPI_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>111</LINE></SPI_INC>
   <Wait_SPI><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>38</LINE></Wait_SPI>
   <Read_Mem><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>44</LINE></Read_Mem>
   <Write_Mem_SetB><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>57</LINE></Write_Mem_SetB>
   <Write_Mem_SetE><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm</FILE><LINE>67</LINE></Write_Mem_SetE>
-  <tempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>286</LINE></tempo_MS>
+  <tempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>289</LINE></tempo_MS>
   <SCREEN_Init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>103</LINE></SCREEN_Init>
-  <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>109</LINE></SCREEN_INC>
+  <SCREEN_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>113</LINE></SCREEN_INC>
   <tempo1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>113</LINE></tempo1>
   <addImgChar><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>124</LINE></addImgChar>
   <loop_ADD1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>137</LINE></loop_ADD1>
@@ -72,15 +71,15 @@
   <loop_CLR><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>212</LINE></loop_CLR>
   <loop_CLR1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>219</LINE></loop_CLR1>
   <addr_carry3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm</FILE><LINE>226</LINE></addr_carry3>
-  <CHAR_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>111</LINE></CHAR_INC>
+  <CHAR_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>115</LINE></CHAR_INC>
   <Fenetre_Debut><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm</FILE><LINE>3</LINE></Fenetre_Debut>
-  <FEN_lab><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>129</LINE></FEN_lab>
+  <FEN_lab><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>132</LINE></FEN_lab>
   <csgo_init><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>3</LINE></csgo_init>
   <Affichage_Image><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>46</LINE></Affichage_Image>
-  <CSGO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>113</LINE></CSGO_INC>
+  <CSGO_INC><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>117</LINE></CSGO_INC>
   <Avancer><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>14</LINE></Avancer>
   <Mouvement_Confirme><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>25</LINE></Mouvement_Confirme>
-  <start><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>118</LINE></start>
+  <start><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>121</LINE></start>
   <Reculer><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>23</LINE></Reculer>
   <Tourner_Gauche><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>32</LINE></Tourner_Gauche>
   <Tourner_Droite><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>39</LINE></Tourner_Droite>
@@ -91,6 +90,6 @@
   <Determination_Image_1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>86</LINE></Determination_Image_1>
   <Determination_Image_2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>91</LINE></Determination_Image_2>
   <CREATION_IMAGE><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm</FILE><LINE>97</LINE></CREATION_IMAGE>
-  <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>288</LINE></boucletempo>
+  <boucletempo><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>291</LINE></boucletempo>
  </LABELS>
 </ASSEMBLER_INFO>

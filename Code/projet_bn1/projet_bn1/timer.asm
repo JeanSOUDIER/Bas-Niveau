@@ -62,62 +62,38 @@
 .endmacro
 
 TIMER_Init:
-	ldi		reg_vol,(1<<WGM11)|(1<<WGM10)|(1<<COM1A1)
-	ldi		reg_son,(1<<WGM12)|(1<<CS11)|(1<<CS10)
+	ldi		reg_vol,(1<<WGM11)|(1<<COM1A1)
+	ldi		reg_son,(1<<WGM13)|(1<<WGM12)|(1<<CS11)
 	out		TCCR1A,reg_vol
 	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
 	in		reg_vol,TIFR				;clear flag
 	andi	reg_vol,0xFB
 	out		TIFR,reg_vol
 	in		reg_vol,TIMSK				;interrupt enable
-	ori		reg_vol,(1<<TOIE1)
+	ori		reg_vol,(1<<TICIE1)|(1<<TOIE1)|(1<<OCIE1A)
 	out		TIMSK,reg_vol
-	ldi		reg_vol,255
-	out		OCR1AH,reg_vol
+
 	ldi		reg_vol,0
-	out		TCNT1L,reg_vol
-	rjmp	TIMER_INC
+	out		OCR1AH,reg_vol
+	ldi		reg_vol,1
+	out		OCR1AL,reg_vol
+
+	ldi		reg_vol,100
+	out		ICR1H,reg_vol
+	ldi		reg_vol,0
+	out		ICR1L,reg_vol
 
 	ldi		reg_son,0
+	rjmp	TIMER_INC
+
 
 TI_Interrupt:
 	in		tri,SREG					; save content of flag reg.
 
-	/*mov		reg_test2,reg_addrL
-	mov		reg_test3,reg_addrH
-	mov		reg_addrL,reg_test1
-	ldi		reg_addrH,0
-	rcall	Read_Mem
-	mov		reg_son,reg_spi
-	inc		reg_test1
-	mov		reg_addrL,reg_test2
-	mov		reg_addrH,reg_test3
-
-
-	cbi		PORTB,4									;clear SS
-	ldi		reg_spi,0x03							;instruction de lecture mémoire
-	rcall	SPI_Transmit
-	mov		reg_spi,reg_addrH						;sélection de l'adresse H
-	rcall	SPI_Transmit
-	mov		reg_spi,reg_addrL						;sélection de l'adresse L
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x00							;lecture de la réponse
-	rcall	SPI_Transmit
-	sbi		PORTB,4									;set SS
-	*/
-
 	;gestion du volume
 	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
-	cpi		reg_vol,10
-	brsh	LIMIT_ADC
-	ldi		reg_vol,10
-LIMIT_ADC:
-	out		OCR1AL,reg_vol
-	in		reg_vol,ADCSRA
-	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
-	out		ADCSRA,reg_vol
 
-	cbi		PORTB,4									;clear SS
+	/*cbi		PORTB,4									;clear SS
 	ldi		reg_spi,0x03							;instruction de lecture mémoire
 	rcall	SPI_Transmit
 	ldi		reg_spi,0						;sélection de l'adresse H
@@ -127,14 +103,55 @@ LIMIT_ADC:
 	ldi		reg_spi,0x00							;lecture de la réponse
 	rcall	SPI_Transmit
 	sbi		PORTB,4									;set SS
-	out		TCNT1H,reg_spi
+	out		TCNT1H,reg_spi*/
 	inc		reg_son
+	out		ICR1H,reg_son
+
+
+
+	mov		reg_spi,reg_son
+	lsr		reg_vol
+	sbrc	reg_spi,6
+	lsr		reg_vol
+	sbrc	reg_spi,5
+	lsr		reg_vol
+	sbrc	reg_spi,4
+	lsr		reg_vol
+	sbrc	reg_spi,3
+	lsr		reg_vol
+	sbrc	reg_spi,2
+	lsr		reg_vol
+	sbrc	reg_spi,1
+	lsr		reg_vol
+
+	out		OCR1AL,reg_vol
+	in		reg_vol,ADCSRA
+	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
+	out		ADCSRA,reg_vol
+	ldi		reg_vol,0
+	out		TCNT1H,reg_vol
+	out		TCNT1L,reg_vol
+
+
+
+
+
+
+
+	
+
+	;sbic	PIND,6
+	;cbi		PORTD,5
+	;sbis	PIND,6
+	;sbi		PORTD,5
 
 	;gestion de la led
 	sbic	PIND,6						;blink led
 	cbi		PORTD,6
 	sbis	PIND,6
 	sbi		PORTD,6
+
+	
 
 	out		SREG,tri					; restore flag register
 	reti 								; Return from interrupt
