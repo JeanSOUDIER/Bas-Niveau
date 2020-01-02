@@ -1,6 +1,6 @@
-.macro Fenetre_Debut[]				;affichage de "JOUER / RESEAU / MENTION"
-	CLR_RAM[]
+	rjmp	CHAR_INC
 
+Fenetre_Debut:				;affichage de "JOUER / RESEAU / MENTION"
 	ldi		reg_addrL,CHAR_SIZE*17+4
 	ldi		reg_addrH,3
 	ldi		reg_lettre,C_J
@@ -91,10 +91,10 @@
 	ldi		reg_lettre,C_N
 	rcall	addImgChar
 
-.endmacro
+	rjmp	FEN_lab
 
 .macro CONNECTED[]				;affichage de "connecte"
-	CLR_RAM[]
+	rcall CLR_RAM
 
 	ldi		reg_addrL,CHAR_SIZE*6
 	ldi		reg_addrH,3
@@ -200,7 +200,7 @@
 .endmacro
 
 .macro MENTION_MA[]			;affichage des mentions
-	CLR_RAM[]
+	rcall CLR_RAM
 
 	ldi		reg_addrL,CHAR_SIZE*16+4
 	ldi		reg_addrH,3
@@ -286,6 +286,16 @@
 	ldi		reg_addrH,1
 	ldi		reg_lettre,C_T
 	rcall	addImgChar
+.endmacro
 
-	rcall	writeFullSreen
+.macro cursor[]
+	ldi		reg_addrL,CHAR_SIZE*40				;cursor
+	add		reg_addrL,reg_init					;chargement de la position
+	ldi		reg_addrH,2
+	cp		reg_addrL,reg_init					;test de carry
+	brsh	testMain
+	inc		reg_addrH
+testMain:
+	ldi		reg_lettre,C_CH						;chargement de la lettre ">"
+	rcall	addImgChar							;stockage de la lettre dans la mémoire
 .endmacro

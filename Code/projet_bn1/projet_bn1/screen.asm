@@ -54,20 +54,28 @@
 .endmacro
 ;in addrH/L img, posX,posY perso
 .macro SetPosPerso[]
+	WR_EN[]
 	PosPerso[]
 	mov		reg_work,reg_spi
 	rcall	Read_Mem
-	and		reg_spi,reg_work
-	;rcall	write spi
+	and		reg_work,reg_spi
+	rcall	Write_Mem_SetB
+	mov		reg_spi,reg_work
+	rcall	SPI_Transmit
+	rcall	Write_Mem_SetE
 .endmacro
 ;in addrH/L img, posX,posY perso
 .macro ClearPosPerso[]
+	WR_EN[]
 	PosPerso[]
 	com		reg_spi
 	mov		reg_work,reg_spi
 	rcall	Read_Mem
-	and		reg_spi,reg_work
-	;rcall	write spi
+	and		reg_work,reg_spi
+	rcall	Write_Mem_SetB
+	mov		reg_spi,reg_work
+	rcall	SPI_Transmit
+	rcall	Write_Mem_SetE
 .endmacro
 .macro PosPerso[]
 	ldi		reg_work,0x04
@@ -97,7 +105,7 @@ SCREEN_Init:
 	cbi		PORTB,2
 	ldi		reg_screen,63			;instruction de début de l'écran
 	out		PORTC,reg_screen
-	Enable[]						;validation
+	;Enable[]						;validation
 	RS_set[]						;mode données
 	rjmp	SCREEN_INC
 

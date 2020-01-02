@@ -21,8 +21,8 @@
 ;r17
 
 .def reg_posX = r11
-.def reg_posY = r10
-.def reg_work = r12
+.def reg_posY = r17
+.def reg_work = r27
 
 .def reg_spi = r18
 .def reg_addrL = r19
@@ -90,7 +90,7 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	rcall	tempo
+	;rcall	tempo
 
 	;ajout des programmes pour la gestion des modules
 	.include "lettre.asm"
@@ -108,10 +108,12 @@ SPI_INC:
 	.include "screen.asm"
 SCREEN_INC:
 	.include "char_array.asm"
+CHAR_INC:
 	.include "csgo.asm"
 CSGO_INC:
 
-	sei
+	SetPosPerso[]
+	;sei
 	
 start:
 	bGa[]
@@ -124,7 +126,7 @@ start:
 	rcall	tempo
 	rjmp	start
 
-
+FEN_lab:     ; n est pas appelé mais ne pas enlever
 /*IMAGE_SUIVANTE:
 	subi	r16,-0x04
 	cpi		r16,0x48
