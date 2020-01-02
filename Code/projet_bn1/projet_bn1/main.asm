@@ -20,15 +20,15 @@
 ;.def reg_bt1 = r24
 ;r17
 
-.def reg_posX = r13
-.def reg_posY = r14
+.def reg_posX = r11
+.def reg_posY = r10
 .def reg_work = r12
 
 .def reg_spi = r18
 .def reg_addrL = r19
 .def reg_addrH = r20
 
-.def reg_lettre = r18
+.def reg_lettre = r26
 .def reg_out = r31
 
 .def reg_cpt1 = r21
@@ -47,8 +47,8 @@
 .def reg_csgo_mapL = r14
 .def reg_csgo_mapH = r15
 
-.dseg
-img: .byte 1024	; reserve une image
+;.dseg
+;img: .byte 1024	; reserve une image
 
 .cseg  ; codesegment
 .org	0x00
@@ -279,3 +279,14 @@ MENTION:
 	bB[]
 	rjmp	END_CHOIX
 	rjmp	MENTION*/
+
+; sous programme de temporisation
+tempo_MS:
+	ldi	reg_screen, 255
+boucletempo:
+	nop
+	dec	reg_screen
+	brne boucletempo
+	dec	reg_cpt3
+	brne tempo_MS
+	ret
