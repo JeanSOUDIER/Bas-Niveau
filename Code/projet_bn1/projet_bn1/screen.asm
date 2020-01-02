@@ -105,7 +105,7 @@ SCREEN_Init:
 	cbi		PORTB,2
 	ldi		reg_screen,63			;instruction de début de l'écran
 	out		PORTC,reg_screen
-	;Enable[]						;validation
+	Enable[]						;validation
 	RS_set[]						;mode données
 	rjmp	SCREEN_INC
 

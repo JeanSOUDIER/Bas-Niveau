@@ -90,7 +90,7 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	;rcall	tempo
+	rcall	tempo
 
 	;ajout des programmes pour la gestion des modules
 	.include "lettre.asm"
@@ -112,7 +112,7 @@ CHAR_INC:
 	.include "csgo.asm"
 CSGO_INC:
 
-	SetPosPerso[]
+	;SetPosPerso[]
 	;sei
 	
 start:
