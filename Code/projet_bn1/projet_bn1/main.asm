@@ -18,26 +18,35 @@
 ;.def reg_test2 = r14
 ;.def reg_test3 = r13
 ;.def reg_bt1 = r24
-;r17
 
-.def reg_spi = r18
+.def reg_posX = r28
+.def reg_posY = r29
+.def reg_work = r24
+
+.def reg_spi = r17
 .def reg_addrL = r19
 .def reg_addrH = r20
 
-.def reg_lettre = r24
-.def reg_out = r31
-
 .def reg_cpt1 = r21
 .def reg_cpt2 = r22
-.def reg_cpt3 = r23
+.def reg_cpt3 = r31
+.def reg_cptT0 = r23
 
 .def reg_screen = r18
 
 .def reg_vol = r25
-.def reg_son = r28
 
-.def reg_TX = r29
-.def reg_RX = r27
+.def reg_TX = r30
+.def reg_RX = r24
+
+.dseg
+	num_son:	.byte 1
+	num_son2:	.byte 1
+	C_Wait:		.byte 5
+	Table:		.byte 8
+	conv:		.byte 1
+	convB:		.byte 1
+	conv2:		.byte 1
 
 .cseg  ; codesegment
 .org	0x00
@@ -71,7 +80,9 @@
 .org 0x0A
 	reti
 .org 0x10
-	jmp		TI_Interrupt
+	jmp		TI1_Interrupt
+.org 0x12
+	jmp		TI0_interrupt
 .org 0x16
 	jmp		UART_Interrupt
 
@@ -83,12 +94,15 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	rcall	tempo
+	;rcall	tempo_US
+
+	
+	ldi		reg_work,0
+	ldi		reg_posX,12
+	ldi		reg_posY,10
 
 
 	;ajout des programmes pour la gestion des modules
-	.include "lettre.asm"
-LETTRE_INC:
 	.include "io.asm"
 IO_INC:
 	.include "uart.asm"
@@ -103,21 +117,9 @@ SPI_INC:
 SCREEN_INC:
 	.include "char_array.asm"
 CHAR_INC:
-
-	;sei
-
-
-	ldi		reg_init,128
-	ldi		reg_cpt2,128
-
-loop_Aff:
-	rcall CLR_RAM
-	cursor[]
-	rjmp	Fenetre_Debut							;affichage des caractères de la page principale
-FEN_lab:
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x70
-	rcall	writeFullSreen					;affichage de l'écran
+	
+	sei
+	ldi		reg_init,8
 
 loopMain:
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
@@ -126,86 +128,60 @@ loopMain:
 	bBa[]									;test du bouton "vers le bas"
 	rjmp	DOWN
 END:
-	cp		reg_cpt2,reg_init
-	brne	loop_Aff
-
 	bA[]									;test du bouton validation
 	rjmp	CHOIX
 END_CHOIX:
-	rjmp	loopMain							;boucle infini
+	Fenetre_Debut[]							;affichage des caractères de la page principale
+	rjmp	loopMain						;boucle infini
 
 UP:
-	cpi		reg_init,128						;test si on est tout en haut
+	cpi		reg_init,8						;test si on est tout en haut
 	breq	END
-	cpi		reg_init,64							;test si on est au milieu
-	ldi		reg_init,128
+	cpi		reg_init,4						;test si on est au milieu
+	ldi		reg_init,8
 	breq	END
-	ldi		reg_init,64
+	ldi		reg_init,4
 	rjmp	END
 
 DOWN:
 	cpi		reg_init,0							;idem
 	breq	END
-	cpi		reg_init,64
+	cpi		reg_init,4
 	ldi		reg_init,0
 	breq	END
-	ldi		reg_init,64
+	ldi		reg_init,4
 	rjmp	END
 
 CHOIX:
-	cpi		reg_init,128						;test du curseur pour éguiller la fonction
+	cpi		reg_init,8						;test du curseur pour éguiller la fonction
 	breq	GAME
-	cpi		reg_init,64
+	cpi		reg_init,4
 	breq	RESEAU
 	rjmp	MENTION
 
 GAME:
 	ldi		reg_addrL,0
 	ldi		reg_addrH,0
-
 	rcall	writeFullSreen
 
 	bB[]
-	ldi		reg_init,128
+	ldi		reg_init,8
 	bB[]
-	rjmp	loop_Aff
+	rjmp	loopMain
 	rjmp	GAME
 
 RESEAU:
-	rcall	CLR_RAM
-
-	ldi		reg_addrL,CHAR_SIZE*6
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_MUL
-	rcall	addImgChar
-
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x70
-	rcall	writeFullSreen
+	CONN1[]
 
 	ldi		reg_TX,65								;ping en UART
 	rcall	USART_Transmit
 
-	ldi		reg_addrL,CHAR_SIZE*5
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_MUL
-	rcall	addImgChar
-
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x70
-	rcall	writeFullSreen
+	CONN2[]
 
 	ldi		reg_cpt3,255
 	rcall	tempo_MS
 
-	ldi		reg_addrL,CHAR_SIZE*4
-	ldi		reg_addrH,3
-	ldi		reg_lettre,C_MUL
-	rcall	addImgChar
-
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x70
-	rcall	writeFullSreen
+	CONN3[]
 
 loopReseau1:
 
@@ -225,35 +201,28 @@ loopReseau3:
 
 
 loopReseau2:
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x70
-	rcall	writeFullSreen
 	bB[]
-	ldi		reg_init,128
+	ldi		reg_init,8
 	bB[]
-	rjmp	loop_Aff
+	rjmp	loopMain
 	rjmp	loopReseau1
 	
 
 MENTION:
 	MENTION_MA[]									;affichage des mentions
-	ldi		reg_addrL,0x00
-	ldi		reg_addrH,0x70
-	rcall	writeFullSreen
-MENTION1:
 	bB[]
-	ldi		reg_init,128
+	ldi		reg_init,8
 	bB[]
-	rjmp	loop_Aff
-	rjmp	MENTION1
+	rjmp	loopMain
+	rjmp	MENTION
 
 ; sous programme de temporisation
 tempo_MS:
 	ldi	reg_screen, 255
-boucletempo:
+boucletempo_MS:
 	nop
 	dec	reg_screen
-	brne boucletempo
+	brne boucletempo_MS
 	dec	reg_cpt3
 	brne tempo_MS
 	ret
