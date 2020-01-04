@@ -21,7 +21,7 @@
 
 .def reg_posX = r28
 .def reg_posY = r29
-.def reg_work = r24
+;.def reg_work = r24
 
 .def reg_spi = r17
 .def reg_addrL = r19
@@ -30,9 +30,9 @@
 .def reg_cpt1 = r21
 .def reg_cpt2 = r22
 .def reg_cpt3 = r31
-.def reg_cptT0 = r23
-
 .def reg_screen = r18
+
+.def reg_cptT0 = r23
 
 .def reg_vol = r25
 
@@ -47,6 +47,7 @@
 	conv:		.byte 1
 	convB:		.byte 1
 	conv2:		.byte 1
+	dead:		.byte 1
 
 .cseg  ; codesegment
 .org	0x00
@@ -94,11 +95,9 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	;rcall	tempo_US
+	rcall	tempo_US
 
-	
-	ldi		reg_work,0
-	ldi		reg_posX,12
+	ldi		reg_posX,31
 	ldi		reg_posY,10
 
 
@@ -162,10 +161,13 @@ CHOIX:
 GAME:
 	ldi		reg_addrL,0
 	ldi		reg_addrH,0
+	ldi		reg_posX,2
 	rcall	writeFullSreen
 
 	bB[]
 	ldi		reg_init,8
+	bB[]
+	ldi		reg_posX,31
 	bB[]
 	rjmp	loopMain
 	rjmp	GAME

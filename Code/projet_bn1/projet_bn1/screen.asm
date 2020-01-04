@@ -47,40 +47,38 @@
 .endmacro
 
 .macro placePosPerso[]
-	cpi		reg_work,0xFF
-	breq	END_PERSO1
-
-	mov		reg_work,reg_posY
-	andi	reg_work,7
+	mov		reg_screen,reg_posY
+	andi	reg_screen,7
 	ldi		XL,LOW(Table)
 	ldi		XH,HIGH(Table)
-	add		XL,reg_work
-	ld		reg_work,X
-	sts		conv,reg_work
+	add		XL,reg_screen
+	ld		reg_screen,X
+	sts		conv,reg_screen
 
-	ldi		reg_work,255
+	ldi		reg_screen,255
 	cpi		reg_posY,8
 	brlo	END_PERSO
 	cpi		reg_posY,16
-	ldi		reg_work,191
+	ldi		reg_screen,191
 	brlo	END_PERSO
-	ldi		reg_work,127
+	ldi		reg_screen,127
 END_PERSO:
-	sub		reg_work,reg_posX
-	sts		convB,reg_work
-	ldi		reg_work,7
+	sub		reg_screen,reg_posX
+	sts		convB,reg_screen
+	ldi		reg_screen,7
 	cpi		reg_posY,8
 	brlo	END_PERSO2
 	cpi		reg_posY,16
-	ldi		reg_work,6
+	ldi		reg_screen,6
 	brlo	END_PERSO2
-	ldi		reg_work,5
+	ldi		reg_screen,5
 END_PERSO2:
-	sts		conv2,reg_work
-END_PERSO1:
+	sts		conv2,reg_screen
 .endmacro
 
 .macro SetPosPerso[]
+	cpi		reg_posX,31
+	breq	END_SetPerso
 	lds		reg_screen,conv2
 	cp		reg_cpt2,reg_screen
 	brne	END_SetPerso
@@ -90,7 +88,6 @@ END_PERSO1:
 	brne	END_SetPerso
 	lds		reg_screen,conv
 	or		reg_spi,reg_screen
-	sbi		PORTD,6
 END_SetPerso:
 .endmacro
 
@@ -105,7 +102,6 @@ END_SetPerso:
 	lds		reg_screen,conv
 	com		reg_screen
 	and		reg_spi,reg_screen
-	cbi		PORTD,6
 END_ClearPerso:
 .endmacro
 

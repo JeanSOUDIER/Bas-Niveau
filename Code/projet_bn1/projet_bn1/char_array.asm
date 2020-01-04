@@ -29,6 +29,8 @@ Init_char_array:
 	st		X+,reg_init
 	ldi		reg_init,0x01
 	st		X,reg_init
+	ldi		reg_init,1
+	sts		dead,reg_init
 	rjmp	CHAR_INC
 
 .macro Fenetre_Debut[]				;affichage de "JOUER / RESEAU / MENTION"
