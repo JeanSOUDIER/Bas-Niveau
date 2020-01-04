@@ -62,10 +62,17 @@
 .endmacro
 
 TIMER_Init:
-	ldi		reg_vol,(1<<WGM11)|(1<<COM1A1)
-	ldi		reg_son,(1<<WGM13)|(1<<WGM12)|(1<<CS11)
+	ldi		reg_vol,(1<<CS02)|(1<<CS00)
+	out		TCCR0,reg_vol
+	in		reg_vol,TIMSK
+	ori		reg_vol,(1<<TOIE0)
+	out		TIMSK,reg_vol
+	ldi		reg_init,0
+
+	ldi		reg_vol,(1<<WGM11)|(1<<COM1A1)			;timer1
 	out		TCCR1A,reg_vol
-	out		TCCR1B,reg_son				;démarrage du timer à 16KHz => soit à 8k
+	ldi		reg_vol,(1<<WGM13)|(1<<WGM12)|(1<<CS11)
+	out		TCCR1B,reg_vol				;démarrage du timer à 16KHz => soit à 8k
 	in		reg_vol,TIFR				;clear flag
 	andi	reg_vol,0xFB
 	out		TIFR,reg_vol
@@ -80,70 +87,51 @@ TIMER_Init:
 
 	ldi		reg_vol,100
 	out		ICR1H,reg_vol
-	ldi		reg_vol,0
+	ldi		reg_vol,255
 	out		ICR1L,reg_vol
 
-	ldi		reg_son,0
+	ldi		reg_vol,20
+	sts		num_son,reg_vol
+	ldi		reg_vol,2
+	sts		num_son2,reg_vol
+	
+
 	rjmp	TIMER_INC
 
 
-TI_Interrupt:
+TI1_Interrupt:
 	in		tri,SREG					; save content of flag reg.
 
+	lds		reg_vol,num_son2				;chargement de l'addresse du caractère
+	cpi		reg_vol,2
+	brsh	No_sound
+
+conv_son:
+	sbic	EECR,EEWE					;test de d'écriture dans l'eeprom
+	rjmp	conv_son
+
+	
+	out		EEARH,reg_vol
+	lds		reg_vol,num_son
+	out		EEARL,reg_vol
+	
+	sbi		EECR,EERE				;test de fin de lecture
+	in		reg_vol,EEDR			;lecture
+	out		ICR1H,reg_vol			;set freq
+
+
 	;gestion du volume
+	ldi		reg_vol,0
+	out		OCR1AH,reg_vol
 	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
-
-	/*cbi		PORTB,4									;clear SS
-	ldi		reg_spi,0x03							;instruction de lecture mémoire
-	rcall	SPI_Transmit
-	ldi		reg_spi,0						;sélection de l'adresse H
-	rcall	SPI_Transmit
-	mov		reg_spi,reg_son						;sélection de l'adresse L
-	rcall	SPI_Transmit
-	ldi		reg_spi,0x00							;lecture de la réponse
-	rcall	SPI_Transmit
-	sbi		PORTB,4									;set SS
-	out		TCNT1H,reg_spi*/
-	inc		reg_son
-	out		ICR1H,reg_son
-
-
-
-	mov		reg_spi,reg_son
-	lsr		reg_vol
-	sbrc	reg_spi,6
-	lsr		reg_vol
-	sbrc	reg_spi,5
-	lsr		reg_vol
-	sbrc	reg_spi,4
-	lsr		reg_vol
-	sbrc	reg_spi,3
-	lsr		reg_vol
-	sbrc	reg_spi,2
-	lsr		reg_vol
-	sbrc	reg_spi,1
-	lsr		reg_vol
-
 	out		OCR1AL,reg_vol
+
 	in		reg_vol,ADCSRA
 	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
 	out		ADCSRA,reg_vol
 	ldi		reg_vol,0
 	out		TCNT1H,reg_vol
 	out		TCNT1L,reg_vol
-
-
-
-
-
-
-
-	
-
-	;sbic	PIND,6
-	;cbi		PORTD,5
-	;sbis	PIND,6
-	;sbi		PORTD,5
 
 	;gestion de la led
 	sbic	PIND,6						;blink led
@@ -155,3 +143,21 @@ TI_Interrupt:
 
 	out		SREG,tri					; restore flag register
 	reti 								; Return from interrupt
+
+No_sound:
+	ldi		reg_vol,0
+	out		OCR1AL,reg_vol
+	ldi		reg_vol,0
+	out		TCNT1H,reg_vol
+	out		TCNT1L,reg_vol
+	reti
+
+TI0_interrupt:
+	in		tri,SREG					; save content of flag reg.
+	inc		reg_cptT0
+	cpi		reg_cptT0,16
+	brne	END_T0
+	ldi		reg_cptT0,0
+END_T0:
+	out		SREG,tri					; restore flag register
+	reti

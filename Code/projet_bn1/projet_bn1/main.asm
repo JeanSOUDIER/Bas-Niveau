@@ -14,41 +14,40 @@
 
 .def reg_init = r16
 
-;.def reg_test1 = r15
-;.def reg_test2 = r14
-;.def reg_test3 = r13
-;.def reg_bt1 = r24
-;r17
-
-.def reg_posX = r11
-.def reg_posY = r17
+.def reg_posX = r23
+.def reg_posY = r18
 .def reg_work = r27
 
-.def reg_spi = r18
+.def reg_spi = r28
 .def reg_addrL = r19
 .def reg_addrH = r20
 
-.def reg_lettre = r26
-.def reg_out = r31
-
 .def reg_cpt1 = r21
 .def reg_cpt2 = r22
-.def reg_cpt3 = r23
+.def reg_cpt3 = r30
 
 .def reg_screen = r18
 
 .def reg_vol = r25
-.def reg_son = r28
 
-.def reg_TX = r29
-.def reg_RX = r30
+.def reg_cptT0 = r31
+
+.def reg_TX = r30
+.def reg_RX = r29
 
 .def reg_csgo_orientation = r13
 .def reg_csgo_mapL = r14
 .def reg_csgo_mapH = r15
 
-;.dseg
-;img: .byte 1024	; reserve une image
+.dseg
+	num_son:	.byte 1
+	num_son2:	.byte 1
+	C_Wait:		.byte 5
+	Table:		.byte 8
+	conv:		.byte 1
+	convB:		.byte 1
+	conv2:		.byte 1
+	dead:		.byte 1
 
 .cseg  ; codesegment
 .org	0x00
@@ -82,7 +81,9 @@
 .org 0x0A
 	reti
 .org 0x10
-	jmp		TI_Interrupt
+	jmp		TI1_Interrupt
+.org 0x12
+	jmp		TI0_interrupt
 .org 0x16
 	jmp		UART_Interrupt
 
@@ -94,11 +95,9 @@ reset:								; adresse du vecteur de reset
 	out		SPL,r16
 
 	ldi		reg_cpt3,255
-	rcall	tempo
+	rcall	tempo_MS
 
 	;ajout des programmes pour la gestion des modules
-	.include "lettre.asm"
-LETTRE_INC:
 	.include "io.asm"
 IO_INC:
 	.include "uart.asm"
@@ -126,7 +125,7 @@ start:
 	bHa[]
 	rjmp	Avancer
 	ldi		reg_cpt3,255
-	rcall	tempo
+	rcall	tempo_MS
 	rjmp	start
 
 FEN_lab:     ; n est pas appelé mais ne pas enlever
