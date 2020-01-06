@@ -85,13 +85,13 @@
   <END><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>129</LINE></END>
   <CHOIX><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>154</LINE></CHOIX>
   <END_CHOIX><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>132</LINE></END_CHOIX>
-  <GAME><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>161</LINE></GAME>
-  <RESEAU><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>175</LINE></RESEAU>
-  <MENTION><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>213</LINE></MENTION>
-  <tempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>222</LINE></tempo_MS>
-  <loopReseau1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>188</LINE></loopReseau1>
-  <loopReseau2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>205</LINE></loopReseau2>
-  <loopReseau3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>199</LINE></loopReseau3>
-  <boucletempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>224</LINE></boucletempo_MS>
+  <RESEAU><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>183</LINE></RESEAU>
+  <MENTION><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>221</LINE></MENTION>
+  <GAME><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>162</LINE></GAME>
+  <tempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>230</LINE></tempo_MS>
+  <loopReseau1><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>196</LINE></loopReseau1>
+  <loopReseau2><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>213</LINE></loopReseau2>
+  <loopReseau3><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>207</LINE></loopReseau3>
+  <boucletempo_MS><FILE>D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm</FILE><LINE>232</LINE></boucletempo_MS>
  </LABELS>
 </ASSEMBLER_INFO>

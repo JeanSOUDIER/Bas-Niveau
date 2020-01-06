@@ -152,17 +152,25 @@ DOWN:
 	rjmp	END
 
 CHOIX:
-	cpi		reg_init,8						;test du curseur pour éguiller la fonction
-	breq	GAME
-	cpi		reg_init,4
+	cpi		reg_init,4						;test du curseur pour éguiller la fonction
 	breq	RESEAU
-	rjmp	MENTION
+	cpi		reg_init,0
+	breq	MENTION
+	ldi		reg_init,0
+	rjmp	GAME
 
 GAME:
-	ldi		reg_addrL,0
-	ldi		reg_addrH,0
+	bHa[]
+	ldi		reg_init,0
+	bBa[]
+	ldi		reg_init,4
+
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x78
+	add		reg_addrH,reg_init
 	ldi		reg_posX,2
 	rcall	writeFullSreen
+
 
 	bB[]
 	ldi		reg_init,8
