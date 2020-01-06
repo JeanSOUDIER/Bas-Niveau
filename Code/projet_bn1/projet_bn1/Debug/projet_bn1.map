@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sat Jan 04 11:22:54 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Jan 06 13:57:21 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -608,17 +608,17 @@ DEF  tri          r1
 DEF  reg_init     r16
 DEF  reg_posX     r28
 DEF  reg_posY     r29
-DEF  reg_spi      r17
+DEF  reg_spi      r24
 DEF  reg_addrL    r19
 DEF  reg_addrH    r20
 DEF  reg_cpt1     r21
 DEF  reg_cpt2     r22
-DEF  reg_cpt3     r31
-DEF  reg_screen   r18
+DEF  reg_cpt3     r17
+DEF  reg_screen   r17
 DEF  reg_cptT0    r23
 DEF  reg_vol      r25
 DEF  reg_TX       r30
-DEF  reg_RX       r24
+DEF  reg_RX       r18
 DSEG num_son      00000060
 DSEG num_son2     00000061
 DSEG C_Wait       00000062

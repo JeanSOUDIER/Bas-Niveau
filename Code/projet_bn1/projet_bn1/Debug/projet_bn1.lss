@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sat Jan 04 11:22:54 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Jan 06 13:57:21 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(22): warning: Register r28 already defined by the .DEF directive
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(23): warning: Register r29 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(32): warning: Register r31 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(33): warning: Register r17 already defined by the .DEF directive
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(39): warning: Register r30 already defined by the .DEF directive
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(105): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
@@ -912,21 +912,21 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  .def reg_posY = r29
                                  ;.def reg_work = r24
                                  
-                                 .def reg_spi = r17
+                                 .def reg_spi = r24
                                  .def reg_addrL = r19
                                  .def reg_addrH = r20
                                  
                                  .def reg_cpt1 = r21
                                  .def reg_cpt2 = r22
-                                 .def reg_cpt3 = r31
-                                 .def reg_screen = r18
+                                 .def reg_cpt3 = r17
+                                 .def reg_screen = r17
                                  
                                  .def reg_cptT0 = r23
                                  
                                  .def reg_vol = r25
                                  
                                  .def reg_TX = r30
-                                 .def reg_RX = r24
+                                 .def reg_RX = r18
                                  
                                  .dseg
 000060                           	num_son:	.byte 1
@@ -983,7 +983,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000032 e50f                      	ldi		r16,low(RAMEND)
 000033 bf0d                      	out		SPL,r16
                                  
-000034 efff                      	ldi		reg_cpt3,255
+000034 ef1f                      	ldi		reg_cpt3,255
 000035 d094                      	rcall	tempo_US
                                  
 000036 e1cf                      	ldi		reg_posX,31
@@ -1032,12 +1032,12 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  
                                  UART_Interrupt:
 000050 b61f                      	in		tri,SREG						; save content of flag reg.
-000051 b18c                      	in		reg_RX,UDR
-000052 3080                      	cpi		reg_RX,0
+000051 b12c                      	in		reg_RX,UDR
+000052 3020                      	cpi		reg_RX,0
 000053 f411                      	brne	END_UART
-000054 9380 0072                 	sts		dead,reg_RX
+000054 9320 0072                 	sts		dead,reg_RX
                                  END_UART:
-000056 738f                      	andi	reg_RX,0x3F
+000056 732f                      	andi	reg_RX,0x3F
 000057 be1f                      	out		SREG,tri						; restore flag register
 000058 9518                      	reti 									; Return from interrupt
                                  UART_INC:
@@ -1230,32 +1230,32 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  .endmacro
                                  
                                  SPI_Init:
-0000a8 e511                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
-0000a9 b91d                      	out		SPCR,reg_spi
+0000a8 e581                      	ldi		reg_spi,(1<<SPE)|(1<<MSTR)|(1<<SPR0)	; ON / MASTER / fosc/16
+0000a9 b98d                      	out		SPCR,reg_spi
 0000aa 9ac4                      	sbi		PORTB,4									;set SS
 0000ab 98c4
-0000ac e014
+0000ac e084
 0000ad d002
 0000ae 9ac4                      	WR_DI[]
 0000af c010                      	rjmp	SPI_INC
                                  
                                  SPI_Transmit:										;attente transmission
-0000b0 b91f                      	out		SPDR,reg_spi							;envoi msg
+0000b0 b98f                      	out		SPDR,reg_spi							;envoi msg
                                  Wait_SPI:
 0000b1 9b77                      	sbis	SPSR,SPIF								;test si fini
 0000b2 cffe                      	rjmp	Wait_SPI
-0000b3 b11f                      	in		reg_spi,SPDR							;lecture de la réponse
+0000b3 b18f                      	in		reg_spi,SPDR							;lecture de la réponse
 0000b4 9508                      	ret
                                  
                                  Read_Mem:
 0000b5 98c4                      	cbi		PORTB,4									;clear SS
-0000b6 e013                      	ldi		reg_spi,READ							;instruction de lecture mémoire
+0000b6 e083                      	ldi		reg_spi,READ							;instruction de lecture mémoire
 0000b7 dff8                      	rcall	SPI_Transmit
-0000b8 2f14                      	mov		reg_spi,reg_addrH						;sélection de l'adresse H
+0000b8 2f84                      	mov		reg_spi,reg_addrH						;sélection de l'adresse H
 0000b9 dff6                      	rcall	SPI_Transmit
-0000ba 2f13                      	mov		reg_spi,reg_addrL						;sélection de l'adresse L
+0000ba 2f83                      	mov		reg_spi,reg_addrL						;sélection de l'adresse L
 0000bb dff4                      	rcall	SPI_Transmit
-0000bc e010                      	ldi		reg_spi,0x00							;lecture de la réponse
+0000bc e080                      	ldi		reg_spi,0x00							;lecture de la réponse
 0000bd dff2                      	rcall	SPI_Transmit
 0000be 9ac4                      	sbi		PORTB,4									;set SS
 0000bf 9508                      	ret
@@ -1371,76 +1371,76 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  SCREEN_Init:
 0000c0 9ac3                      	sbi		PORTB,3					;set E and clear RS
 0000c1 98c2                      	cbi		PORTB,2
-0000c2 e32f                      	ldi		reg_screen,63			;instruction de début de l'écran
-0000c3 bb25                      	out		PORTC,reg_screen
+0000c2 e31f                      	ldi		reg_screen,63			;instruction de début de l'écran
+0000c3 bb15                      	out		PORTC,reg_screen
 0000c4 98c3
-0000c5 effa
+0000c5 ef1a
 0000c6 d003
 0000c7 9ac3                      	Enable[]						;validation
 0000c8 9ac2                      	RS_set[]						;mode données
 0000c9 c108                      	rjmp	SCREEN_INC
                                  
                                  tempo_US:
-0000ca 95fa                      	dec		reg_cpt3
+0000ca 951a                      	dec		reg_cpt3
 0000cb 0000                      	nop
 0000cc f7e9                      	brne	tempo_US
 0000cd 9508                      	ret
                                  
                                  ;full reg_addrL/H
                                  writeFullSreen:
-0000ce 2f2d
-0000cf 7027
+0000ce 2f1d
+0000cf 7017
 0000d0 e6a7
 0000d1 e0b0
-0000d2 0fa2
-0000d3 912c
-0000d4 9320 006f
-0000d6 ef2f
+0000d2 0fa1
+0000d3 911c
+0000d4 9310 006f
+0000d6 ef1f
 0000d7 30d8
 0000d8 f020
 0000d9 31d0
-0000da eb2f
+0000da eb1f
 0000db f008
-0000dc e72f
-0000dd 1b2c
-0000de 9320 0070
-0000e0 e027
+0000dc e71f
+0000dd 1b1c
+0000de 9310 0070
+0000e0 e017
 0000e1 30d8
 0000e2 f020
 0000e3 31d0
-0000e4 e026
+0000e4 e016
 0000e5 f008
-0000e6 e025
-0000e7 9320 0071                 	placePosPerso[]
+0000e6 e015
+0000e7 9310 0071                 	placePosPerso[]
 0000e9 9ac1
 0000ea 98c0                      	screenR[]						;set side screen
 0000eb e060                      	ldi		reg_cpt2,0				;reset var
                                  loop1:
 0000ec e050                      	ldi		reg_cpt1,0
-0000ed e020                      	ldi		reg_screen,0			;set pos Y = 0
+0000ed e010                      	ldi		reg_screen,0			;set pos Y = 0
 0000ee 98c2
-0000ef 6420
-0000f0 bb25
+0000ef 6410
+0000f0 bb15
 0000f1 98c3
-0000f2 effa
+0000f2 ef1a
 0000f3 dfd6
 0000f4 9ac3
 0000f5 9ac2                      	SetPosY[]
-0000f6 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+0000f6 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 0000f7 98c2
-0000f8 6b28
-0000f9 bb25
+0000f8 6b18
+0000f9 bb15
 0000fa 98c3
-0000fb effa
+0000fb ef1a
 0000fc dfcd
 0000fd 9ac3
 0000fe 9ac2                      	SetPosX[]
                                  loop2:
 0000ff dfb5                      	rcall	Read_Mem					;lecture de la mémoire spi
-000100 2f21                      	mov		reg_screen,reg_spi
-000101 bb25
+000100 2f18                      	mov		reg_screen,reg_spi
+000101 bb15
 000102 98c3
-000103 effa
+000103 ef1a
 000104 dfc5
 000105 9ac3                      	ScreenWrite[]					;écriture sur l'écran
 000106 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
@@ -1462,21 +1462,21 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000112 e060                      	ldi		reg_cpt2,0				;reset var
                                  loop3:
 000113 e050                      	ldi		reg_cpt1,0
-000114 e020                      	ldi		reg_screen,0			;set pos Y = 0
+000114 e010                      	ldi		reg_screen,0			;set pos Y = 0
 000115 98c2
-000116 6420
-000117 bb25
+000116 6410
+000117 bb15
 000118 98c3
-000119 effa
+000119 ef1a
 00011a dfaf
 00011b 9ac3
 00011c 9ac2                      	SetPosY[]
-00011d 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+00011d 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 00011e 98c2
-00011f 6b28
-000120 bb25
+00011f 6b18
+000120 bb15
 000121 98c3
-000122 effa
+000122 ef1a
 000123 dfa6
 000124 9ac3
 000125 9ac2                      	SetPosX[]
@@ -1484,35 +1484,35 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000126 df8e                      	rcall	Read_Mem					;lecture de la mémoire spi
 000127 3078                      	cpi		reg_cptT0,8
 000128 f468                      	brsh	PRINT
-000129 9120 0071
-00012b 1762
+000129 9110 0071
+00012b 1761
 00012c f449
-00012d 9120 0070
-00012f 732f
-000130 1752
+00012d 9110 0070
+00012f 731f
+000130 1751
 000131 f421
-000132 9120 006f
-000134 9520
-000135 2312                      	ClearPosPerso[]
+000132 9110 006f
+000134 9510
+000135 2381                      	ClearPosPerso[]
                                  PRINT:
 000136 3078                      	cpi		reg_cptT0,8
 000137 f070                      	brlo	PRINT1
 000138 31cf
 000139 f061
-00013a 9120 0071
-00013c 1762
+00013a 9110 0071
+00013c 1761
 00013d f441
-00013e 9120 0070
-000140 732f
-000141 1752
+00013e 9110 0070
+000140 731f
+000141 1751
 000142 f419
-000143 9120 006f
-000145 2b12                      	SetPosPerso[]
+000143 9110 006f
+000145 2b81                      	SetPosPerso[]
                                  PRINT1:
-000146 2f21                      	mov		reg_screen,reg_spi
-000147 bb25
+000146 2f18                      	mov		reg_screen,reg_spi
+000147 bb15
 000148 98c3
-000149 effa
+000149 ef1a
 00014a df7f
 00014b 9ac3                      	ScreenWrite[]					;écriture sur l'écran
 00014c 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
@@ -1537,29 +1537,29 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000159 e060                      	ldi		reg_cpt2,0				;reset var
                                  loop5:
 00015a e050                      	ldi		reg_cpt1,0
-00015b e020                      	ldi		reg_screen,0			;set pos Y = 0
+00015b e010                      	ldi		reg_screen,0			;set pos Y = 0
 00015c 98c2
-00015d 6420
-00015e bb25
+00015d 6410
+00015e bb15
 00015f 98c3
-000160 effa
+000160 ef1a
 000161 df68
 000162 9ac3
 000163 9ac2                      	SetPosY[]
-000164 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+000164 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 000165 98c2
-000166 6b28
-000167 bb25
+000166 6b18
+000167 bb15
 000168 98c3
-000169 effa
+000169 ef1a
 00016a df5f
 00016b 9ac3
 00016c 9ac2                      	SetPosX[]
                                  loop6:
-00016d e020                      	ldi		reg_screen,0
-00016e bb25
+00016d e010                      	ldi		reg_screen,0
+00016e bb15
 00016f 98c3
-000170 effa
+000170 ef1a
 000171 df58
 000172 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
@@ -1576,29 +1576,29 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 00017b e060                      	ldi		reg_cpt2,0				;reset var
                                  loop7:
 00017c e050                      	ldi		reg_cpt1,0
-00017d e020                      	ldi		reg_screen,0			;set pos Y = 0
+00017d e010                      	ldi		reg_screen,0			;set pos Y = 0
 00017e 98c2
-00017f 6420
-000180 bb25
+00017f 6410
+000180 bb15
 000181 98c3
-000182 effa
+000182 ef1a
 000183 df46
 000184 9ac3
 000185 9ac2                      	SetPosY[]
-000186 2f26                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+000186 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 000187 98c2
-000188 6b28
-000189 bb25
+000188 6b18
+000189 bb15
 00018a 98c3
-00018b effa
+00018b ef1a
 00018c df3d
 00018d 9ac3
 00018e 9ac2                      	SetPosX[]
                                  loop8:
-00018f e020                      	ldi		reg_screen,0
-000190 bb25
+00018f e010                      	ldi		reg_screen,0
+000190 bb15
 000191 98c3
-000192 effa
+000192 ef1a
 000193 df36
 000194 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
@@ -1614,55 +1614,55 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  writeChar:
 00019c 9ac0
 00019d 98c1                      	screenL[]
-00019e e02a                      	ldi		reg_screen,10
-00019f 0f23                      	add		reg_screen,reg_addrL
+00019e e01a                      	ldi		reg_screen,10
+00019f 0f13                      	add		reg_screen,reg_addrL
 0001a0 98c2
-0001a1 6420
-0001a2 bb25
+0001a1 6410
+0001a2 bb15
 0001a3 98c3
-0001a4 effa
+0001a4 ef1a
 0001a5 df24
 0001a6 9ac3
 0001a7 9ac2                      	SetPosY[]
-0001a8 e024                      	ldi		reg_screen,4
+0001a8 e014                      	ldi		reg_screen,4
 0001a9 98c2
-0001aa 6b28
-0001ab bb25
+0001aa 6b18
+0001ab bb15
 0001ac 98c3
-0001ad effa
+0001ad ef1a
 0001ae df1b
 0001af 9ac3
 0001b0 9ac2                      	SetPosX[]
 0001b1 e6a2                      	ldi		XL,LOW(C_Wait)
 0001b2 e0b0                      	ldi		XH,HIGH(C_Wait)
-0001b3 912d                      	ld		reg_screen,X+
-0001b4 bb25
+0001b3 911d                      	ld		reg_screen,X+
+0001b4 bb15
 0001b5 98c3
-0001b6 effa
+0001b6 ef1a
 0001b7 df12
 0001b8 9ac3                      	ScreenWrite[]
-0001b9 912d                      	ld		reg_screen,X+
-0001ba bb25
+0001b9 911d                      	ld		reg_screen,X+
+0001ba bb15
 0001bb 98c3
-0001bc effa
+0001bc ef1a
 0001bd df0c
 0001be 9ac3                      	ScreenWrite[]
-0001bf 912d                      	ld		reg_screen,X+
-0001c0 bb25
+0001bf 911d                      	ld		reg_screen,X+
+0001c0 bb15
 0001c1 98c3
-0001c2 effa
+0001c2 ef1a
 0001c3 df06
 0001c4 9ac3                      	ScreenWrite[]
-0001c5 912d                      	ld		reg_screen,X+
-0001c6 bb25
+0001c5 911d                      	ld		reg_screen,X+
+0001c6 bb15
 0001c7 98c3
-0001c8 effa
+0001c8 ef1a
 0001c9 df00
 0001ca 9ac3                      	ScreenWrite[]
-0001cb 912d                      	ld		reg_screen,X+
-0001cc bb25
+0001cb 911d                      	ld		reg_screen,X+
+0001cc bb15
 0001cd 98c3
-0001ce effa
+0001ce ef1a
 0001cf defa
 0001d0 9ac3                      	ScreenWrite[]
 0001d1 9508                      SCREEN_INC:
@@ -1814,7 +1814,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000225 e036
 000226 df75                      	CONN2[]
                                  
-000227 efff                      	ldi		reg_cpt3,255
+000227 ef1f                      	ldi		reg_cpt3,255
 000228 d01b                      	rcall	tempo_MS
                                  
 000229 e03c
@@ -1825,7 +1825,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 00022b fd01                      	sbrc	reg_init,1
 00022c c00a                      	rjmp	loopReseau2
                                  
-00022d 3481                      	cpi		reg_RX,65								;résultat du ping
+00022d 3421                      	cpi		reg_RX,65								;résultat du ping
 00022e f021                      	breq	loopReseau3
 00022f e030
 000230 e740
@@ -1861,12 +1861,12 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  
                                  ; sous programme de temporisation
                                  tempo_MS:
-000244 ef2f                      	ldi	reg_screen, 255
+000244 ef8f                      	ldi	reg_spi, 255
                                  boucletempo_MS:
 000245 0000                      	nop
-000246 952a                      	dec	reg_screen
+000246 958a                      	dec	reg_spi
 000247 f7e9                      	brne boucletempo_MS
-000248 95fa                      	dec	reg_cpt3
+000248 951a                      	dec	reg_cpt3
 000249 f7d1                      	brne tempo_MS
 00024a 9508                      	ret
 
@@ -1888,10 +1888,10 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :  19 y  :   0 z  :   0 r0 :   0 r1 :   6 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  62 r17:  13 r18:  82 r19:  14 r20:   9 
-r21:  14 r22:  19 r23:   6 r24:   5 r25:  49 r26:   5 r27:   4 r28:   5 
-r29:   6 r30:  12 r31:  24 
-Registers used: 18 out of 35 (51.4%)
+r13:   0 r14:   0 r15:   0 r16:  62 r17: 104 r18:   5 r19:  14 r20:   9 
+r21:  14 r22:  19 r23:   6 r24:  15 r25:  49 r26:   5 r27:   4 r28:   5 
+r29:   6 r30:  12 r31:   0 
+Registers used: 17 out of 35 (48.6%)
 
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   3 adiw  :   0 and   :   1 
