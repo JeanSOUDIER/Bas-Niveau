@@ -200,6 +200,13 @@ loopReseau1:
 
 	cpi		reg_RX,65								;résultat du ping
 	breq	loopReseau3
+
+	ldi		reg_TX,65								;ping en UART
+	rcall	USART_Transmit
+
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+
 	NO_CONNECTED[]
 
 	rjmp	loopReseau2

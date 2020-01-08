@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Jan 06 19:20:40 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 08 09:14:30 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(22): warning: Register r28 already defined by the .DEF directive
@@ -1786,7 +1786,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000210 3004                      	cpi		reg_init,4						;test du curseur pour éguiller la fonction
 000211 f0a1                      	breq	RESEAU
 000212 3000                      	cpi		reg_init,0
-000213 f171                      	breq	MENTION
+000213 f191                      	breq	MENTION
 000214 e000                      	ldi		reg_init,0
 000215 c000                      	rjmp	GAME
                                  
@@ -1823,7 +1823,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 00022c df6f                      	CONN2[]
                                  
 00022d ef1f                      	ldi		reg_cpt3,255
-00022e d01b                      	rcall	tempo_MS
+00022e d01f                      	rcall	tempo_MS
                                  
 00022f e03c
 000230 df6b                      	CONN3[]
@@ -1831,52 +1831,59 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
                                  loopReseau1:
                                  
 000231 fd01                      	sbrc	reg_init,1
-000232 c00a                      	rjmp	loopReseau2
+000232 c00e                      	rjmp	loopReseau2
                                  
 000233 3421                      	cpi		reg_RX,65								;résultat du ping
-000234 f021                      	breq	loopReseau3
-000235 e030
-000236 e740
-000237 de96                      	NO_CONNECTED[]
+000234 f041                      	breq	loopReseau3
                                  
-000238 c004                      	rjmp	loopReseau2
+000235 e4e1                      	ldi		reg_TX,65								;ping en UART
+000236 de15                      	rcall	USART_Transmit
+                                 
+000237 ef1f                      	ldi		reg_cpt3,255
+000238 d015                      	rcall	tempo_MS
+                                 
+000239 e030
+00023a e740
+00023b de92                      	NO_CONNECTED[]
+                                 
+00023c c004                      	rjmp	loopReseau2
                                  
                                  loopReseau3:
                                  
-000239 e002                      	ldi		reg_init,2
-00023a e030
-00023b e64c
-00023c de91                      	CONNECTED[]
+00023d e002                      	ldi		reg_init,2
+00023e e030
+00023f e64c
+000240 de8d                      	CONNECTED[]
                                  
                                  
                                  loopReseau2:
-00023d 9bcd                      	bB[]
-00023e e008                      	ldi		reg_init,8
-00023f 9bcd                      	bB[]
-000240 cfb5                      	rjmp	loopMain
-000241 cfef                      	rjmp	loopReseau1
+000241 9bcd                      	bB[]
+000242 e008                      	ldi		reg_init,8
+000243 9bcd                      	bB[]
+000244 cfb1                      	rjmp	loopMain
+000245 cfeb                      	rjmp	loopReseau1
                                  	
                                  
                                  MENTION:
-000242 e030
-000243 e744
-000244 de89                      	MENTION_MA[]									;affichage des mentions
-000245 9bcd                      	bB[]
-000246 e008                      	ldi		reg_init,8
-000247 9bcd                      	bB[]
-000248 cfad                      	rjmp	loopMain
-000249 cff8                      	rjmp	MENTION
+000246 e030
+000247 e744
+000248 de85                      	MENTION_MA[]									;affichage des mentions
+000249 9bcd                      	bB[]
+00024a e008                      	ldi		reg_init,8
+00024b 9bcd                      	bB[]
+00024c cfa9                      	rjmp	loopMain
+00024d cff8                      	rjmp	MENTION
                                  
                                  ; sous programme de temporisation
                                  tempo_MS:
-00024a ef8f                      	ldi	reg_spi, 255
+00024e ef8f                      	ldi	reg_spi, 255
                                  boucletempo_MS:
-00024b 0000                      	nop
-00024c 958a                      	dec	reg_spi
-00024d f7e9                      	brne boucletempo_MS
-00024e 951a                      	dec	reg_cpt3
-00024f f7d1                      	brne tempo_MS
-000250 9508                      	ret
+00024f 0000                      	nop
+000250 958a                      	dec	reg_spi
+000251 f7e9                      	brne boucletempo_MS
+000252 951a                      	dec	reg_cpt3
+000253 f7d1                      	brne tempo_MS
+000254 9508                      	ret
 
 
 RESOURCE USE INFORMATION
@@ -1896,9 +1903,9 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :  19 y  :   0 z  :   0 r0 :   0 r1 :   6 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  66 r17: 104 r18:   5 r19:  14 r20:  10 
+r13:   0 r14:   0 r15:   0 r16:  66 r17: 105 r18:   5 r19:  14 r20:  10 
 r21:  14 r22:  19 r23:   6 r24:  15 r25:  49 r26:   5 r27:   4 r28:   5 
-r29:   6 r30:  12 r31:   0 
+r29:   6 r30:  13 r31:   0 
 Registers used: 17 out of 35 (48.6%)
 
 "ATmega16A" instruction use summary:
@@ -1912,10 +1919,10 @@ clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0
 clt   :   0 clv   :   0 clz   :   0 com   :   1 cp    :   4 cpc   :   0 
 cpi   :  19 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :  11 inc   :  13 jmp   :   3 
-ld    :   6 ldd   :   0 ldi   : 130 lds   :   8 lpm   :   0 lsl   :   0 
+ld    :   6 ldd   :   0 ldi   : 132 lds   :   8 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :  10 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   2 or    :   1 ori   :  13 out   :  60 pop   :   0 
-push  :   0 rcall :  39 ret   :   8 reti  :   6 rjmp  :  34 rol   :   0 
+push  :   0 rcall :  41 ret   :   8 reti  :   6 rjmp  :  34 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :  42 sbic  :   2 sbis  :  15 
 sbiw  :   0 sbr   :   0 sbrc  :   1 sbrs  :   8 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
@@ -1926,7 +1933,7 @@ Instructions used: 36 out of 113 (31.9%)
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0004a2   1108      0   1108   16384   6.8%
+[.cseg] 0x000000 0x0004aa   1116      0   1116   16384   6.8%
 [.dseg] 0x000060 0x000073      0     19     19    1024   1.9%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

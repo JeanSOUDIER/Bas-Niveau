@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Mon Jan 06 19:20:40 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 08 09:14:30 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -685,10 +685,10 @@ CSEG END          000001fb
 CSEG CHOIX        00000210
 CSEG END_CHOIX    000001fd
 CSEG RESEAU       00000226
-CSEG MENTION      00000242
+CSEG MENTION      00000246
 CSEG GAME         00000216
-CSEG tempo_MS     0000024a
+CSEG tempo_MS     0000024e
 CSEG loopReseau1  00000231
-CSEG loopReseau2  0000023d
-CSEG loopReseau3  00000239
-CSEG boucletempo_MS 0000024b
+CSEG loopReseau2  00000241
+CSEG loopReseau3  0000023d
+CSEG boucletempo_MS 0000024f
