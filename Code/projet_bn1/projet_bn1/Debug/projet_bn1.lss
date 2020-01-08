@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 08 09:14:30 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 08 09:26:54 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(22): warning: Register r28 already defined by the .DEF directive
@@ -1816,7 +1816,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000227 e030
 000228 df73                      	CONN1[]
                                  
-000229 e4e1                      	ldi		reg_TX,65								;ping en UART
+000229 e0e1                      	ldi		reg_TX,1								;ping en UART
 00022a de21                      	rcall	USART_Transmit
                                  
 00022b e036
@@ -1833,10 +1833,10 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(117): Including 
 000231 fd01                      	sbrc	reg_init,1
 000232 c00e                      	rjmp	loopReseau2
                                  
-000233 3421                      	cpi		reg_RX,65								;résultat du ping
+000233 3021                      	cpi		reg_RX,1								;résultat du ping
 000234 f041                      	breq	loopReseau3
                                  
-000235 e4e1                      	ldi		reg_TX,65								;ping en UART
+000235 e0e1                      	ldi		reg_TX,1								;ping en UART
 000236 de15                      	rcall	USART_Transmit
                                  
 000237 ef1f                      	ldi		reg_cpt3,255

@@ -183,7 +183,7 @@ GAME:
 RESEAU:
 	CONN1[]
 
-	ldi		reg_TX,65								;ping en UART
+	ldi		reg_TX,1								;ping en UART
 	rcall	USART_Transmit
 
 	CONN2[]
@@ -198,10 +198,10 @@ loopReseau1:
 	sbrc	reg_init,1
 	rjmp	loopReseau2
 
-	cpi		reg_RX,65								;résultat du ping
+	cpi		reg_RX,1								;résultat du ping
 	breq	loopReseau3
 
-	ldi		reg_TX,65								;ping en UART
+	ldi		reg_TX,1								;ping en UART
 	rcall	USART_Transmit
 
 	ldi		reg_cpt3,255
