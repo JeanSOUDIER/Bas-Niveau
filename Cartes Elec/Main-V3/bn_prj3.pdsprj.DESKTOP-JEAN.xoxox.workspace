@@ -1,17 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
- <FRAME activewindow="0">
-  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff3eefffff6c0600004ef7ffff9c0b0000</PLACEMENT>
+ <FRAME activewindow="1">
+  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff00000000200000001008000050050000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
   <WINDOW type="default" module="ARES"/>
-  <WINDOW type="default" module="VSMSTUDIO">
-   <FILE ACTIVE="TRUE" NAME="ATmega16/main.asm"/>
-   <STATE NAME="EDIT" VALUE="AAAA/wAAAAH9AAAAAgAAAAAAAAEAAAAGtPwCAAAAAvsAAAAQAFAAcgBvAGoAZQBjAHQAcwEAAAAAAAAGtAAAASwA////+wAAABQAUAByAG8AcABlAHIAdABpAGUAcwAAAAAA/////wAAALcA////AAAAAwAADvgAAADP/AEAAAAB+wAAACAATwB1AHQAcAB1AHQARABvAGMAawBXAGkAZABnAGUAdAEAAAAAAAAO+AAAAIwA////AAAN8AAABrQAAAABAAAAAgAAAAgAAAAC/AAAAAA="/>
-   <PROJECT ACTIVE="TRUE" NAME="ATMEGA16" CONFIGURATION="Debug">
-    <PROGRAMMER NAME="" INTERFACE=""/>
-   </PROJECT>
+  <WINDOW type="VIEW3D" module="VIEW3D">
+   <camera>
+    <position x="221302" y="-5210341" z="7693959"/>
+    <focus x="0" y="0" z="0"/>
+    <up x="-17410" y="827649" z="560983"/>
+   </camera>
   </WINDOW>
-  <WINDOW type="default" module="BOM"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI/>
