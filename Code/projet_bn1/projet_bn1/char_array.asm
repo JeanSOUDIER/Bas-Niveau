@@ -11,7 +11,7 @@ Init_char_array:
 	st		X+,reg_init
 	ldi		reg_init,0x14
 	st		X,reg_init
-	ldi		XL,LOW(Table)			;load table
+	ldi		XL,LOW(Table)			;load table decod bin to hex (Y = 2^(8-X))
 	ldi		XH,HIGH(Table)
 	ldi		reg_init,0x80
 	st		X+,reg_init
