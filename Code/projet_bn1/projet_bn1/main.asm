@@ -48,6 +48,7 @@
 	convB:		.byte 1
 	conv2:		.byte 1
 	dead:		.byte 1
+	pos_rand:	.byte 1
 
 .cseg  ; codesegment
 .org	0x00
@@ -118,7 +119,18 @@ SCREEN_INC:
 CHAR_INC:
 	
 	sei
+
+	rcall	rand
+	lds		reg_init,pos_rand
+	sbrs	reg_init,7
+	cbi		PORTD,6
+	sbrc	reg_init,7
+	sbi		PORTD,6
+
+
 	ldi		reg_init,8
+
+	
 
 loopMain:
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
