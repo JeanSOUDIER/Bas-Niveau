@@ -97,7 +97,6 @@ Determination_Image_2:
 CREATION_IMAGE:
 	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
 	mov		reg_addrH,r16
-	;createImgFull[]
 	rcall	writeFullSreen
 	rjmp	start
 

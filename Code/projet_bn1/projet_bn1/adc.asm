@@ -1,5 +1,3 @@
-;use r20
-
 ADC_Init:
 	ldi		reg_init,(1<<ADLAR)|(1<<REFS0)							;ext ref / left adjust / mux to ADC0
 	out		ADMUX,reg_init
@@ -8,10 +6,10 @@ ADC_Init:
 	rjmp	ADC_INC
 
 rand:
-	cli
-	sbic	ADCSRA,ADSC
+	cli																;désactivation des interruptions
+	sbic	ADCSRA,ADSC												;test de fin de conversion
 	rjmp	rand
-	in		reg_vol,ADCH
-	sts		pos_rand,reg_vol
-	sei
+	in		reg_vol,ADCH											;lecture de la valeur converti
+	sts		pos_rand,reg_vol										;stockage de la position du personnage
+	sei																;réactivation des interruptions
 	ret

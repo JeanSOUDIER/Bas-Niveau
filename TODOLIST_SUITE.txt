@@ -1,7 +1,6 @@
-- ATTAQUER
+- ATTAQUER (rcall attaque + page enemi + pos perso + pages "perdu" et "gagné")
 - fichier son
-- prog son
-- comment
-- merge les codes
-- cao
+- prog son (insirer dans le jeu)
+
+- cao (en cours)
 - prog cartouche

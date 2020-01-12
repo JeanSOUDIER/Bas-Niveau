@@ -1,5 +1,3 @@
-;use r28 and r29 and r30
-
 .macro screenL[]					;choix du côté de l'écran à gauche
 	sbi		PORTB,0
 	cbi		PORTB,1
@@ -46,16 +44,16 @@
 	Enable[]
 .endmacro
 
-.macro placePosPerso[]
-	mov		reg_screen,reg_posY
+.macro placePosPerso[]				;converti la position xy du personnage pour faire un test à l'affichage sur l'ecran
+	mov		reg_screen,reg_posY		;test Y
 	andi	reg_screen,7
-	ldi		XL,LOW(Table)
+	ldi		XL,LOW(Table)			;table de convertion 2^(8-X) = Y
 	ldi		XH,HIGH(Table)
-	add		XL,reg_screen
+	add		XL,reg_screen			;test X
 	ld		reg_screen,X
 	sts		conv,reg_screen
 
-	ldi		reg_screen,255
+	ldi		reg_screen,255			;convertion des positions par 8 pixels
 	cpi		reg_posY,8
 	brlo	END_PERSO
 	cpi		reg_posY,16
@@ -63,7 +61,7 @@
 	brlo	END_PERSO
 	ldi		reg_screen,127
 END_PERSO:
-	sub		reg_screen,reg_posX
+	sub		reg_screen,reg_posX		;affectation de la SRAM
 	sts		convB,reg_screen
 	ldi		reg_screen,7
 	cpi		reg_posY,8
@@ -76,7 +74,7 @@ END_PERSO2:
 	sts		conv2,reg_screen
 .endmacro
 
-.macro SetPosPerso[]
+.macro SetPosPerso[]				;affiche le point à l'endroit calculé
 	cpi		reg_posX,31
 	breq	END_SetPerso
 	lds		reg_screen,conv2
@@ -91,7 +89,7 @@ END_PERSO2:
 END_SetPerso:
 .endmacro
 
-.macro ClearPosPerso[]
+.macro ClearPosPerso[]				;efface le point à l'endroit calculé
 	lds		reg_screen,conv2
 	cp		reg_cpt2,reg_screen
 	brne	END_ClearPerso
@@ -108,20 +106,20 @@ END_ClearPerso:
 SCREEN_Init:
 	sbi		PORTB,3					;set E and clear RS
 	cbi		PORTB,2
-	ldi		reg_screen,63			;instruction de début de l'écran
+	ldi		reg_screen,63			;instruction de début de l'écran pour activer l'affichage
 	out		PORTC,reg_screen
 	Enable[]						;validation
 	RS_set[]						;mode données
 	rjmp	SCREEN_INC
 
-tempo_US:
+tempo_US:							;boucle de temporisation
 	dec		reg_cpt3
 	nop
 	brne	tempo_US
 	ret
 
 ;full reg_addrL/H
-writeFullSreen:
+writeFullSreen:						;fonction d'affichage de la mémoire SPI vers l'écran
 	placePosPerso[]
 	screenR[]						;set side screen
 	ldi		reg_cpt2,0				;reset var
@@ -132,7 +130,7 @@ loop1:
 	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 	SetPosX[]
 loop2:
-	rcall	Read_Mem					;lecture de la mémoire spi
+	rcall	Read_Mem				;lecture de la mémoire spi
 	mov		reg_screen,reg_spi
 	ScreenWrite[]					;écriture sur l'écran
 	inc		reg_addrL				;incrément de l'adresse LOW
@@ -158,7 +156,7 @@ loop3:
 	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
 	SetPosX[]
 loop4:
-	rcall	Read_Mem					;lecture de la mémoire spi
+	rcall	Read_Mem				;lecture de la mémoire spi
 	cpi		reg_cptT0,8
 	brsh	PRINT
 	ClearPosPerso[]
@@ -185,7 +183,7 @@ addr_carry2:
 	ret
 
 
-clearFullSreen:
+clearFullSreen:						;fonction pour effacer l'écran (ressemble beaucoup à "writeFullSreen")
 	screenR[]						;set side screen
 	ldi		reg_cpt2,0				;reset var
 loop5:
@@ -227,16 +225,16 @@ loop8:
 	rjmp	loop7
 	ret
 
-writeChar:
+writeChar:							;affiche un caractère de la SRAM sur l'écran
 	screenL[]
 	ldi		reg_screen,10
-	add		reg_screen,reg_addrL
+	add		reg_screen,reg_addrL	;placement sur l'écran
 	SetPosY[]
 	ldi		reg_screen,4
 	SetPosX[]
-	ldi		XL,LOW(C_Wait)
+	ldi		XL,LOW(C_Wait)			;placement dans la SRAM
 	ldi		XH,HIGH(C_Wait)
-	ld		reg_screen,X+
+	ld		reg_screen,X+			;affichage du caractère en 5*8
 	ScreenWrite[]
 	ld		reg_screen,X+
 	ScreenWrite[]

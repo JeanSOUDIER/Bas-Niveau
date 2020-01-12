@@ -1,6 +1,4 @@
-;use r20 and r21 and r23 and r24
-
-.macro bGa[]
+.macro bGa[]				;macro de bouton
 	sbis	PINA,1
 .endmacro
 .macro bGan[]
@@ -62,35 +60,35 @@
 .endmacro
 
 TIMER_Init:
-	ldi		reg_vol,(1<<CS02)|(1<<CS00)
-	out		TCCR0,reg_vol
+	ldi		reg_vol,(1<<CS02)|(1<<CS00)				;timer0 pour le clignotement de la position du personage (normal mode)
+	out		TCCR0,reg_vol							;prescaler max de 1024
 	in		reg_vol,TIMSK
-	ori		reg_vol,(1<<TOIE0)
+	ori		reg_vol,(1<<TOIE0)						;en interruption
 	out		TIMSK,reg_vol
 	ldi		reg_cptT0,0
 
-	ldi		reg_vol,(1<<WGM11)|(1<<COM1A1)			;timer1
+	ldi		reg_vol,(1<<WGM11)|(1<<COM1A1)			;timer1 pour le son et le réglage du volume (fast PWM mode)
 	out		TCCR1A,reg_vol
-	ldi		reg_vol,(1<<WGM13)|(1<<WGM12)|(1<<CS11)
-	out		TCCR1B,reg_vol				;démarrage du timer à 16KHz => soit à 8k
-	in		reg_vol,TIFR				;clear flag
+	ldi		reg_vol,(1<<WGM13)|(1<<WGM12)|(1<<CS11)	;prescaler par 8 soit 8MHz/(8*2*ICR1)
+	out		TCCR1B,reg_vol
+	in		reg_vol,TIFR							;clear flag
 	andi	reg_vol,0xFB
 	out		TIFR,reg_vol
-	in		reg_vol,TIMSK				;interrupt enable
+	in		reg_vol,TIMSK							;interrupt enable
 	ori		reg_vol,(1<<TICIE1)|(1<<TOIE1)|(1<<OCIE1A)
 	out		TIMSK,reg_vol
 
-	ldi		reg_vol,0
+	ldi		reg_vol,0								;réglage du volume au départ
 	out		OCR1AH,reg_vol
 	ldi		reg_vol,1
 	out		OCR1AL,reg_vol
 
-	ldi		reg_vol,100
+	ldi		reg_vol,100								;réglage de la fréquence de départ
 	out		ICR1H,reg_vol
 	ldi		reg_vol,255
 	out		ICR1L,reg_vol
 
-	ldi		reg_vol,20
+	ldi		reg_vol,20								;réglage du pointage dans l'eeprom de l'atmega qui contient le son
 	sts		num_son,reg_vol
 	ldi		reg_vol,2
 	sts		num_son2,reg_vol
@@ -100,52 +98,52 @@ TIMER_Init:
 
 
 TI1_Interrupt:
-	in		tri,SREG					; save content of flag reg.
+	in		tri,SREG								;save content of flag reg.
 
-	lds		reg_vol,num_son2				;chargement de l'addresse du caractère
+	lds		reg_vol,num_son2						;chargement de l'addresse du son à jouer
 	cpi		reg_vol,2
 	brsh	No_sound
 
 conv_son:
-	sbic	EECR,EEWE					;test de d'écriture dans l'eeprom
+	sbic	EECR,EEWE								;test de d'écriture dans l'eeprom
 	rjmp	conv_son
 
 	
-	out		EEARH,reg_vol
+	out		EEARH,reg_vol							;recherche de l'adresse à lire depuis la SRAM
 	lds		reg_vol,num_son
 	out		EEARL,reg_vol
 	
-	sbi		EECR,EERE				;test de fin de lecture
-	in		reg_vol,EEDR			;lecture
-	out		ICR1H,reg_vol			;set freq
+	sbi		EECR,EERE								;test de fin de lecture
+	in		reg_vol,EEDR							;lecture
+	out		ICR1H,reg_vol							;set freq
 
 
 	;gestion du volume
 	ldi		reg_vol,0
 	out		OCR1AH,reg_vol
-	in		reg_vol,ADCH				;on lit la valeur de l'adc convertie
+	in		reg_vol,ADCH							;on lit la valeur de l'adc convertie
 	out		OCR1AL,reg_vol
 
 	in		reg_vol,ADCSRA
-	ori		reg_vol,(1<<ADSC)			;relance d'une conversion
+	ori		reg_vol,(1<<ADSC)						;relance d'une conversion
 	out		ADCSRA,reg_vol
 	ldi		reg_vol,0
-	out		TCNT1H,reg_vol
+	out		TCNT1H,reg_vol							;affectation du volume
 	out		TCNT1L,reg_vol
 
 	;gestion de la led
-	;sbic	PIND,6						;blink led
-	;cbi		PORTD,6
-	;sbis	PIND,6
-	;sbi		PORTD,6
+	sbic	PIND,6									;blink led
+	cbi		PORTD,6
+	sbis	PIND,6
+	sbi		PORTD,6
 
 	
 
-	out		SREG,tri					; restore flag register
-	reti 								; Return from interrupt
+	out		SREG,tri								;restore flag register
+	reti 											;return from interrupt
 
 No_sound:
-	ldi		reg_vol,0
+	ldi		reg_vol,0								;pas de son à jouer
 	out		OCR1AL,reg_vol
 	ldi		reg_vol,0
 	out		TCNT1H,reg_vol
@@ -153,11 +151,11 @@ No_sound:
 	reti
 
 TI0_interrupt:
-	in		tri,SREG					; save content of flag reg.
-	inc		reg_cptT0
+	in		tri,SREG								;save content of flag reg.
+	inc		reg_cptT0								;variable de comptage pour diviseur la fréquence
 	cpi		reg_cptT0,16
 	brne	END_T0
 	ldi		reg_cptT0,0
 END_T0:
-	out		SREG,tri					; restore flag register
+	out		SREG,tri								;restore flag register
 	reti

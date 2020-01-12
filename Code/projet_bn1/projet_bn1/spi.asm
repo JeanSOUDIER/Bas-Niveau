@@ -1,15 +1,13 @@
-;use r25 and r26 and r27
-
-.equ WREN = 0x06
+.equ WREN = 0x06									;define des valeurs pour lire et écrire dans la mémoir SPI
 .equ WRDI = 0x04
 .equ READ = 0x03
 .equ WRITE = 0x02
 
-.macro WR_DI[]
-	cbi		PORTB,4
-	ldi		reg_spi,WRDI
-	rcall	SPI_Transmit
-	sbi		PORTB,4
+.macro WR_DI[]										;macro pour mettre la mémoire SPI en lecture
+	cbi		PORTB,4									;clear CS
+	ldi		reg_spi,WRDI							;send ordre de lecture
+	rcall	SPI_Transmit							;envoi
+	sbi		PORTB,4									;set CS
 .endmacro
 
 SPI_Init:

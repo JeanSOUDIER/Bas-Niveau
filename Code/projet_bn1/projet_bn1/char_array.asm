@@ -30,7 +30,7 @@ Init_char_array:
 	ldi		reg_init,0x01
 	st		X,reg_init
 	ldi		reg_init,1
-	sts		dead,reg_init
+	sts		dead,reg_init			;personnage en vie
 	rjmp	CHAR_INC
 
 .macro Fenetre_Debut[]				;affichage de "JOUER / RESEAU / MENTION"
@@ -41,7 +41,7 @@ Init_char_array:
 
 .endmacro
 
-.macro CONNECTED[]				;affichage de "connecte"
+.macro CONNECTED[]					;affichage de "connecte"
 	ldi		reg_addrL,0x00
 	ldi		reg_addrH,0x6C
 	rcall	writeFullSreen
@@ -53,24 +53,24 @@ Init_char_array:
 	rcall	writeFullSreen
 .endmacro
 
-.macro MENTION_MA[]			;affichage des mentions
+.macro MENTION_MA[]					;affichage des mentions
 	ldi		reg_addrL,0x00
 	ldi		reg_addrH,0x74
 	rcall	writeFullSreen
 .endmacro
 
-.macro CONN1[]
+.macro CONN1[]						;affichage du chargement pendant le test de connection
 	rcall	clearFullSreen
 	ldi		reg_addrL,0
 	rcall	writeChar
 .endmacro
 
-.macro CONN2[]
+.macro CONN2[]						;affichage du chargement pendant le test de connection suite
 	ldi		reg_addrL,6
 	rcall	writeChar
 .endmacro
 
-.macro CONN3[]
+.macro CONN3[]						;affichage du chargement pendant le test de connection suite 2
 	ldi		reg_addrL,12
 	rcall	writeChar
 .endmacro
