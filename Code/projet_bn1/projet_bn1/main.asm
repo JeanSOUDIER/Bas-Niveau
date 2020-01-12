@@ -39,6 +39,10 @@
 .def reg_TX = r30
 .def reg_RX = r18
 
+.def reg_csgo_orientation = r13
+.def reg_csgo_mapL = r14
+.def reg_csgo_mapH = r15
+
 .dseg
 	num_son:	.byte 1
 	num_son2:	.byte 1
@@ -117,6 +121,8 @@ SPI_INC:
 SCREEN_INC:
 	.include "char_array.asm"
 CHAR_INC:
+	.include "csgo.asm"
+CSGO_INC:
 	
 	sei
 
@@ -126,6 +132,9 @@ CHAR_INC:
 	cbi		PORTD,6
 	sbrc	reg_init,7
 	sbi		PORTD,6
+
+	ldi		reg_cpt3,255
+	rcall	tempo_US
 
 
 	ldi		reg_init,8
@@ -139,10 +148,10 @@ loopMain:
 	bBa[]									;test du bouton "vers le bas"
 	rjmp	DOWN
 END:
+	Fenetre_Debut[]							;affichage des caractères de la page principale
 	bA[]									;test du bouton validation
 	rjmp	CHOIX
 END_CHOIX:
-	Fenetre_Debut[]							;affichage des caractères de la page principale
 	rjmp	loopMain						;boucle infini
 
 UP:
@@ -182,7 +191,9 @@ GAME:
 	add		reg_addrH,reg_init
 	ldi		reg_posX,2
 	rcall	writeFullSreen
-
+	
+	bA[]
+	rjmp	Affichage_Image
 
 	bB[]
 	ldi		reg_init,8
@@ -191,6 +202,17 @@ GAME:
 	bB[]
 	rjmp	loopMain
 	rjmp	GAME
+
+start:
+	bGa[]
+	rjmp	Tourner_Gauche
+	bDr[]
+	rjmp	Tourner_Droite
+	bHa[]
+	rjmp	Avancer
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	rjmp	start
 
 RESEAU:
 	CONN1[]

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sat Jan 11 18:42:38 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Jan 12 13:57:20 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -619,6 +619,9 @@ DEF  reg_cptT0    r23
 DEF  reg_vol      r25
 DEF  reg_TX       r30
 DEF  reg_RX       r18
+DEF  reg_csgo_orientation r13
+DEF  reg_csgo_mapL r14
+DEF  reg_csgo_mapH r15
 DSEG num_son      00000060
 DSEG num_son2     00000061
 DSEG C_Wait       00000062
@@ -660,17 +663,17 @@ CSEG Read_Mem     000000b9
 CSEG SCREEN_Init  000000c4
 CSEG SCREEN_INC   000001d6
 CSEG writeFullSreen 000000d2
-CSEG END_PERSO@placePosPerso@1388 000000e1
-CSEG END_PERSO2@placePosPerso@1388 000000eb
+CSEG END_PERSO@placePosPerso@1392 000000e1
+CSEG END_PERSO2@placePosPerso@1392 000000eb
 CSEG loop1        000000f0
 CSEG loop2        00000103
 CSEG addr_carry1  0000010e
 CSEG loop3        00000117
 CSEG loop4        0000012a
 CSEG PRINT        0000013a
-CSEG END_ClearPerso@ClearPosPerso@1550 0000013a
+CSEG END_ClearPerso@ClearPosPerso@1554 0000013a
 CSEG PRINT1       0000014a
-CSEG END_SetPerso@SetPosPerso@1567 0000014a
+CSEG END_SetPerso@SetPosPerso@1571 0000014a
 CSEG addr_carry2  00000154
 CSEG clearFullSreen 0000015b
 CSEG loop5        0000015e
@@ -680,17 +683,33 @@ CSEG loop8        00000193
 CSEG writeChar    000001a0
 CSEG Init_char_array 000001d6
 CSEG CHAR_INC     000001f8
-CSEG loopMain     00000201
-CSEG UP           0000020d
-CSEG DOWN         00000214
-CSEG END          00000206
-CSEG CHOIX        0000021b
-CSEG END_CHOIX    00000208
-CSEG RESEAU       00000231
-CSEG MENTION      00000251
-CSEG GAME         00000221
-CSEG tempo_MS     00000259
-CSEG loopReseau1  0000023c
-CSEG loopReseau2  0000024c
-CSEG loopReseau3  00000248
-CSEG boucletempo_MS 0000025a
+CSEG csgo_init    000001f8
+CSEG CSGO_INC     0000024a
+CSEG Avancer      000001ff
+CSEG Mouvement_Confirme 00000208
+CSEG start        00000287
+CSEG Reculer      00000207
+CSEG Affichage_Image 0000021a
+CSEG Tourner_Gauche 0000020e
+CSEG Tourner_Droite 00000214
+CSEG Orientation_Nord 00000225
+CSEG Orientation_Ouest 0000022c
+CSEG Orientation_Sud 00000231
+CSEG Orientation_Est 00000238
+CSEG Determination_Image_1 0000023d
+CSEG Determination_Image_2 00000241
+CSEG CREATION_IMAGE 00000246
+CSEG loopMain     00000255
+CSEG UP           00000261
+CSEG DOWN         00000268
+CSEG END          0000025a
+CSEG CHOIX        0000026f
+CSEG END_CHOIX    00000260
+CSEG RESEAU       00000290
+CSEG MENTION      000002b0
+CSEG GAME         00000275
+CSEG tempo_MS     000002b8
+CSEG loopReseau1  0000029b
+CSEG loopReseau2  000002ab
+CSEG loopReseau3  000002a7
+CSEG boucletempo_MS 000002b9
