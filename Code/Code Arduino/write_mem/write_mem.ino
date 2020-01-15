@@ -11,7 +11,8 @@
 #define READ  3
 #define WRITE 2
 
-#define MEM 25
+//27
+#define MEM 1
 
 //unsigned char plan_mem[1024];
 //int start;
