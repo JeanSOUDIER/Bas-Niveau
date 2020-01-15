@@ -5,8 +5,8 @@ csgo_init:
 	mov		reg_csgo_orientation,r16
 	ldi		r16,0x00					;placement à la case 124 de la mémoire
 	mov		reg_csgo_mapL,r16
-	ldi		r16,0x48
-	mov		reg_csgo_mapH,r16
+	;ldi		r16,0x48
+	;mov		reg_csgo_mapH,r16
 	;rjmp	Affichage_Image
 	rjmp	CSGO_INC
 
@@ -28,21 +28,24 @@ Mouvement_Confirme:
 	movw	reg_csgo_mapL,r0
 	ldi		r16,0x48
 	add		reg_csgo_mapH,r16
-	rjmp	Affichage_Image
+	;rjmp	Affichage_Image
+	rjmp	start
 Tourner_Gauche:
 	mov		r16,reg_csgo_orientation	;on augmente d'un l'orientation
 	subi	r16,-0x01
 	sbrc	r16,2
 	ldi		r16,0x00
 	mov		reg_csgo_orientation,r16
-	rjmp	Affichage_Image
+	;rjmp	Affichage_Image
+	rjmp	start
 Tourner_Droite:
 	mov		r16,reg_csgo_orientation	;on diminue d'un l'orientation
 	subi	r16,0x01
 	sbrc	r16,7
 	ldi		r16,0x03
 	mov		reg_csgo_orientation,r16
-	rjmp	Affichage_Image
+	;rjmp	Affichage_Image
+	rjmp	start
 Affichage_Image:
 	mov		reg_addrL,reg_csgo_mapL		;on se replace à la case actuelle dans la mémoire
 	mov		reg_addrH,reg_csgo_mapH

@@ -10,8 +10,8 @@
 
 .def reg_init = r16					;registre d'initialisation de tout les paramètre et temporaire
 
-.def reg_posX = r28					;position du personnage en X
-.def reg_posY = r29					;position du personnage en Y
+;.def reg_posX = r28					;position du personnage en X
+;.def reg_posY = r29					;position du personnage en Y
 
 .def reg_spi = r24					;registre d'envoi et réception en spi & tempo MS
 .def reg_addrL = r19				;registres de sélection d'adresse dans la mémoire SPI (LOW)
@@ -30,8 +30,8 @@
 .def reg_RX = r18					;registre de réception en bluetooth
 
 .def reg_csgo_orientation = r13		;orientation du personnage
-.def reg_csgo_mapL = r14			;position du personnage
-.def reg_csgo_mapH = r15
+.def reg_csgo_mapL = r28			;position du personnage
+.def reg_csgo_mapH = r29
 
 .dseg
 	num_son:	.byte 1				;variable SRAM de son (LOW)
@@ -68,8 +68,7 @@ RESET:								; adresse du vecteur de reset
 	ldi		reg_cpt3,255			;tempo de début
 	rcall	tempo_US
 
-	ldi		reg_posX,31				;on n'affiche pas le pseronnage
-	;ldi		reg_posY,10
+	ldi		reg_csgo_mapH,255				;on n'affiche pas le pseronnage
 
 
 	;ajout des programmes pour la gestion des modules
@@ -151,16 +150,17 @@ GAME:
 	ldi		reg_addrL,0x00					;affichage en fonction du curseur
 	ldi		reg_addrH,0x78
 	add		reg_addrH,reg_init
-	ldi		reg_posX,2
 	rcall	writeFullSreen
-	
+
+	bA[]
+	ldi		reg_csgo_mapH,0x48
 	bA[]
 	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
 
 	bB[]									;test de retour à l'écran principale
 	ldi		reg_init,8
 	bB[]
-	ldi		reg_posX,31
+	ldi		reg_csgo_mapH,255
 	bB[]
 	rjmp	loopMain
 	rjmp	GAME
@@ -172,9 +172,10 @@ start:
 	rjmp	Tourner_Droite
 	bHa[]
 	rjmp	Avancer
-	ldi		reg_cpt3,255
+	ldi		reg_cpt3,100
 	rcall	tempo_MS
-	rjmp	start
+	rjmp	Affichage_Image
+	;rjmp	start
 
 RESEAU:										;boucle du test de connection réseau
 	CONN1[]
