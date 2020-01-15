@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 15 09:51:17 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 15 11:17:41 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(23): warning: Register r17 already defined by the .DEF directive
@@ -1739,9 +1739,9 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including f
 000204 2f08                      	mov		r16,reg_spi
 000205 3f0f                      	cpi		r16,255						;si la donnée ne vaut pas 0xFF
 000206 f411                      	brne	Mouvement_Confirme			;alors on confirme le mouvement et cette donnée devient la prochaine adresse
-000207 c078                      	rjmp	start						;sinon on revient au start
+000207 c080                      	rjmp	start						;sinon on revient au start
                                  Reculer:
-000208 c077                      	rjmp	start
+000208 c07f                      	rjmp	start
                                  Mouvement_Confirme:
 000209 e018                      	ldi		r17,0x08					;on calcule l'adresse de la nouvelle case à partir de son numéro: addr = 0x4800 + 8*n
 00020a 9f01                      	mul		r16,r17
@@ -1749,7 +1749,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including f
 00020c e408                      	ldi		r16,0x48
 00020d 0fd0                      	add		reg_csgo_mapH,r16
                                  	;rjmp	Affichage_Image
-00020e c071                      	rjmp	start
+00020e c079                      	rjmp	start
                                  Tourner_Gauche:
 00020f 2d0d                      	mov		r16,reg_csgo_orientation	;on augmente d'un l'orientation
 000210 5f0f                      	subi	r16,-0x01
@@ -1757,7 +1757,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including f
 000212 e000                      	ldi		r16,0x00
 000213 2ed0                      	mov		reg_csgo_orientation,r16
                                  	;rjmp	Affichage_Image
-000214 c06b                      	rjmp	start
+000214 c073                      	rjmp	start
                                  Tourner_Droite:
 000215 2d0d                      	mov		r16,reg_csgo_orientation	;on diminue d'un l'orientation
 000216 5001                      	subi	r16,0x01
@@ -1765,7 +1765,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including f
 000218 e003                      	ldi		r16,0x03
 000219 2ed0                      	mov		reg_csgo_orientation,r16
                                  	;rjmp	Affichage_Image
-00021a c065                      	rjmp	start
+00021a c06d                      	rjmp	start
                                  Affichage_Image:
 00021b 2f3c                      	mov		reg_addrL,reg_csgo_mapL		;on se replace à la case actuelle dans la mémoire
 00021c 2f4d                      	mov		reg_addrH,reg_csgo_mapH
@@ -1821,7 +1821,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including f
 000247 e030                      	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
 000248 2f40                      	mov		reg_addrH,r16
 000249 de8b                      	rcall	writeFullSreen
-00024a c035                      	rjmp	start
+00024a c03d                      	rjmp	start
                                  
                                  CSGO_INC:
                                  	
@@ -1874,121 +1874,142 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including f
                                  
                                  CHOIX:
 000267 3004                      	cpi		reg_init,4						;test du curseur pour éguiller la fonction
-000268 f101                      	breq	RESEAU
+000268 f1f9                      	breq	RESEAU
 000269 3000                      	cpi		reg_init,0
-00026a f1f1                      	breq	MENTION
+00026a f011                      	breq	MENTION
 00026b e000                      	ldi		reg_init,0
-00026c c000                      	rjmp	GAME
+00026c c008                      	rjmp	GAME
+                                 
+                                 MENTION:
+00026d e030
+00026e e744
+00026f de65                      	MENTION_MA[]							;affichage des mentions
+000270 9bcd                      	bB[]
+000271 e008                      	ldi		reg_init,8
+000272 9bcd                      	bB[]
+000273 cfd9                      	rjmp	loopMain
+000274 cff8                      	rjmp	MENTION
                                  
                                  GAME:
-00026d 9bcc                      	bHa[]									;choix du mode de jeu
-00026e e000                      	ldi		reg_init,0
-00026f 9bca                      	bBa[]
-000270 e004                      	ldi		reg_init,4
+000275 9bcc                      	bHa[]									;choix du mode de jeu
+000276 e000                      	ldi		reg_init,0
+000277 9bca                      	bBa[]
+000278 e004                      	ldi		reg_init,4
                                  
-000271 e030                      	ldi		reg_addrL,0x00					;affichage en fonction du curseur
-000272 e748                      	ldi		reg_addrH,0x78
-000273 0f40                      	add		reg_addrH,reg_init
-000274 de60                      	rcall	writeFullSreen
+000279 e030                      	ldi		reg_addrL,0x00					;affichage en fonction du curseur
+00027a e748                      	ldi		reg_addrH,0x78
+00027b 0f40                      	add		reg_addrH,reg_init
+00027c de58                      	rcall	writeFullSreen
                                  
-000275 9bce                      	bA[]
-000276 e4d8                      	ldi		reg_csgo_mapH,0x48
-000277 9bce                      	bA[]
-000278 cfa2                      	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
+00027d 9bce                      	bA[]
+00027e e4d8                      	ldi		reg_csgo_mapH,0x48
+00027f 9bce                      	bA[]
+000280 cf9a                      	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
                                  
-000279 9bcd                      	bB[]									;test de retour à l'écran principale
-00027a e008                      	ldi		reg_init,8
-00027b 9bcd                      	bB[]
-00027c efdf                      	ldi		reg_csgo_mapH,255
-00027d 9bcd                      	bB[]
-00027e cfce                      	rjmp	loopMain
-00027f cfed                      	rjmp	GAME
+000281 9bcd                      	bB[]									;test de retour à l'écran principale
+000282 e008                      	ldi		reg_init,8
+000283 9bcd                      	bB[]
+000284 efdf                      	ldi		reg_csgo_mapH,255
+000285 9bcd                      	bB[]
+000286 cfc6                      	rjmp	loopMain
+000287 cfed                      	rjmp	GAME
                                  
                                  start:
-000280 9bc9                      	bGa[]									;boule du jeu
-000281 cf8d                      	rjmp	Tourner_Gauche
-000282 9bcb                      	bDr[]
-000283 cf91                      	rjmp	Tourner_Droite
-000284 9bcc                      	bHa[]
-000285 cf7a                      	rjmp	Avancer
-000286 e614                      	ldi		reg_cpt3,100
-000287 d029                      	rcall	tempo_MS
-000288 cf92                      	rjmp	Affichage_Image
+000288 9bc9                      	bGa[]									;boule du jeu
+000289 cf85                      	rjmp	Tourner_Gauche
+00028a 9bcb                      	bDr[]
+00028b cf89                      	rjmp	Tourner_Droite
+00028c 9bcc                      	bHa[]
+00028d cf72                      	rjmp	Avancer
+00028e 9110 0072                 	lds		reg_cpt3,dead
+000290 3010                      	cpi		reg_cpt3,0
+000291 f499                      	brne	en_vie
+000292 e030                      	ldi		reg_addrL,0x00
+000293 e548                      	ldi		reg_addrH,0x58
+000294 de40                      	rcall	writeFullSreen
+000295 ef1f                      	ldi		reg_cpt3,255
+000296 d031                      	rcall	tempo_MS
+000297 ef1f                      	ldi		reg_cpt3,255
+000298 d02f                      	rcall	tempo_MS
+000299 ef1f                      	ldi		reg_cpt3,255
+00029a d02d                      	rcall	tempo_MS
+00029b ef1f                      	ldi		reg_cpt3,255
+00029c d02b                      	rcall	tempo_MS
+00029d ef1f                      	ldi		reg_cpt3,255
+00029e d029                      	rcall	tempo_MS
+00029f ef1f                      	ldi		reg_cpt3,255
+0002a0 d027                      	rcall	tempo_MS
+0002a1 ef1f                      	ldi		reg_cpt3,255
+0002a2 d025                      	rcall	tempo_MS
+0002a3 940c 0275                 	jmp	GAME
+                                 en_vie:
+0002a5 e614                      	ldi		reg_cpt3,100
+0002a6 d021                      	rcall	tempo_MS
+0002a7 cf73                      	rjmp	Affichage_Image
                                  	;rjmp	start
                                  
                                  RESEAU:										;boucle du test de connection réseau
-000289 ded4
-00028a e030
-00028b df17                      	CONN1[]
+0002a8 deb5
+0002a9 e030
+0002aa def8                      	CONN1[]
                                  
-00028c e0e1                      	ldi		reg_TX,1						;ping en UART
-00028d ddbd                      	rcall	USART_Transmit
+0002ab e0e1                      	ldi		reg_TX,1						;ping en UART
+0002ac dd9e                      	rcall	USART_Transmit
                                  
-00028e e036
-00028f df13                      	CONN2[]
+0002ad e036
+0002ae def4                      	CONN2[]
                                  
-000290 ef1f                      	ldi		reg_cpt3,255
-000291 d01f                      	rcall	tempo_MS
+0002af ef1f                      	ldi		reg_cpt3,255
+0002b0 d017                      	rcall	tempo_MS
                                  
-000292 e03c
-000293 df0f                      	CONN3[]
+0002b1 e03c
+0002b2 def0                      	CONN3[]
                                  
                                  loopReseau1:
                                  
-000294 fd01                      	sbrc	reg_init,1
-000295 c00e                      	rjmp	loopReseau2
+0002b3 fd01                      	sbrc	reg_init,1
+0002b4 c00e                      	rjmp	loopReseau2
                                  
-000296 3021                      	cpi		reg_RX,1						;résultat du ping
-000297 f041                      	breq	loopReseau3
+0002b5 3021                      	cpi		reg_RX,1						;résultat du ping
+0002b6 f041                      	breq	loopReseau3
                                  
-000298 e0e1                      	ldi		reg_TX,1						;ping en UART
-000299 ddb1                      	rcall	USART_Transmit
+0002b7 e0e1                      	ldi		reg_TX,1						;ping en UART
+0002b8 dd92                      	rcall	USART_Transmit
                                  
-00029a ef1f                      	ldi		reg_cpt3,255
-00029b d015                      	rcall	tempo_MS
+0002b9 ef1f                      	ldi		reg_cpt3,255
+0002ba d00d                      	rcall	tempo_MS
                                  
-00029c e030
-00029d e740
-00029e de36                      	NO_CONNECTED[]
+0002bb e030
+0002bc e740
+0002bd de17                      	NO_CONNECTED[]
                                  
-00029f c004                      	rjmp	loopReseau2
+0002be c004                      	rjmp	loopReseau2
                                  
                                  loopReseau3:
                                  
-0002a0 e002                      	ldi		reg_init,2						;une fois connecter on le reste !!!
-0002a1 e030
-0002a2 e64c
-0002a3 de31                      	CONNECTED[]
+0002bf e002                      	ldi		reg_init,2						;une fois connecter on le reste !!!
+0002c0 e030
+0002c1 e64c
+0002c2 de12                      	CONNECTED[]
                                  
                                  
                                  loopReseau2:
-0002a4 9bcd                      	bB[]
-0002a5 e008                      	ldi		reg_init,8
-0002a6 9bcd                      	bB[]
-0002a7 cfa5                      	rjmp	loopMain
-0002a8 cfeb                      	rjmp	loopReseau1
-                                 	
-                                 
-                                 MENTION:
-0002a9 e030
-0002aa e744
-0002ab de29                      	MENTION_MA[]							;affichage des mentions
-0002ac 9bcd                      	bB[]
-0002ad e008                      	ldi		reg_init,8
-0002ae 9bcd                      	bB[]
-0002af cf9d                      	rjmp	loopMain
-0002b0 cff8                      	rjmp	MENTION
+0002c3 9bcd                      	bB[]
+0002c4 e008                      	ldi		reg_init,8
+0002c5 9bcd                      	bB[]
+0002c6 cf86                      	rjmp	loopMain
+0002c7 cfeb                      	rjmp	loopReseau1
                                  
                                  ; sous programme de temporisation
                                  tempo_MS:
-0002b1 ef8f                      	ldi	reg_spi, 255
+0002c8 ef8f                      	ldi	reg_spi, 255
                                  boucletempo_MS:
-0002b2 0000                      	nop
-0002b3 958a                      	dec	reg_spi
-0002b4 f7e9                      	brne boucletempo_MS
-0002b5 951a                      	dec	reg_cpt3
-0002b6 f7d1                      	brne tempo_MS
-0002b7 9508                      	ret
+0002c9 0000                      	nop
+0002ca 958a                      	dec	reg_spi
+0002cb f7e9                      	brne boucletempo_MS
+0002cc 951a                      	dec	reg_cpt3
+0002cd f7d1                      	brne tempo_MS
+0002ce 9508                      	ret
 
 
 RESOURCE USE INFORMATION
@@ -2008,7 +2029,7 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :  19 y  :   0 z  :   0 r0 :   2 r1 :   8 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   7 r14:   0 r15:   0 r16: 106 r17: 114 r18:   5 r19:  22 r20:  13 
+r13:   7 r14:   0 r15:   0 r16: 106 r17: 123 r18:   5 r19:  23 r20:  14 
 r21:  14 r22:  19 r23:   6 r24:  20 r25:  51 r26:   5 r27:   4 r28:   9 
 r29:   8 r30:  13 r31:   0 
 Registers used: 19 out of 35 (54.3%)
@@ -2018,16 +2039,16 @@ Registers used: 19 out of 35 (54.3%)
 andi  :   7 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :  12 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   5 brlt  :   0 brmi  :   0 
-brne  :  13 brpl  :   0 brsh  :   2 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :  14 brpl  :   0 brsh  :   2 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :  39 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   1 cp    :   4 cpc   :   0 
-cpi   :  25 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :  12 inc   :  13 jmp   :   3 
-ld    :   6 ldd   :   0 ldi   : 143 lds   :   8 lpm   :   0 lsl   :   0 
+cpi   :  26 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :  12 inc   :  13 jmp   :   4 
+ld    :   6 ldd   :   0 ldi   : 152 lds   :   9 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :  30 movw  :   1 mul   :   4 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   2 or    :   1 ori   :  13 out   :  60 pop   :   0 
-push  :   0 rcall :  48 ret   :   9 reti  :   6 rjmp  :  53 rol   :   0 
+push  :   0 rcall :  56 ret   :   9 reti  :   6 rjmp  :  53 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :  42 sbic  :   3 sbis  :  20 
 sbiw  :   0 sbr   :   0 sbrc  :   3 sbrs  :   8 sec   :   0 seh   :   0 
 sei   :   2 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
@@ -2038,7 +2059,7 @@ Instructions used: 40 out of 113 (35.4%)
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000570   1314      0   1314   16384   8.0%
+[.cseg] 0x000000 0x00059e   1360      0   1360   16384   8.3%
 [.dseg] 0x000060 0x000074      0     20     20    1024   2.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

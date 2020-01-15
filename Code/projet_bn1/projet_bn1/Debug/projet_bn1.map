@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 15 09:51:17 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 15 11:17:41 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -685,7 +685,7 @@ CSEG csgo_init    000001fb
 CSEG CSGO_INC     0000024b
 CSEG Avancer      00000200
 CSEG Mouvement_Confirme 00000209
-CSEG start        00000280
+CSEG start        00000288
 CSEG Reculer      00000208
 CSEG Tourner_Gauche 0000020f
 CSEG Tourner_Droite 00000215
@@ -703,11 +703,12 @@ CSEG DOWN         00000260
 CSEG END          00000252
 CSEG CHOIX        00000267
 CSEG END_CHOIX    00000258
-CSEG RESEAU       00000289
-CSEG MENTION      000002a9
-CSEG GAME         0000026d
-CSEG tempo_MS     000002b1
-CSEG loopReseau1  00000294
-CSEG loopReseau2  000002a4
-CSEG loopReseau3  000002a0
-CSEG boucletempo_MS 000002b2
+CSEG RESEAU       000002a8
+CSEG MENTION      0000026d
+CSEG GAME         00000275
+CSEG en_vie       000002a5
+CSEG tempo_MS     000002c8
+CSEG loopReseau1  000002b3
+CSEG loopReseau2  000002c3
+CSEG loopReseau3  000002bf
+CSEG boucletempo_MS 000002c9

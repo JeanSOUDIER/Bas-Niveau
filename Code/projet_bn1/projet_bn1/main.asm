@@ -141,6 +141,14 @@ CHOIX:
 	ldi		reg_init,0
 	rjmp	GAME
 
+MENTION:
+	MENTION_MA[]							;affichage des mentions
+	bB[]
+	ldi		reg_init,8
+	bB[]
+	rjmp	loopMain
+	rjmp	MENTION
+
 GAME:
 	bHa[]									;choix du mode de jeu
 	ldi		reg_init,0
@@ -172,6 +180,28 @@ start:
 	rjmp	Tourner_Droite
 	bHa[]
 	rjmp	Avancer
+	lds		reg_cpt3,dead
+	cpi		reg_cpt3,0
+	brne	en_vie
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x58
+	rcall	writeFullSreen
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	jmp	GAME
+en_vie:
 	ldi		reg_cpt3,100
 	rcall	tempo_MS
 	rjmp	Affichage_Image
@@ -220,15 +250,6 @@ loopReseau2:
 	bB[]
 	rjmp	loopMain
 	rjmp	loopReseau1
-	
-
-MENTION:
-	MENTION_MA[]							;affichage des mentions
-	bB[]
-	ldi		reg_init,8
-	bB[]
-	rjmp	loopMain
-	rjmp	MENTION
 
 ; sous programme de temporisation
 tempo_MS:
