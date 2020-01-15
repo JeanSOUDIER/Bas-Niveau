@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Jan 12 15:59:27 2020
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 15 23:22:41 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -631,6 +631,11 @@ DSEG convB        00000070
 DSEG conv2        00000071
 DSEG dead         00000072
 DSEG pos_rand     00000073
+DSEG pos_x        00000074
+DSEG pos_y        00000075
+DSEG pos_map      00000076
+DSEG pos_x_adv    00000078
+DSEG pos_y_adv    00000079
 CSEG RESET        00000030
 CSEG TI1_Interrupt 00000084
 CSEG TI0_interrupt 000000a8
@@ -663,17 +668,17 @@ CSEG Read_Mem     000000bc
 CSEG SCREEN_Init  000000c7
 CSEG SCREEN_INC   000001d9
 CSEG writeFullSreen 000000d5
-CSEG END_PERSO@placePosPerso@1349 000000e4
-CSEG END_PERSO2@placePosPerso@1349 000000ee
+CSEG END_PERSO@placePosPerso@1354 000000e4
+CSEG END_PERSO2@placePosPerso@1354 000000ee
 CSEG loop1        000000f3
 CSEG loop2        00000106
 CSEG addr_carry1  00000111
 CSEG loop3        0000011a
 CSEG loop4        0000012d
 CSEG PRINT        0000013d
-CSEG END_ClearPerso@ClearPosPerso@1511 0000013d
+CSEG END_ClearPerso@ClearPosPerso@1516 0000013d
 CSEG PRINT1       0000014d
-CSEG END_SetPerso@SetPosPerso@1528 0000014d
+CSEG END_SetPerso@SetPosPerso@1533 0000014d
 CSEG addr_carry2  00000157
 CSEG clearFullSreen 0000015e
 CSEG loop5        00000161

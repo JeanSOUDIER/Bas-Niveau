@@ -3,9 +3,9 @@
 csgo_init:
 	ldi		r16,0x00					;placement orientation Nord
 	mov		reg_csgo_orientation,r16
-	ldi		r16,0x00					;placement à la case 124 de la mémoire
+	ldi		r16,0xE0					;placement à la case 124 de la mémoire
 	mov		reg_csgo_mapL,r16
-	ldi		r16,0x48
+	ldi		r16,0x4B
 	mov		reg_csgo_mapH,r16
 	;rjmp	Affichage_Image
 	rjmp	CSGO_INC

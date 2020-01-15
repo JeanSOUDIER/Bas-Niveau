@@ -1,28 +1,28 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Jan 12 15:59:27 2020
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Wed Jan 15 23:22:41 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(13): warning: Register r28 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(14): warning: Register r29 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(23): warning: Register r17 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(29): warning: Register r30 already defined by the .DEF directive
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(76): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(78): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(80): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(82): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(84): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(86): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(88): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(13): warning: Register r28 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(14): warning: Register r29 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(23): warning: Register r17 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(29): warning: Register r30 already defined by the .DEF directive
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(81): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(83): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(85): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(87): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(76): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(78): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(80): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(82): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(84): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(86): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(88): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
-D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(81): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(83): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(85): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(87): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
                                  
                                  ;
                                  
@@ -928,12 +928,17 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including f
 000060                           	num_son:	.byte 1				;variable SRAM de son (LOW)
 000061                           	num_son2:	.byte 1				;idem (HIGH)
 000062                           	C_Wait:		.byte 5				;variable avec le caractère de chargement pour les images
-000067                           	Table:		.byte 8				;table de convertion
+000067                           	Table:		.byte 8				;table de conversion
 00006f                           	conv:		.byte 1				;varaible de convertion de la poistion du personnage X
 000070                           	convB:		.byte 1				;idem Y
 000071                           	conv2:		.byte 1				;idem afficher ou non
 000072                           	dead:		.byte 1				;variable de test si le personnage est en vie
-000073                           	pos_rand:	.byte 1				;position de départ du personnage
+000073                           	pos_rand:	.byte 1				;position de départ du personnage (case 0 à 182)
+000074                           	pos_x:		.byte 1				;position en x du joueur
+000075                           	pos_y:		.byte 1				;position en y du joueur
+000076                           	pos_map:		.byte 2				;adresse de la case actuelle dans la mémoire
+000078                           	pos_x_adv:	.byte 1				;position en x de l'adversaire
+000079                           	pos_y_adv:	.byte 1				;position en y de l'adversaire
                                  
                                  .cseg  ; codesegment
                                  .org	0x00
@@ -1724,9 +1729,9 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(90): Including f
                                  csgo_init:
 0001fb e000                      	ldi		r16,0x00					;placement orientation Nord
 0001fc 2ed0                      	mov		reg_csgo_orientation,r16
-0001fd e000                      	ldi		r16,0x00					;placement à la case 124 de la mémoire
+0001fd ee00                      	ldi		r16,0xE0					;placement à la case 124 de la mémoire
 0001fe 2ee0                      	mov		reg_csgo_mapL,r16
-0001ff e408                      	ldi		r16,0x48
+0001ff e40b                      	ldi		r16,0x4B
 000200 2ef0                      	mov		reg_csgo_mapH,r16
                                  	;rjmp	Affichage_Image
 000201 c04b                      	rjmp	CSGO_INC
@@ -2035,7 +2040,7 @@ Instructions used: 40 out of 113 (35.4%)
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
 [.cseg] 0x000000 0x000572   1316      0   1316   16384   8.0%
-[.dseg] 0x000060 0x000074      0     20     20    1024   2.0%
+[.dseg] 0x000060 0x00007a      0     26     26    1024   2.5%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
 Assembly complete, 0 errors, 4 warnings

@@ -28,7 +28,7 @@ int main()
             if(tabDepart[i][j] == 0)
             {
                 tabMid[i][j] = indice;
-                /*if(indice < 100)
+                if(indice < 100)
                 {
                     cout << " ";
                 }
@@ -36,16 +36,16 @@ int main()
                 if(indice < 10)
                 {
                     cout << " ";
-                }*/
+                }
                 indice++;
             }
             else
             {
                 tabMid[i][j] = -1;
-                //cout << "#####";
+                cout << "#####";
             }
         }
-        //cout << endl;
+        cout << endl;
     }
     adVoisines();
     adImages();
@@ -347,7 +347,7 @@ void posJoueur()
         }
     }
     /////////////////////// Vérification des codes stockés
-    /*for(int i=0; i<20; i++)
+    for(int i=0; i<20; i++)
     {
         for(int j=0; j<20; j++)
         {
@@ -369,7 +369,7 @@ void posJoueur()
             }
         }
         cout << endl;
-    }*/
+    }
 }
 
 void rassemblementImages()

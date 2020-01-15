@@ -37,12 +37,17 @@
 	num_son:	.byte 1				;variable SRAM de son (LOW)
 	num_son2:	.byte 1				;idem (HIGH)
 	C_Wait:		.byte 5				;variable avec le caractère de chargement pour les images
-	Table:		.byte 8				;table de convertion
+	Table:		.byte 8				;table de conversion
 	conv:		.byte 1				;varaible de convertion de la poistion du personnage X
 	convB:		.byte 1				;idem Y
 	conv2:		.byte 1				;idem afficher ou non
 	dead:		.byte 1				;variable de test si le personnage est en vie
-	pos_rand:	.byte 1				;position de départ du personnage
+	pos_rand:	.byte 1				;position de départ du personnage (case 0 à 182)
+	pos_x:		.byte 1				;position en x du joueur
+	pos_y:		.byte 1				;position en y du joueur
+	pos_map:		.byte 2				;adresse de la case actuelle dans la mémoire
+	pos_x_adv:	.byte 1				;position en x de l'adversaire
+	pos_y_adv:	.byte 1				;position en y de l'adversaire
 
 .cseg  ; codesegment
 .org	0x00
