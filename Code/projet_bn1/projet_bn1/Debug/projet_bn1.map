@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Thu Jan 16 12:49:47 2020
+AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Thu Jan 16 14:50:27 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -694,7 +694,7 @@ CSEG csgo_init    00000202
 CSEG CSGO_INC     000002dd
 CSEG Avancer      00000216
 CSEG Mouvement_Confirme 00000222
-CSEG Jeu_En_Cours 00000342
+CSEG Jeu_En_Cours 00000340
 CSEG Affichage_Image 0000024f
 CSEG Tourner_Gauche 0000023f
 CSEG Tourner_Droite 00000247
@@ -716,7 +716,7 @@ CSEG CI_Y_OK      000002b3
 CSEG Adversaire_OK 000002ba
 CSEG Attaquer     000002c3
 CSEG ON_ENVOIE_LA_SAUCE 000002c8
-CSEG tempo_MS     0000036f
+CSEG tempo_MS     0000036d
 CSEG GAME         00000327
 CSEG loopMain     000002df
 CSEG UP           000002eb
@@ -729,10 +729,10 @@ CSEG MENTION      000002ff
 CSEG loopReseau1  00000312
 CSEG loopReseau2  00000322
 CSEG loopReseau3  0000031e
-CSEG Lancement_Jeu 0000033a
-CSEG MME          0000033d
-CSEG Cible        0000033e
-CSEG en_vie       00000361
-CSEG POSITION_Y@PosPerso@2422 00000369
-CSEG END_POSITION@PosPerso@2422 0000036e
-CSEG boucletempo_MS 00000370
+CSEG Lancement_Jeu 00000338
+CSEG MME          0000033b
+CSEG Cible        0000033c
+CSEG en_vie       0000035f
+CSEG POSITION_Y@PosPerso@2417 00000367
+CSEG END_POSITION@PosPerso@2417 0000036c
+CSEG boucletempo_MS 0000036e

@@ -3,11 +3,11 @@
 csgo_init:
 	ldi		r16,0x00					;placement orientation Nord
 	sts		orientation,r16
-	ldi		r16,0x08					;placement à la case 124 de la mémoire
+	ldi		r16,0x00					;placement à la case 124 de la mémoire
 	sts		numero_mapL,r16
 	ldi		r16,0x48
 	sts		numero_mapH,r16
-	ldi		r16,0x00
+	ldi		r16,0xFF
 	sts		pos_x_adv,r16
 	sts		pos_y_adv,r16
 	sts		pos_y,r16

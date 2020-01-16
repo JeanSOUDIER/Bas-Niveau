@@ -223,8 +223,6 @@ GAME:
 	bB[]									;test de retour à l'écran principale
 	ldi		reg_init,8
 	bB[]
-	ldi		reg_csgo_mapH,255
-	bB[]
 	rjmp	loopMain
 	rjmp	GAME
 
