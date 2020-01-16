@@ -29,7 +29,17 @@ UART_Interrupt:
 	brne	END_UART
 	sts		dead,reg_RX
 END_UART:
+	cpi		reg_TX,0x80
+	brlo	POSITION_Y
 	andi	reg_RX,0x3F						;sinon c'est une position
+	sts		pos_x_adv,reg_TX
+	out		SREG,tri						; restore flag register
+	reti 									; Return from interrupt
+
+
+POSITION_Y:
+	andi	reg_RX,0x3F						;sinon c'est une position
+	sts		pos_y_adv,reg_TX
 	out		SREG,tri						; restore flag register
 	reti 									; Return from interrupt
 
