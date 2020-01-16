@@ -8,7 +8,7 @@
 
 .def tri = r2						;timerInterruptRegister.
 
-.def reg_init = r16					;registre d'initialisation de tout les paramètre et temporaire
+.def reg_init = r29					;registre d'initialisation de tout les paramètre et temporaire
 
 ;.def reg_posX = r28				;position du personnage en X
 ;.def reg_posY = r29				;position du personnage en Y
@@ -30,10 +30,10 @@
 .def reg_RX = r18					;registre de réception en bluetooth
 
 ;.def reg_csgo_orientation = r13		;orientation du personnage
-.def reg_csgo_mapL = r28				;position du personnage dans la map
-.def reg_csgo_mapH = r29
+;.def reg_csgo_mapL = r28				;position du personnage dans la map
+;.def reg_csgo_mapH = r29
 .def reg_calcul1 = r28
-.def reg_calcul2 = r29
+;.def reg_calcul2 = r29
 
 .dseg
 	num_son:		.byte 1				;variable SRAM de son (LOW)
@@ -78,7 +78,6 @@ RESET:								; adresse du vecteur de reset
 	ldi		reg_cpt3,255			;tempo de début
 	rcall	tempo_US
 
-	ldi		reg_csgo_mapH,255				;on n'affiche pas le pseronnage
 
 
 	;ajout des programmes pour la gestion des modules
@@ -215,8 +214,6 @@ GAME:
 	add		reg_addrH,reg_init
 	rcall	writeFullSreen
 
-	bA[]
-	ldi		reg_csgo_mapH,0x48
 	bA[]
 	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
 

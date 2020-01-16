@@ -3,7 +3,7 @@
 csgo_init:
 	ldi		r16,0x00					;placement orientation Nord
 	sts		orientation,r16
-	ldi		r16,0x00					;placement à la case 124 de la mémoire
+	ldi		r16,0x00					;placement à la case 1 de la mémoire
 	sts		numero_mapL,r16
 	ldi		r16,0x48
 	sts		numero_mapH,r16
@@ -13,6 +13,8 @@ csgo_init:
 	sts		pos_y,r16
 	ldi		r16,255
 	sts		pos_x,r16
+	ldi		reg_cpt1,0x01
+	sts		adv_ok,reg_cpt1
 	;rjmp	Affichage_Image
 	rjmp	CSGO_INC
 
@@ -123,7 +125,7 @@ CREATION_IMAGE:
 	rjmp	Jeu_En_Cours
 
 DETECTION_ADVERSAIRE:
-	lds		reg_cpt1,orientation				;on se place à la bonne orientation
+	lds		reg_cpt1,orientation		;on se place à la bonne orientation
 	cpi		reg_cpt1,0x00
 	breq	Detection_Nord
 	cpi		reg_cpt1,0x01
@@ -132,37 +134,37 @@ DETECTION_ADVERSAIRE:
 	breq	Detection_Sud
 	cpi		reg_cpt1,0x03
 	breq	Detection_Est
-Detection_Nord:
-	lds		reg_cpt1,pos_x
+Detection_Nord:							;on doit avoir pos_y = pos_y_adv et pos_x = pos_x_adv + 1
+	lds		reg_cpt1,pos_x			
 	lds		reg_cpt2,pos_x_adv
 	subi	reg_cpt2,-0x01
 	cp		reg_cpt1,reg_cpt2
-	breq	CI_X_OK
+	breq	Attaquer;CI_X_OK  
 	rjmp	Adversaire_Pas_OK
-Detection_Est:
+Detection_Ouest:						;on doit avoir pos_x = pos_x_adv et pos_y = pos_y_adv + 1
 	lds		reg_cpt1,pos_y
 	lds		reg_cpt2,pos_y_adv
 	subi	reg_cpt2,-0x01
 	cp		reg_cpt1,reg_cpt2
 	breq	CI_Y_OK
 	rjmp	Adversaire_Pas_OK
-Detection_Sud:
+Detection_Sud:							;on doit avoir pos_y = pos_y_adv et pos_x = pos_x_adv - 1
 	lds		reg_cpt1,pos_x
 	lds		reg_cpt2,pos_x_adv
 	subi	reg_cpt2,0x01
 	cp		reg_cpt1,reg_cpt2
-	breq	CI_X_OK
+	breq	Attaquer;CI_X_OK
 	rjmp	Adversaire_Pas_OK
-Detection_Ouest:
+Detection_Est:							;on doit avoir pos_x = pos_x_adv et pos_y = pos_y_adv - 1
 	lds		reg_cpt1,pos_y
-	lds		reg_cpt1,pos_y_adv
+	lds		reg_cpt2,pos_y_adv
 	subi	reg_cpt2,0x01
 	cp		reg_cpt1,reg_cpt2
-	breq	CI_Y_OK
+	breq	Attaquer;CI_Y_OK
 	rjmp	Adversaire_Pas_OK
 CI_X_OK:
 	lds		reg_cpt1,pos_y
-	lds		reg_cpt1,pos_y_adv
+	lds		reg_cpt2,pos_y_adv
 	cp		reg_cpt1,reg_cpt2
 	breq	Adversaire_OK
 	rjmp	Adversaire_Pas_OK
@@ -185,8 +187,9 @@ Adversaire_Pas_OK:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Attaque de la cible
 Attaquer:
 	lds		r16,adv_ok
-	cpi		r16,0x01
-	breq	ON_ENVOIE_LA_SAUCE
+	;cpi		r16,0x01
+	;breq	ON_ENVOIE_LA_SAUCE
+	sbrs	r16,0
 	rjmp	Jeu_En_Cours
 ON_ENVOIE_LA_SAUCE:
 	ldi		reg_TX,0x00			;on envoie par bluetooth le signal de fin de jeu
