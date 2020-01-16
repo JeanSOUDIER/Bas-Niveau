@@ -261,6 +261,7 @@ Jeu_En_Cours:								;boucle du jeu en cours
 en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
+	PosPerso[]
 	rjmp	Affichage_Image
 	rjmp	Jeu_En_Cours
 
