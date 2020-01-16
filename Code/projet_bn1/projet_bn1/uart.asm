@@ -4,13 +4,13 @@
 	cpi		reg_TX,0x80
 	brlo	POSITION_Y
 	andi	reg_RX,0x3F						;sinon c'est une position
-	sts		pos_x_adv,reg_TX
+	;sts		pos_x_adv,reg_TX
 	rjmp	END_POSITION
 POSITION_Y:
 	cpi		reg_TX,0
 	breq	END_POSITION
 	andi	reg_RX,0x3F						;sinon c'est une position
-	sts		pos_y_adv,reg_TX
+	;sts		pos_y_adv,reg_TX
 END_POSITION:
 .endmacro
 
@@ -45,9 +45,3 @@ UART_Interrupt:
 END_UART:
 	out		SREG,tri						; restore flag register
 	reti 									; Return from interrupt
-
-
-	;CODE POUR METTRE A JOUR LA POSITION DE L'ADVERSAIRE
-	;sts		pos_x_adv,registre_X
-	;sts		pos_y_adv,registreY
-	;rjmp	Affichage_Image

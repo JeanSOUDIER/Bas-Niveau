@@ -1,15 +1,11 @@
 ;use r16, r13, r17, r24
 
 csgo_init:
-	ldi		r16,0x00					;placement orientation Nord
-	sts		orientation,r16
-	ldi		r16,0x00					;placement à la case 1 de la mémoire
-	sts		numero_mapL,r16
-	ldi		r16,0x48
-	sts		numero_mapH,r16
 	ldi		r16,0x01
 	sts		pos_x_adv,r16
+	ldi		r16,0x01
 	sts		pos_y_adv,r16
+	ldi		r16,0x01
 	sts		pos_y,r16
 	ldi		r16,255
 	sts		pos_x,r16
@@ -139,7 +135,7 @@ Detection_Nord:							;on doit avoir pos_y = pos_y_adv et pos_x = pos_x_adv + 1
 	lds		reg_cpt2,pos_x_adv
 	subi	reg_cpt2,-0x01
 	cp		reg_cpt1,reg_cpt2
-	breq	Attaquer;CI_X_OK  
+	breq	CI_X_OK  
 	rjmp	Adversaire_Pas_OK
 Detection_Ouest:						;on doit avoir pos_x = pos_x_adv et pos_y = pos_y_adv + 1
 	lds		reg_cpt1,pos_y
@@ -153,14 +149,14 @@ Detection_Sud:							;on doit avoir pos_y = pos_y_adv et pos_x = pos_x_adv - 1
 	lds		reg_cpt2,pos_x_adv
 	subi	reg_cpt2,0x01
 	cp		reg_cpt1,reg_cpt2
-	breq	Attaquer;CI_X_OK
+	breq	CI_X_OK
 	rjmp	Adversaire_Pas_OK
 Detection_Est:							;on doit avoir pos_x = pos_x_adv et pos_y = pos_y_adv - 1
 	lds		reg_cpt1,pos_y
 	lds		reg_cpt2,pos_y_adv
 	subi	reg_cpt2,0x01
 	cp		reg_cpt1,reg_cpt2
-	breq	Attaquer;CI_Y_OK
+	breq	CI_Y_OK
 	rjmp	Adversaire_Pas_OK
 CI_X_OK:
 	lds		reg_cpt1,pos_y

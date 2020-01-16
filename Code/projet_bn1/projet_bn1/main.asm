@@ -224,6 +224,8 @@ GAME:
 	rjmp	GAME
 
 Lancement_Jeu:								;on détermine dans quel mode de jeu on est
+	ldi		r16,0x00					;placement orientation Nord
+	sts		orientation,r16
 	cpi		reg_init,0
 	breq	MME
 	rjmp	Cible
@@ -232,10 +234,28 @@ MME:
 	;pos rand devient la position du joueur
 	rjmp	Affichage_Image
 Cible:
-	;pos rand devient la position de la cible
-	;lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
-	;lds		reg_addrH,numero_mapH
-	rjmp	Affichage_Image
+	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
+	sts		numero_mapL,r16
+	ldi		r16,0x48
+	sts		numero_mapH,r16
+
+	rcall	rand
+	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
+	lds		r16, pos_rand
+	mul		r16,r17
+	mov		reg_addrL,r0
+	mov		reg_addrH,r1
+	subi	reg_addrH,-0x48
+	;sts		numero_mapH,reg_addrH
+	;sts		numero_mapL,reg_addrL
+	subi	reg_addrL,-0x06
+	rcall	Read_Mem						;on récupère la position x
+	sts		pos_x_adv,reg_spi
+	subi	reg_addrL,-0x01
+	rcall	Read_Mem						;on récupère la position y
+	sts		pos_y_adv,reg_spi
+
+	rjmp	Affichage_Image					;début du jeu
 
 Jeu_En_Cours:								;boucle du jeu en cours
 	bGa[]								
@@ -270,6 +290,7 @@ Jeu_En_Cours:								;boucle du jeu en cours
 en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
+	sbrc	reg_init,2
 	PosPerso[]
 	rjmp	Affichage_Image
 	;rjmp	Jeu_En_Cours
