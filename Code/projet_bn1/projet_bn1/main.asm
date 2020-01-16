@@ -215,6 +215,10 @@ GAME:
 	rcall	writeFullSreen
 
 	bA[]
+	ldi		r16,0x00
+	bA[]
+	sts		pos_x,r16
+	bA[]
 	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
 
 	bB[]									;test de retour à l'écran principale
@@ -255,9 +259,11 @@ Cible:
 	subi	reg_addrL,-0x06
 	rcall	Read_Mem						;on récupère la position x
 	sts		pos_x_adv,reg_spi
+	sts		pos_x,reg_spi
 	subi	reg_addrL,-0x01
 	rcall	Read_Mem						;on récupère la position y
 	sts		pos_y_adv,reg_spi
+	sts		pos_y,reg_spi
 
 	rjmp	Affichage_Image					;début du jeu
 

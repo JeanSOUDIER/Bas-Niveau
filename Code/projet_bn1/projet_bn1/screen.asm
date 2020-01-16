@@ -78,7 +78,7 @@ END_PERSO2:
 .endmacro
 
 .macro SetPosPerso[]				;affiche le point à l'endroit calculé
-	lds		reg_calcul1,pos_X
+	lds		reg_calcul1,pos_x
 	cpi		reg_calcul1,255
 	breq	END_SetPerso
 	lds		reg_screen,conv2
