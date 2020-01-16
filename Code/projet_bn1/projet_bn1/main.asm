@@ -52,7 +52,7 @@
 	pos_x_adv:		.byte 1				;position en x de l'adversaire
 	pos_y_adv:		.byte 1				;position en y de l'adversaire
 	orientation:	.byte 1				;orientation du personnage
-	adv_ok:			.byte 1				;si l'adversaire est juste devant nous
+	adv_ok:			.byte 1				;Si l'adversaire est juste devant nous
 
 .cseg  ; codesegment
 .org	0x00
@@ -112,7 +112,7 @@ CSGO_INC:
 
 	
 
-loopMain:									;premier menu
+loopMain:
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
 	bHa[]									;test du bouton "vers le haut"
 	rjmp	UP
@@ -159,7 +159,66 @@ MENTION:
 	rjmp	loopMain
 	rjmp	MENTION
 
-	RESEAU:										;boucle du test de connection réseau
+GAME:
+	bHa[]									;choix du mode de jeu
+	ldi		reg_init,0
+	bBa[]
+	ldi		reg_init,4
+
+	ldi		reg_addrL,0x00					;affichage en fonction du curseur
+	ldi		reg_addrH,0x78
+	add		reg_addrH,reg_init
+	rcall	writeFullSreen
+
+	bA[]
+	ldi		reg_csgo_mapH,0x48
+	bA[]
+	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
+
+	bB[]									;test de retour à l'écran principale
+	ldi		reg_init,8
+	bB[]
+	ldi		reg_csgo_mapH,255
+	bB[]
+	rjmp	loopMain
+	rjmp	GAME
+
+start:
+	bGa[]									;boule du jeu
+	rjmp	Tourner_Gauche
+	bDr[]
+	rjmp	Tourner_Droite
+	bHa[]
+	rjmp	Avancer
+	rjmp start
+	lds		reg_cpt3,dead
+	cpi		reg_cpt3,0
+	brne	en_vie
+	ldi		reg_addrL,0x00
+	ldi		reg_addrH,0x58
+	rcall	writeFullSreen
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	;jmp	GAME
+en_vie:
+	ldi		reg_cpt3,100
+	rcall	tempo_MS
+	rjmp	Affichage_Image
+	;rjmp	start
+
+RESEAU:										;boucle du test de connection réseau
 	CONN1[]
 
 	ldi		reg_TX,1						;ping en UART
@@ -203,70 +262,7 @@ loopReseau2:
 	rjmp	loopMain
 	rjmp	loopReseau1
 
-
-GAME:
-	bHa[]									;choix du mode de jeu
-	ldi		reg_init,0
-	bBa[]
-	ldi		reg_init,4
-
-	ldi		reg_addrL,0x00					;affichage en fonction du curseur
-	ldi		reg_addrH,0x78
-	add		reg_addrH,reg_init
-	rcall	writeFullSreen
-
-	bA[]
-	ldi		reg_csgo_mapH,0x48
-	bA[]
-	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
-
-	bB[]									;test de retour à l'écran principale
-	ldi		reg_init,8
-	bB[]
-	ldi		reg_csgo_mapH,255
-	bB[]
-	rjmp	loopMain
-	rjmp	GAME
-
-Jeu_En_Cours:								;boucle du jeu en cours
-	bGa[]								
-	rjmp	Tourner_Gauche
-	bDr[]
-	rjmp	Tourner_Droite
-	bHa[]
-	rjmp	Avancer
-	bA[]
-	rjmp	Attaquer
-	lds		reg_cpt3,dead					;on teste si on est mort
-	cpi		reg_cpt3,0
-	brne	en_vie
-	ldi		reg_addrL,0x00					;on affiche l'écran de défaite
-	ldi		reg_addrH,0x58
-	rcall	writeFullSreen
-	ldi		reg_cpt3,255					;on attend un peu
-	rcall	tempo_MS
-	ldi		reg_cpt3,255
-	rcall	tempo_MS
-	ldi		reg_cpt3,255
-	rcall	tempo_MS
-	ldi		reg_cpt3,255
-	rcall	tempo_MS
-	ldi		reg_cpt3,255
-	rcall	tempo_MS
-	ldi		reg_cpt3,255
-	rcall	tempo_MS
-	ldi		reg_cpt3,255
-	rcall	tempo_MS
-	jmp	GAME								;et on revient au menu
-en_vie:
-	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
-	rcall	tempo_MS
-	rjmp	Affichage_Image
-	rjmp	Jeu_En_Cours
-
-
-
-; sous programme de temporisation, dure approximativement 127.49us si charge 1 dans reg_cpt3
+; sous programme de temporisation
 tempo_MS:
 	ldi	reg_spi, 255
 boucletempo_MS:
