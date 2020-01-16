@@ -32,3 +32,9 @@ END_UART:
 	andi	reg_RX,0x3F						;sinon c'est une position
 	out		SREG,tri						; restore flag register
 	reti 									; Return from interrupt
+
+
+	;CODE POUR METTRE A JOUR LA POSITION DE L'ADVERSAIRE
+	;sts		pos_x_adv,registre_X
+	;sts		pos_y_adv,registreY
+	;rjmp	Affichage_Image

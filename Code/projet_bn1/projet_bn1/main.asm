@@ -29,25 +29,30 @@
 .def reg_TX = r30					;registre d'envoi en bluetooth
 .def reg_RX = r18					;registre de réception en bluetooth
 
-.def reg_csgo_orientation = r13		;orientation du personnage
-.def reg_csgo_mapL = r28			;position du personnage
+;.def reg_csgo_orientation = r13		;orientation du personnage
+.def reg_csgo_mapL = r28				;position du personnage dans la map
 .def reg_csgo_mapH = r29
+.def reg_calcul1 = r28
+.def reg_calcul2 = r29
 
 .dseg
-	num_son:	.byte 1				;variable SRAM de son (LOW)
-	num_son2:	.byte 1				;idem (HIGH)
-	C_Wait:		.byte 5				;variable avec le caractère de chargement pour les images
-	Table:		.byte 8				;table de conversion
-	conv:		.byte 1				;varaible de convertion de la poistion du personnage X
-	convB:		.byte 1				;idem Y
-	conv2:		.byte 1				;idem afficher ou non
-	dead:		.byte 1				;variable de test si le personnage est en vie
-	pos_rand:	.byte 1				;position de départ du personnage (case 0 à 182)
-	pos_x:		.byte 1				;position en x du joueur
-	pos_y:		.byte 1				;position en y du joueur
-	pos_map:		.byte 2				;adresse de la case actuelle dans la mémoire
-	pos_x_adv:	.byte 1				;position en x de l'adversaire
-	pos_y_adv:	.byte 1				;position en y de l'adversaire
+	num_son:		.byte 1				;variable SRAM de son (LOW)
+	num_son2:		.byte 1				;idem (HIGH)
+	C_Wait:			.byte 5				;variable avec le caractère de chargement pour les images
+	Table:			.byte 8				;table de conversion
+	conv:			.byte 1				;varaible de convertion de la poistion du personnage X
+	convB:			.byte 1				;idem Y
+	conv2:			.byte 1				;idem afficher ou non
+	dead:			.byte 1				;variable de test si le personnage est en vie
+	pos_rand:		.byte 1				;position de départ du personnage (case 0 à 181)
+	pos_x:			.byte 1				;position en x du joueur
+	pos_y:			.byte 1				;position en y du joueur
+	numero_mapL:	.byte 1				;adresse de la case actuelle dans la mémoire
+	numero_mapH:	.byte 1
+	pos_x_adv:		.byte 1				;position en x de l'adversaire
+	pos_y_adv:		.byte 1				;position en y de l'adversaire
+	orientation:	.byte 1				;orientation du personnage
+	adv_ok:			.byte 1				;Si l'adversaire est juste devant nous
 
 .cseg  ; codesegment
 .org	0x00
@@ -185,6 +190,7 @@ start:
 	rjmp	Tourner_Droite
 	bHa[]
 	rjmp	Avancer
+	rjmp start
 	lds		reg_cpt3,dead
 	cpi		reg_cpt3,0
 	brne	en_vie
@@ -205,7 +211,7 @@ start:
 	rcall	tempo_MS
 	ldi		reg_cpt3,255
 	rcall	tempo_MS
-	jmp	GAME
+	;jmp	GAME
 en_vie:
 	ldi		reg_cpt3,100
 	rcall	tempo_MS
