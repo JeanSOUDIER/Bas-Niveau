@@ -107,7 +107,7 @@ Determination_Image_1:
 	cpi		r16,0x08					;on vérifie si l'image correspond au code 8 (mur très proche)
 	brne	Determination_Image_2		;sinon, on calcule à quelle image correspond le code
 	ldi		r16,0x04					;si on est contre un mur proche, on charge le code 0x04
-	rjmp	CREATION_IMAGE
+	rjmp	Adversaire_Pas_OK			;on va au code adversaire pas ok pour éviter un bug de victoire en tapant dans un mur
 Determination_Image_2:
 	ldi		r17,0x04					;on regarde à quelle image correspond le code
 	mul		r17,r16

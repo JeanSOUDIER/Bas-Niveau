@@ -232,6 +232,10 @@ Lancement_Jeu:								;on détermine dans quel mode de jeu on est
 MME:
 	;on teste si on est bien connecté, si oui:
 	;pos rand devient la position du joueur
+	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
+	sts		numero_mapL,r16
+	ldi		r16,0x48
+	sts		numero_mapH,r16
 	rjmp	Affichage_Image
 Cible:
 	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
