@@ -10,8 +10,8 @@
 
 .def reg_init = r16					;registre d'initialisation de tout les paramètre et temporaire
 
-;.def reg_posX = r28					;position du personnage en X
-;.def reg_posY = r29					;position du personnage en Y
+;.def reg_posX = r28				;position du personnage en X
+;.def reg_posY = r29				;position du personnage en Y
 
 .def reg_spi = r24					;registre d'envoi et réception en spi & tempo MS
 .def reg_addrL = r19				;registres de sélection d'adresse dans la mémoire SPI (LOW)
@@ -218,7 +218,7 @@ GAME:
 	bA[]
 	ldi		reg_csgo_mapH,0x48
 	bA[]
-	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
+	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
 
 	bB[]									;test de retour à l'écran principale
 	ldi		reg_init,8
@@ -227,6 +227,19 @@ GAME:
 	bB[]
 	rjmp	loopMain
 	rjmp	GAME
+
+Lancement_Jeu:								;on détermine dans quel mode de jeu on est
+	cp		reg_init,0
+	breq	MME
+	rjmp	Cible
+MME:
+	;on teste si on est bien connecté, si oui:
+	;pos rand devient la position du joueur
+	rjmp	Affichage_Image
+Cible:
+	;pos rand devient la position de la cible
+	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
+	lds		reg_addrH,numero_mapH
 
 Jeu_En_Cours:								;boucle du jeu en cours
 	bGa[]								
@@ -262,7 +275,7 @@ en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
 	rjmp	Affichage_Image
-	rjmp	Jeu_En_Cours
+	;rjmp	Jeu_En_Cours
 
 
 
