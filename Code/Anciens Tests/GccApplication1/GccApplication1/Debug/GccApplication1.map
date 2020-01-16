@@ -287,11 +287,11 @@ END GROUP
                 0x00800060                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
-.eeprom         0x00810000       0xfa
+.eeprom         0x00810000       0x20
  *(.eeprom*)
- .eeprom        0x00810000       0xfa main.o
+ .eeprom        0x00810000       0x20 main.o
                 0x00810000                eedata
-                0x008100fa                __eeprom_end = .
+                0x00810020                __eeprom_end = .
 
 .fuse
  *(.fuse)
@@ -369,20 +369,20 @@ END GROUP
  .debug_abbrev  0x00000000      0x4e7 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega16a/avr5/crtatmega16a.o
  .debug_abbrev  0x000004e7       0x69 main.o
 
-.debug_line     0x00000000      0x155
+.debug_line     0x00000000      0x154
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega16a/avr5/crtatmega16a.o
- .debug_line    0x00000115       0x40 main.o
+ .debug_line    0x00000115       0x3f main.o
 
 .debug_frame    0x00000000       0x24
  *(.debug_frame)
  .debug_frame   0x00000000       0x24 main.o
 
-.debug_str      0x00000000      0x2f5
+.debug_str      0x00000000      0x303
  *(.debug_str)
  .debug_str     0x00000000      0x1af C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega16a/avr5/crtatmega16a.o
- .debug_str     0x000001af      0x146 main.o
-                                0x17a (size before relaxing)
+ .debug_str     0x000001af      0x154 main.o
+                                0x188 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)

@@ -118,7 +118,11 @@ conv_son:
 	sbi		EECR,EERE								;test de fin de lecture
 	in		reg_vol,EEDR							;lecture
 	out		ICR1H,reg_vol							;set freq
-
+	cpi		reg_vol,255
+	brne	pas_fin_son
+	ldi		reg_vol,2
+	sts		num_son2,reg_vol
+pas_fin_son:
 
 	;gestion du volume
 	ldi		reg_vol,0

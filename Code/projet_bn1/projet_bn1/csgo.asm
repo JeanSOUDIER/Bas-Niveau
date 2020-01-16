@@ -186,6 +186,9 @@ Adversaire_Pas_OK:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Attaque de la cible
 Attaquer:
+	ldi		r16,0
+	sts		num_son2,r16
+
 	lds		r16,adv_ok
 	;cpi		r16,0x01
 	;breq	ON_ENVOIE_LA_SAUCE
