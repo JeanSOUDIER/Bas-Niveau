@@ -1,5 +1,19 @@
 .equ baud = 51								;9600 =>103
 
+.macro PosPerso[]
+	cpi		reg_TX,0x80
+	brlo	POSITION_Y
+	andi	reg_RX,0x3F						;sinon c'est une position
+	sts		pos_x_adv,reg_TX
+	rjmp	END_POSITION
+POSITION_Y:
+	cpi		reg_TX,0
+	breq	END_POSITION
+	andi	reg_RX,0x3F						;sinon c'est une position
+	sts		pos_y_adv,reg_TX
+END_POSITION:
+.endmacro
+
 USART_Init:									; Set baud rate to UBRR0 
 	ldi		reg_TX,baud
 	out		UBRRL, reg_TX					; Enable receiver and transmitter  
@@ -29,7 +43,6 @@ UART_Interrupt:
 	brne	END_UART
 	sts		dead,reg_RX
 END_UART:
-	andi	reg_RX,0x3F						;sinon c'est une position
 	out		SREG,tri						; restore flag register
 	reti 									; Return from interrupt
 

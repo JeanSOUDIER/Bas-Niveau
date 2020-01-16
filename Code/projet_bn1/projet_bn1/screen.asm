@@ -45,7 +45,7 @@
 .endmacro
 
 .macro placePosPerso[]				;converti la position xy du personnage pour faire un test à l'affichage sur l'ecran
-	lds		reg_screen,pos_X
+	lds		reg_screen,pos_x
 	mov		reg_calcul1,reg_screen	;test Y
 	andi	reg_screen,7
 	ldi		XL,LOW(Table)			;table de convertion 2^(8-X) = Y
@@ -62,10 +62,10 @@
 	brlo	END_PERSO
 	ldi		reg_screen,127
 END_PERSO:
-	lds		reg_calcul1,pos_Y
+	lds		reg_calcul1,pos_y
 	sub		reg_screen,reg_calcul1	;affectation de la SRAM
 	sts		convB,reg_screen
-	lds		reg_calcul1,pos_X
+	lds		reg_calcul1,pos_x
 	ldi		reg_screen,7
 	cpi		reg_calcul1,8
 	brlo	END_PERSO2
