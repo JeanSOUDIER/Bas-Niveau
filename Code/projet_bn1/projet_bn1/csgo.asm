@@ -10,6 +10,9 @@ csgo_init:
 	ldi		r16,0x00
 	sts		pos_x_adv,r16
 	sts		pos_y_adv,r16
+	sts		pos_y,r16
+	ldi		r16,255
+	sts		pos_x,r16
 	;rjmp	Affichage_Image
 	rjmp	CSGO_INC
 
