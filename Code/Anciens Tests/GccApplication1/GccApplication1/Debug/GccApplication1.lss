@@ -5,27 +5,27 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000076  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  0000010a  2**0
+  1 .data         00000000  00800060  00800060  00000222  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .eeprom       00000020  00810000  00810000  000000ea  2**0
+  2 .eeprom       00000138  00810000  00810000  000000ea  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .comment      00000030  00000000  00000000  0000010a  2**0
+  3 .comment      00000030  00000000  00000000  00000222  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000013c  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000254  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000020  00000000  00000000  00000178  2**0
+  5 .debug_aranges 00000020  00000000  00000000  00000290  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000005d3  00000000  00000000  00000198  2**0
+  6 .debug_info   000005d4  00000000  00000000  000002b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000550  00000000  00000000  0000076b  2**0
+  7 .debug_abbrev 00000550  00000000  00000000  00000884  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000154  00000000  00000000  00000cbb  2**0
+  8 .debug_line   00000154  00000000  00000000  00000dd4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000024  00000000  00000000  00000e10  2**2
+  9 .debug_frame  00000024  00000000  00000000  00000f28  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000303  00000000  00000000  00000e34  2**0
+ 10 .debug_str    00000303  00000000  00000000  00000f4c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000010  00000000  00000000  00001137  2**0
+ 11 .debug_ranges 00000010  00000000  00000000  0000124f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
