@@ -112,6 +112,8 @@ conv_son:
 	out		EEARH,reg_vol							;recherche de l'adresse à lire depuis la SRAM
 	lds		reg_vol,num_son
 	out		EEARL,reg_vol
+	subi	reg_vol,-0x01							;note suivante
+	sts		num_son,reg_vol
 	
 	sbi		EECR,EERE								;test de fin de lecture
 	in		reg_vol,EEDR							;lecture
