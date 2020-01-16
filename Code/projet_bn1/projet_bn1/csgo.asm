@@ -10,7 +10,7 @@ csgo_init:
 	ldi		r16,0x00
 	sts		pos_x_adv,r16
 	sts		pos_y_adv,r16
-	rjmp	Affichage_Image
+	;rjmp	Affichage_Image
 	rjmp	CSGO_INC
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mouvement du personnage
@@ -23,9 +23,7 @@ Avancer:
 	mov		r16,reg_spi
 	cpi		r16,255						;si la donnée ne vaut pas 0xFF
 	brne	Mouvement_Confirme			;alors on confirme le mouvement et cette donnée devient la prochaine adresse
-	rjmp	start						;sinon on revient au start
-Reculer:
-	rjmp	start
+	rjmp	Jeu_En_Cours				;sinon on revient au Jeu_En_Cours
 Mouvement_Confirme:
 	ldi		r17,0x08					;on calcule l'adresse de la nouvelle case à partir de son numéro: addr = 0x4800 + 8*n
 	mul		r16,r17
@@ -115,74 +113,94 @@ CREATION_IMAGE:
 	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
 	mov		reg_addrH,r16
 	rcall	writeFullSreen
-	rjmp	start
+	rjmp	Jeu_En_Cours
 
 DETECTION_ADVERSAIRE:
-	lds		reg_calcul1,orientation				;on se place à la bonne orientation
-	cpi		reg_calcul1,0x00
+	lds		reg_cpt1,orientation				;on se place à la bonne orientation
+	cpi		reg_cpt1,0x00
 	breq	Detection_Nord
-	cpi		reg_calcul1,0x01
+	cpi		reg_cpt1,0x01
 	breq	Detection_Ouest
-	cpi		reg_calcul1,0x02
+	cpi		reg_cpt1,0x02
 	breq	Detection_Sud
-	cpi		reg_calcul1,0x03
+	cpi		reg_cpt1,0x03
 	breq	Detection_Est
 Detection_Nord:
-	lds		reg_calcul1,pos_x
-	lds		reg_calcul2,pos_x_adv
-	subi	reg_calcul2,-0x01
-	cp		reg_calcul1,reg_calcul2
+	lds		reg_cpt1,pos_x
+	lds		reg_cpt2,pos_x_adv
+	subi	reg_cpt2,-0x01
+	cp		reg_cpt1,reg_cpt2
 	breq	CI_X_OK
 	rjmp	Adversaire_Pas_OK
 Detection_Est:
-	lds		reg_calcul1,pos_y
-	lds		reg_calcul2,pos_y_adv
-	subi	reg_calcul2,-0x01
-	cp		reg_calcul1,reg_calcul2
+	lds		reg_cpt1,pos_y
+	lds		reg_cpt2,pos_y_adv
+	subi	reg_cpt2,-0x01
+	cp		reg_cpt1,reg_cpt2
 	breq	CI_Y_OK
 	rjmp	Adversaire_Pas_OK
 Detection_Sud:
-	lds		reg_calcul1,pos_x
-	lds		reg_calcul2,pos_x_adv
-	subi	reg_calcul2,0x01
-	cp		reg_calcul1,reg_calcul2
+	lds		reg_cpt1,pos_x
+	lds		reg_cpt2,pos_x_adv
+	subi	reg_cpt2,0x01
+	cp		reg_cpt1,reg_cpt2
 	breq	CI_X_OK
 	rjmp	Adversaire_Pas_OK
 Detection_Ouest:
-	lds		reg_calcul1,pos_y
-	lds		reg_calcul1,pos_y_adv
-	subi	reg_calcul2,0x01
-	cp		reg_calcul1,reg_calcul2
+	lds		reg_cpt1,pos_y
+	lds		reg_cpt1,pos_y_adv
+	subi	reg_cpt2,0x01
+	cp		reg_cpt1,reg_cpt2
 	breq	CI_Y_OK
 	rjmp	Adversaire_Pas_OK
 CI_X_OK:
-	lds		reg_calcul1,pos_y
-	lds		reg_calcul2,pos_y_adv
-	cp		reg_calcul1,reg_calcul2
+	lds		reg_cpt1,pos_y
+	lds		reg_cpt1,pos_y_adv
+	cp		reg_cpt1,reg_cpt2
 	breq	Adversaire_OK
 	rjmp	Adversaire_Pas_OK
 CI_Y_OK:
-	lds		reg_calcul1,pos_x
-	lds		reg_calcul2,pos_x_adv
-	cp		reg_calcul1,reg_calcul2
+	lds		reg_cpt1,pos_x
+	lds		reg_cpt2,pos_x_adv
+	cp		reg_cpt1,reg_cpt2
 	breq	Adversaire_OK
 	rjmp	Adversaire_Pas_OK
 Adversaire_OK:
-	ldi		reg_calcul1,0x01
-	sts		adv_ok,reg_calcul1
+	ldi		reg_cpt1,0x01
+	sts		adv_ok,reg_cpt1
 	subi	r16,-0x20
 	rjmp	CREATION_IMAGE
 Adversaire_Pas_OK:
-	ldi		reg_calcul1,0x00
-	sts		adv_ok,reg_calcul1
+	ldi		reg_cpt1,0x00
+	sts		adv_ok,reg_cpt1
 	rjmp	CREATION_IMAGE
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Attaque de la cible
-ATTAQUER:
+Attaquer:
 	lds		r16,adv_ok
 	cpi		r16,0x01
 	breq	ON_ENVOIE_LA_SAUCE
-	rjmp	start
+	rjmp	Jeu_En_Cours
 ON_ENVOIE_LA_SAUCE:
-	;on envoie par bluetooth le signal de fin de jeu
-	;on affiche l'écran de victoire
+	ldi		reg_TX,0x00			;on envoie par bluetooth le signal de fin de jeu
+	rcall	USART_Transmit
+	ldi		reg_addrL,0x00		;on affiche l'écran de victoire
+	ldi		reg_addrH,0x5C
+	rcall	writeFullSreen
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	ldi		reg_cpt3,255
+	rcall	tempo_MS
+	jmp	GAME
+	
+	
