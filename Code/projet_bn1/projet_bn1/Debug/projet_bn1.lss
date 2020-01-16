@@ -1,30 +1,30 @@
 
-AVRASM ver. 2.2.7  C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Thu Jan 16 02:43:47 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Thu Jan 16 10:38:38 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(23): warning: Register r17 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(29): warning: Register r30 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(33): warning: Register r28 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(34): warning: Register r29 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(35): warning: Register r28 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(36): warning: Register r29 already defined by the .DEF directive
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(85): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(87): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(97): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(99): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(23): warning: Register r17 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(29): warning: Register r30 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(33): warning: Register r28 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(34): warning: Register r29 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(35): warning: Register r28 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(36): warning: Register r29 already defined by the .DEF directive
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(85): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(87): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(97): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(99): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(85): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(87): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(97): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
-C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(99): Including file 'C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(85): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\io.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(87): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\uart.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(89): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\adc.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(91): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\timer.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(93): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\spi.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(95): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\screen.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(97): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\char_array.asm'
+D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(99): Including file 'D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\csgo.asm'
                                  
                                  ;
                                  
@@ -1300,7 +1300,8 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  .endmacro
                                  
                                  .macro placePosPerso[]				;converti la position xy du personnage pour faire un test à l'affichage sur l'ecran
-                                 	mov		reg_screen,reg_csgo_mapL		;test Y
+                                 	lds		reg_screen,pos_X
+                                 	mov		reg_calcul1,reg_screen	;test Y
                                  	andi	reg_screen,7
                                  	ldi		XL,LOW(Table)			;table de convertion 2^(8-X) = Y
                                  	ldi		XH,HIGH(Table)
@@ -1309,19 +1310,21 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  	sts		conv,reg_screen
                                  
                                  	ldi		reg_screen,255			;convertion des positions par 8 pixels
-                                 	cpi		reg_csgo_mapL,8
+                                 	cpi		reg_calcul1,8
                                  	brlo	END_PERSO
-                                 	cpi		reg_csgo_mapL,16
+                                 	cpi		reg_calcul1,16
                                  	ldi		reg_screen,191
                                  	brlo	END_PERSO
                                  	ldi		reg_screen,127
                                  END_PERSO:
-                                 	sub		reg_screen,reg_csgo_mapH		;affectation de la SRAM
+                                 	lds		reg_calcul1,pos_Y
+                                 	sub		reg_screen,reg_calcul1	;affectation de la SRAM
                                  	sts		convB,reg_screen
+                                 	lds		reg_calcul1,pos_X
                                  	ldi		reg_screen,7
-                                 	cpi		reg_csgo_mapL,8
+                                 	cpi		reg_calcul1,8
                                  	brlo	END_PERSO2
-                                 	cpi		reg_csgo_mapL,16
+                                 	cpi		reg_calcul1,16
                                  	ldi		reg_screen,6
                                  	brlo	END_PERSO2
                                  	ldi		reg_screen,5
@@ -1330,7 +1333,8 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  .endmacro
                                  
                                  .macro SetPosPerso[]				;affiche le point à l'endroit calculé
-                                 	cpi		reg_csgo_mapH,255
+                                 	lds		reg_calcul1,pos_X
+                                 	cpi		reg_calcul1,255
                                  	breq	END_SetPerso
                                  	lds		reg_screen,conv2
                                  	cp		reg_cpt2,reg_screen
@@ -1368,7 +1372,7 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
 0000cd d003
 0000ce 9ac3                      	Enable[]						;validation
 0000cf 9ac2                      	RS_set[]						;mode données
-0000d0 c108                      	rjmp	SCREEN_INC
+0000d0 c110                      	rjmp	SCREEN_INC
                                  
                                  tempo_US:							;boucle de temporisation
 0000d1 951a                      	dec		reg_cpt3
@@ -1378,319 +1382,323 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  ;full reg_addrL/H
                                  writeFullSreen:						;fonction d'affichage de la mémoire SPI vers l'écran
-0000d5 2f1c
-0000d6 7017
-0000d7 e6a7
-0000d8 e0b0
-0000d9 0fa1
-0000da 911c
-0000db 9310 006f
-0000dd ef1f
-0000de 30c8
-0000df f020
-0000e0 31c0
-0000e1 eb1f
-0000e2 f008
-0000e3 e71f
-0000e4 1b1d
-0000e5 9310 0070
-0000e7 e017
-0000e8 30c8
-0000e9 f020
-0000ea 31c0
-0000eb e016
-0000ec f008
-0000ed e015
-0000ee 9310 0071                 	placePosPerso[]
-0000f0 9ac1
-0000f1 98c0                      	screenR[]						;set side screen
-0000f2 e060                      	ldi		reg_cpt2,0				;reset var
+0000d5 9110 0074
+0000d7 2fc1
+0000d8 7017
+0000d9 e6a7
+0000da e0b0
+0000db 0fa1
+0000dc 911c
+0000dd 9310 006f
+0000df ef1f
+0000e0 30c8
+0000e1 f020
+0000e2 31c0
+0000e3 eb1f
+0000e4 f008
+0000e5 e71f
+0000e6 91c0 0075
+0000e8 1b1c
+0000e9 9310 0070
+0000eb 91c0 0074
+0000ed e017
+0000ee 30c8
+0000ef f020
+0000f0 31c0
+0000f1 e016
+0000f2 f008
+0000f3 e015
+0000f4 9310 0071                 	placePosPerso[]
+0000f6 9ac1
+0000f7 98c0                      	screenR[]						;set side screen
+0000f8 e060                      	ldi		reg_cpt2,0				;reset var
                                  loop1:
-0000f3 e050                      	ldi		reg_cpt1,0
-0000f4 e010                      	ldi		reg_screen,0			;set pos Y = 0
-0000f5 98c2
-0000f6 6410
-0000f7 bb15
-0000f8 98c3
-0000f9 ef1a
-0000fa dfd6
-0000fb 9ac3
-0000fc 9ac2                      	SetPosY[]
-0000fd 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
-0000fe 98c2
-0000ff 6b18
-000100 bb15
-000101 98c3
-000102 ef1a
-000103 dfcd
-000104 9ac3
-000105 9ac2                      	SetPosX[]
+0000f9 e050                      	ldi		reg_cpt1,0
+0000fa e010                      	ldi		reg_screen,0			;set pos Y = 0
+0000fb 98c2
+0000fc 6410
+0000fd bb15
+0000fe 98c3
+0000ff ef1a
+000100 dfd0
+000101 9ac3
+000102 9ac2                      	SetPosY[]
+000103 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+000104 98c2
+000105 6b18
+000106 bb15
+000107 98c3
+000108 ef1a
+000109 dfc7
+00010a 9ac3
+00010b 9ac2                      	SetPosX[]
                                  loop2:
-000106 dfb5                      	rcall	Read_Mem				;lecture de la mémoire spi
-000107 2f18                      	mov		reg_screen,reg_spi
-000108 bb15
-000109 98c3
-00010a ef1a
-00010b dfc5
-00010c 9ac3                      	ScreenWrite[]					;écriture sur l'écran
-00010d 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
-00010e 3030                      	cpi		reg_addrL,0
-00010f f409                      	brne	addr_carry1				;test du carry
-000110 9543                      	inc		reg_addrH
+00010c dfaf                      	rcall	Read_Mem				;lecture de la mémoire spi
+00010d 2f18                      	mov		reg_screen,reg_spi
+00010e bb15
+00010f 98c3
+000110 ef1a
+000111 dfbf
+000112 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+000113 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
+000114 3030                      	cpi		reg_addrL,0
+000115 f409                      	brne	addr_carry1				;test du carry
+000116 9543                      	inc		reg_addrH
                                  addr_carry1:
                                  
-000111 9553                      	inc		reg_cpt1				;incrément du compteur 1
-000112 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-000113 cff2                      	rjmp	loop2
+000117 9553                      	inc		reg_cpt1				;incrément du compteur 1
+000118 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+000119 cff2                      	rjmp	loop2
                                  
-000114 9563                      	inc		reg_cpt2				;incrément du copteur 2
-000115 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-000116 cfdc                      	rjmp	loop1
+00011a 9563                      	inc		reg_cpt2				;incrément du copteur 2
+00011b ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+00011c cfdc                      	rjmp	loop1
                                  
-000117 9ac0
-000118 98c1                      	screenL[]						;set side screen
-000119 e060                      	ldi		reg_cpt2,0				;reset var
+00011d 9ac0
+00011e 98c1                      	screenL[]						;set side screen
+00011f e060                      	ldi		reg_cpt2,0				;reset var
                                  loop3:
-00011a e050                      	ldi		reg_cpt1,0
-00011b e010                      	ldi		reg_screen,0			;set pos Y = 0
-00011c 98c2
-00011d 6410
-00011e bb15
-00011f 98c3
-000120 ef1a
-000121 dfaf
-000122 9ac3
-000123 9ac2                      	SetPosY[]
-000124 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
-000125 98c2
-000126 6b18
-000127 bb15
-000128 98c3
-000129 ef1a
-00012a dfa6
-00012b 9ac3
-00012c 9ac2                      	SetPosX[]
+000120 e050                      	ldi		reg_cpt1,0
+000121 e010                      	ldi		reg_screen,0			;set pos Y = 0
+000122 98c2
+000123 6410
+000124 bb15
+000125 98c3
+000126 ef1a
+000127 dfa9
+000128 9ac3
+000129 9ac2                      	SetPosY[]
+00012a 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+00012b 98c2
+00012c 6b18
+00012d bb15
+00012e 98c3
+00012f ef1a
+000130 dfa0
+000131 9ac3
+000132 9ac2                      	SetPosX[]
                                  loop4:
-00012d df8e                      	rcall	Read_Mem				;lecture de la mémoire spi
-00012e 3078                      	cpi		reg_cptT0,8
-00012f f468                      	brsh	PRINT
-000130 9110 0071
-000132 1761
-000133 f449
-000134 9110 0070
-000136 731f
-000137 1751
-000138 f421
-000139 9110 006f
-00013b 9510
-00013c 2381                      	ClearPosPerso[]
+000133 df88                      	rcall	Read_Mem				;lecture de la mémoire spi
+000134 3078                      	cpi		reg_cptT0,8
+000135 f468                      	brsh	PRINT
+000136 9110 0071
+000138 1761
+000139 f449
+00013a 9110 0070
+00013c 731f
+00013d 1751
+00013e f421
+00013f 9110 006f
+000141 9510
+000142 2381                      	ClearPosPerso[]
                                  PRINT:
-00013d 3078                      	cpi		reg_cptT0,8
-00013e f070                      	brlo	PRINT1
-00013f 3fdf
-000140 f061
-000141 9110 0071
-000143 1761
-000144 f441
-000145 9110 0070
-000147 731f
-000148 1751
-000149 f419
-00014a 9110 006f
-00014c 2b81                      	SetPosPerso[]
+000143 3078                      	cpi		reg_cptT0,8
+000144 f080                      	brlo	PRINT1
+000145 91c0 0074
+000147 3fcf
+000148 f061
+000149 9110 0071
+00014b 1761
+00014c f441
+00014d 9110 0070
+00014f 731f
+000150 1751
+000151 f419
+000152 9110 006f
+000154 2b81                      	SetPosPerso[]
                                  PRINT1:
-00014d 2f18                      	mov		reg_screen,reg_spi
-00014e bb15
-00014f 98c3
-000150 ef1a
-000151 df7f
-000152 9ac3                      	ScreenWrite[]					;écriture sur l'écran
-000153 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
-000154 3030                      	cpi		reg_addrL,0
-000155 f409                      	brne	addr_carry2				;test du carry
-000156 9543                      	inc		reg_addrH
+000155 2f18                      	mov		reg_screen,reg_spi
+000156 bb15
+000157 98c3
+000158 ef1a
+000159 df77
+00015a 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+00015b 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
+00015c 3030                      	cpi		reg_addrL,0
+00015d f409                      	brne	addr_carry2				;test du carry
+00015e 9543                      	inc		reg_addrH
                                  addr_carry2:
                                  
-000157 9553                      	inc		reg_cpt1				;incrément du compteur 1
-000158 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-000159 cfd3                      	rjmp	loop4
+00015f 9553                      	inc		reg_cpt1				;incrément du compteur 1
+000160 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+000161 cfd1                      	rjmp	loop4
                                  
-00015a 9563                      	inc		reg_cpt2				;incrément du copteur 2
-00015b ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-00015c cfbd                      	rjmp	loop3
-00015d 9508                      	ret
+000162 9563                      	inc		reg_cpt2				;incrément du copteur 2
+000163 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+000164 cfbb                      	rjmp	loop3
+000165 9508                      	ret
                                  
                                  
                                  clearFullSreen:						;fonction pour effacer l'écran (ressemble beaucoup à "writeFullSreen")
-00015e 9ac1
-00015f 98c0                      	screenR[]						;set side screen
-000160 e060                      	ldi		reg_cpt2,0				;reset var
+000166 9ac1
+000167 98c0                      	screenR[]						;set side screen
+000168 e060                      	ldi		reg_cpt2,0				;reset var
                                  loop5:
-000161 e050                      	ldi		reg_cpt1,0
-000162 e010                      	ldi		reg_screen,0			;set pos Y = 0
-000163 98c2
-000164 6410
-000165 bb15
-000166 98c3
-000167 ef1a
-000168 df68
-000169 9ac3
-00016a 9ac2                      	SetPosY[]
-00016b 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
-00016c 98c2
-00016d 6b18
-00016e bb15
-00016f 98c3
-000170 ef1a
-000171 df5f
-000172 9ac3
-000173 9ac2                      	SetPosX[]
+000169 e050                      	ldi		reg_cpt1,0
+00016a e010                      	ldi		reg_screen,0			;set pos Y = 0
+00016b 98c2
+00016c 6410
+00016d bb15
+00016e 98c3
+00016f ef1a
+000170 df60
+000171 9ac3
+000172 9ac2                      	SetPosY[]
+000173 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+000174 98c2
+000175 6b18
+000176 bb15
+000177 98c3
+000178 ef1a
+000179 df57
+00017a 9ac3
+00017b 9ac2                      	SetPosX[]
                                  loop6:
-000174 e010                      	ldi		reg_screen,0
-000175 bb15
-000176 98c3
-000177 ef1a
-000178 df58
-000179 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+00017c e010                      	ldi		reg_screen,0
+00017d bb15
+00017e 98c3
+00017f ef1a
+000180 df50
+000181 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
-00017a 9553                      	inc		reg_cpt1				;incrément du compteur 1
-00017b ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-00017c cff7                      	rjmp	loop6
+000182 9553                      	inc		reg_cpt1				;incrément du compteur 1
+000183 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+000184 cff7                      	rjmp	loop6
                                  
-00017d 9563                      	inc		reg_cpt2				;incrément du copteur 2
-00017e ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-00017f cfe1                      	rjmp	loop5
+000185 9563                      	inc		reg_cpt2				;incrément du copteur 2
+000186 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+000187 cfe1                      	rjmp	loop5
                                  
-000180 9ac0
-000181 98c1                      	screenL[]						;set side screen
-000182 e060                      	ldi		reg_cpt2,0				;reset var
+000188 9ac0
+000189 98c1                      	screenL[]						;set side screen
+00018a e060                      	ldi		reg_cpt2,0				;reset var
                                  loop7:
-000183 e050                      	ldi		reg_cpt1,0
-000184 e010                      	ldi		reg_screen,0			;set pos Y = 0
-000185 98c2
-000186 6410
-000187 bb15
-000188 98c3
-000189 ef1a
-00018a df46
-00018b 9ac3
-00018c 9ac2                      	SetPosY[]
-00018d 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
-00018e 98c2
-00018f 6b18
-000190 bb15
-000191 98c3
-000192 ef1a
-000193 df3d
-000194 9ac3
-000195 9ac2                      	SetPosX[]
+00018b e050                      	ldi		reg_cpt1,0
+00018c e010                      	ldi		reg_screen,0			;set pos Y = 0
+00018d 98c2
+00018e 6410
+00018f bb15
+000190 98c3
+000191 ef1a
+000192 df3e
+000193 9ac3
+000194 9ac2                      	SetPosY[]
+000195 2f16                      	mov		reg_screen,reg_cpt2		;set pos X = reg_cpt2
+000196 98c2
+000197 6b18
+000198 bb15
+000199 98c3
+00019a ef1a
+00019b df35
+00019c 9ac3
+00019d 9ac2                      	SetPosX[]
                                  loop8:
-000196 e010                      	ldi		reg_screen,0
-000197 bb15
-000198 98c3
-000199 ef1a
-00019a df36
-00019b 9ac3                      	ScreenWrite[]					;écriture sur l'écran
+00019e e010                      	ldi		reg_screen,0
+00019f bb15
+0001a0 98c3
+0001a1 ef1a
+0001a2 df2e
+0001a3 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
-00019c 9553                      	inc		reg_cpt1				;incrément du compteur 1
-00019d ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
-00019e cff7                      	rjmp	loop8
+0001a4 9553                      	inc		reg_cpt1				;incrément du compteur 1
+0001a5 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
+0001a6 cff7                      	rjmp	loop8
                                  
-00019f 9563                      	inc		reg_cpt2				;incrément du copteur 2
-0001a0 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
-0001a1 cfe1                      	rjmp	loop7
-0001a2 9508                      	ret
+0001a7 9563                      	inc		reg_cpt2				;incrément du copteur 2
+0001a8 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
+0001a9 cfe1                      	rjmp	loop7
+0001aa 9508                      	ret
                                  
                                  writeChar:							;affiche un caractère de la SRAM sur l'écran
-0001a3 9ac0
-0001a4 98c1                      	screenL[]
-0001a5 e01a                      	ldi		reg_screen,10
-0001a6 0f13                      	add		reg_screen,reg_addrL	;placement sur l'écran
-0001a7 98c2
-0001a8 6410
-0001a9 bb15
-0001aa 98c3
-0001ab ef1a
-0001ac df24
-0001ad 9ac3
-0001ae 9ac2                      	SetPosY[]
-0001af e014                      	ldi		reg_screen,4
-0001b0 98c2
-0001b1 6b18
-0001b2 bb15
-0001b3 98c3
-0001b4 ef1a
-0001b5 df1b
-0001b6 9ac3
-0001b7 9ac2                      	SetPosX[]
-0001b8 e6a2                      	ldi		XL,LOW(C_Wait)			;placement dans la SRAM
-0001b9 e0b0                      	ldi		XH,HIGH(C_Wait)
-0001ba 911d                      	ld		reg_screen,X+			;affichage du caractère en 5*8
-0001bb bb15
-0001bc 98c3
-0001bd ef1a
-0001be df12
-0001bf 9ac3                      	ScreenWrite[]
-0001c0 911d                      	ld		reg_screen,X+
-0001c1 bb15
-0001c2 98c3
-0001c3 ef1a
-0001c4 df0c
-0001c5 9ac3                      	ScreenWrite[]
-0001c6 911d                      	ld		reg_screen,X+
-0001c7 bb15
-0001c8 98c3
-0001c9 ef1a
-0001ca df06
-0001cb 9ac3                      	ScreenWrite[]
-0001cc 911d                      	ld		reg_screen,X+
-0001cd bb15
-0001ce 98c3
-0001cf ef1a
-0001d0 df00
-0001d1 9ac3                      	ScreenWrite[]
-0001d2 911d                      	ld		reg_screen,X+
-0001d3 bb15
-0001d4 98c3
-0001d5 ef1a
-0001d6 defa
-0001d7 9ac3                      	ScreenWrite[]
-0001d8 9508                      SCREEN_INC:
+0001ab 9ac0
+0001ac 98c1                      	screenL[]
+0001ad e01a                      	ldi		reg_screen,10
+0001ae 0f13                      	add		reg_screen,reg_addrL	;placement sur l'écran
+0001af 98c2
+0001b0 6410
+0001b1 bb15
+0001b2 98c3
+0001b3 ef1a
+0001b4 df1c
+0001b5 9ac3
+0001b6 9ac2                      	SetPosY[]
+0001b7 e014                      	ldi		reg_screen,4
+0001b8 98c2
+0001b9 6b18
+0001ba bb15
+0001bb 98c3
+0001bc ef1a
+0001bd df13
+0001be 9ac3
+0001bf 9ac2                      	SetPosX[]
+0001c0 e6a2                      	ldi		XL,LOW(C_Wait)			;placement dans la SRAM
+0001c1 e0b0                      	ldi		XH,HIGH(C_Wait)
+0001c2 911d                      	ld		reg_screen,X+			;affichage du caractère en 5*8
+0001c3 bb15
+0001c4 98c3
+0001c5 ef1a
+0001c6 df0a
+0001c7 9ac3                      	ScreenWrite[]
+0001c8 911d                      	ld		reg_screen,X+
+0001c9 bb15
+0001ca 98c3
+0001cb ef1a
+0001cc df04
+0001cd 9ac3                      	ScreenWrite[]
+0001ce 911d                      	ld		reg_screen,X+
+0001cf bb15
+0001d0 98c3
+0001d1 ef1a
+0001d2 defe
+0001d3 9ac3                      	ScreenWrite[]
+0001d4 911d                      	ld		reg_screen,X+
+0001d5 bb15
+0001d6 98c3
+0001d7 ef1a
+0001d8 def8
+0001d9 9ac3                      	ScreenWrite[]
+0001da 911d                      	ld		reg_screen,X+
+0001db bb15
+0001dc 98c3
+0001dd ef1a
+0001de def2
+0001df 9ac3                      	ScreenWrite[]
+0001e0 9508                      SCREEN_INC:
                                  	.include "char_array.asm"
                                  
-0001d9 e6a2                      	ldi		XL,LOW(C_Wait)			;load '#'
-0001da e0b0                      	ldi		XH,HIGH(C_Wait)
-0001db e104                      	ldi		reg_init,0x14
-0001dc 930d                      	st		X+,reg_init
-0001dd ef0f                      	ldi		reg_init,0xFF
-0001de 930d                      	st		X+,reg_init
-0001df e104                      	ldi		reg_init,0x14
-0001e0 930d                      	st		X+,reg_init
-0001e1 ef0f                      	ldi		reg_init,0xFF
-0001e2 930d                      	st		X+,reg_init
+0001e1 e6a2                      	ldi		XL,LOW(C_Wait)			;load '#'
+0001e2 e0b0                      	ldi		XH,HIGH(C_Wait)
 0001e3 e104                      	ldi		reg_init,0x14
-0001e4 930c                      	st		X,reg_init
-0001e5 e6a7                      	ldi		XL,LOW(Table)			;load table decod bin to hex (Y = 2^(8-X))
-0001e6 e0b0                      	ldi		XH,HIGH(Table)
-0001e7 e800                      	ldi		reg_init,0x80
+0001e4 930d                      	st		X+,reg_init
+0001e5 ef0f                      	ldi		reg_init,0xFF
+0001e6 930d                      	st		X+,reg_init
+0001e7 e104                      	ldi		reg_init,0x14
 0001e8 930d                      	st		X+,reg_init
-0001e9 e400                      	ldi		reg_init,0x40
+0001e9 ef0f                      	ldi		reg_init,0xFF
 0001ea 930d                      	st		X+,reg_init
-0001eb e200                      	ldi		reg_init,0x20
-0001ec 930d                      	st		X+,reg_init
-0001ed e100                      	ldi		reg_init,0x10
-0001ee 930d                      	st		X+,reg_init
-0001ef e008                      	ldi		reg_init,0x08
+0001eb e104                      	ldi		reg_init,0x14
+0001ec 930c                      	st		X,reg_init
+0001ed e6a7                      	ldi		XL,LOW(Table)			;load table decod bin to hex (Y = 2^(8-X))
+0001ee e0b0                      	ldi		XH,HIGH(Table)
+0001ef e800                      	ldi		reg_init,0x80
 0001f0 930d                      	st		X+,reg_init
-0001f1 e004                      	ldi		reg_init,0x04
+0001f1 e400                      	ldi		reg_init,0x40
 0001f2 930d                      	st		X+,reg_init
-0001f3 e002                      	ldi		reg_init,0x02
+0001f3 e200                      	ldi		reg_init,0x20
 0001f4 930d                      	st		X+,reg_init
-0001f5 e001                      	ldi		reg_init,0x01
-0001f6 930c                      	st		X,reg_init
-0001f7 e001                      	ldi		reg_init,1
-0001f8 9300 0072                 	sts		dead,reg_init			;personnage en vie
-0001fa c000                      	rjmp	CHAR_INC
+0001f5 e100                      	ldi		reg_init,0x10
+0001f6 930d                      	st		X+,reg_init
+0001f7 e008                      	ldi		reg_init,0x08
+0001f8 930d                      	st		X+,reg_init
+0001f9 e004                      	ldi		reg_init,0x04
+0001fa 930d                      	st		X+,reg_init
+0001fb e002                      	ldi		reg_init,0x02
+0001fc 930d                      	st		X+,reg_init
+0001fd e001                      	ldi		reg_init,0x01
+0001fe 930c                      	st		X,reg_init
+0001ff e001                      	ldi		reg_init,1
+000200 9300 0072                 	sts		dead,reg_init			;personnage en vie
+000202 c000                      	rjmp	CHAR_INC
                                  
                                  .macro Fenetre_Debut[]				;affichage de "JOUER / RESEAU / MENTION"
                                  	ldi		reg_addrL,0x00
@@ -1738,193 +1746,193 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  
                                  
                                  csgo_init:
-0001fb e000                      	ldi		r16,0x00					;placement orientation Nord
-0001fc 9300 007a                 	sts		orientation,r16
-0001fe e008                      	ldi		r16,0x08					;placement à la case 124 de la mémoire
-0001ff 9300 0076                 	sts		numero_mapL,r16
-000201 e408                      	ldi		r16,0x48
-000202 9300 0077                 	sts		numero_mapH,r16
-000204 e000                      	ldi		r16,0x00
-000205 9300 0078                 	sts		pos_x_adv,r16
-000207 9300 0079                 	sts		pos_y_adv,r16
-000209 c037                      	rjmp	Affichage_Image
-00020a c0af                      	rjmp	CSGO_INC
+000203 e000                      	ldi		r16,0x00					;placement orientation Nord
+000204 9300 007a                 	sts		orientation,r16
+000206 e008                      	ldi		r16,0x08					;placement à la case 124 de la mémoire
+000207 9300 0076                 	sts		numero_mapL,r16
+000209 e408                      	ldi		r16,0x48
+00020a 9300 0077                 	sts		numero_mapH,r16
+00020c e000                      	ldi		r16,0x00
+00020d 9300 0078                 	sts		pos_x_adv,r16
+00020f 9300 0079                 	sts		pos_y_adv,r16
+                                 	;rjmp	Affichage_Image
+000211 c0af                      	rjmp	CSGO_INC
                                  
                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mouvement du personnage
                                  Avancer:
-00020b 9130 0076                 	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
-00020d 9140 0077                 	lds		reg_addrH,numero_mapH
-00020f 9100 007a                 	lds		r16,orientation
-000211 0f30                      	add		reg_addrL,r16				;on se place à la case mémoire qui contient l'adresse de la case qui est en face de nous
-000212 dea9                      	rcall	Read_Mem					;cette adresse vaut 0xFF si on est face à un mur
-000213 2f08                      	mov		r16,reg_spi
-000214 3f0f                      	cpi		r16,255						;si la donnée ne vaut pas 0xFF
-000215 f411                      	brne	Mouvement_Confirme			;alors on confirme le mouvement et cette donnée devient la prochaine adresse
-000216 c0e0                      	rjmp	start						;sinon on revient au start
+000212 9130 0076                 	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
+000214 9140 0077                 	lds		reg_addrH,numero_mapH
+000216 9100 007a                 	lds		r16,orientation
+000218 0f30                      	add		reg_addrL,r16				;on se place à la case mémoire qui contient l'adresse de la case qui est en face de nous
+000219 dea2                      	rcall	Read_Mem					;cette adresse vaut 0xFF si on est face à un mur
+00021a 2f08                      	mov		r16,reg_spi
+00021b 3f0f                      	cpi		r16,255						;si la donnée ne vaut pas 0xFF
+00021c f411                      	brne	Mouvement_Confirme			;alors on confirme le mouvement et cette donnée devient la prochaine adresse
+00021d c0e0                      	rjmp	start						;sinon on revient au start
                                  Reculer:
-000217 c0df                      	rjmp	start
+00021e c0df                      	rjmp	start
                                  Mouvement_Confirme:
-000218 e018                      	ldi		r17,0x08					;on calcule l'adresse de la nouvelle case à partir de son numéro: addr = 0x4800 + 8*n
-000219 9f01                      	mul		r16,r17
-00021a 9200 0076                 	sts		numero_mapL,r0
-00021c 9210 0077                 	sts		numero_mapH,r1
-00021e e408                      	ldi		r16,0x48
-00021f 91c0 0077                 	lds		reg_calcul1, numero_mapH
-000221 0fc0                      	add		reg_calcul1,r16
-000222 93c0 0077                 	sts		numero_mapH,reg_calcul1
-000224 9100 0077                 	lds		r16,numero_mapH				;on stocke la nouvelle position en x y dans la mémoire
-000226 9110 0076                 	lds		r17,numero_mapL
-000228 5f1a                      	subi	r17,-0x06
-000229 de92                      	rcall	Read_Mem					;on récupère la position x
-00022a 9380 0074                 	sts		pos_x,reg_spi
-00022c 5f1f                      	subi	r17,-0x01
-00022d de8e                      	rcall	Read_Mem					;on récupère la position y
-00022e 9380 0075                 	sts		pos_y,reg_spi
-000230 c010                      	rjmp	Affichage_Image
+00021f e018                      	ldi		r17,0x08					;on calcule l'adresse de la nouvelle case à partir de son numéro: addr = 0x4800 + 8*n
+000220 9f01                      	mul		r16,r17
+000221 9200 0076                 	sts		numero_mapL,r0
+000223 9210 0077                 	sts		numero_mapH,r1
+000225 e408                      	ldi		r16,0x48
+000226 91c0 0077                 	lds		reg_calcul1, numero_mapH
+000228 0fc0                      	add		reg_calcul1,r16
+000229 93c0 0077                 	sts		numero_mapH,reg_calcul1
+00022b 9100 0077                 	lds		r16,numero_mapH				;on stocke la nouvelle position en x y dans la mémoire
+00022d 9110 0076                 	lds		r17,numero_mapL
+00022f 5f1a                      	subi	r17,-0x06
+000230 de8b                      	rcall	Read_Mem					;on récupère la position x
+000231 9380 0074                 	sts		pos_x,reg_spi
+000233 5f1f                      	subi	r17,-0x01
+000234 de87                      	rcall	Read_Mem					;on récupère la position y
+000235 9380 0075                 	sts		pos_y,reg_spi
+000237 c010                      	rjmp	Affichage_Image
                                  Tourner_Gauche:
-000231 9100 007a                 	lds		r16,orientation				;on augmente d'un l'orientation
-000233 5f0f                      	subi	r16,-0x01
-000234 fd02                      	sbrc	r16,2
-000235 e000                      	ldi		r16,0x00
-000236 9300 007a                 	sts		orientation,r16
-000238 c008                      	rjmp	Affichage_Image
+000238 9100 007a                 	lds		r16,orientation				;on augmente d'un l'orientation
+00023a 5f0f                      	subi	r16,-0x01
+00023b fd02                      	sbrc	r16,2
+00023c e000                      	ldi		r16,0x00
+00023d 9300 007a                 	sts		orientation,r16
+00023f c008                      	rjmp	Affichage_Image
                                  Tourner_Droite:
-000239 9100 007a                 	lds		r16,orientation				;on diminue d'un l'orientation
-00023b 5001                      	subi	r16,0x01
-00023c fd07                      	sbrc	r16,7
-00023d e003                      	ldi		r16,0x03
-00023e 9300 007a                 	sts		orientation,r16
-000240 c000                      	rjmp	Affichage_Image
+000240 9100 007a                 	lds		r16,orientation				;on diminue d'un l'orientation
+000242 5001                      	subi	r16,0x01
+000243 fd07                      	sbrc	r16,7
+000244 e003                      	ldi		r16,0x03
+000245 9300 007a                 	sts		orientation,r16
+000247 c000                      	rjmp	Affichage_Image
                                  
                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mise à jour de l'affichage
                                  Affichage_Image:
-000241 9130 0076                 	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
-000243 9140 0077                 	lds		reg_addrH,numero_mapH
-000245 9100 007a                 	lds		r16,orientation				;on se place à la bonne orientation
-000247 3000                      	cpi		r16,0x00
-000248 f031                      	breq	Orientation_Nord
-000249 3001                      	cpi		r16,0x01
-00024a f059                      	breq	Orientation_Ouest
-00024b 3002                      	cpi		r16,0x02
-00024c f071                      	breq	Orientation_Sud
-00024d 3003                      	cpi		r16,0x03
-00024e f099                      	breq	Orientation_Est
+000248 9130 0076                 	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
+00024a 9140 0077                 	lds		reg_addrH,numero_mapH
+00024c 9100 007a                 	lds		r16,orientation				;on se place à la bonne orientation
+00024e 3000                      	cpi		r16,0x00
+00024f f031                      	breq	Orientation_Nord
+000250 3001                      	cpi		r16,0x01
+000251 f059                      	breq	Orientation_Ouest
+000252 3002                      	cpi		r16,0x02
+000253 f071                      	breq	Orientation_Sud
+000254 3003                      	cpi		r16,0x03
+000255 f099                      	breq	Orientation_Est
                                  Orientation_Nord:
-00024f 5f3c                      	subi	reg_addrL,-0x04				;placement à la vue Nord-Ouest
-000250 de6b                      	rcall	Read_Mem					;lecture de la mémoire spi
-000251 2f08                      	mov		r16,reg_spi
-000252 e110                      	ldi		r17,0x10					;sélection du quartet de l'orientation Nord
-000253 9f10                      	mul		r17,r16
-000254 2d01                      	mov		r16,r1
-000255 c011                      	rjmp	Determination_Image_1
-                                 Orientation_Ouest:
 000256 5f3c                      	subi	reg_addrL,-0x04				;placement à la vue Nord-Ouest
 000257 de64                      	rcall	Read_Mem					;lecture de la mémoire spi
 000258 2f08                      	mov		r16,reg_spi
-000259 700f                      	andi	r16,0x0F					;sélection du quartet de l'orientation Ouest
-00025a c00c                      	rjmp	Determination_Image_1
+000259 e110                      	ldi		r17,0x10					;sélection du quartet de l'orientation Nord
+00025a 9f10                      	mul		r17,r16
+00025b 2d01                      	mov		r16,r1
+00025c c011                      	rjmp	Determination_Image_1
+                                 Orientation_Ouest:
+00025d 5f3c                      	subi	reg_addrL,-0x04				;placement à la vue Nord-Ouest
+00025e de5d                      	rcall	Read_Mem					;lecture de la mémoire spi
+00025f 2f08                      	mov		r16,reg_spi
+000260 700f                      	andi	r16,0x0F					;sélection du quartet de l'orientation Ouest
+000261 c00c                      	rjmp	Determination_Image_1
                                  Orientation_Sud:
-00025b 5f3b                      	subi	reg_addrL,-0x05				;placement à la vue Sud-Est
-00025c de5f                      	rcall	Read_Mem					;lecture de la mémoire spi
-00025d 2f08                      	mov		r16,reg_spi
-00025e e110                      	ldi		r17,0x10					;sélection du quartet de l'orientation Sud
-00025f 9f10                      	mul		r17,r16
-000260 2d01                      	mov		r16,r1
-000261 c005                      	rjmp	Determination_Image_1
-                                 Orientation_Est:
 000262 5f3b                      	subi	reg_addrL,-0x05				;placement à la vue Sud-Est
 000263 de58                      	rcall	Read_Mem					;lecture de la mémoire spi
 000264 2f08                      	mov		r16,reg_spi
-000265 700f                      	andi	r16,0x0F					;sélection du quartet de l'orientation Est
-000266 c000                      	rjmp	Determination_Image_1
+000265 e110                      	ldi		r17,0x10					;sélection du quartet de l'orientation Sud
+000266 9f10                      	mul		r17,r16
+000267 2d01                      	mov		r16,r1
+000268 c005                      	rjmp	Determination_Image_1
+                                 Orientation_Est:
+000269 5f3b                      	subi	reg_addrL,-0x05				;placement à la vue Sud-Est
+00026a de51                      	rcall	Read_Mem					;lecture de la mémoire spi
+00026b 2f08                      	mov		r16,reg_spi
+00026c 700f                      	andi	r16,0x0F					;sélection du quartet de l'orientation Est
+00026d c000                      	rjmp	Determination_Image_1
                                  Determination_Image_1:
-000267 3008                      	cpi		r16,0x08					;on vérifie si l'image correspond au code 8 (mur très proche)
-000268 f411                      	brne	Determination_Image_2		;sinon, on calcule à quelle image correspond le code
-000269 e004                      	ldi		r16,0x04					;si on est contre un mur proche, on charge le code 0x04
-00026a c005                      	rjmp	CREATION_IMAGE
+00026e 3008                      	cpi		r16,0x08					;on vérifie si l'image correspond au code 8 (mur très proche)
+00026f f411                      	brne	Determination_Image_2		;sinon, on calcule à quelle image correspond le code
+000270 e004                      	ldi		r16,0x04					;si on est contre un mur proche, on charge le code 0x04
+000271 c005                      	rjmp	CREATION_IMAGE
                                  Determination_Image_2:
-00026b e014                      	ldi		r17,0x04					;on regarde à quelle image correspond le code
-00026c 9f10                      	mul		r17,r16
-00026d 2d00                      	mov		r16,r0
-00026e 5f08                      	subi	r16,-0x08
-00026f c004                      	rjmp	DETECTION_ADVERSAIRE
+000272 e014                      	ldi		r17,0x04					;on regarde à quelle image correspond le code
+000273 9f10                      	mul		r17,r16
+000274 2d00                      	mov		r16,r0
+000275 5f08                      	subi	r16,-0x08
+000276 c004                      	rjmp	DETECTION_ADVERSAIRE
                                  CREATION_IMAGE:
-000270 e030                      	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
-000271 2f40                      	mov		reg_addrH,r16
-000272 de62                      	rcall	writeFullSreen
-000273 c083                      	rjmp	start
+000277 e030                      	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
+000278 2f40                      	mov		reg_addrH,r16
+000279 de5b                      	rcall	writeFullSreen
+00027a c083                      	rjmp	start
                                  
                                  DETECTION_ADVERSAIRE:
-000274 91c0 007a                 	lds		reg_calcul1,orientation				;on se place à la bonne orientation
-000276 30c0                      	cpi		reg_calcul1,0x00
-000277 f031                      	breq	Detection_Nord
-000278 30c1                      	cpi		reg_calcul1,0x01
-000279 f0e1                      	breq	Detection_Ouest
-00027a 30c2                      	cpi		reg_calcul1,0x02
-00027b f091                      	breq	Detection_Sud
-00027c 30c3                      	cpi		reg_calcul1,0x03
-00027d f041                      	breq	Detection_Est
+00027b 91c0 007a                 	lds		reg_calcul1,orientation				;on se place à la bonne orientation
+00027d 30c0                      	cpi		reg_calcul1,0x00
+00027e f031                      	breq	Detection_Nord
+00027f 30c1                      	cpi		reg_calcul1,0x01
+000280 f0e1                      	breq	Detection_Ouest
+000281 30c2                      	cpi		reg_calcul1,0x02
+000282 f091                      	breq	Detection_Sud
+000283 30c3                      	cpi		reg_calcul1,0x03
+000284 f041                      	breq	Detection_Est
                                  Detection_Nord:
-00027e 91c0 0074                 	lds		reg_calcul1,pos_x
-000280 91d0 0078                 	lds		reg_calcul2,pos_x_adv
-000282 5fdf                      	subi	reg_calcul2,-0x01
-000283 17cd                      	cp		reg_calcul1,reg_calcul2
-000284 f0c9                      	breq	CI_X_OK
-000285 c02b                      	rjmp	Adversaire_Pas_OK
+000285 91c0 0074                 	lds		reg_calcul1,pos_x
+000287 91d0 0078                 	lds		reg_calcul2,pos_x_adv
+000289 5fdf                      	subi	reg_calcul2,-0x01
+00028a 17cd                      	cp		reg_calcul1,reg_calcul2
+00028b f0c9                      	breq	CI_X_OK
+00028c c02b                      	rjmp	Adversaire_Pas_OK
                                  Detection_Est:
-000286 91c0 0075                 	lds		reg_calcul1,pos_y
-000288 91d0 0079                 	lds		reg_calcul2,pos_y_adv
-00028a 5fdf                      	subi	reg_calcul2,-0x01
-00028b 17cd                      	cp		reg_calcul1,reg_calcul2
-00028c f0c1                      	breq	CI_Y_OK
-00028d c023                      	rjmp	Adversaire_Pas_OK
+00028d 91c0 0075                 	lds		reg_calcul1,pos_y
+00028f 91d0 0079                 	lds		reg_calcul2,pos_y_adv
+000291 5fdf                      	subi	reg_calcul2,-0x01
+000292 17cd                      	cp		reg_calcul1,reg_calcul2
+000293 f0c1                      	breq	CI_Y_OK
+000294 c023                      	rjmp	Adversaire_Pas_OK
                                  Detection_Sud:
-00028e 91c0 0074                 	lds		reg_calcul1,pos_x
-000290 91d0 0078                 	lds		reg_calcul2,pos_x_adv
-000292 50d1                      	subi	reg_calcul2,0x01
-000293 17cd                      	cp		reg_calcul1,reg_calcul2
-000294 f049                      	breq	CI_X_OK
-000295 c01b                      	rjmp	Adversaire_Pas_OK
+000295 91c0 0074                 	lds		reg_calcul1,pos_x
+000297 91d0 0078                 	lds		reg_calcul2,pos_x_adv
+000299 50d1                      	subi	reg_calcul2,0x01
+00029a 17cd                      	cp		reg_calcul1,reg_calcul2
+00029b f049                      	breq	CI_X_OK
+00029c c01b                      	rjmp	Adversaire_Pas_OK
                                  Detection_Ouest:
-000296 91c0 0075                 	lds		reg_calcul1,pos_y
-000298 91c0 0079                 	lds		reg_calcul1,pos_y_adv
-00029a 50d1                      	subi	reg_calcul2,0x01
-00029b 17cd                      	cp		reg_calcul1,reg_calcul2
-00029c f041                      	breq	CI_Y_OK
-00029d c013                      	rjmp	Adversaire_Pas_OK
-                                 CI_X_OK:
-00029e 91c0 0075                 	lds		reg_calcul1,pos_y
-0002a0 91d0 0079                 	lds		reg_calcul2,pos_y_adv
+00029d 91c0 0075                 	lds		reg_calcul1,pos_y
+00029f 91c0 0079                 	lds		reg_calcul1,pos_y_adv
+0002a1 50d1                      	subi	reg_calcul2,0x01
 0002a2 17cd                      	cp		reg_calcul1,reg_calcul2
-0002a3 f041                      	breq	Adversaire_OK
-0002a4 c00c                      	rjmp	Adversaire_Pas_OK
-                                 CI_Y_OK:
-0002a5 91c0 0074                 	lds		reg_calcul1,pos_x
-0002a7 91d0 0078                 	lds		reg_calcul2,pos_x_adv
+0002a3 f041                      	breq	CI_Y_OK
+0002a4 c013                      	rjmp	Adversaire_Pas_OK
+                                 CI_X_OK:
+0002a5 91c0 0075                 	lds		reg_calcul1,pos_y
+0002a7 91d0 0079                 	lds		reg_calcul2,pos_y_adv
 0002a9 17cd                      	cp		reg_calcul1,reg_calcul2
-0002aa f009                      	breq	Adversaire_OK
-0002ab c005                      	rjmp	Adversaire_Pas_OK
+0002aa f041                      	breq	Adversaire_OK
+0002ab c00c                      	rjmp	Adversaire_Pas_OK
+                                 CI_Y_OK:
+0002ac 91c0 0074                 	lds		reg_calcul1,pos_x
+0002ae 91d0 0078                 	lds		reg_calcul2,pos_x_adv
+0002b0 17cd                      	cp		reg_calcul1,reg_calcul2
+0002b1 f009                      	breq	Adversaire_OK
+0002b2 c005                      	rjmp	Adversaire_Pas_OK
                                  Adversaire_OK:
-0002ac e0c1                      	ldi		reg_calcul1,0x01
-0002ad 93c0 007b                 	sts		adv_ok,reg_calcul1
-0002af 5e00                      	subi	r16,-0x20
-0002b0 cfbf                      	rjmp	CREATION_IMAGE
+0002b3 e0c1                      	ldi		reg_calcul1,0x01
+0002b4 93c0 007b                 	sts		adv_ok,reg_calcul1
+0002b6 5e00                      	subi	r16,-0x20
+0002b7 cfbf                      	rjmp	CREATION_IMAGE
                                  Adversaire_Pas_OK:
-0002b1 e0c0                      	ldi		reg_calcul1,0x00
-0002b2 93c0 007b                 	sts		adv_ok,reg_calcul1
-0002b4 cfbb                      	rjmp	CREATION_IMAGE
+0002b8 e0c0                      	ldi		reg_calcul1,0x00
+0002b9 93c0 007b                 	sts		adv_ok,reg_calcul1
+0002bb cfbb                      	rjmp	CREATION_IMAGE
                                  
                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Attaque de la cible
                                  ATTAQUER:
-0002b5 9100 007b                 	lds		r16,adv_ok
-0002b7 3001                      	cpi		r16,0x01
-0002b8 f009                      	breq	ON_ENVOIE_LA_SAUCE
-0002b9 c03d                      	rjmp	start
+0002bc 9100 007b                 	lds		r16,adv_ok
+0002be 3001                      	cpi		r16,0x01
+0002bf f009                      	breq	ON_ENVOIE_LA_SAUCE
+0002c0 c03d                      	rjmp	start
                                  ON_ENVOIE_LA_SAUCE:
                                  	;on envoie par bluetooth le signal de fin de jeu
                                  CSGO_INC:
                                  	
-0002ba 9478                      	sei
+0002c1 9478                      	sei
                                  
                                  	/*rcall	rand
                                  	lds		reg_init,pos_rand
@@ -1933,183 +1941,183 @@ C:\Users\alexa\Documents\Documents\Cours\2019-2020_MIQ4\Bas Niveau\Github\Bas-Ni
                                  	sbrc	reg_init,7
                                  	sbi		PORTD,6*/
                                  
-0002bb e008                      	ldi		reg_init,8						;initialisation du curseur
+0002c2 e008                      	ldi		reg_init,8						;initialisation du curseur
                                  
                                  	
                                  
                                  loopMain:
-0002bc 2f60                      	mov		reg_cpt2,reg_init				;récupération de la position du curseur
-0002bd 9bcc                      	bHa[]									;test du bouton "vers le haut"
-0002be c009                      	rjmp	UP
-0002bf 9bca                      	bBa[]									;test du bouton "vers le bas"
-0002c0 c00e                      	rjmp	DOWN
+0002c3 2f60                      	mov		reg_cpt2,reg_init				;récupération de la position du curseur
+0002c4 9bcc                      	bHa[]									;test du bouton "vers le haut"
+0002c5 c009                      	rjmp	UP
+0002c6 9bca                      	bBa[]									;test du bouton "vers le bas"
+0002c7 c00e                      	rjmp	DOWN
                                  END:
-0002c1 e030
-0002c2 e640
-0002c3 0f40
-0002c4 de10                      	Fenetre_Debut[]							;affichage des caractères de la page principale
-0002c5 9bce                      	bA[]									;test du bouton validation
-0002c6 c00f                      	rjmp	CHOIX
+0002c8 e030
+0002c9 e640
+0002ca 0f40
+0002cb de09                      	Fenetre_Debut[]							;affichage des caractères de la page principale
+0002cc 9bce                      	bA[]									;test du bouton validation
+0002cd c00f                      	rjmp	CHOIX
                                  END_CHOIX:
-0002c7 cff4                      	rjmp	loopMain						;boucle infini
+0002ce cff4                      	rjmp	loopMain						;boucle infini
                                  
                                  UP:
-0002c8 3008                      	cpi		reg_init,8						;test si on est tout en haut
-0002c9 f3b9                      	breq	END
-0002ca 3004                      	cpi		reg_init,4						;test si on est au milieu
-0002cb e008                      	ldi		reg_init,8
-0002cc f3a1                      	breq	END
-0002cd e004                      	ldi		reg_init,4
-0002ce cff2                      	rjmp	END
+0002cf 3008                      	cpi		reg_init,8						;test si on est tout en haut
+0002d0 f3b9                      	breq	END
+0002d1 3004                      	cpi		reg_init,4						;test si on est au milieu
+0002d2 e008                      	ldi		reg_init,8
+0002d3 f3a1                      	breq	END
+0002d4 e004                      	ldi		reg_init,4
+0002d5 cff2                      	rjmp	END
                                  
                                  DOWN:
-0002cf 3000                      	cpi		reg_init,0						;idem
-0002d0 f381                      	breq	END
-0002d1 3004                      	cpi		reg_init,4
-0002d2 e000                      	ldi		reg_init,0
-0002d3 f369                      	breq	END
-0002d4 e004                      	ldi		reg_init,4
-0002d5 cfeb                      	rjmp	END
+0002d6 3000                      	cpi		reg_init,0						;idem
+0002d7 f381                      	breq	END
+0002d8 3004                      	cpi		reg_init,4
+0002d9 e000                      	ldi		reg_init,0
+0002da f369                      	breq	END
+0002db e004                      	ldi		reg_init,4
+0002dc cfeb                      	rjmp	END
                                  
                                  CHOIX:
-0002d6 3004                      	cpi		reg_init,4						;test du curseur pour éguiller la fonction
-0002d7 f1f1                      	breq	RESEAU
-0002d8 3000                      	cpi		reg_init,0
-0002d9 f011                      	breq	MENTION
-0002da e000                      	ldi		reg_init,0
-0002db c008                      	rjmp	GAME
+0002dd 3004                      	cpi		reg_init,4						;test du curseur pour éguiller la fonction
+0002de f1f1                      	breq	RESEAU
+0002df 3000                      	cpi		reg_init,0
+0002e0 f011                      	breq	MENTION
+0002e1 e000                      	ldi		reg_init,0
+0002e2 c008                      	rjmp	GAME
                                  
                                  MENTION:
-0002dc e030
-0002dd e744
-0002de ddf6                      	MENTION_MA[]							;affichage des mentions
-0002df 9bcd                      	bB[]
-0002e0 e008                      	ldi		reg_init,8
-0002e1 9bcd                      	bB[]
-0002e2 cfd9                      	rjmp	loopMain
-0002e3 cff8                      	rjmp	MENTION
+0002e3 e030
+0002e4 e744
+0002e5 ddef                      	MENTION_MA[]							;affichage des mentions
+0002e6 9bcd                      	bB[]
+0002e7 e008                      	ldi		reg_init,8
+0002e8 9bcd                      	bB[]
+0002e9 cfd9                      	rjmp	loopMain
+0002ea cff8                      	rjmp	MENTION
                                  
                                  GAME:
-0002e4 9bcc                      	bHa[]									;choix du mode de jeu
-0002e5 e000                      	ldi		reg_init,0
-0002e6 9bca                      	bBa[]
-0002e7 e004                      	ldi		reg_init,4
+0002eb 9bcc                      	bHa[]									;choix du mode de jeu
+0002ec e000                      	ldi		reg_init,0
+0002ed 9bca                      	bBa[]
+0002ee e004                      	ldi		reg_init,4
                                  
-0002e8 e030                      	ldi		reg_addrL,0x00					;affichage en fonction du curseur
-0002e9 e748                      	ldi		reg_addrH,0x78
-0002ea 0f40                      	add		reg_addrH,reg_init
-0002eb dde9                      	rcall	writeFullSreen
+0002ef e030                      	ldi		reg_addrL,0x00					;affichage en fonction du curseur
+0002f0 e748                      	ldi		reg_addrH,0x78
+0002f1 0f40                      	add		reg_addrH,reg_init
+0002f2 dde2                      	rcall	writeFullSreen
                                  
-0002ec 9bce                      	bA[]
-0002ed e4d8                      	ldi		reg_csgo_mapH,0x48
-0002ee 9bce                      	bA[]
-0002ef cf51                      	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
+0002f3 9bce                      	bA[]
+0002f4 e4d8                      	ldi		reg_csgo_mapH,0x48
+0002f5 9bce                      	bA[]
+0002f6 cf51                      	rjmp	Affichage_Image					;lancement du jeu (1 mode disponible pour l'instant
                                  
-0002f0 9bcd                      	bB[]									;test de retour à l'écran principale
-0002f1 e008                      	ldi		reg_init,8
-0002f2 9bcd                      	bB[]
-0002f3 efdf                      	ldi		reg_csgo_mapH,255
-0002f4 9bcd                      	bB[]
-0002f5 cfc6                      	rjmp	loopMain
-0002f6 cfed                      	rjmp	GAME
+0002f7 9bcd                      	bB[]									;test de retour à l'écran principale
+0002f8 e008                      	ldi		reg_init,8
+0002f9 9bcd                      	bB[]
+0002fa efdf                      	ldi		reg_csgo_mapH,255
+0002fb 9bcd                      	bB[]
+0002fc cfc6                      	rjmp	loopMain
+0002fd cfed                      	rjmp	GAME
                                  
                                  start:
-0002f7 9bc9                      	bGa[]									;boule du jeu
-0002f8 cf38                      	rjmp	Tourner_Gauche
-0002f9 9bcb                      	bDr[]
-0002fa cf3e                      	rjmp	Tourner_Droite
-0002fb 9bcc                      	bHa[]
-0002fc cf0e                      	rjmp	Avancer
-0002fd cff9                      	rjmp start
-0002fe 9110 0072                 	lds		reg_cpt3,dead
-000300 3010                      	cpi		reg_cpt3,0
-000301 f489                      	brne	en_vie
-000302 e030                      	ldi		reg_addrL,0x00
-000303 e548                      	ldi		reg_addrH,0x58
-000304 ddd0                      	rcall	writeFullSreen
-000305 ef1f                      	ldi		reg_cpt3,255
-000306 d02f                      	rcall	tempo_MS
-000307 ef1f                      	ldi		reg_cpt3,255
-000308 d02d                      	rcall	tempo_MS
-000309 ef1f                      	ldi		reg_cpt3,255
-00030a d02b                      	rcall	tempo_MS
-00030b ef1f                      	ldi		reg_cpt3,255
-00030c d029                      	rcall	tempo_MS
-00030d ef1f                      	ldi		reg_cpt3,255
-00030e d027                      	rcall	tempo_MS
-00030f ef1f                      	ldi		reg_cpt3,255
-000310 d025                      	rcall	tempo_MS
-000311 ef1f                      	ldi		reg_cpt3,255
-000312 d023                      	rcall	tempo_MS
+0002fe 9bc9                      	bGa[]									;boule du jeu
+0002ff cf38                      	rjmp	Tourner_Gauche
+000300 9bcb                      	bDr[]
+000301 cf3e                      	rjmp	Tourner_Droite
+000302 9bcc                      	bHa[]
+000303 cf0e                      	rjmp	Avancer
+000304 cff9                      	rjmp start
+000305 9110 0072                 	lds		reg_cpt3,dead
+000307 3010                      	cpi		reg_cpt3,0
+000308 f489                      	brne	en_vie
+000309 e030                      	ldi		reg_addrL,0x00
+00030a e548                      	ldi		reg_addrH,0x58
+00030b ddc9                      	rcall	writeFullSreen
+00030c ef1f                      	ldi		reg_cpt3,255
+00030d d02f                      	rcall	tempo_MS
+00030e ef1f                      	ldi		reg_cpt3,255
+00030f d02d                      	rcall	tempo_MS
+000310 ef1f                      	ldi		reg_cpt3,255
+000311 d02b                      	rcall	tempo_MS
+000312 ef1f                      	ldi		reg_cpt3,255
+000313 d029                      	rcall	tempo_MS
+000314 ef1f                      	ldi		reg_cpt3,255
+000315 d027                      	rcall	tempo_MS
+000316 ef1f                      	ldi		reg_cpt3,255
+000317 d025                      	rcall	tempo_MS
+000318 ef1f                      	ldi		reg_cpt3,255
+000319 d023                      	rcall	tempo_MS
                                  	;jmp	GAME
                                  en_vie:
-000313 e614                      	ldi		reg_cpt3,100
-000314 d021                      	rcall	tempo_MS
-000315 cf2b                      	rjmp	Affichage_Image
+00031a e614                      	ldi		reg_cpt3,100
+00031b d021                      	rcall	tempo_MS
+00031c cf2b                      	rjmp	Affichage_Image
                                  	;rjmp	start
                                  
                                  RESEAU:										;boucle du test de connection réseau
-000316 de47
-000317 e030
-000318 de8a                      	CONN1[]
+00031d de48
+00031e e030
+00031f de8b                      	CONN1[]
                                  
-000319 e0e1                      	ldi		reg_TX,1						;ping en UART
-00031a dd30                      	rcall	USART_Transmit
+000320 e0e1                      	ldi		reg_TX,1						;ping en UART
+000321 dd29                      	rcall	USART_Transmit
                                  
-00031b e036
-00031c de86                      	CONN2[]
+000322 e036
+000323 de87                      	CONN2[]
                                  
-00031d ef1f                      	ldi		reg_cpt3,255
-00031e d017                      	rcall	tempo_MS
+000324 ef1f                      	ldi		reg_cpt3,255
+000325 d017                      	rcall	tempo_MS
                                  
-00031f e03c
-000320 de82                      	CONN3[]
+000326 e03c
+000327 de83                      	CONN3[]
                                  
                                  loopReseau1:
                                  
-000321 fd01                      	sbrc	reg_init,1
-000322 c00e                      	rjmp	loopReseau2
+000328 fd01                      	sbrc	reg_init,1
+000329 c00e                      	rjmp	loopReseau2
                                  
-000323 3021                      	cpi		reg_RX,1						;résultat du ping
-000324 f041                      	breq	loopReseau3
+00032a 3021                      	cpi		reg_RX,1						;résultat du ping
+00032b f041                      	breq	loopReseau3
                                  
-000325 e0e1                      	ldi		reg_TX,1						;ping en UART
-000326 dd24                      	rcall	USART_Transmit
+00032c e0e1                      	ldi		reg_TX,1						;ping en UART
+00032d dd1d                      	rcall	USART_Transmit
                                  
-000327 ef1f                      	ldi		reg_cpt3,255
-000328 d00d                      	rcall	tempo_MS
+00032e ef1f                      	ldi		reg_cpt3,255
+00032f d00d                      	rcall	tempo_MS
                                  
-000329 e030
-00032a e740
-00032b dda9                      	NO_CONNECTED[]
+000330 e030
+000331 e740
+000332 dda2                      	NO_CONNECTED[]
                                  
-00032c c004                      	rjmp	loopReseau2
+000333 c004                      	rjmp	loopReseau2
                                  
                                  loopReseau3:
                                  
-00032d e002                      	ldi		reg_init,2						;une fois connecter on le reste !!!
-00032e e030
-00032f e64c
-000330 dda4                      	CONNECTED[]
+000334 e002                      	ldi		reg_init,2						;une fois connecter on le reste !!!
+000335 e030
+000336 e64c
+000337 dd9d                      	CONNECTED[]
                                  
                                  
                                  loopReseau2:
-000331 9bcd                      	bB[]
-000332 e008                      	ldi		reg_init,8
-000333 9bcd                      	bB[]
-000334 cf87                      	rjmp	loopMain
-000335 cfeb                      	rjmp	loopReseau1
+000338 9bcd                      	bB[]
+000339 e008                      	ldi		reg_init,8
+00033a 9bcd                      	bB[]
+00033b cf87                      	rjmp	loopMain
+00033c cfeb                      	rjmp	loopReseau1
                                  
                                  ; sous programme de temporisation
                                  tempo_MS:
-000336 ef8f                      	ldi	reg_spi, 255
+00033d ef8f                      	ldi	reg_spi, 255
                                  boucletempo_MS:
-000337 0000                      	nop
-000338 958a                      	dec	reg_spi
-000339 f7e9                      	brne boucletempo_MS
-00033a 951a                      	dec	reg_cpt3
-00033b f7d1                      	brne tempo_MS
-00033c 9508                      	ret
+00033e 0000                      	nop
+00033f 958a                      	dec	reg_spi
+000340 f7e9                      	brne boucletempo_MS
+000341 951a                      	dec	reg_cpt3
+000342 f7d1                      	brne tempo_MS
+000343 9508                      	ret
 
 
 RESOURCE USE INFORMATION
@@ -2129,9 +2137,9 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :  19 y  :   0 z  :   0 r0 :   2 r1 :   9 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16: 117 r17: 126 r18:   5 r19:  23 r20:  14 
-r21:  14 r22:  19 r23:   6 r24:  22 r25:  51 r26:   5 r27:   4 r28:  30 
-r29:  20 r30:  13 r31:   0 
+r13:   0 r14:   0 r15:   0 r16: 117 r17: 127 r18:   5 r19:  23 r20:  14 
+r21:  14 r22:  19 r23:   6 r24:  22 r25:  51 r26:   5 r27:   4 r28:  35 
+r29:  18 r30:  13 r31:   0 
 Registers used: 18 out of 35 (51.4%)
 
 "ATmega16A" instruction use summary:
@@ -2145,10 +2153,10 @@ clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :   0 cls   :   0
 clt   :   0 clv   :   0 clz   :   0 com   :   1 cp    :  10 cpc   :   0 
 cpi   :  31 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :  12 inc   :  13 jmp   :   3 
-ld    :   6 ldd   :   0 ldi   : 156 lds   :  34 lpm   :   0 lsl   :   0 
+ld    :   6 ldd   :   0 ldi   : 156 lds   :  38 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :  19 movw  :   0 mul   :   4 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   2 or    :   1 ori   :  13 out   :  60 pop   :   0 
-push  :   0 rcall :  58 ret   :   9 reti  :   6 rjmp  :  64 rol   :   0 
+push  :   0 rcall :  58 ret   :   9 reti  :   6 rjmp  :  63 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :  42 sbic  :   3 sbis  :  20 
 sbiw  :   0 sbr   :   0 sbrc  :   3 sbrs  :   8 sec   :   0 seh   :   0 
 sei   :   2 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
@@ -2159,7 +2167,7 @@ Instructions used: 39 out of 113 (34.5%)
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00067a   1580      0   1580   16384   9.6%
+[.cseg] 0x000000 0x000688   1594      0   1594   16384   9.7%
 [.dseg] 0x000060 0x00007c      0     28     28    1024   2.7%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

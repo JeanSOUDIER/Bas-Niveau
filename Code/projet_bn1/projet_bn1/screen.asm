@@ -45,7 +45,8 @@
 .endmacro
 
 .macro placePosPerso[]				;converti la position xy du personnage pour faire un test à l'affichage sur l'ecran
-	mov		reg_screen,reg_csgo_mapL		;test Y
+	lds		reg_screen,pos_X
+	mov		reg_calcul1,reg_screen	;test Y
 	andi	reg_screen,7
 	ldi		XL,LOW(Table)			;table de convertion 2^(8-X) = Y
 	ldi		XH,HIGH(Table)
@@ -54,19 +55,21 @@
 	sts		conv,reg_screen
 
 	ldi		reg_screen,255			;convertion des positions par 8 pixels
-	cpi		reg_csgo_mapL,8
+	cpi		reg_calcul1,8
 	brlo	END_PERSO
-	cpi		reg_csgo_mapL,16
+	cpi		reg_calcul1,16
 	ldi		reg_screen,191
 	brlo	END_PERSO
 	ldi		reg_screen,127
 END_PERSO:
-	sub		reg_screen,reg_csgo_mapH		;affectation de la SRAM
+	lds		reg_calcul1,pos_Y
+	sub		reg_screen,reg_calcul1	;affectation de la SRAM
 	sts		convB,reg_screen
+	lds		reg_calcul1,pos_X
 	ldi		reg_screen,7
-	cpi		reg_csgo_mapL,8
+	cpi		reg_calcul1,8
 	brlo	END_PERSO2
-	cpi		reg_csgo_mapL,16
+	cpi		reg_calcul1,16
 	ldi		reg_screen,6
 	brlo	END_PERSO2
 	ldi		reg_screen,5
@@ -75,7 +78,8 @@ END_PERSO2:
 .endmacro
 
 .macro SetPosPerso[]				;affiche le point à l'endroit calculé
-	cpi		reg_csgo_mapH,255
+	lds		reg_calcul1,pos_X
+	cpi		reg_calcul1,255
 	breq	END_SetPerso
 	lds		reg_screen,conv2
 	cp		reg_cpt2,reg_screen

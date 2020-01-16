@@ -10,7 +10,7 @@ csgo_init:
 	ldi		r16,0x00
 	sts		pos_x_adv,r16
 	sts		pos_y_adv,r16
-	rjmp	Affichage_Image
+	;rjmp	Affichage_Image
 	rjmp	CSGO_INC
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mouvement du personnage
