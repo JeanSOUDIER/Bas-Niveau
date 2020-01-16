@@ -6,7 +6,7 @@
 ;
 ;code programme
 
-.def tri = r1						;timerInterruptRegister.
+.def tri = r2						;timerInterruptRegister.
 
 .def reg_init = r16					;registre d'initialisation de tout les paramètre et temporaire
 
