@@ -229,7 +229,7 @@ GAME:
 	rjmp	GAME
 
 Lancement_Jeu:								;on détermine dans quel mode de jeu on est
-	cp		reg_init,0
+	cpi		reg_init,0
 	breq	MME
 	rjmp	Cible
 MME:
