@@ -341,8 +341,8 @@ void posJoueur()
         {
             if(tabDepart[i][j] == 0)
             {
-                positionsJoueur[tabMid[i][j]][0] = i-1;
-                positionsJoueur[tabMid[i][j]][1] = j-1;
+                positionsJoueur[tabMid[i][j]][0] = i;
+                positionsJoueur[tabMid[i][j]][1] = j;
             }
         }
     }
