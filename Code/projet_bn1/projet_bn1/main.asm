@@ -236,8 +236,9 @@ MME:
 	rjmp	Affichage_Image
 Cible:
 	;pos rand devient la position de la cible
-	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
-	lds		reg_addrH,numero_mapH
+	;lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
+	;lds		reg_addrH,numero_mapH
+	rjmp	Affichage_Image
 
 Jeu_En_Cours:								;boucle du jeu en cours
 	bGa[]								

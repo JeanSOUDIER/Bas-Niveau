@@ -7,7 +7,7 @@ csgo_init:
 	sts		numero_mapL,r16
 	ldi		r16,0x48
 	sts		numero_mapH,r16
-	ldi		r16,0xFF
+	ldi		r16,0x01
 	sts		pos_x_adv,r16
 	sts		pos_y_adv,r16
 	sts		pos_y,r16
@@ -36,17 +36,17 @@ Mouvement_Confirme:
 	lds		reg_cpt1, numero_mapH
 	add		reg_cpt1,r16
 	sts		numero_mapH,reg_cpt1
-	lds		r16,numero_mapH				;on stocke la nouvelle position en x y de la mémoire spi vers la ram et on l'enovie par bluetooth
-	lds		r17,numero_mapL
-	subi	r17,-0x06
+	lds		reg_addrH,numero_mapH		;on stocke la nouvelle position en x y de la mémoire spi vers la ram et on l'enovie par bluetooth
+	lds		reg_addrL,numero_mapL
+	subi	reg_addrL,-0x06
 	rcall	Read_Mem					;on récupère la position x
 	sts		pos_x,reg_spi
 	mov		reg_TX,reg_spi				;on envoie la position x par bluetooth
 	ori		reg_TX,0x80					;code pour la position x
-	subi	r17,-0x01
+	subi	reg_addrL,-0x01
 	rcall	Read_Mem					;on récupère la position y
 	sts		pos_y,reg_spi
-	mov		reg_TX,reg_spi				;on envoie la positoin y par bluetooth
+	mov		reg_TX,reg_spi				;on envoie la position y par bluetooth
 	ori		reg_TX,0x40					;code pour la position y
 	rjmp	Affichage_Image
 Tourner_Gauche:
