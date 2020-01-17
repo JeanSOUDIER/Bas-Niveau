@@ -238,12 +238,13 @@ MME:
 	;sts		numero_mapH,r16
 
 	rcall	rand
+	lds		r16,pos_rand				;on met la valeur entre 0 et 128
 	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
-	lds		r16, pos_rand
 	mul		r16,r17
-	mov		reg_addrL,r0
-	mov		reg_addrH,r1
-	subi	reg_addrH,-0x48
+	sts		numero_mapL,r0
+	mov		r16,r1
+	subi	r16,-0x48
+	sts		numero_mapH,reg_cpt1
 	rjmp	Affichage_Image
 Cible:
 	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
@@ -252,8 +253,8 @@ Cible:
 	sts		numero_mapH,r16
 
 	rcall	rand
+	lds		r16,pos_rand
 	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
-	lds		r16, pos_rand
 	mul		r16,r17
 	mov		reg_addrL,r0
 	mov		reg_addrH,r1
