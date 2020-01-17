@@ -2,15 +2,18 @@
 
 .macro UART_X[]
 	andi	reg_RX,0x3F
+	;ldi		reg_RX,0x01
 	mov		r11,reg_RX
 .endmacro
 
 .macro UART_Y[]
 	andi	reg_RX,0x3F
+	;ldi		reg_RX,0x01
 	mov		r10,reg_RX
 .endmacro
 
 .macro PosPerso[]
+	;ldi		r16,0x01
 	sts		pos_x_adv,r11
 	sts		pos_y_adv,r10
 .endmacro
@@ -33,7 +36,7 @@ USART_Init:									; Set baud rate to UBRR0
 ;ori		reg_TX,   0x80 (posX), 0x40 (posY), 0x00 (Kill)
 USART_Transmit:								; Wait for empty transmit buffer
 	sbis	UCSRA,UDRE 
-	rjmp	USART_Transmit					; Put data (r16) into buffer, sends the data   
+	rjmp	USART_Transmit					; Put data into buffer, sends the data   
 	out		UDR,reg_TX   
 	ret 
 

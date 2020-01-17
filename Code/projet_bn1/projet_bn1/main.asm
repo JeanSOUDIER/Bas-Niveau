@@ -266,6 +266,13 @@ Cible:
 	rjmp	Affichage_Image					;début du jeu
 
 Jeu_En_Cours:								;boucle du jeu en cours
+	cpi		reg_init,0
+	breq	POS
+Jeu_Continue:
+	bSta[]
+	ldi		r16,0xff
+	bSta[]
+	sts		pos_x,r16
 	bSta[]
 	rjmp	GAME
 	bGa[]								
@@ -300,11 +307,12 @@ Jeu_En_Cours:								;boucle du jeu en cours
 en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
-	sbrc	reg_init,2
-	PosPerso[]
 	rjmp	Affichage_Image
 	;rjmp	Jeu_En_Cours
 
+POS:
+	PosPerso[]
+	rjmp Jeu_Continue
 
 
 ; sous programme de temporisation, dure approximativement 127.49us si charge 1 dans reg_cpt3
