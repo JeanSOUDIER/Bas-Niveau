@@ -1,17 +1,13 @@
 ;use r16, r13, r17, r24
 
 csgo_init:
-	ldi		r16,0x01
-	sts		pos_x_adv,r16
-	ldi		r16,0x01
-	sts		pos_y_adv,r16
+	;ldi		r16,0x01
+	;sts		pos_x_adv,r16
+	;sts		pos_y_adv,r16
 	ldi		r16,0x01
 	sts		pos_y,r16
 	ldi		r16,255
 	sts		pos_x,r16
-	ldi		reg_cpt1,0x01
-	sts		adv_ok,reg_cpt1
-	;rjmp	Affichage_Image
 	rjmp	CSGO_INC
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mouvement du personnage

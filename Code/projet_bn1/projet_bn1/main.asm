@@ -6,28 +6,28 @@
 ;
 ;code programme
 
-.def tri = r2						;timerInterruptRegister.
+.def tri = r2							;timerInterruptRegister.
 
-.def reg_init = r29					;registre d'initialisation de tout les paramètre et temporaire
+.def reg_init = r29						;registre d'initialisation de tout les paramètre et temporaire
 
-;.def reg_posX = r28				;position du personnage en X
-;.def reg_posY = r29				;position du personnage en Y
+;.def reg_posX = r28					;position du personnage en X
+;.def reg_posY = r29					;position du personnage en Y
 
-.def reg_spi = r24					;registre d'envoi et réception en spi & tempo MS
-.def reg_addrL = r19				;registres de sélection d'adresse dans la mémoire SPI (LOW)
-.def reg_addrH = r20				;registres de sélection d'adresse dans la mémoire SPI (HIGH)
+.def reg_spi = r24						;registre d'envoi et réception en spi & tempo MS
+.def reg_addrL = r19					;registres de sélection d'adresse dans la mémoire SPI (LOW)
+.def reg_addrH = r20					;registres de sélection d'adresse dans la mémoire SPI (HIGH)
 
-.def reg_cpt1 = r21					;registre temporaire de comptage pour l'affichage sur l'écran
-.def reg_cpt2 = r22					;idem
-.def reg_cpt3 = r17					;registre de comptage tempo
-.def reg_screen = r17				;registre d'affichage sur l'écran
+.def reg_cpt1 = r21						;registre temporaire de comptage pour l'affichage sur l'écran
+.def reg_cpt2 = r22						;idem
+.def reg_cpt3 = r17						;registre de comptage tempo
+.def reg_screen = r17					;registre d'affichage sur l'écran
 
-.def reg_cptT0 = r23				;prescaler du timer0 pour ralentire le clignotement
+.def reg_cptT0 = r23					;prescaler du timer0 pour ralentire le clignotement
 
-.def reg_vol = r25					;registre de son et de volume
+.def reg_vol = r25						;registre de son et de volume
 
-.def reg_TX = r30					;registre d'envoi en bluetooth
-.def reg_RX = r18					;registre de réception en bluetooth
+.def reg_TX = r30						;registre d'envoi en bluetooth
+.def reg_RX = r18						;registre de réception en bluetooth
 
 ;.def reg_csgo_orientation = r13		;orientation du personnage
 ;.def reg_csgo_mapL = r28				;position du personnage dans la map
@@ -56,21 +56,21 @@
 
 .cseg  ; codesegment
 .org	0x00
-   rjmp	RESET						;vecteur de reset
-.org 0x0C							; 7:  $00C TIMER1 COMPA Timer/Counter1 Cmp Match A 
+   rjmp	RESET							;vecteur de reset
+.org 0x0C								; 7:  $00C TIMER1 COMPA Timer/Counter1 Cmp Match A 
 	reti
-.org 0x0A							; 6:  $00A TIMER1 CAPT Timer/Counter1 Capture Event
+.org 0x0A								; 6:  $00A TIMER1 CAPT Timer/Counter1 Capture Event
 	reti
-.org 0x10							; 9:  $010 TIMER1 OVF Timer/Counter1 Overflow
+.org 0x10								; 9:  $010 TIMER1 OVF Timer/Counter1 Overflow
 	jmp		TI1_Interrupt
-.org 0x12							; 10: $012 TIMER0 OVF Timer/Counter0 Overflow
+.org 0x12								; 10: $012 TIMER0 OVF Timer/Counter0 Overflow
 	jmp		TI0_interrupt
-.org 0x16							; 12: $016 USART, RXC USART, Rx Complete
+.org 0x16								; 12: $016 USART, RXC USART, Rx Complete
 	jmp		UART_Interrupt
 
-.org 0x30							; se placer à la case mémoire 30 en hexa
-RESET:								; adresse du vecteur de reset
-	ldi		r16,high(RAMEND)		; initialisation de la pile
+.org 0x30								; se placer à la case mémoire 30 en hexa
+RESET:									; adresse du vecteur de reset
+	ldi		r16,high(RAMEND)			; initialisation de la pile
 	out		SPH,r16
 	ldi		r16,low(RAMEND)
 	out		SPL,r16
@@ -158,7 +158,7 @@ MENTION:
 	rjmp	loopMain
 	rjmp	MENTION
 
-	RESEAU:										;boucle du test de connection réseau
+	RESEAU:									;boucle du test de connection réseau
 	CONN1[]
 
 	ldi		reg_TX,1						;ping en UART
@@ -215,10 +215,6 @@ GAME:
 	rcall	writeFullSreen
 
 	bA[]
-	ldi		r16,0x00
-	bA[]
-	sts		pos_x,r16
-	bA[]
 	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
 
 	bB[]									;test de retour à l'écran principale
@@ -228,7 +224,7 @@ GAME:
 	rjmp	GAME
 
 Lancement_Jeu:								;on détermine dans quel mode de jeu on est
-	ldi		r16,0x00					;placement orientation Nord
+	ldi		r16,0x00						;placement orientation Nord
 	sts		orientation,r16
 	cpi		reg_init,0
 	breq	MME
@@ -236,10 +232,18 @@ Lancement_Jeu:								;on détermine dans quel mode de jeu on est
 MME:
 	;on teste si on est bien connecté, si oui:
 	;pos rand devient la position du joueur
-	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
-	sts		numero_mapL,r16
-	ldi		r16,0x48
-	sts		numero_mapH,r16
+	;ldi		r16,0x00					;placement du joueur à la case 1 de la mémoire
+	;sts		numero_mapL,r16
+	;ldi		r16,0x48
+	;sts		numero_mapH,r16
+
+	rcall	rand
+	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
+	lds		r16, pos_rand
+	mul		r16,r17
+	mov		reg_addrL,r0
+	mov		reg_addrH,r1
+	subi	reg_addrH,-0x48
 	rjmp	Affichage_Image
 Cible:
 	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
@@ -254,16 +258,12 @@ Cible:
 	mov		reg_addrL,r0
 	mov		reg_addrH,r1
 	subi	reg_addrH,-0x48
-	;sts		numero_mapH,reg_addrH
-	;sts		numero_mapL,reg_addrL
 	subi	reg_addrL,-0x06
 	rcall	Read_Mem						;on récupère la position x
 	sts		pos_x_adv,reg_spi
-	sts		pos_x,reg_spi
 	subi	reg_addrL,-0x01
 	rcall	Read_Mem						;on récupère la position y
 	sts		pos_y_adv,reg_spi
-	sts		pos_y,reg_spi
 
 	rjmp	Affichage_Image					;début du jeu
 
