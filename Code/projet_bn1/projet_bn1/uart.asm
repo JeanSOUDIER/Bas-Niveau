@@ -46,9 +46,11 @@ UART_Interrupt:
 	cpi		reg_RX,0						;test si on recoit un coup
 	brne	END_UART
 	sts		dead,reg_RX
-	sbrc	reg_RX,7
+	cpi		reg_RX,0x80
+	brlo	POSITON_PERSO_X
 	UART_X[]
-	sbrs	reg_RX,7
+	rjmp	END_UART
+POSITON_PERSO_X:
 	UART_Y[]
 END_UART:
 	out		SREG,tri						; restore flag register
