@@ -41,7 +41,7 @@ UART_Interrupt:
 	in		reg_RX,UDR
 	cpi		reg_RX,0						;test si on recoit un coup
 	brne	END_UART
-	sts		dead,reg_RX
+	;sts		dead,reg_RX
 END_UART:
 	out		SREG,tri						; restore flag register
 	reti 									; Return from interrupt

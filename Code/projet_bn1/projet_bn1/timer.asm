@@ -34,16 +34,16 @@
 .macro bAn[]
 	sbic	PINA,6
 .endmacro
-.macro bSta[]
+.macro bSel[]
 	sbis	PINA,7
 .endmacro
-.macro bStan[]
+.macro bSeln[]
 	sbic	PINA,7
 .endmacro
-.macro bSel[]
+.macro bSta[]
 	sbis	PIND,2
 .endmacro
-.macro bSeln[]
+.macro bStan[]
 	sbic	PIND,2
 .endmacro
 .macro bL[]

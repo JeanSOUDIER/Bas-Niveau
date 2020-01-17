@@ -100,13 +100,6 @@ CSGO_INC:
 	
 	sei
 
-	/*rcall	rand
-	lds		reg_init,pos_rand
-	sbrs	reg_init,7
-	cbi		PORTD,6
-	sbrc	reg_init,7
-	sbi		PORTD,6*/
-
 	ldi		reg_init,8						;initialisation du curseur
 
 	
@@ -268,6 +261,8 @@ Cible:
 	rjmp	Affichage_Image					;début du jeu
 
 Jeu_En_Cours:								;boucle du jeu en cours
+	bSta[]
+	rjmp	GAME
 	bGa[]								
 	rjmp	Tourner_Gauche
 	bDr[]
