@@ -1,11 +1,6 @@
-;use r16, r13, r17, r24
-
 csgo_init:
-	;ldi		r16,0x01
-	;sts		pos_x_adv,r16
-	;sts		pos_y_adv,r16
 	ldi		r16,0x01
-	sts		pos_y,r16
+	sts		pos_y,r16					;intialisation de la position du personnage
 	ldi		r16,255
 	sts		pos_x,r16
 	rjmp	CSGO_INC
@@ -184,8 +179,6 @@ Attaquer:
 	sts		num_son2,r16
 
 	lds		r16,adv_ok
-	;cpi		r16,0x01
-	;breq	ON_ENVOIE_LA_SAUCE
 	sbrs	r16,0
 	rjmp	Jeu_En_Cours
 ON_ENVOIE_LA_SAUCE:

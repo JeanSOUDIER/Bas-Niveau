@@ -1,19 +1,16 @@
 .equ baud = 51								;9600 =>103
 
 .macro UART_X[]
-	andi	reg_RX,0x3F
-	;ldi		reg_RX,0x01
+	andi	reg_RX,0x3F						;reception de la position X en interruption (SRAM innacessible en interruption pour éviter de les désactiver)
 	mov		r11,reg_RX
 .endmacro
 
 .macro UART_Y[]
 	andi	reg_RX,0x3F
-	;ldi		reg_RX,0x01
 	mov		r10,reg_RX
 .endmacro
 
 .macro PosPerso[]
-	;ldi		r16,0x01
 	sts		pos_x_adv,r11
 	sts		pos_y_adv,r10
 .endmacro

@@ -10,9 +10,6 @@
 
 .def reg_init = r29						;registre d'initialisation de tout les paramètre et temporaire
 
-;.def reg_posX = r28					;position du personnage en X
-;.def reg_posY = r29					;position du personnage en Y
-
 .def reg_spi = r24						;registre d'envoi et réception en spi & tempo MS
 .def reg_addrL = r19					;registres de sélection d'adresse dans la mémoire SPI (LOW)
 .def reg_addrH = r20					;registres de sélection d'adresse dans la mémoire SPI (HIGH)
@@ -29,11 +26,7 @@
 .def reg_TX = r30						;registre d'envoi en bluetooth
 .def reg_RX = r18						;registre de réception en bluetooth
 
-;.def reg_csgo_orientation = r13		;orientation du personnage
-;.def reg_csgo_mapL = r28				;position du personnage dans la map
-;.def reg_csgo_mapH = r29
-.def reg_calcul1 = r28
-;.def reg_calcul2 = r29
+.def reg_calcul1 = r28					;registre de calcul temporaire
 
 .dseg
 	num_son:		.byte 1				;variable SRAM de son (LOW)
@@ -75,7 +68,7 @@ RESET:									; adresse du vecteur de reset
 	ldi		r16,low(RAMEND)
 	out		SPL,r16
 
-	ldi		reg_cpt3,255			;tempo de début
+	ldi		reg_cpt3,255				;tempo de début
 	rcall	tempo_US
 
 
@@ -223,15 +216,8 @@ Lancement_Jeu:								;on détermine dans quel mode de jeu on est
 	breq	MME
 	rjmp	Cible
 MME:
-	;on teste si on est bien connecté, si oui:
-	;pos rand devient la position du joueur
-	;ldi		r16,0x00					;placement du joueur à la case 1 de la mémoire
-	;sts		numero_mapL,r16
-	;ldi		r16,0x48
-	;sts		numero_mapH,r16
-
 	rcall	rand
-	lds		r16,pos_rand				;on met la valeur entre 0 et 128
+	lds		r16,pos_rand					;on met la valeur entre 0 et 128
 	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
 	mul		r16,r17
 	sts		numero_mapL,r0
@@ -269,7 +255,7 @@ Jeu_En_Cours:								;boucle du jeu en cours
 	cpi		reg_init,0
 	breq	POS
 Jeu_Continue:
-	bSta[]
+	bSta[]									;on retourne au menu si le bouton "start"
 	ldi		r16,0xff
 	bSta[]
 	sts		pos_x,r16
@@ -310,7 +296,6 @@ en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
 	rjmp	Affichage_Image
-	;rjmp	Jeu_En_Cours
 
 POS:
 	PosPerso[]
