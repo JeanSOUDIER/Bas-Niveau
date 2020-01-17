@@ -303,6 +303,8 @@ Jeu_Continue:
 	rcall	tempo_MS
 	ldi		reg_cpt3,255
 	rcall	tempo_MS
+	ldi		r16,0x01
+	sts		dead,r16
 	jmp	GAME								;et on revient au menu
 en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu

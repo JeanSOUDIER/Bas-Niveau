@@ -1,14 +1,12 @@
 .equ baud = 51								;9600 =>103
 
 .macro UART_X[]
-	sbi		PORTD,6
 	andi	reg_RX,0x3F
 	;ldi		reg_RX,0x01
 	mov		r11,reg_RX
 .endmacro
 
 .macro UART_Y[]
-	sbi		PORTD,6
 	andi	reg_RX,0x3F
 	;ldi		reg_RX,0x01
 	mov		r10,reg_RX
