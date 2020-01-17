@@ -138,10 +138,10 @@ pas_fin_son:
 	out		TCNT1L,reg_vol
 
 	;gestion de la led
-	sbic	PIND,6									;blink led
+	/*sbic	PIND,6									;blink led
 	cbi		PORTD,6
 	sbis	PIND,6
-	sbi		PORTD,6
+	sbi		PORTD,6*/
 
 	
 

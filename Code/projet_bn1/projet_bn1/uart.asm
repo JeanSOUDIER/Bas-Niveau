@@ -1,12 +1,14 @@
 .equ baud = 51								;9600 =>103
 
 .macro UART_X[]
+	sbi		PORTD,6
 	andi	reg_RX,0x3F
 	;ldi		reg_RX,0x01
 	mov		r11,reg_RX
 .endmacro
 
 .macro UART_Y[]
+	sbi		PORTD,6
 	andi	reg_RX,0x3F
 	;ldi		reg_RX,0x01
 	mov		r10,reg_RX
@@ -44,13 +46,15 @@ UART_Interrupt:
 	in		tri,SREG						; save content of flag reg.
 	in		reg_RX,UDR
 	cpi		reg_RX,0						;test si on recoit un coup
-	brne	END_UART
+	brne	DEATH_POS
 	sts		dead,reg_RX
+	rjmp	END_UART
+DEATH_POS:
 	cpi		reg_RX,0x80
-	brlo	POSITON_PERSO_X
+	brlo	POSITON_PERSO_Y
 	UART_X[]
 	rjmp	END_UART
-POSITON_PERSO_X:
+POSITON_PERSO_Y:
 	UART_Y[]
 END_UART:
 	out		SREG,tri						; restore flag register
