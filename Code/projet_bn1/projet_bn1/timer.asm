@@ -34,16 +34,16 @@
 .macro bAn[]
 	sbic	PINA,6
 .endmacro
-.macro bSta[]
+.macro bSel[]
 	sbis	PINA,7
 .endmacro
-.macro bStan[]
+.macro bSeln[]
 	sbic	PINA,7
 .endmacro
-.macro bSel[]
+.macro bSta[]
 	sbis	PIND,2
 .endmacro
-.macro bSeln[]
+.macro bStan[]
 	sbic	PIND,2
 .endmacro
 .macro bL[]
@@ -165,3 +165,9 @@ TI0_interrupt:
 END_T0:
 	out		SREG,tri								;restore flag register
 	reti
+
+rand:
+	in		r12,TCNT0								;lecture de la valeur du timer
+	lsr		r12										;ajustement de la valeur
+	sts		pos_rand,r12							;stockage de la position du personnage aléatoire
+	ret
