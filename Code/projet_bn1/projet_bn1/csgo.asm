@@ -37,11 +37,13 @@ Mouvement_Confirme:
 	sts		pos_x,reg_spi
 	mov		reg_TX,reg_spi				;on envoie la position x par bluetooth
 	ori		reg_TX,0x80					;code pour la position x
+	rcall	USART_Transmit
 	subi	reg_addrL,-0x01
 	rcall	Read_Mem					;on récupère la position y
 	sts		pos_y,reg_spi
 	mov		reg_TX,reg_spi				;on envoie la position y par bluetooth
 	ori		reg_TX,0x40					;code pour la position y
+	rcall	USART_Transmit
 	rjmp	Affichage_Image
 Tourner_Gauche:
 	lds		r16,orientation				;on augmente d'un l'orientation

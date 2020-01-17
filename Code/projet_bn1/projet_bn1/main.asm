@@ -237,7 +237,11 @@ MME:
 	sts		numero_mapL,r0
 	mov		r16,r1
 	subi	r16,-0x48
-	sts		numero_mapH,reg_cpt1
+	sts		numero_mapH,r16
+	lds		reg_TX,numero_mapL
+	rcall	USART_Transmit
+	lds		reg_TX,numero_mapH
+	rcall	USART_Transmit
 	rjmp	Affichage_Image
 Cible:
 	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire

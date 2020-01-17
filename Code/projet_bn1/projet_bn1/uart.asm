@@ -1,16 +1,16 @@
 .equ baud = 51								;9600 =>103
 
 .macro PosPerso[]
-	cpi		reg_TX,0x80
+	cpi		reg_RX,0x80
 	brlo	POSITION_Y
 	andi	reg_RX,0x3F						;sinon c'est une position
-	;sts		pos_x_adv,reg_TX
+	sts		pos_x_adv,reg_RX
 	rjmp	END_POSITION
 POSITION_Y:
-	cpi		reg_TX,0
+	cpi		reg_RX,0
 	breq	END_POSITION
 	andi	reg_RX,0x3F						;sinon c'est une position
-	;sts		pos_y_adv,reg_TX
+	sts		pos_y_adv,reg_RX
 END_POSITION:
 .endmacro
 
@@ -41,7 +41,7 @@ UART_Interrupt:
 	in		reg_RX,UDR
 	cpi		reg_RX,0						;test si on recoit un coup
 	brne	END_UART
-	;sts		dead,reg_RX
+	sts		dead,reg_RX
 END_UART:
 	out		SREG,tri						; restore flag register
 	reti 									; Return from interrupt
