@@ -12,7 +12,7 @@
 ; INSA Strasbourg
 ;********************************
 
-.equ WREN = 0x06									;define des valeurs pour lire et écrire dans la mémoir SPI
+.equ WREN = 0x06									;definie des valeurs pour lire et écrire dans la mémoire SPI
 .equ WRDI = 0x04
 .equ READ = 0x03
 .equ WRITE = 0x02
@@ -52,7 +52,7 @@ SPI_Init:
 ;--------------------------------
 ; Nom de la fonction : SPI_Transmit
 ;
-; Description : envoi une donné en SPI et réception celle du périphérique esclave
+; Description : envoi une donnée en SPI et réceptionne celle du périphérique esclave
 ;
 ; Entrée : - r24 (reg_spi) registre d'envoi et de réception en SPI
 ;
@@ -69,7 +69,7 @@ Wait_SPI:
 ;--------------------------------
 ; Nom de la fonction : Read_Mem
 ;
-; Description : lit une donné dans la mémoire SPI
+; Description : lit une donnée dans la mémoire SPI
 ;
 ; Entrée : - r24 (reg_spi) registre d'envoi et de réception en SPI
 ;		   - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)

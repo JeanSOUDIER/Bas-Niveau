@@ -1,5 +1,5 @@
 ;********************************
-; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fde gestion de l'affichage]
+; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fichier de gestion de l'affichage]
 ;
 ; Fichier : char_array.asm
 ;
@@ -19,8 +19,8 @@
 ;
 ; Entrée : - r29 (reg_init) variable temporaire
 ;
-; Sorties : C_Wait (SRAM) caractère d'attent du ping
-;			Table (SRAM) table de convertion pour faire clignoter le pixel de la position du personnage
+; Sorties : C_Wait (SRAM) caractère d'attente du ping
+;			Table (SRAM) table de conversion pour faire clignoter le pixel de la position du personnage
 ;			dead (SRAM) variable d'état du personnage
 ;--------------------------------
 Init_char_array:
@@ -80,7 +80,7 @@ Init_char_array:
 ;--------------------------------
 ; Nom de la macro : CONNECTED[]
 ;
-; Description : affiche la fenêtre de la vue connecté
+; Description : affiche la fenêtre de la vue connectée
 ;
 ; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
 ;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
@@ -96,7 +96,7 @@ Init_char_array:
 ;--------------------------------
 ; Nom de la macro : NO_CONNECTED[]
 ;
-; Description : affiche la fenêtre de la vue non connecté
+; Description : affiche la fenêtre de la vue non connectée
 ;
 ; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
 ;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)

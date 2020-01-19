@@ -15,7 +15,7 @@
 ;--------------------------------
 ; Nom de la macro : bGa[]
 ;
-; Description : test si le bouton Gauche est appuié
+; Description : test si le bouton Gauche est appuyé
 ;--------------------------------
 .macro bGa[]				;macro de bouton
 	sbis	PINA,1
@@ -24,7 +24,7 @@
 ;--------------------------------
 ; Nom de la macro : bGan[]
 ;
-; Description : test si le bouton Gauche n'est pas appuié
+; Description : test si le bouton Gauche n'est pas appuyé
 ;--------------------------------
 .macro bGan[]
 	sbic	PINA,1
@@ -33,7 +33,7 @@
 ;--------------------------------
 ; Nom de la macro : bBa[]
 ;
-; Description : test si le bouton bas est appuié
+; Description : test si le bouton bas est appuyé
 ;--------------------------------
 .macro bBa[]
 	sbis	PINA,2
@@ -42,7 +42,7 @@
 ;--------------------------------
 ; Nom de la macro : bBan[]
 ;
-; Description : test si le bouton Bas n'est pas appuié
+; Description : test si le bouton Bas n'est pas appuyé
 ;--------------------------------
 .macro bBan[]
 	sbic	PINA,2
@@ -51,7 +51,7 @@
 ;--------------------------------
 ; Nom de la macro : bDr[]
 ;
-; Description : test si le bouton Droit est appuié
+; Description : test si le bouton Droit est appuyé
 ;--------------------------------
 .macro bDr[]
 	sbis	PINA,3
@@ -60,7 +60,7 @@
 ;--------------------------------
 ; Nom de la macro : bDrn[]
 ;
-; Description : test si le bouton Droit n'est pas appuié
+; Description : test si le bouton Droit n'est pas appuyé
 ;--------------------------------
 .macro bDrn[]
 	sbic	PINA,3
@@ -69,7 +69,7 @@
 ;--------------------------------
 ; Nom de la macro : bHa[]
 ;
-; Description : test si le bouton Haut est appuié
+; Description : test si le bouton Haut est appuyé
 ;--------------------------------
 .macro bHa[]
 	sbis	PINA,4
@@ -78,7 +78,7 @@
 ;--------------------------------
 ; Nom de la macro : bHan[]
 ;
-; Description : test si le bouton Haut n'est pas appuié
+; Description : test si le bouton Haut n'est pas appuyé
 ;--------------------------------
 .macro bHan[]
 	sbic	PINA,4
@@ -87,7 +87,7 @@
 ;--------------------------------
 ; Nom de la macro : bB[]
 ;
-; Description : test si le bouton B est appuié
+; Description : test si le bouton B est appuyé
 ;--------------------------------
 .macro bB[]
 	sbis	PINA,5
@@ -96,7 +96,7 @@
 ;--------------------------------
 ; Nom de la macro : bBn[]
 ;
-; Description : test si le bouton B n'est pas appuié
+; Description : test si le bouton B n'est pas appuyé
 ;--------------------------------
 .macro bBn[]
 	sbic	PINA,5
@@ -105,7 +105,7 @@
 ;--------------------------------
 ; Nom de la macro : bA[]
 ;
-; Description : test si le bouton A est appuié
+; Description : test si le bouton A est appuyé
 ;--------------------------------
 .macro bA[]
 	sbis	PINA,6
@@ -114,7 +114,7 @@
 ;--------------------------------
 ; Nom de la macro : bAn[]
 ;
-; Description : test si le bouton A n'est pas appuié
+; Description : test si le bouton A n'est pas appuyé
 ;--------------------------------
 .macro bAn[]
 	sbic	PINA,6
@@ -123,7 +123,7 @@
 ;--------------------------------
 ; Nom de la macro : bSel[]
 ;
-; Description : test si le bouton Select est appuié
+; Description : test si le bouton Select est appuyé
 ;--------------------------------
 .macro bSel[]
 	sbis	PINA,7
@@ -132,7 +132,7 @@
 ;--------------------------------
 ; Nom de la macro : bSeln[]
 ;
-; Description : test si le bouton Select n'est pas appuié
+; Description : test si le bouton Select n'est pas appuyé
 ;--------------------------------
 .macro bSeln[]
 	sbic	PINA,7
@@ -141,7 +141,7 @@
 ;--------------------------------
 ; Nom de la macro : bSta[]
 ;
-; Description : test si le bouton Start est appuié
+; Description : test si le bouton Start est appuyé
 ;--------------------------------
 .macro bSta[]
 	sbis	PIND,2
@@ -150,7 +150,7 @@
 ;--------------------------------
 ; Nom de la macro : bStan[]
 ;
-; Description : test si le bouton Start n'est pas appuié
+; Description : test si le bouton Start n'est pas appuyé
 ;--------------------------------
 .macro bStan[]
 	sbic	PIND,2
@@ -159,7 +159,7 @@
 ;--------------------------------
 ; Nom de la macro : bL[]
 ;
-; Description : test si le bouton Gauche (gachette) est appuié
+; Description : test si le bouton Gauche (gachette) est appuyé
 ;--------------------------------
 .macro bL[]
 	sbis	PIND,3
@@ -168,7 +168,7 @@
 ;--------------------------------
 ; Nom de la macro : bLn[]
 ;
-; Description : test si le bouton Gauche (gachette) n'est pas appuié
+; Description : test si le bouton Gauche (gachette) n'est pas appuyé
 ;--------------------------------
 .macro bLn[]
 	sbic	PIND,3
@@ -177,7 +177,7 @@
 ;--------------------------------
 ; Nom de la macro : bR[]
 ;
-; Description : test si le bouton Droit (gachette) est appuié
+; Description : test si le bouton Droit (gachette) est appuyé
 ;--------------------------------
 .macro bR[]
 	sbis	PIND,4
@@ -186,7 +186,7 @@
 ;--------------------------------
 ; Nom de la macro : bRn[]
 ;
-; Description : test si le bouton Droit (gachette) n'est pas appuié
+; Description : test si le bouton Droit (gachette) n'est pas appuyé
 ;--------------------------------
 .macro bRn[]
 	sbic	PIND,4
@@ -195,7 +195,7 @@
 ;--------------------------------
 ; Nom de la fonction : TIMER_Init
 ;
-; Description : initialisation le timer 0 et le timer 1
+; Description : initialisation du timer 0 et du timer 1
 ;
 ; Entrée : - r25 (reg_vol) registre de gestion du volume et de la fréquence du buzzer
 ;		   - r23 (reg_cptT0) registre de comptage pour ralentir le timer 0
@@ -253,7 +253,7 @@ TIMER_Init:
 TI1_Interrupt:
 	in		tri,SREG								;save content of flag reg.
 
-	lds		reg_vol,num_son2						;chargement de l'addresse du son à jouer
+	lds		reg_vol,num_son2						;chargement de l'adresse du son à jouer
 	cpi		reg_vol,2
 	brsh	No_sound
 
@@ -279,7 +279,7 @@ pas_fin_son:
 	;gestion du volume
 	ldi		reg_vol,0
 	out		OCR1AH,reg_vol
-	in		reg_vol,ADCH							;on lit la valeur de l'adc convertie
+	in		reg_vol,ADCH							;on lit la valeur de l'adc converti
 	out		OCR1AL,reg_vol
 
 	in		reg_vol,ADCSRA
@@ -329,7 +329,7 @@ No_sound:
 ;--------------------------------
 TI0_interrupt:
 	in		tri,SREG								;save content of flag reg.
-	inc		reg_cptT0								;variable de comptage pour diviseur la fréquence
+	inc		reg_cptT0								;variable de comptage pour diviser la fréquence
 	cpi		reg_cptT0,16
 	brne	END_T0
 	ldi		reg_cptT0,0

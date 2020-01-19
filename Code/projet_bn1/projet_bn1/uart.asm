@@ -17,25 +17,25 @@
 ;--------------------------------
 ; Nom de la macro : UART_X[]
 ;
-; Description : récupère la position X du personnage enemi en bluetooth
+; Description : récupère la position X du personnage ennemi en bluetooth
 ;
 ; Entrée : - r18 (reg_RX) registre de réception en UART
 ;
-; Sorties : - r11 variable de position X enemi
+; Sorties : - r11 variable de position X ennemi
 ;--------------------------------
 .macro UART_X[]
-	andi	reg_RX,0x3F						;reception de la position X en interruption (SRAM innacessible en interruption pour éviter de les désactiver)
+	andi	reg_RX,0x3F						;reception de la position X en interruption (SRAM inacessible en interruption pour éviter de les désactiver)
 	mov		r11,reg_RX
 .endmacro
 
 ;--------------------------------
 ; Nom de la macro : UART_Y[]
 ;
-; Description : récupère la position Y du personnage enemi en bluetooth
+; Description : récupère la position Y du personnage ennemi en bluetooth
 ;
 ; Entrée : - r18 (reg_RX) registre de réception en UART
 ;
-; Sorties : - r10 variable de position Y enemi
+; Sorties : - r10 variable de position Y ennemi
 ;--------------------------------
 .macro UART_Y[]
 	andi	reg_RX,0x3F						;masque de réception
@@ -45,13 +45,13 @@
 ;--------------------------------
 ; Nom de la macro : PosPerso[]
 ;
-; Description : stock les données de position du personnage enemi dans la SRAM en dehors des interuptions
+; Description : stock les données de position du personnage ennemi dans la SRAM en dehors des interruptions
 ;
-; Entrée : - r10 variable de position Y enemi
-;		   - r11 variable de position X enemi
+; Entrée : - r10 variable de position Y ennemi
+;		   - r11 variable de position X ennemi
 ;
-; Sorties : - pos_x_adv (SRAM) position du personnage enemi en X
-;			- pos_y_adv (SRAM) position du personnage enemi en Y
+; Sorties : - pos_x_adv (SRAM) position du personnage ennemi en X
+;			- pos_y_adv (SRAM) position du personnage ennemi en Y
 ;--------------------------------
 .macro PosPerso[]
 	sts		pos_x_adv,r11

@@ -29,7 +29,7 @@
 ;--------------------------------
 ; Nom de la macro : screenR[]
 ;
-; Description : sélectionne le côté de l'écran droit
+; Description : sélectionne le côté de l'écran à droite
 ;
 ; Entrée : X
 ;
@@ -45,7 +45,7 @@
 ;
 ; Description : valide la donnée sur le port de l'écran
 ;
-; Entrée : - r17 (reg_cpt3) compteur de temporaisation
+; Entrée : - r17 (reg_cpt3) compteur de temporisation
 ;
 ; Sorties : appel la fonction "tempo_US" [screen.asm]
 ;--------------------------------
@@ -61,12 +61,12 @@
 ;
 ; Description : place le curseur sur l'écran en X
 ;
-; Entrée : - r17 (reg_cpt3) compteur de temporaisation
+; Entrée : - r17 (reg_cpt3) compteur de temporisation
 ;		   - r17 (reg_screen) variable de l'écran => position de 0 à 7
 ;
 ; Sorties : appel les macros "RS_clear[]", "Enable[]" et "RS_set[]" [screen.asm]
 ;--------------------------------
-.macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
+.macro SetPosX[]					;position de 0 à 7 (à changer à chaque fois)
 	RS_clear[]
 	ori		reg_screen,0xB8
 	out		PORTC,reg_screen
@@ -79,12 +79,12 @@
 ;
 ; Description : place le curseur sur l'écran en Y
 ;
-; Entrée : - r17 (reg_cpt3) compteur de temporaisation
+; Entrée : - r17 (reg_cpt3) compteur de temporisation
 ;		   - r17 (reg_screen) variable de l'écran => position de 0 à 64
 ;
 ; Sorties : appel les macros "RS_clear[]", "Enable[]" et "RS_set[]" [screen.asm]
 ;--------------------------------
-.macro SetPosY[]					;pos de 0 à 64 (auto)
+.macro SetPosY[]					;position de 0 à 64 (auto)
 	RS_clear[]
 	ori		reg_screen,0x40
 	out		PORTC,reg_screen
@@ -135,14 +135,14 @@
 ;--------------------------------
 ; Nom de la macro : placePosPerso[]
 ;
-; Description : convertie la position du X/Y du personnage en adresse et pixels
+; Description : converti la position du X/Y du personnage en adresse et pixels
 ;
 ; Entrée : - r17 (reg_screen) variable de l'écran
 ;		   - r28 (reg_calcul1) variable temporaire
-;		   - Table (SRAM) table de convertion pour le binaire vers la pixel à allumer
+;		   - Table (SRAM) table de conversion pour le binaire vers le pixel à allumer
 ;		   - PosX (SRAM) de 0 à 20
 ;		   - PosY (SRAM) de 0 à 20
-;		   - XL (r26) registre interne pour se déplacer la la SRAM
+;		   - XL (r26) registre interne pour se déplacer dans la SRAM
 ;		   - XH (r27)
 ;
 ; Sorties : - conv (SRAM) valeur sur 8 bits qui correspond au pixel à allumer
@@ -153,13 +153,13 @@
 	lds		reg_screen,pos_x
 	mov		reg_calcul1,reg_screen	;test Y
 	andi	reg_screen,7
-	ldi		XL,LOW(Table)			;table de convertion 2^(8-X) = Y
+	ldi		XL,LOW(Table)			;table de conversion 2^(8-X) = Y
 	ldi		XH,HIGH(Table)
 	add		XL,reg_screen			;test X
 	ld		reg_screen,X
 	sts		conv,reg_screen
 
-	ldi		reg_screen,255			;convertion des positions par 8 pixels
+	ldi		reg_screen,255			;conversion des positions par 8 pixels
 	cpi		reg_calcul1,8
 	brlo	END_PERSO
 	cpi		reg_calcul1,16
@@ -313,11 +313,11 @@ loop2:
 	inc		reg_addrH
 addr_carry1:
 
-	inc		reg_cpt1				;incrément du compteur 1
+	inc		reg_cpt1				;incrémente le compteur 1
 	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 	rjmp	loop2
 
-	inc		reg_cpt2				;incrément du copteur 2
+	inc		reg_cpt2				;incrémente le compteur 2
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop1
 
@@ -341,17 +341,17 @@ PRINT:
 PRINT1:
 	mov		reg_screen,reg_spi
 	ScreenWrite[]					;écriture sur l'écran
-	inc		reg_addrL				;incrément de l'adresse LOW
+	inc		reg_addrL				;incrémente l'adresse LOW
 	cpi		reg_addrL,0
 	brne	addr_carry2				;test du carry
 	inc		reg_addrH
 addr_carry2:
 
-	inc		reg_cpt1				;incrément du compteur 1
+	inc		reg_cpt1				;incrémente le compteur 1
 	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 	rjmp	loop4
 
-	inc		reg_cpt2				;incrément du copteur 2
+	inc		reg_cpt2				;incrémente le compteur 2
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop3
 	ret
@@ -380,11 +380,11 @@ loop6:
 	ldi		reg_screen,0
 	ScreenWrite[]					;écriture sur l'écran
 
-	inc		reg_cpt1				;incrément du compteur 1
+	inc		reg_cpt1				;incrémente le compteur 1
 	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 	rjmp	loop6
 
-	inc		reg_cpt2				;incrément du copteur 2
+	inc		reg_cpt2				;incrémente le compteur 2
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop5
 
@@ -400,11 +400,11 @@ loop8:
 	ldi		reg_screen,0
 	ScreenWrite[]					;écriture sur l'écran
 
-	inc		reg_cpt1				;incrément du compteur 1
+	inc		reg_cpt1				;incrémente le compteur 1
 	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 	rjmp	loop8
 
-	inc		reg_cpt2				;incrément du copteur 2
+	inc		reg_cpt2				;incrémente le copteur 2
 	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 	rjmp	loop7
 	ret
@@ -418,7 +418,7 @@ loop8:
 ;		   - r21 (reg_cpt1) compteur d'affichage Y
 ;		   - r22 (reg_cpt2) compteur d'affichage X
 ;		   - C_Wait (SRAM) caractère d'attente du ping
-;		   - XL (r26) registre interne pour se déplacer la la SRAM
+;		   - XL (r26) registre interne pour se déplacer dans la SRAM
 ;		   - XH (r27)
 ;		   - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
 ;

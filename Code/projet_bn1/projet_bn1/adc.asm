@@ -19,7 +19,7 @@
 ;
 ; Entrée : - r29 (reg_init) variable temporaire
 ;
-; Sorties : démarre une convertion
+; Sorties : démarre une conversion
 ;--------------------------------
 ADC_Init:
 	ldi		reg_init,(1<<ADLAR)|(1<<REFS0)							;ext ref / left adjust / mux to ADC0

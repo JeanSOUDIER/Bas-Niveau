@@ -14,7 +14,7 @@
 
 .def tri = r2							;timerInterruptRegister.
 
-.def reg_init = r29						;registre d'initialisation de tout les paramètre et temporaire
+.def reg_init = r29						;registre d'initialisation de tous les paramètres et temporaires
 
 .def reg_spi = r24						;registre d'envoi et réception en spi & tempo MS
 .def reg_addrL = r19					;registres de sélection d'adresse dans la mémoire SPI (LOW)
@@ -25,7 +25,7 @@
 .def reg_cpt3 = r17						;registre de comptage tempo
 .def reg_screen = r17					;registre d'affichage sur l'écran
 
-.def reg_cptT0 = r23					;prescaler du timer0 pour ralentire le clignotement
+.def reg_cptT0 = r23					;prescaler du timer0 pour ralentir le clignotement
 
 .def reg_vol = r25						;registre de son et de volume
 
@@ -35,11 +35,11 @@
 .def reg_calcul1 = r28					;registre de calcul temporaire
 
 .dseg
-	num_son:		.byte 1				;variable SRAM de son (LOW)
+	num_son:		.byte 1				;variable SRAM du son (LOW)
 	num_son2:		.byte 1				;idem (HIGH)
 	C_Wait:			.byte 5				;variable avec le caractère de chargement pour les images
 	Table:			.byte 8				;table de conversion
-	conv:			.byte 1				;varaible de convertion de la poistion du personnage X
+	conv:			.byte 1				;varaible de conversion de la position du personnage X
 	convB:			.byte 1				;idem Y
 	conv2:			.byte 1				;idem afficher ou non
 	dead:			.byte 1				;variable de test si le personnage est en vie
@@ -70,13 +70,13 @@
 ;--------------------------------
 ; Nom de la fonction : RESET
 ;
-; Description : fonction de lancement du programme et d'initialisation de tout les autres fichiers
+; Description : fonction de lancement du programme et d'initialisation de tous les autres fichiers
 ;
-; Entrée : - r16 variable temporaire
-;		   - r17 (reg_cpt3) varaible d'attente
-;		   - r29 (reg_init) pointeur à l'écran
+; Entrées : - r16 variable temporaire
+;		    - r17 (reg_cpt3) varaible d'attente
+;		    - r29 (reg_init) pointeur à l'écran
 ;
-; Sorties : appel des fonction "Init_char_array" [char_array.asm], "ADC_Init" [adc.asm], "IO_Init" [io.asm], "SCREEN_Init" [screen.asm], "SPI_Init" [spi.asm],
+; Sorties : appel des fonctions "Init_char_array" [char_array.asm], "ADC_Init" [adc.asm], "IO_Init" [io.asm], "SCREEN_Init" [screen.asm], "SPI_Init" [spi.asm],
 ;			"TIMER_Init" [timer.asm], "USART_Init" [uart.asm] et "csgo_init" [csgo.asm]
 ;--------------------------------
 .org 0x30								; se placer à la case mémoire 30 en hexa
@@ -116,8 +116,8 @@ CSGO_INC:
 ;
 ; Description : boucle de la vue principale
 ;
-; Entrée : - r29 (reg_init) pointeur à l'écran
-;		   - r22 (reg_cpt2) varaible temporaire
+; Entrées : - r29 (reg_init) pointeur à l'écran
+;		    - r22 (reg_cpt2) varaible temporaire
 ;
 ; Sorties : appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "Fenetre_Debut[]" [screen.asm]
 ;--------------------------------
@@ -141,7 +141,7 @@ END_CHOIX:
 ;
 ; Entrée : - r29 (reg_init) pointeur à l'écran
 ;
-; Sorties : - r29 (reg_init)
+; Sortie : - r29 (reg_init)
 ;--------------------------------
 UP:
 	cpi		reg_init,8						;test si on est tout en haut
@@ -159,7 +159,7 @@ UP:
 ;
 ; Entrée : - r29 (reg_init) pointeur à l'écran
 ;
-; Sorties : - r29 (reg_init)
+; Sortie : - r29 (reg_init)
 ;--------------------------------
 DOWN:
 	cpi		reg_init,0						;idem
@@ -180,7 +180,7 @@ DOWN:
 ; Sorties : appel des fonctions "RESEAU", "MENTION" et "GAME" [main.asm]
 ;--------------------------------
 CHOIX:
-	cpi		reg_init,4						;test du curseur pour éguiller la fonction
+	cpi		reg_init,4						;test du curseur pour aiguiller la fonction
 	breq	RESEAU
 	cpi		reg_init,0
 	breq	MENTION
@@ -249,7 +249,7 @@ loopReseau1:
 
 loopReseau3:
 
-	ldi		reg_init,2						;une fois connecter on le reste !!!
+	ldi		reg_init,2						;une fois connecté on le reste !!!
 	CONNECTED[]
 
 
@@ -265,8 +265,8 @@ loopReseau2:
 ;
 ; Description : affichage de la page de lancement du jeu
 ;
-; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
-;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
+; Entrées : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
+;		    - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
 ;
 ; Sorties : - r29 (reg_init) pointeur à l'écran pour revenir vers l'écran d'acceuil
 ;			appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "bB[]" [timer.asm]
@@ -286,7 +286,7 @@ GAME:
 	bA[]
 	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
 
-	bB[]									;test de retour à l'écran principale
+	bB[]									;test de retour à l'écran principal
 	ldi		reg_init,8
 	bB[]
 	rjmp	loopMain
@@ -390,10 +390,10 @@ POS:
 ;
 ; Description : crée une attente (dure approximativement 127.49us*reg_cpt3)
 ;
-; Entrée : - r24 (reg_spi) variable de comptage
-;		   - r17 (reg_cpt3) variable de comptage
+; Entrées : - r24 (reg_spi) variable de comptage
+;		    - r17 (reg_cpt3) variable de comptage
 ;
-; Sorties : X
+; Sortie : X
 ;--------------------------------
 tempo_MS:
 	ldi	reg_spi, 255

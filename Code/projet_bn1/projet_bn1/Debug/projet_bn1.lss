@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Jan 19 15:43:28 2020
+AVRASM ver. 2.2.7  D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm Sun Jan 19 16:33:56 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(17): warning: Register r29 already defined by the .DEF directive
@@ -905,7 +905,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  
                                  .def tri = r2							;timerInterruptRegister.
                                  
-                                 .def reg_init = r29						;registre d'initialisation de tout les paramètre et temporaire
+                                 .def reg_init = r29						;registre d'initialisation de tous les paramètres et temporaires
                                  
                                  .def reg_spi = r24						;registre d'envoi et réception en spi & tempo MS
                                  .def reg_addrL = r19					;registres de sélection d'adresse dans la mémoire SPI (LOW)
@@ -916,7 +916,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  .def reg_cpt3 = r17						;registre de comptage tempo
                                  .def reg_screen = r17					;registre d'affichage sur l'écran
                                  
-                                 .def reg_cptT0 = r23					;prescaler du timer0 pour ralentire le clignotement
+                                 .def reg_cptT0 = r23					;prescaler du timer0 pour ralentir le clignotement
                                  
                                  .def reg_vol = r25						;registre de son et de volume
                                  
@@ -926,11 +926,11 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  .def reg_calcul1 = r28					;registre de calcul temporaire
                                  
                                  .dseg
-000060                           	num_son:		.byte 1				;variable SRAM de son (LOW)
+000060                           	num_son:		.byte 1				;variable SRAM du son (LOW)
 000061                           	num_son2:		.byte 1				;idem (HIGH)
 000062                           	C_Wait:			.byte 5				;variable avec le caractère de chargement pour les images
 000067                           	Table:			.byte 8				;table de conversion
-00006f                           	conv:			.byte 1				;varaible de convertion de la poistion du personnage X
+00006f                           	conv:			.byte 1				;varaible de conversion de la position du personnage X
 000070                           	convB:			.byte 1				;idem Y
 000071                           	conv2:			.byte 1				;idem afficher ou non
 000072                           	dead:			.byte 1				;variable de test si le personnage est en vie
@@ -961,13 +961,13 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la fonction : RESET
                                  ;
-                                 ; Description : fonction de lancement du programme et d'initialisation de tout les autres fichiers
+                                 ; Description : fonction de lancement du programme et d'initialisation de tous les autres fichiers
                                  ;
-                                 ; Entrée : - r16 variable temporaire
-                                 ;		   - r17 (reg_cpt3) varaible d'attente
-                                 ;		   - r29 (reg_init) pointeur à l'écran
+                                 ; Entrées : - r16 variable temporaire
+                                 ;		    - r17 (reg_cpt3) varaible d'attente
+                                 ;		    - r29 (reg_init) pointeur à l'écran
                                  ;
-                                 ; Sorties : appel des fonction "Init_char_array" [char_array.asm], "ADC_Init" [adc.asm], "IO_Init" [io.asm], "SCREEN_Init" [screen.asm], "SPI_Init" [spi.asm],
+                                 ; Sorties : appel des fonctions "Init_char_array" [char_array.asm], "ADC_Init" [adc.asm], "IO_Init" [io.asm], "SCREEN_Init" [screen.asm], "SPI_Init" [spi.asm],
                                  ;			"TIMER_Init" [timer.asm], "USART_Init" [uart.asm] et "csgo_init" [csgo.asm]
                                  ;--------------------------------
                                  .org 0x30								; se placer à la case mémoire 30 en hexa
@@ -999,7 +999,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la fonction : IO_Init
                                  ;
-                                 ; Description : intialise les entrées et sorties
+                                 ; Description : initialise les entrées et sorties
                                  ;
                                  ; Entrée : - r29 (reg_init) variable temporaire
                                  ;
@@ -1036,25 +1036,25 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : UART_X[]
                                  ;
-                                 ; Description : récupère la position X du personnage enemi en bluetooth
+                                 ; Description : récupère la position X du personnage ennemi en bluetooth
                                  ;
                                  ; Entrée : - r18 (reg_RX) registre de réception en UART
                                  ;
-                                 ; Sorties : - r11 variable de position X enemi
+                                 ; Sorties : - r11 variable de position X ennemi
                                  ;--------------------------------
                                  .macro UART_X[]
-                                 	andi	reg_RX,0x3F						;reception de la position X en interruption (SRAM innacessible en interruption pour éviter de les désactiver)
+                                 	andi	reg_RX,0x3F						;reception de la position X en interruption (SRAM inacessible en interruption pour éviter de les désactiver)
                                  	mov		r11,reg_RX
                                  .endmacro
                                  
                                  ;--------------------------------
                                  ; Nom de la macro : UART_Y[]
                                  ;
-                                 ; Description : récupère la position Y du personnage enemi en bluetooth
+                                 ; Description : récupère la position Y du personnage ennemi en bluetooth
                                  ;
                                  ; Entrée : - r18 (reg_RX) registre de réception en UART
                                  ;
-                                 ; Sorties : - r10 variable de position Y enemi
+                                 ; Sorties : - r10 variable de position Y ennemi
                                  ;--------------------------------
                                  .macro UART_Y[]
                                  	andi	reg_RX,0x3F						;masque de réception
@@ -1064,13 +1064,13 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : PosPerso[]
                                  ;
-                                 ; Description : stock les données de position du personnage enemi dans la SRAM en dehors des interuptions
+                                 ; Description : stock les données de position du personnage ennemi dans la SRAM en dehors des interruptions
                                  ;
-                                 ; Entrée : - r10 variable de position Y enemi
-                                 ;		   - r11 variable de position X enemi
+                                 ; Entrée : - r10 variable de position Y ennemi
+                                 ;		   - r11 variable de position X ennemi
                                  ;
-                                 ; Sorties : - pos_x_adv (SRAM) position du personnage enemi en X
-                                 ;			- pos_y_adv (SRAM) position du personnage enemi en Y
+                                 ; Sorties : - pos_x_adv (SRAM) position du personnage ennemi en X
+                                 ;			- pos_y_adv (SRAM) position du personnage ennemi en Y
                                  ;--------------------------------
                                  .macro PosPerso[]
                                  	sts		pos_x_adv,r11
@@ -1166,7 +1166,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Entrée : - r29 (reg_init) variable temporaire
                                  ;
-                                 ; Sorties : démarre une convertion
+                                 ; Sorties : démarre une conversion
                                  ;--------------------------------
                                  ADC_Init:
 00005e e6d0                      	ldi		reg_init,(1<<ADLAR)|(1<<REFS0)							;ext ref / left adjust / mux to ADC0
@@ -1193,7 +1193,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bGa[]
                                  ;
-                                 ; Description : test si le bouton Gauche est appuié
+                                 ; Description : test si le bouton Gauche est appuyé
                                  ;--------------------------------
                                  .macro bGa[]				;macro de bouton
                                  	sbis	PINA,1
@@ -1202,7 +1202,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bGan[]
                                  ;
-                                 ; Description : test si le bouton Gauche n'est pas appuié
+                                 ; Description : test si le bouton Gauche n'est pas appuyé
                                  ;--------------------------------
                                  .macro bGan[]
                                  	sbic	PINA,1
@@ -1211,7 +1211,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bBa[]
                                  ;
-                                 ; Description : test si le bouton bas est appuié
+                                 ; Description : test si le bouton bas est appuyé
                                  ;--------------------------------
                                  .macro bBa[]
                                  	sbis	PINA,2
@@ -1220,7 +1220,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bBan[]
                                  ;
-                                 ; Description : test si le bouton Bas n'est pas appuié
+                                 ; Description : test si le bouton Bas n'est pas appuyé
                                  ;--------------------------------
                                  .macro bBan[]
                                  	sbic	PINA,2
@@ -1229,7 +1229,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bDr[]
                                  ;
-                                 ; Description : test si le bouton Droit est appuié
+                                 ; Description : test si le bouton Droit est appuyé
                                  ;--------------------------------
                                  .macro bDr[]
                                  	sbis	PINA,3
@@ -1238,7 +1238,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bDrn[]
                                  ;
-                                 ; Description : test si le bouton Droit n'est pas appuié
+                                 ; Description : test si le bouton Droit n'est pas appuyé
                                  ;--------------------------------
                                  .macro bDrn[]
                                  	sbic	PINA,3
@@ -1247,7 +1247,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bHa[]
                                  ;
-                                 ; Description : test si le bouton Haut est appuié
+                                 ; Description : test si le bouton Haut est appuyé
                                  ;--------------------------------
                                  .macro bHa[]
                                  	sbis	PINA,4
@@ -1256,7 +1256,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bHan[]
                                  ;
-                                 ; Description : test si le bouton Haut n'est pas appuié
+                                 ; Description : test si le bouton Haut n'est pas appuyé
                                  ;--------------------------------
                                  .macro bHan[]
                                  	sbic	PINA,4
@@ -1265,7 +1265,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bB[]
                                  ;
-                                 ; Description : test si le bouton B est appuié
+                                 ; Description : test si le bouton B est appuyé
                                  ;--------------------------------
                                  .macro bB[]
                                  	sbis	PINA,5
@@ -1274,7 +1274,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bBn[]
                                  ;
-                                 ; Description : test si le bouton B n'est pas appuié
+                                 ; Description : test si le bouton B n'est pas appuyé
                                  ;--------------------------------
                                  .macro bBn[]
                                  	sbic	PINA,5
@@ -1283,7 +1283,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bA[]
                                  ;
-                                 ; Description : test si le bouton A est appuié
+                                 ; Description : test si le bouton A est appuyé
                                  ;--------------------------------
                                  .macro bA[]
                                  	sbis	PINA,6
@@ -1292,7 +1292,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bAn[]
                                  ;
-                                 ; Description : test si le bouton A n'est pas appuié
+                                 ; Description : test si le bouton A n'est pas appuyé
                                  ;--------------------------------
                                  .macro bAn[]
                                  	sbic	PINA,6
@@ -1301,7 +1301,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bSel[]
                                  ;
-                                 ; Description : test si le bouton Select est appuié
+                                 ; Description : test si le bouton Select est appuyé
                                  ;--------------------------------
                                  .macro bSel[]
                                  	sbis	PINA,7
@@ -1310,7 +1310,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bSeln[]
                                  ;
-                                 ; Description : test si le bouton Select n'est pas appuié
+                                 ; Description : test si le bouton Select n'est pas appuyé
                                  ;--------------------------------
                                  .macro bSeln[]
                                  	sbic	PINA,7
@@ -1319,7 +1319,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bSta[]
                                  ;
-                                 ; Description : test si le bouton Start est appuié
+                                 ; Description : test si le bouton Start est appuyé
                                  ;--------------------------------
                                  .macro bSta[]
                                  	sbis	PIND,2
@@ -1328,7 +1328,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bStan[]
                                  ;
-                                 ; Description : test si le bouton Start n'est pas appuié
+                                 ; Description : test si le bouton Start n'est pas appuyé
                                  ;--------------------------------
                                  .macro bStan[]
                                  	sbic	PIND,2
@@ -1337,7 +1337,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bL[]
                                  ;
-                                 ; Description : test si le bouton Gauche (gachette) est appuié
+                                 ; Description : test si le bouton Gauche (gachette) est appuyé
                                  ;--------------------------------
                                  .macro bL[]
                                  	sbis	PIND,3
@@ -1346,7 +1346,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bLn[]
                                  ;
-                                 ; Description : test si le bouton Gauche (gachette) n'est pas appuié
+                                 ; Description : test si le bouton Gauche (gachette) n'est pas appuyé
                                  ;--------------------------------
                                  .macro bLn[]
                                  	sbic	PIND,3
@@ -1355,7 +1355,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bR[]
                                  ;
-                                 ; Description : test si le bouton Droit (gachette) est appuié
+                                 ; Description : test si le bouton Droit (gachette) est appuyé
                                  ;--------------------------------
                                  .macro bR[]
                                  	sbis	PIND,4
@@ -1364,7 +1364,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : bRn[]
                                  ;
-                                 ; Description : test si le bouton Droit (gachette) n'est pas appuié
+                                 ; Description : test si le bouton Droit (gachette) n'est pas appuyé
                                  ;--------------------------------
                                  .macro bRn[]
                                  	sbic	PIND,4
@@ -1373,7 +1373,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la fonction : TIMER_Init
                                  ;
-                                 ; Description : initialisation le timer 0 et le timer 1
+                                 ; Description : initialisation du timer 0 et du timer 1
                                  ;
                                  ; Entrée : - r25 (reg_vol) registre de gestion du volume et de la fréquence du buzzer
                                  ;		   - r23 (reg_cptT0) registre de comptage pour ralentir le timer 0
@@ -1431,7 +1431,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  TI1_Interrupt:
 000082 b62f                      	in		tri,SREG								;save content of flag reg.
                                  
-000083 9190 0061                 	lds		reg_vol,num_son2						;chargement de l'addresse du son à jouer
+000083 9190 0061                 	lds		reg_vol,num_son2						;chargement de l'adresse du son à jouer
 000085 3092                      	cpi		reg_vol,2
 000086 f508                      	brsh	No_sound
                                  
@@ -1457,7 +1457,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  	;gestion du volume
 000098 e090                      	ldi		reg_vol,0
 000099 bd9b                      	out		OCR1AH,reg_vol
-00009a b195                      	in		reg_vol,ADCH							;on lit la valeur de l'adc convertie
+00009a b195                      	in		reg_vol,ADCH							;on lit la valeur de l'adc converti
 00009b bd9a                      	out		OCR1AL,reg_vol
                                  
 00009c b196                      	in		reg_vol,ADCSRA
@@ -1507,7 +1507,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  TI0_interrupt:
 0000af b62f                      	in		tri,SREG								;save content of flag reg.
-0000b0 9573                      	inc		reg_cptT0								;variable de comptage pour diviseur la fréquence
+0000b0 9573                      	inc		reg_cptT0								;variable de comptage pour diviser la fréquence
 0000b1 3170                      	cpi		reg_cptT0,16
 0000b2 f409                      	brne	END_T0
 0000b3 e070                      	ldi		reg_cptT0,0
@@ -1544,7 +1544,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ; INSA Strasbourg
                                  ;********************************
                                  
-                                 .equ WREN = 0x06									;define des valeurs pour lire et écrire dans la mémoir SPI
+                                 .equ WREN = 0x06									;definie des valeurs pour lire et écrire dans la mémoire SPI
                                  .equ WRDI = 0x04
                                  .equ READ = 0x03
                                  .equ WRITE = 0x02
@@ -1587,7 +1587,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la fonction : SPI_Transmit
                                  ;
-                                 ; Description : envoi une donné en SPI et réception celle du périphérique esclave
+                                 ; Description : envoi une donnée en SPI et réceptionne celle du périphérique esclave
                                  ;
                                  ; Entrée : - r24 (reg_spi) registre d'envoi et de réception en SPI
                                  ;
@@ -1604,7 +1604,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la fonction : Read_Mem
                                  ;
-                                 ; Description : lit une donné dans la mémoire SPI
+                                 ; Description : lit une donnée dans la mémoire SPI
                                  ;
                                  ; Entrée : - r24 (reg_spi) registre d'envoi et de réception en SPI
                                  ;		   - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
@@ -1657,7 +1657,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : screenR[]
                                  ;
-                                 ; Description : sélectionne le côté de l'écran droit
+                                 ; Description : sélectionne le côté de l'écran à droite
                                  ;
                                  ; Entrée : X
                                  ;
@@ -1673,7 +1673,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Description : valide la donnée sur le port de l'écran
                                  ;
-                                 ; Entrée : - r17 (reg_cpt3) compteur de temporaisation
+                                 ; Entrée : - r17 (reg_cpt3) compteur de temporisation
                                  ;
                                  ; Sorties : appel la fonction "tempo_US" [screen.asm]
                                  ;--------------------------------
@@ -1689,12 +1689,12 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Description : place le curseur sur l'écran en X
                                  ;
-                                 ; Entrée : - r17 (reg_cpt3) compteur de temporaisation
+                                 ; Entrée : - r17 (reg_cpt3) compteur de temporisation
                                  ;		   - r17 (reg_screen) variable de l'écran => position de 0 à 7
                                  ;
                                  ; Sorties : appel les macros "RS_clear[]", "Enable[]" et "RS_set[]" [screen.asm]
                                  ;--------------------------------
-                                 .macro SetPosX[]					;pos de 0 à 7 (à changer à chaque fois)
+                                 .macro SetPosX[]					;position de 0 à 7 (à changer à chaque fois)
                                  	RS_clear[]
                                  	ori		reg_screen,0xB8
                                  	out		PORTC,reg_screen
@@ -1707,12 +1707,12 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Description : place le curseur sur l'écran en Y
                                  ;
-                                 ; Entrée : - r17 (reg_cpt3) compteur de temporaisation
+                                 ; Entrée : - r17 (reg_cpt3) compteur de temporisation
                                  ;		   - r17 (reg_screen) variable de l'écran => position de 0 à 64
                                  ;
                                  ; Sorties : appel les macros "RS_clear[]", "Enable[]" et "RS_set[]" [screen.asm]
                                  ;--------------------------------
-                                 .macro SetPosY[]					;pos de 0 à 64 (auto)
+                                 .macro SetPosY[]					;position de 0 à 64 (auto)
                                  	RS_clear[]
                                  	ori		reg_screen,0x40
                                  	out		PORTC,reg_screen
@@ -1763,14 +1763,14 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : placePosPerso[]
                                  ;
-                                 ; Description : convertie la position du X/Y du personnage en adresse et pixels
+                                 ; Description : converti la position du X/Y du personnage en adresse et pixels
                                  ;
                                  ; Entrée : - r17 (reg_screen) variable de l'écran
                                  ;		   - r28 (reg_calcul1) variable temporaire
-                                 ;		   - Table (SRAM) table de convertion pour le binaire vers la pixel à allumer
+                                 ;		   - Table (SRAM) table de conversion pour le binaire vers le pixel à allumer
                                  ;		   - PosX (SRAM) de 0 à 20
                                  ;		   - PosY (SRAM) de 0 à 20
-                                 ;		   - XL (r26) registre interne pour se déplacer la la SRAM
+                                 ;		   - XL (r26) registre interne pour se déplacer dans la SRAM
                                  ;		   - XH (r27)
                                  ;
                                  ; Sorties : - conv (SRAM) valeur sur 8 bits qui correspond au pixel à allumer
@@ -1781,13 +1781,13 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  	lds		reg_screen,pos_x
                                  	mov		reg_calcul1,reg_screen	;test Y
                                  	andi	reg_screen,7
-                                 	ldi		XL,LOW(Table)			;table de convertion 2^(8-X) = Y
+                                 	ldi		XL,LOW(Table)			;table de conversion 2^(8-X) = Y
                                  	ldi		XH,HIGH(Table)
                                  	add		XL,reg_screen			;test X
                                  	ld		reg_screen,X
                                  	sts		conv,reg_screen
                                  
-                                 	ldi		reg_screen,255			;convertion des positions par 8 pixels
+                                 	ldi		reg_screen,255			;conversion des positions par 8 pixels
                                  	cpi		reg_calcul1,8
                                  	brlo	END_PERSO
                                  	cpi		reg_calcul1,16
@@ -1989,11 +1989,11 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
 000122 9543                      	inc		reg_addrH
                                  addr_carry1:
                                  
-000123 9553                      	inc		reg_cpt1				;incrément du compteur 1
+000123 9553                      	inc		reg_cpt1				;incrémente le compteur 1
 000124 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 000125 cff2                      	rjmp	loop2
                                  
-000126 9563                      	inc		reg_cpt2				;incrément du copteur 2
+000126 9563                      	inc		reg_cpt2				;incrémente le compteur 2
 000127 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 000128 cfdc                      	rjmp	loop1
                                  
@@ -2056,17 +2056,17 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
 000164 ef1a
 000165 df77
 000166 9ac3                      	ScreenWrite[]					;écriture sur l'écran
-000167 9533                      	inc		reg_addrL				;incrément de l'adresse LOW
+000167 9533                      	inc		reg_addrL				;incrémente l'adresse LOW
 000168 3030                      	cpi		reg_addrL,0
 000169 f409                      	brne	addr_carry2				;test du carry
 00016a 9543                      	inc		reg_addrH
                                  addr_carry2:
                                  
-00016b 9553                      	inc		reg_cpt1				;incrément du compteur 1
+00016b 9553                      	inc		reg_cpt1				;incrémente le compteur 1
 00016c ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 00016d cfd1                      	rjmp	loop4
                                  
-00016e 9563                      	inc		reg_cpt2				;incrément du copteur 2
+00016e 9563                      	inc		reg_cpt2				;incrémente le compteur 2
 00016f ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 000170 cfbb                      	rjmp	loop3
 000171 9508                      	ret
@@ -2114,11 +2114,11 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
 00018c df50
 00018d 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
-00018e 9553                      	inc		reg_cpt1				;incrément du compteur 1
+00018e 9553                      	inc		reg_cpt1				;incrémente le compteur 1
 00018f ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 000190 cff7                      	rjmp	loop6
                                  
-000191 9563                      	inc		reg_cpt2				;incrément du copteur 2
+000191 9563                      	inc		reg_cpt2				;incrémente le compteur 2
 000192 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 000193 cfe1                      	rjmp	loop5
                                  
@@ -2153,11 +2153,11 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
 0001ae df2e
 0001af 9ac3                      	ScreenWrite[]					;écriture sur l'écran
                                  
-0001b0 9553                      	inc		reg_cpt1				;incrément du compteur 1
+0001b0 9553                      	inc		reg_cpt1				;incrémente le compteur 1
 0001b1 ff56                      	sbrs	reg_cpt1,6				;test de fin de boucle = 64
 0001b2 cff7                      	rjmp	loop8
                                  
-0001b3 9563                      	inc		reg_cpt2				;incrément du copteur 2
+0001b3 9563                      	inc		reg_cpt2				;incrémente le copteur 2
 0001b4 ff63                      	sbrs	reg_cpt2,3				;test de fin de boucle = 8
 0001b5 cfe1                      	rjmp	loop7
 0001b6 9508                      	ret
@@ -2171,7 +2171,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;		   - r21 (reg_cpt1) compteur d'affichage Y
                                  ;		   - r22 (reg_cpt2) compteur d'affichage X
                                  ;		   - C_Wait (SRAM) caractère d'attente du ping
-                                 ;		   - XL (r26) registre interne pour se déplacer la la SRAM
+                                 ;		   - XL (r26) registre interne pour se déplacer dans la SRAM
                                  ;		   - XH (r27)
                                  ;		   - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
                                  ;
@@ -2234,7 +2234,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
 0001ec 9508                      SCREEN_INC:
                                  	.include "char_array.asm"
                                  
-                                 ; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fde gestion de l'affichage]
+                                 ; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fichier de gestion de l'affichage]
                                  ;
                                  ; Fichier : char_array.asm
                                  ;
@@ -2254,8 +2254,8 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Entrée : - r29 (reg_init) variable temporaire
                                  ;
-                                 ; Sorties : C_Wait (SRAM) caractère d'attent du ping
-                                 ;			Table (SRAM) table de convertion pour faire clignoter le pixel de la position du personnage
+                                 ; Sorties : C_Wait (SRAM) caractère d'attente du ping
+                                 ;			Table (SRAM) table de conversion pour faire clignoter le pixel de la position du personnage
                                  ;			dead (SRAM) variable d'état du personnage
                                  ;--------------------------------
                                  Init_char_array:
@@ -2315,7 +2315,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : CONNECTED[]
                                  ;
-                                 ; Description : affiche la fenêtre de la vue connecté
+                                 ; Description : affiche la fenêtre de la vue connectée
                                  ;
                                  ; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
                                  ;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
@@ -2331,7 +2331,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;--------------------------------
                                  ; Nom de la macro : NO_CONNECTED[]
                                  ;
-                                 ; Description : affiche la fenêtre de la vue non connecté
+                                 ; Description : affiche la fenêtre de la vue non connectée
                                  ;
                                  ; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
                                  ;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
@@ -2634,8 +2634,8 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Description : boucle de la vue principale
                                  ;
-                                 ; Entrée : - r29 (reg_init) pointeur à l'écran
-                                 ;		   - r22 (reg_cpt2) varaible temporaire
+                                 ; Entrées : - r29 (reg_init) pointeur à l'écran
+                                 ;		    - r22 (reg_cpt2) varaible temporaire
                                  ;
                                  ; Sorties : appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "Fenetre_Debut[]" [screen.asm]
                                  ;--------------------------------
@@ -2662,7 +2662,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Entrée : - r29 (reg_init) pointeur à l'écran
                                  ;
-                                 ; Sorties : - r29 (reg_init)
+                                 ; Sortie : - r29 (reg_init)
                                  ;--------------------------------
                                  UP:
 0002ef 30d8                      	cpi		reg_init,8						;test si on est tout en haut
@@ -2680,7 +2680,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Entrée : - r29 (reg_init) pointeur à l'écran
                                  ;
-                                 ; Sorties : - r29 (reg_init)
+                                 ; Sortie : - r29 (reg_init)
                                  ;--------------------------------
                                  DOWN:
 0002f6 30d0                      	cpi		reg_init,0						;idem
@@ -2701,7 +2701,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ; Sorties : appel des fonctions "RESEAU", "MENTION" et "GAME" [main.asm]
                                  ;--------------------------------
                                  CHOIX:
-0002fd 30d4                      	cpi		reg_init,4						;test du curseur pour éguiller la fonction
+0002fd 30d4                      	cpi		reg_init,4						;test du curseur pour aiguiller la fonction
 0002fe f061                      	breq	RESEAU
 0002ff 30d0                      	cpi		reg_init,0
 000300 f011                      	breq	MENTION
@@ -2778,7 +2778,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  
                                  loopReseau3:
                                  
-000322 e0d2                      	ldi		reg_init,2						;une fois connecter on le reste !!!
+000322 e0d2                      	ldi		reg_init,2						;une fois connecté on le reste !!!
 000323 e030
 000324 e64c
 000325 ddbb                      	CONNECTED[]
@@ -2796,8 +2796,8 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Description : affichage de la page de lancement du jeu
                                  ;
-                                 ; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
-                                 ;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
+                                 ; Entrées : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
+                                 ;		    - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
                                  ;
                                  ; Sorties : - r29 (reg_init) pointeur à l'écran pour revenir vers l'écran d'acceuil
                                  ;			appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "bB[]" [timer.asm]
@@ -2817,7 +2817,7 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
 000333 9bce                      	bA[]
 000334 c005                      	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
                                  
-000335 9bcd                      	bB[]									;test de retour à l'écran principale
+000335 9bcd                      	bB[]									;test de retour à l'écran principal
 000336 e0d8                      	ldi		reg_init,8
 000337 9bcd                      	bB[]
 000338 cfaa                      	rjmp	loopMain
@@ -2922,10 +2922,10 @@ D:\école\GE4\bn1\Bas-Niveau\Code\projet_bn1\projet_bn1\main.asm(107): Including 
                                  ;
                                  ; Description : crée une attente (dure approximativement 127.49us*reg_cpt3)
                                  ;
-                                 ; Entrée : - r24 (reg_spi) variable de comptage
-                                 ;		   - r17 (reg_cpt3) variable de comptage
+                                 ; Entrées : - r24 (reg_spi) variable de comptage
+                                 ;		    - r17 (reg_cpt3) variable de comptage
                                  ;
-                                 ; Sorties : X
+                                 ; Sortie : X
                                  ;--------------------------------
                                  tempo_MS:
 00039c ef8f                      	ldi	reg_spi, 255

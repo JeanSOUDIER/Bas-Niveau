@@ -15,7 +15,7 @@
 ;--------------------------------
 ; Nom de la fonction : IO_Init
 ;
-; Description : intialise les entrées et sorties
+; Description : initialise les entrées et sorties
 ;
 ; Entrée : - r29 (reg_init) variable temporaire
 ;
