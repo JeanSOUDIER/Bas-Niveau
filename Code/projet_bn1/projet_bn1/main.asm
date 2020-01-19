@@ -1,10 +1,16 @@
+;********************************
+; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fichier principale]
 ;
-; main.asm
+; Fichier : main.asm
 ;
+; Microcontrôleur Atmega16A
+;
+; Version atmel studio : 7.0.2397
 ; Created: 25/10/2019 13:42:48
-; Author : jsoudier01 & atessier01
 ;
-;code programme
+; Author : jsoudier01 & atessier01
+; INSA Strasbourg
+;********************************
 
 .def tri = r2							;timerInterruptRegister.
 
@@ -61,6 +67,18 @@
 .org 0x16								; 12: $016 USART, RXC USART, Rx Complete
 	jmp		UART_Interrupt
 
+;--------------------------------
+; Nom de la fonction : RESET
+;
+; Description : fonction de lancement du programme et d'initialisation de tout les autres fichiers
+;
+; Entrée : - r16 variable temporaire
+;		   - r17 (reg_cpt3) varaible d'attente
+;		   - r29 (reg_init) pointeur à l'écran
+;
+; Sorties : appel des fonction "Init_char_array" [char_array.asm], "ADC_Init" [adc.asm], "IO_Init" [io.asm], "SCREEN_Init" [screen.asm], "SPI_Init" [spi.asm],
+;			"TIMER_Init" [timer.asm], "USART_Init" [uart.asm] et "csgo_init" [csgo.asm]
+;--------------------------------
 .org 0x30								; se placer à la case mémoire 30 en hexa
 RESET:									; adresse du vecteur de reset
 	ldi		r16,high(RAMEND)			; initialisation de la pile
@@ -70,8 +88,6 @@ RESET:									; adresse du vecteur de reset
 
 	ldi		reg_cpt3,255				;tempo de début
 	rcall	tempo_US
-
-
 
 	;ajout des programmes pour la gestion des modules
 	.include "io.asm"
@@ -91,12 +107,20 @@ CHAR_INC:
 	.include "csgo.asm"
 CSGO_INC:
 	
-	sei
+	sei										;activation des interruptions
 
 	ldi		reg_init,8						;initialisation du curseur
 
-	
-
+;--------------------------------
+; Nom de la fonction : loopMain
+;
+; Description : boucle de la vue principale
+;
+; Entrée : - r29 (reg_init) pointeur à l'écran
+;		   - r22 (reg_cpt2) varaible temporaire
+;
+; Sorties : appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "Fenetre_Debut[]" [screen.asm]
+;--------------------------------
 loopMain:									;premier menu
 	mov		reg_cpt2,reg_init				;récupération de la position du curseur
 	bHa[]									;test du bouton "vers le haut"
@@ -110,6 +134,15 @@ END:
 END_CHOIX:
 	rjmp	loopMain						;boucle infini
 
+;--------------------------------
+; Nom de la fonction : UP
+;
+; Description : gestion du déplacement du curseur vers le haut
+;
+; Entrée : - r29 (reg_init) pointeur à l'écran
+;
+; Sorties : - r29 (reg_init)
+;--------------------------------
 UP:
 	cpi		reg_init,8						;test si on est tout en haut
 	breq	END
@@ -119,6 +152,15 @@ UP:
 	ldi		reg_init,4
 	rjmp	END
 
+;--------------------------------
+; Nom de la fonction : DOWN
+;
+; Description : gestion du déplacement du curseur vers le bas
+;
+; Entrée : - r29 (reg_init) pointeur à l'écran
+;
+; Sorties : - r29 (reg_init)
+;--------------------------------
 DOWN:
 	cpi		reg_init,0						;idem
 	breq	END
@@ -128,6 +170,15 @@ DOWN:
 	ldi		reg_init,4
 	rjmp	END
 
+;--------------------------------
+; Nom de la fonction : DOWN
+;
+; Description : gestion du choix sélectionné à l'écran
+;
+; Entrée : - r29 (reg_init) pointeur à l'écran
+;
+; Sorties : appel des fonctions "RESEAU", "MENTION" et "GAME" [main.asm]
+;--------------------------------
 CHOIX:
 	cpi		reg_init,4						;test du curseur pour éguiller la fonction
 	breq	RESEAU
@@ -136,6 +187,16 @@ CHOIX:
 	ldi		reg_init,0
 	rjmp	GAME
 
+;--------------------------------
+; Nom de la fonction : MENTION
+;
+; Description : affichage des mentions
+;
+; Entrée : X
+;
+; Sorties : - r29 (reg_init) pointeur à l'écran pour revenir vers l'écran d'acceuil
+;			appel des macros "MENTION_MA[]" [char_array.asm] et "bB[]" [timer.asm]
+;--------------------------------
 MENTION:
 	MENTION_MA[]							;affichage des mentions
 	bB[]
@@ -144,6 +205,17 @@ MENTION:
 	rjmp	loopMain
 	rjmp	MENTION
 
+;--------------------------------
+; Nom de la fonction : RESEAU
+;
+; Description : affichage du test réseau (ping)
+;
+; Entrée : X
+;
+; Sorties : - r29 (reg_init) pointeur à l'écran pour revenir vers l'écran d'acceuil
+;			appel des macros "CONN1[]" [char_array.asm], "CONN2[]" [char_array.asm], "CONN3[]" [char_array.asm], "NO_CONNECTED[]" [char_array.asm], "CONNECTED[]" [char_array.asm] et "bB[]" [timer.asm]
+;			appel des fonctions "USART_Transmit" [uart.asm] et "tempo_MS" [main.asm]
+;--------------------------------
 	RESEAU:									;boucle du test de connection réseau
 	CONN1[]
 
@@ -188,7 +260,18 @@ loopReseau2:
 	rjmp	loopMain
 	rjmp	loopReseau1
 
-
+;--------------------------------
+; Nom de la fonction : GAME
+;
+; Description : affichage de la page de lancement du jeu
+;
+; Entrée : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
+;		   - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
+;
+; Sorties : - r29 (reg_init) pointeur à l'écran pour revenir vers l'écran d'acceuil
+;			appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "bB[]" [timer.asm]
+;			appel des fonctions "writeFullSreen" [screen.asm], "Lancement_Jeu" [main.asm] et "loopMain" [main.asm]
+;--------------------------------
 GAME:
 	bHa[]									;choix du mode de jeu
 	ldi		reg_init,0
@@ -209,6 +292,7 @@ GAME:
 	rjmp	loopMain
 	rjmp	GAME
 
+;;a faire
 Lancement_Jeu:								;on détermine dans quel mode de jeu on est
 	ldi		r16,0x00						;placement orientation Nord
 	sts		orientation,r16
@@ -251,6 +335,7 @@ Cible:
 
 	rjmp	Affichage_Image					;début du jeu
 
+;; a faire
 Jeu_En_Cours:								;boucle du jeu en cours
 	cpi		reg_init,0
 	breq	POS
@@ -296,13 +381,20 @@ en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
 	rjmp	Affichage_Image
-
 POS:
 	PosPerso[]
 	rjmp Jeu_Continue
 
-
-; sous programme de temporisation, dure approximativement 127.49us si charge 1 dans reg_cpt3
+;--------------------------------
+; Nom de la fonction : tempo_MS
+;
+; Description : crée une attente (dure approximativement 127.49us*reg_cpt3)
+;
+; Entrée : - r24 (reg_spi) variable de comptage
+;		   - r17 (reg_cpt3) variable de comptage
+;
+; Sorties : X
+;--------------------------------
 tempo_MS:
 	ldi	reg_spi, 255
 boucletempo_MS:

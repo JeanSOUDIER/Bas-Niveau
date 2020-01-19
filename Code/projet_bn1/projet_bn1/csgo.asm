@@ -1,3 +1,17 @@
+;********************************
+; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fichier de gestion du jeu]
+;
+; Fichier : csgo.asm
+;
+; Microcontrôleur Atmega16A
+;
+; Version atmel studio : 7.0.2397
+; Created: 25/10/2019 13:42:48
+;
+; Author : jsoudier01 & atessier01
+; INSA Strasbourg
+;********************************
+
 csgo_init:
 	ldi		r16,0x01
 	sts		pos_y,r16					;intialisation de la position du personnage
