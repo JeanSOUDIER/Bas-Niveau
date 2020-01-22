@@ -1,5 +1,5 @@
 ;********************************
-; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fichier principale]
+; Programme du jeu entre 2 Gameboy connectées en bluetooth (électif bas niveau) [fichier principal]
 ;
 ; Fichier : main.asm
 ;
@@ -268,7 +268,7 @@ loopReseau2:
 ; Entrées : - r19 (reg_addrL) variable de positionnement dans la mémoire SPI (LOW)
 ;		    - r20 (reg_addrH) variable de positionnement dans la mémoire SPI (HIGH)
 ;
-; Sorties : - r29 (reg_init) pointeur à l'écran pour revenir vers l'écran d'acceuil
+; Sorties : - r29 (reg_init) pointeur à l'écran pour choisir le mode de jeu
 ;			appel des macros "bHa[]" [timer.asm], "bBa[]" [timer.asm], "bA[]" [timer.asm] et "bB[]" [timer.asm]
 ;			appel des fonctions "writeFullSreen" [screen.asm], "Lancement_Jeu" [main.asm] et "loopMain" [main.asm]
 ;--------------------------------
@@ -284,7 +284,7 @@ GAME:
 	rcall	writeFullSreen
 
 	bA[]
-	rjmp	Lancement_Jeu					;lancement du jeu (1 mode disponible pour l'instant
+	rjmp	Lancement_Jeu					;lancement du jeu
 
 	bB[]									;test de retour à l'écran principal
 	ldi		reg_init,8
@@ -292,52 +292,74 @@ GAME:
 	rjmp	loopMain
 	rjmp	GAME
 
-;;a faire
+;--------------------------------
+; Nom de la fonction : Lancement_Jeu
+;
+; Description : Sélection du mode de jeu en fonction du choix du joueur dans le menu GAME
+;
+; Entrées : - r16 registre temporaire de calcul
+;			- r17 registre temporaire de calcul
+;			- r29 (reg_init) choix du mode de jeu
+;
+; Sorties : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
+;			appel des fonctions "rand" [timer.asm], "USART_Transmit" [uart.asm], "Read_Mem" [spi.asm] et "Affichage_Image" [main.asm]
+;--------------------------------
 Lancement_Jeu:								;on détermine dans quel mode de jeu on est
 	ldi		r16,0x00						;placement orientation Nord
 	sts		orientation,r16
 	cpi		reg_init,0
 	breq	MME
 	rjmp	Cible
-MME:
-	rcall	rand
-	lds		r16,pos_rand					;on met la valeur entre 0 et 128
-	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
-	mul		r16,r17
-	sts		numero_mapL,r0
+MME:										;mode de jeu multijoueur
+	rcall	rand							;on récupère une valeur aléatoire entre 0 et 255
+	lds		r16,pos_rand					
+	ldi		r17,0x08						;on met la valeur entre 0 et 128 (pour être sûr qu'elle soit entre 0 et 181
+	mul		r16,r17							;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
+	sts		numero_mapL,r0					;on stocke l'adresse
 	mov		r16,r1
 	subi	r16,-0x48
-	sts		numero_mapH,r16
-	lds		reg_TX,numero_mapL
+	sts		numero_mapH,r16					;on stocke l'adresse
+	lds		reg_TX,numero_mapL				;et on la transmet à l'autre GameBoy
 	rcall	USART_Transmit
 	lds		reg_TX,numero_mapH
 	rcall	USART_Transmit
-	rjmp	Affichage_Image
-Cible:
+	rjmp	Affichage_Image					;début du jeu
+Cible:										;mode de jeu solo
 	ldi		r16,0x00						;placement du joueur à la case 1 de la mémoire
 	sts		numero_mapL,r16
 	ldi		r16,0x48
 	sts		numero_mapH,r16
 
-	rcall	rand
+	rcall	rand							;on récupère une valeur aléatoire et on la caste entre 0 et 128
 	lds		r16,pos_rand
-	ldi		r17,0x08						;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
-	mul		r16,r17
+	ldi		r17,0x08						
+	mul		r16,r17							;on calcule l'adresse de la case de la cible à partir de son numéro: addr = 0x4800 + 8*rand_pos
 	mov		reg_addrL,r0
 	mov		reg_addrH,r1
 	subi	reg_addrH,-0x48
 	subi	reg_addrL,-0x06
-	rcall	Read_Mem						;on récupère la position x
+	rcall	Read_Mem						;on récupère la position x correspondante
 	sts		pos_x_adv,reg_spi
 	subi	reg_addrL,-0x01
-	rcall	Read_Mem						;on récupère la position y
+	rcall	Read_Mem						;on récupère la position y correspondante
 	sts		pos_y_adv,reg_spi
 
 	rjmp	Affichage_Image					;début du jeu
 
-;; a faire
+;--------------------------------
+; Nom de la fonction : Lancement_Jeu
+;
+; Description : Sélection du mode de jeu en fonction du choix du joueur dans le menu GAME
+;
+; Entrées : - r16 registre temporaire de calcul
+;			- r17 registre temporaire de calcul
+;			- r29 (reg_init) choix du mode de jeu
+;
+; Sorties : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
+;			appel des fonctions "rand" [timer.asm], "USART_Transmit" [uart.asm], "Read_Mem" [spi.asm] et "Affichage_Image" [main.asm]
+;--------------------------------
 Jeu_En_Cours:								;boucle du jeu en cours
-	cpi		reg_init,0
+	cpi		reg_init,0						
 	breq	POS
 Jeu_Continue:
 	bSta[]									;on retourne au menu si le bouton "start"
@@ -381,7 +403,7 @@ en_vie:
 	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
 	rcall	tempo_MS
 	rjmp	Affichage_Image
-POS:
+POS:										;fonction qui permet de résoudre un bug concernant le lancement de la macro
 	PosPerso[]
 	rjmp Jeu_Continue
 

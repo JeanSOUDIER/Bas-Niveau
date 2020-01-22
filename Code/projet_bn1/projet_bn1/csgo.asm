@@ -14,7 +14,7 @@
 
 csgo_init:
 	ldi		r16,0x01
-	sts		pos_y,r16					;intialisation de la position du personnage
+	sts		pos_y,r16					;intialisation de la position du personnage pour ne pas qu'elle clignote à l'écran pendant les menus (détection du x=255)
 	ldi		r16,255
 	sts		pos_x,r16
 	rjmp	CSGO_INC
