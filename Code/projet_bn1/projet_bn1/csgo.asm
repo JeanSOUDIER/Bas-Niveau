@@ -12,6 +12,15 @@
 ; INSA Strasbourg
 ;********************************
 
+;--------------------------------
+; Nom de la fonction : csgo_init
+;
+; Description : initialise les entrées et sorties
+;
+; Entrée : X
+;
+; Sorties : pos_x et pos_y (SRAM) coordonnées du joueur sur la map
+;--------------------------------
 csgo_init:
 	ldi		r16,0x01
 	sts		pos_y,r16					;intialisation de la position du personnage pour ne pas qu'elle clignote à l'écran pendant les menus (détection du x=255)
@@ -19,7 +28,19 @@ csgo_init:
 	sts		pos_x,r16
 	rjmp	CSGO_INC
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mouvement du personnage
+;--------------------------------
+; Nom de la fonction : Avancer
+;
+; Description : Fonction déterminant la capacité du joueur à avancer et qui le fait avancer si c'est possible
+;
+; Entrées : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
+;			- orientation (SRAM) orientation du joueur sur la map (N-O-S-E)
+;			- pos_x et pos_y (SRAM) coordonnées du joueur sur la map
+;
+; Sorties : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
+;			- pos_x et pos_y (SRAM) coordonnées du joueur sur la map
+;			appel des fonctions "USART_Transmit" [uart.asm], "Read_Mem" [spi.asm] et "Affichage_Image" [main.asm]
+;--------------------------------
 Avancer:
 	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
 	lds		reg_addrH,numero_mapH
@@ -54,6 +75,17 @@ Mouvement_Confirme:
 	ori		reg_TX,0x40					;code pour la position y
 	rcall	USART_Transmit
 	rjmp	Affichage_Image
+
+;--------------------------------
+; Nom de la fonction : Tourner_Gauche et Tourner_Droite
+;
+; Description : Fonctions changeant l'orientation du joueur et mettant à jour l'affichage à l'écran
+;
+; Entrées : - orientation (SRAM) orientation du joueur sur la map (N-O-S-E)
+;
+; Sorties : - orientation (SRAM) orientation du joueur sur la map (N-O-S-E)
+;			appel de la fonction  "Affichage_Image" [main.asm]
+;--------------------------------
 Tourner_Gauche:
 	lds		r16,orientation				;on augmente d'un l'orientation
 	subi	r16,-0x01
@@ -69,7 +101,20 @@ Tourner_Droite:
 	sts		orientation,r16
 	rjmp	Affichage_Image
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mise à jour de l'affichage
+;--------------------------------
+; Nom de la fonction : Affichage_Image
+;
+; Description : Fonction affichant l'image qu'il faut à l'écran en fonction de la position et l'orientation du joueur et de la position du joueur adverse
+;				Etapes de la construction: Détermination de l'image par rapport à la case et à l'orientation puis détection de la proximité de l'adversaire et enfin affichage de l'image
+;
+; Entrées : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
+;			- orientation (SRAM) orientation du joueur sur la map (N-O-S-E)
+;			- pos_x et pos_y (SRAM) coordonnées du joueur sur la map
+;			- pos_x_adv et pos_y_adv (SRAM) coordonnées du joueur adverse sur la map
+;
+; Sorties : - adv_ok (SRAM) variable indiquant si l'adversaire est situé juste devant le joueur ou non
+;			appel des fonctions "Read_Mem" [spi.asm] et "writeFullSreen" [screen.asm]
+;--------------------------------
 Affichage_Image:
 	lds		reg_addrL,numero_mapL		;on se replace à la case actuelle dans la mémoire
 	lds		reg_addrH,numero_mapH
@@ -113,20 +158,13 @@ Orientation_Est:
 Determination_Image_1:
 	cpi		r16,0x08					;on vérifie si l'image correspond au code 8 (mur très proche)
 	brne	Determination_Image_2		;sinon, on calcule à quelle image correspond le code
-	ldi		r16,0x04					;si on est contre un mur proche, on charge le code 0x04
-	rjmp	Adversaire_Pas_OK			;on va au code adversaire pas ok pour éviter un bug de victoire en tapant dans un mur
+	ldi		r16,0x04					;si on est contre un mur proche, on ira chercher l'image située à l'adresse 0x0400 de la mémoire spi
+	rjmp	Adversaire_Pas_OK			;on va directement au code adversaire pas ok (adversaire non juste devant le personnage) pour éviter un bug de victoire en tapant dans un mur
 Determination_Image_2:
-	ldi		r17,0x04					;on regarde à quelle image correspond le code
-	mul		r17,r16
+	ldi		r17,0x04					;on détermine à quelle image correspond le code avec la formule image = 4*code_image(=r16)+8, car le code 0 renvoie à l'image située à l'adresse 0x0800 et une image prend 0x3FF de mémoire.
+	mul		r17,r16						; car le code 0 renvoie à l'image située à l'adresse 0x0800 et une image prend 0x3FF de mémoire.
 	mov		r16,r0
 	subi	r16,-0x08
-	rjmp	DETECTION_ADVERSAIRE
-CREATION_IMAGE:
-	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
-	mov		reg_addrH,r16
-	rcall	writeFullSreen
-	rjmp	Jeu_En_Cours
-
 DETECTION_ADVERSAIRE:
 	lds		reg_cpt1,orientation		;on se place à la bonne orientation
 	cpi		reg_cpt1,0x00
@@ -138,70 +176,84 @@ DETECTION_ADVERSAIRE:
 	cpi		reg_cpt1,0x03
 	breq	Detection_Est
 Detection_Nord:							;on doit avoir pos_y = pos_y_adv et pos_x = pos_x_adv + 1
-	lds		reg_cpt1,pos_x			
+	lds		reg_cpt1,pos_x				;on vérifie d'abord la relation pos_x = pos_x_adv + 1
 	lds		reg_cpt2,pos_x_adv
 	subi	reg_cpt2,-0x01
-	cp		reg_cpt1,reg_cpt2
+	cp		reg_cpt1,reg_cpt2			;si cette condition est vérifiée on va vérifier l'autre à CI_X_OK
 	breq	CI_X_OK  
-	rjmp	Adversaire_Pas_OK
+	rjmp	Adversaire_Pas_OK			;sinon on passe directement à la suite
 Detection_Ouest:						;on doit avoir pos_x = pos_x_adv et pos_y = pos_y_adv + 1
-	lds		reg_cpt1,pos_y
+	lds		reg_cpt1,pos_y				;on vérifie d'abord la relation pos_y = pos_y_adv + 1
 	lds		reg_cpt2,pos_y_adv
 	subi	reg_cpt2,-0x01
-	cp		reg_cpt1,reg_cpt2
+	cp		reg_cpt1,reg_cpt2			;si cette condition est vérifiée on va vérifier l'autre à CI_Y_OK
 	breq	CI_Y_OK
-	rjmp	Adversaire_Pas_OK
+	rjmp	Adversaire_Pas_OK			;sinon on passe directement à la suite
 Detection_Sud:							;on doit avoir pos_y = pos_y_adv et pos_x = pos_x_adv - 1
-	lds		reg_cpt1,pos_x
+	lds		reg_cpt1,pos_x				;on vérifie d'abord la relation pos_x = pos_x_adv - 1
 	lds		reg_cpt2,pos_x_adv
 	subi	reg_cpt2,0x01
-	cp		reg_cpt1,reg_cpt2
+	cp		reg_cpt1,reg_cpt2			;si cette condition est vérifiée on va vérifier l'autre à CI_X_OK
 	breq	CI_X_OK
-	rjmp	Adversaire_Pas_OK
+	rjmp	Adversaire_Pas_OK			;sinon on passe directement à la suite
 Detection_Est:							;on doit avoir pos_x = pos_x_adv et pos_y = pos_y_adv - 1
-	lds		reg_cpt1,pos_y
+	lds		reg_cpt1,pos_y				;on vérifie d'abord la relation pos_y = pos_y_adv - 1
 	lds		reg_cpt2,pos_y_adv
 	subi	reg_cpt2,0x01
-	cp		reg_cpt1,reg_cpt2
+	cp		reg_cpt1,reg_cpt2			;si cette condition est vérifiée on va vérifier l'autre à CI_Y_OK
 	breq	CI_Y_OK
-	rjmp	Adversaire_Pas_OK
-CI_X_OK:
+	rjmp	Adversaire_Pas_OK			;sinon on passe directement à la suite
+CI_X_OK:								;on vérifie ensuite la relation pos_y = pos_y_adv
 	lds		reg_cpt1,pos_y
 	lds		reg_cpt2,pos_y_adv
 	cp		reg_cpt1,reg_cpt2
-	breq	Adversaire_OK
-	rjmp	Adversaire_Pas_OK
-CI_Y_OK:
+	breq	Adversaire_OK				;redirection si l'adversaire est détecté devant le joueur
+	rjmp	Adversaire_Pas_OK			;redirection si ce n'est pas le cas
+CI_Y_OK:								;on vérifie ensuite la relation pos_x = pos_x_adv
 	lds		reg_cpt1,pos_x
 	lds		reg_cpt2,pos_x_adv
 	cp		reg_cpt1,reg_cpt2
-	breq	Adversaire_OK
-	rjmp	Adversaire_Pas_OK
-Adversaire_OK:
-	ldi		reg_cpt1,0x01
+	breq	Adversaire_OK				;redirection si l'adversaire est détecté devant le joueur
+	rjmp	Adversaire_Pas_OK			;redirection si ce n'est pas le cas
+Adversaire_OK:							;Adversaire détecté devant le joueur:
+	ldi		reg_cpt1,0x01				;on place la valeur 1 dans la variable adv_ok
+	sts		adv_ok,reg_cpt1				
+	subi	r16,-0x20					;on ajoute 0x0200 à l'adresse de l'image qu'on ira chercher dans la mémoire car une image avec adversaire est exactement à cette distance de la même image sans adversaire
+	rjmp	CREATION_IMAGE				;on passe enfin à l'affichage de l'image à l'écran
+Adversaire_Pas_OK:						;Adversaire non détecté devant le joueur:
+	ldi		reg_cpt1,0x00				;on place la valeur 0 dans la variable adv_ok
 	sts		adv_ok,reg_cpt1
-	subi	r16,-0x20
-	rjmp	CREATION_IMAGE
-Adversaire_Pas_OK:
-	ldi		reg_cpt1,0x00
-	sts		adv_ok,reg_cpt1
-	rjmp	CREATION_IMAGE
+	rjmp	CREATION_IMAGE				;on passe enfin à l'affichage de l'image à l'écran
+CREATION_IMAGE:
+	ldi		reg_addrL,0x00				;on va chercher l'image correspondant au code dans la mémoire et on l'affiche
+	mov		reg_addrH,r16
+	rcall	writeFullSreen
+	rjmp	Jeu_En_Cours				;et on retourne sur la boucle principale du jeu
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Attaque de la cible
+
+;--------------------------------
+; Nom de la fonction : Attaquer
+;
+; Description : Fonction qui vérifie la position de l'adversaire et envoie un signal de fin de jeu à l'autre GameBoy si c'est le cas
+;
+; Entrées : - adv_ok (SRAM) variable indiquant si l'adversaire est situé juste devant le joueur ou non
+;
+; Sorties : - num_son2 (SRAM) variable permettant de jouer le son d'une attaque
+;			appel des fonctions "USART_Transmit" [uart.asm], "writeFullSreen" [screen.asm], "tempo_MS" [main.asm] et "GAME" [main.asm]
+;--------------------------------
 Attaquer:
-	ldi		r16,0
+	ldi		r16,0						;on envoie le son
 	sts		num_son2,r16
-
-	lds		r16,adv_ok
+	lds		r16,adv_ok					;on vérifie que l'adversaire est bien devant le joueur ou non
 	sbrs	r16,0
-	rjmp	Jeu_En_Cours
+	rjmp	Jeu_En_Cours				;si non on rebtourne sur la boucle principale du jeu
 ON_ENVOIE_LA_SAUCE:
-	ldi		reg_TX,0x00			;on envoie par bluetooth le signal de fin de jeu
+	ldi		reg_TX,0x00					;on envoie par bluetooth le signal de fin de jeu
 	rcall	USART_Transmit
-	ldi		reg_addrL,0x00		;on affiche l'écran de victoire
+	ldi		reg_addrL,0x00				;on affiche l'écran de victoire
 	ldi		reg_addrH,0x5C
 	rcall	writeFullSreen
-	ldi		reg_cpt3,255
+	ldi		reg_cpt3,255				;on attend un peu
 	rcall	tempo_MS
 	ldi		reg_cpt3,255
 	rcall	tempo_MS
@@ -215,6 +267,6 @@ ON_ENVOIE_LA_SAUCE:
 	rcall	tempo_MS
 	ldi		reg_cpt3,255
 	rcall	tempo_MS
-	jmp	GAME
+	jmp	GAME							;on reboucle sur le menu du jeu si l'adversaire est mort
 	
 	

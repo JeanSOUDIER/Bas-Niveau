@@ -171,7 +171,7 @@ DOWN:
 	rjmp	END
 
 ;--------------------------------
-; Nom de la fonction : DOWN
+; Nom de la fonction : CHOIX
 ;
 ; Description : gestion du choix sélectionné à l'écran
 ;
@@ -297,9 +297,7 @@ GAME:
 ;
 ; Description : Sélection du mode de jeu en fonction du choix du joueur dans le menu GAME
 ;
-; Entrées : - r16 registre temporaire de calcul
-;			- r17 registre temporaire de calcul
-;			- r29 (reg_init) choix du mode de jeu
+; Entrées : - r29 (reg_init) choix du mode de jeu
 ;
 ; Sorties : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
 ;			appel des fonctions "rand" [timer.asm], "USART_Transmit" [uart.asm], "Read_Mem" [spi.asm] et "Affichage_Image" [main.asm]
@@ -347,28 +345,28 @@ Cible:										;mode de jeu solo
 	rjmp	Affichage_Image					;début du jeu
 
 ;--------------------------------
-; Nom de la fonction : Lancement_Jeu
+; Nom de la fonction : Jeu_En_Cours
 ;
-; Description : Sélection du mode de jeu en fonction du choix du joueur dans le menu GAME
+; Description : Boucle de traitement des informations pendant le jeu
 ;
-; Entrées : - r16 registre temporaire de calcul
-;			- r17 registre temporaire de calcul
-;			- r29 (reg_init) choix du mode de jeu
+; Entrées : - r29 (reg_init) regitre indiquant le mode de jeu
+;			- dead (SRAM) variable indiquant l'état de vie du personnage
 ;
-; Sorties : - numero_mapL et numero_mapH (SRAM) adresse de la case actuelle du joueur dans la mémoire
-;			appel des fonctions "rand" [timer.asm], "USART_Transmit" [uart.asm], "Read_Mem" [spi.asm] et "Affichage_Image" [main.asm]
+; Sorties : - dead (SRAM) variable indiquant l'état de vie du personnage
+;			appel des macros "bSta[]" [timer.asm], "bHa[]" [timer.asm], "bGa[]" [timer.asm], "bDr[]" [timer.asm] et "bA[]" [timer.asm]
+;			appel des fonctions "GAME" [main.asm], "PosPerso" [uart.asm], "Tourner_Gauche" [csgo.asm], "Tourner_Droite" [csgo.asm], "Avancer" [csgo.asm], "Attaquer" [csgo.asm], "tempo_MS" [main.asm] et "Affichage_Image" [csgo.asm]
 ;--------------------------------
 Jeu_En_Cours:								;boucle du jeu en cours
-	cpi		reg_init,0						
-	breq	POS
+	cpi		reg_init,0						;si on est en mode multijoueur:
+	breq	POS								;on met à jour les coordonnées de l'adversaire, pour éviter d'utiliser la SRAM en interruption	
 Jeu_Continue:
-	bSta[]									;on retourne au menu si le bouton "start"
-	ldi		r16,0xff
+	bSta[]									;on retourne au menu si le bouton "start" est appuyé
+	ldi		r16,0xff						;on place 255 dans la position x pour désactiver le clignotement de la position
 	bSta[]
 	sts		pos_x,r16
 	bSta[]
 	rjmp	GAME
-	bGa[]								
+	bGa[]									;détection d'appui du joueur sur un bouton utilisé dans le jeu et lancement de l'action associée
 	rjmp	Tourner_Gauche
 	bDr[]
 	rjmp	Tourner_Droite
@@ -397,10 +395,10 @@ Jeu_Continue:
 	ldi		reg_cpt3,255
 	rcall	tempo_MS
 	ldi		r16,0x01
-	sts		dead,r16
+	sts		dead,r16						;on réinitialise la variable "dead"
 	jmp	GAME								;et on revient au menu
-en_vie:
-	ldi		reg_cpt3,100					;sinon on reboucle sur le jeu
+en_vie:										;si le joueur est toujours en vie:
+	ldi		reg_cpt3,100					;on reboucle sur le jeu
 	rcall	tempo_MS
 	rjmp	Affichage_Image
 POS:										;fonction qui permet de résoudre un bug concernant le lancement de la macro

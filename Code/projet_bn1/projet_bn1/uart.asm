@@ -45,7 +45,7 @@
 ;--------------------------------
 ; Nom de la macro : PosPerso[]
 ;
-; Description : stock les données de position du personnage ennemi dans la SRAM en dehors des interruptions
+; Description : stocke les données de position du personnage ennemi dans la SRAM en dehors des interruptions
 ;
 ; Entrée : - r10 variable de position Y ennemi
 ;		   - r11 variable de position X ennemi
