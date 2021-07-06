@@ -1,5 +1,0 @@
-- ATTAQUER (rcall attaque + page enemi + pos perso + pages "perdu" et "gagné")
-- fichier son
-- prog son (insirer dans le jeu)
-
-- cao (en cours)

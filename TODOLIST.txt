@@ -1,5 +1,0 @@
-- CAO (vacances)
-- Test fonctions de base (vacances)
-- souder (au plus vite)
-- tester électriquemement (au plus vite vite)
-- faire le code vrai (vacances ++)
