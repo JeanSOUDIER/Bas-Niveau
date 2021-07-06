@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1577492256 source:c:\users\alexa\documents\documents\cours\2019-2020_miq4\bas niveau\github\bas-niveau\code\planmémoire_map\main.cpp
+	<iostream>
+	<windows.h>
+	<cmath>
+	<cstdlib>
+

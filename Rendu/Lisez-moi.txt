@@ -1,0 +1,36 @@
+SOUDIER Jean et TESSIER Alexandre
+Fichiers utilisés lors de notre projet Bas Niveau pour la conception de deux GameBoys connectées en réseau.
+
+Fichiers et dossiers disponibles dans ce dossier:
+//Mémoire.xlsx:
+//Fichier comprenant les différentes images du projet ainsi que du plan mémoire de la cartouche mémoire.
+//
+//Projet électif.pptx:
+//Fichier de présentation du projet
+//
+//CAO Méca:
+//Dossier comprenant tous les fichiers .prt/.asm (fichiers creo) du projet ainsi que les fichiers .stl d'impression 3D.
+//
+//Cartes Elec:
+//Dossier comprenant les différentes version de nos cartes électroniques:
+//Main-V2 et Main-V3: cartes présentes dans les GameBoys (respectivement la noire et la bleue).
+//Memoire-V1: carte de la cartouche mémoire du jeu CSGO.
+//
+//Codes:
+//Différents codes utiles pour notre projet:
+//Code Arduino:
+//	utiliserEcran: Tester l'écran avec une arduino.
+//	write_mem: Ecrire sur la mémoire les différents codes/images du projet.
+//CodeC++:
+//	conv_screen: Convertir une image du binaire vers l'hexa, en adaptant le code à l'écran pour l'afficher sans retouche.
+//	PlanMémoire_Map: Code qui récupère la Map du jeu et qui renvoie le code utilisé pour calculer les interactions du jeu.
+//
+//Datasheet:
+//Comprend les datasheet du microcontrôleur, de l'écran et des commandes de configuration des modules bluetooth.
+
+Construction du code de plan mémoire:
+Il y a 182 cases sur la map du jeu, nous codons les informations d'une case sur 8 octets, il y a donc 1456 octets en tout.
+Sur les 8 octets:
+- Les adresses des cases voisines de celle-ci (au Nord, à l'Ouest, au Sud et à l'Est), 1 octet par image.
+- Les codes des images à afficher en fonction de l'orientation (N,O,S et E), 1 quartet par image.
+- Les coordonnées du joueur sur la map (x et y, ces informations sont codées sur 5 bits mais on les place sur 1 octet pour plus de facilité: 0b000XXXXX).
